@@ -1,6 +1,6 @@
-# Q1 config — TowerInstruct-7B
+# Q1 config — TowerInstruct-7B-v0.2 (Unbabel; Llama-2 base, MT-SFT)
 model:
-  name: tower-instruct-7b
+  name: tower-instruct-7b-v0.2
   loader: src.models.tower.load_tower
   dtype: bfloat16
   device: cuda
@@ -12,7 +12,7 @@ language_pairs:
 
 calibration:
   n_examples: 200
-  source: wmt22-test
+  source: flores+-dev
 
 probing:
   classes:
@@ -26,9 +26,15 @@ logit_lens:
   variant: vanilla
   position: last
   track_target_tokens: true
+  target_prefix_tokens: 8
 
 ifr:
-  target_position: all_target
+  target_position: last
 
 output:
-  dir: results/tower/q1
+  dir: results/tower-instruct-7b-v0.2/q1
+
+# NOTE: Tower has its own chat template; the current runner uses aya's
+# generic prompt format. For phase-one Q1 the contrast is still readable
+# but a follow-up should add a tower-specific build_mt_prompt that matches
+# Unbabel's expected SFT format.
