@@ -1,0 +1,43 @@
+# Q1 config — TowerBase-7B-v0.1 (Unbabel; Llama-2 + CPT, no MT-SFT).
+#
+# Substitute for the phantom omt-llama-8b in PHASE1-PLAN.md. Reframes the
+# three-model contrast from "general LM / extreme-scale MT / moderate-scale MT"
+# to a 3-step progression of increasing MT specialization within a fixed
+# architecture family:
+#   Aya 8B            — general multilingual LM
+#   TowerBase 7B      — Llama-2 + monolingual+bilingual CPT (no SFT)
+#   TowerInstruct 7B  — Tower + MT-task SFT
+model:
+  name: tower-base-7b-v0.1
+  loader: src.models.tower_base.load_tower_base
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz
+
+calibration:
+  n_examples: 200
+  source: flores+-dev
+
+probing:
+  classes:
+    - source_language_id
+    - target_language_id
+  probe: linear
+  control_task: true
+  train_frac: 0.8
+
+logit_lens:
+  variant: vanilla
+  position: last
+  track_target_tokens: true
+  target_prefix_tokens: 8
+
+ifr:
+  target_position: last
+
+output:
+  dir: results/tower-base-7b-v0.1/q1
