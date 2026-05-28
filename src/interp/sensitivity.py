@@ -75,6 +75,36 @@ def _perturb_weight(weight: torch.Tensor, mask_slice: slice | None,
             target.copy_(orig)
 
 
+@contextmanager
+def perturb_layer(model, layer: int, sigma: float, generator: torch.Generator):
+    """Temporarily add relative Gaussian noise to ALL linear weights in a layer.
+
+    This is the layer-level analogue of `_perturb_weight`: it perturbs every
+    nn.Linear in the block (attn q/k/v/o + mlp gate/up/down) at relative
+    norm sigma, then restores them exactly on exit. This matches what
+    quantization actually degrades — a whole layer's matrices — far better
+    than perturbing one head's o_proj columns.
+    """
+    originals = []
+    weights = list(model.iter_layer_linears(layer))
+    try:
+        for w in weights:
+            orig = w.detach().clone()
+            originals.append(orig)
+            norm = float(orig.norm().item())
+            if norm == 0:
+                continue
+            noise = torch.empty_like(w).normal_(generator=generator)
+            noise = noise * (sigma * norm / math.sqrt(noise.numel()))
+            with torch.no_grad():
+                w.copy_(orig + noise)
+        yield
+    finally:
+        for w, orig in zip(weights, originals):
+            with torch.no_grad():
+                w.copy_(orig)
+
+
 def _slice_for_head(d_head: int, head: int, weight_layout: Literal["row", "col"]) -> slice:
     """For o_proj (input is concat-of-heads), the per-head input slice."""
     start, stop = head * d_head, (head + 1) * d_head

@@ -227,6 +227,37 @@ class HookedModel:
             out = self.hf_model(input_ids=tokens)
         return out.logits if hasattr(out, "logits") else out[0]
 
+    def generate(self, prompt: str, *, max_new_tokens: int = 64) -> str:
+        """Greedy-decode a continuation and return only the newly generated text.
+
+        Used by the quality-sensitivity experiment to produce actual
+        translations (so we can measure chrF++ drop under perturbation).
+        Greedy (do_sample=False) for determinism.
+        """
+        tokens = self.to_tokens(prompt)
+        with torch.no_grad():
+            out = self.hf_model.generate(
+                tokens,
+                max_new_tokens=max_new_tokens,
+                do_sample=False,
+                num_beams=1,
+                pad_token_id=self.tokenizer.pad_token_id or self.tokenizer.eos_token_id,
+            )
+        new_ids = out[0, tokens.shape[-1]:]
+        return self.tokenizer.decode(new_ids, skip_special_tokens=True)
+
+    def iter_layer_linears(self, layer: int):
+        """Yield every nn.Linear weight tensor inside one transformer block.
+
+        Used for layer-level perturbation: this covers the attention q/k/v/o
+        projections and the MLP gate/up/down (or their per-arch equivalents)
+        — i.e. essentially all the quantizable weight of the layer.
+        """
+        block = self.arch.get_blocks(self.hf_model)[layer]
+        for module in block.modules():
+            if isinstance(module, nn.Linear):
+                yield module.weight
+
     # ----- forward + capture ------------------------------------------------
 
     def run_with_cache(
