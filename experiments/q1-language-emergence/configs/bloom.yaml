@@ -1,0 +1,40 @@
+# Q1 config — BLOOM-7B1 (BigScience, 2022 — multilingual, ALiBi, LayerNorm).
+model:
+  name: bloom-7b1
+  loader: src.models.bloom.load_bloom
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz
+
+calibration:
+  n_examples: 200
+  source: flores+-dev
+
+probing:
+  classes:
+    - source_language_id
+    - target_language_id
+  probe: linear
+  control_task: true
+  train_frac: 0.8
+
+logit_lens:
+  variant: vanilla
+  position: last
+  track_target_tokens: true
+  target_prefix_tokens: 8
+
+ifr:
+  target_position: last
+
+output:
+  dir: results/bloom-7b1/q1
+
+# Note: BLOOM uses LayerNorm (not RMSNorm). DLA's LayerNorm-linearized
+# variant is approximate (centering term omitted) — use DLA rankings on
+# BLOOM as a *within-model* signal, not for cross-model magnitude
+# comparison vs RMSNorm models like Aya / Tower / Llama.

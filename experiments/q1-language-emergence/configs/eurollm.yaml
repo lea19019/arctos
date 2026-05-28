@@ -1,0 +1,34 @@
+# Q1 config — EuroLLM-9B-Instruct (utter-project, 2024-25 — European multilingual specialist).
+# Requires gated access; will fail at load until access is granted.
+model:
+  name: eurollm-9b-instruct
+  loader: src.models.eurollm.load_eurollm
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz
+
+calibration:
+  n_examples: 200
+  source: flores+-dev
+
+probing:
+  classes: [source_language_id, target_language_id]
+  probe: linear
+  control_task: true
+  train_frac: 0.8
+
+logit_lens:
+  variant: vanilla
+  position: last
+  track_target_tokens: true
+  target_prefix_tokens: 8
+
+ifr:
+  target_position: last
+
+output:
+  dir: results/eurollm-9b-instruct/q1

@@ -21,15 +21,12 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from ._hooked import LLAMA_PATHS, HookedModel
+from ._prompt import PAIR_TO_LANG_NAMES, build_mt_prompt, tokenize_target_prefix
+
+__all__ = ["load_aya", "build_mt_prompt", "tokenize_target_prefix", "PAIR_TO_LANG_NAMES"]
 
 
 HF_NAME = "CohereForAI/aya-expanse-8b"
-
-PAIR_TO_LANG_NAMES: dict[str, tuple[str, str]] = {
-    "cs-de": ("Czech", "German"),
-    "en-zh": ("English", "Chinese (Simplified)"),
-    "en-arz": ("English", "Egyptian Arabic"),
-}
 
 
 def load_aya(*, dtype: str = "bfloat16", device: str = "cuda") -> HookedModel:
@@ -59,58 +56,9 @@ def load_aya(*, dtype: str = "bfloat16", device: str = "cuda") -> HookedModel:
     return HookedModel(hf_model, tokenizer, LLAMA_PATHS)
 
 
-def build_mt_prompt(source: str, pair: str) -> str:
-    """Format an MT prompt for Aya (deterministic, single-turn).
-
-    The prompt ends exactly where the model starts generating the target,
-    so a logit lens read at the last token sees "what comes next" — which
-    for Q1 is the target-language token mass we care about.
-    """
-    if pair not in PAIR_TO_LANG_NAMES:
-        raise ValueError(f"Unknown pair {pair!r}; expected one of {list(PAIR_TO_LANG_NAMES)}.")
-    src_lang, tgt_lang = PAIR_TO_LANG_NAMES[pair]
-    return (
-        f"Translate the following {src_lang} sentence into {tgt_lang}. "
-        f"Output only the translation.\n\n"
-        f"{src_lang}: {source}\n{tgt_lang}: "
-    )
+# `build_mt_prompt` and `tokenize_target_prefix` are re-exported from
+# `src.models._prompt` so all model loaders (Tower-Plus, BLOOM, Llama,
+# EuroLLM) share the same generic MT prompt format — apples-to-apples
+# across models. See _prompt.py for the rationale.
 
 
-def tokenize_target_prefix(model: HookedModel, target: str, *, max_tokens: int = 8) -> list[int]:
-    """First `max_tokens` ids of `target` (no special tokens)."""
-    ids = model.tokenizer(target, add_special_tokens=False)["input_ids"]
-    return ids[:max_tokens]
-
-
-def build_mt_prompt(source: str, pair: str) -> str:
-    """Format an MT prompt using Aya's chat template.
-
-    Aya Expanse uses Cohere's chat-template format. For interpretability we
-    want a deterministic single-turn prompt that ends right where the model
-    is about to start generating the target. We render the chat template
-    via the tokenizer's apply_chat_template when available, else fall back
-    to a minimal Cohere-style format.
-
-    Args:
-        source: source sentence.
-        pair: one of the keys in PAIR_TO_LANG_NAMES.
-    """
-    if pair not in PAIR_TO_LANG_NAMES:
-        raise ValueError(f"Unknown pair {pair!r}; expected one of {list(PAIR_TO_LANG_NAMES)}.")
-    src_lang, tgt_lang = PAIR_TO_LANG_NAMES[pair]
-    return (
-        f"Translate the following {src_lang} sentence into {tgt_lang}. "
-        f"Output only the translation.\n\n"
-        f"{src_lang}: {source}\n{tgt_lang}: "
-    )
-
-
-def tokenize_target_prefix(model: Any, target: str, *, max_tokens: int = 8) -> list[int]:
-    """Return the first `max_tokens` token ids of `target` (no specials).
-
-    Used by Q1 to track per-layer probability mass on the gold target prefix.
-    Strips BOS/EOS so logit-lens mass tracks the actual continuation tokens.
-    """
-    tok = model.tokenizer
-    ids = tok(target, add_special_tokens=False)["input_ids"]
-    return ids[:max_tokens]
