@@ -28,7 +28,7 @@ from datasets import load_dataset
 # (pair_name, source_config, target_config)
 PAIRS = [
     ("cs-de", "ces_Latn", "deu_Latn"),
-    ("en-zh", "eng_Latn", "zho_Hans"),
+    ("en-zh", "eng_Latn", "cmn_Hans"),
     ("en-arz", "eng_Latn", "arz_Arab"),
 ]
 DATASET = "openlanguagedata/flores_plus"
