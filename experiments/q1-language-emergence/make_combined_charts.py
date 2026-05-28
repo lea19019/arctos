@@ -79,6 +79,31 @@ def plot_ifr_combined(results: list[Path], out: Path) -> None:
     plt.close(fig)
 
 
+def plot_dla_combined(results: list[Path], out: Path) -> None:
+    fig, ax = plt.subplots(figsize=(8, 5))
+    for mi, rdir in enumerate(results):
+        summary = load_summary(rdir)
+        model = summary["model"]
+        for pair in ["cs-de", "en-zh", "en-arz"]:
+            p = rdir / f"dla_{pair}.npz"
+            if not p.exists():
+                continue
+            d = np.load(p)
+            scores = d["layer_attn"] + d["layer_mlp"]
+            xs = np.linspace(0, 1, len(scores))
+            ax.plot(xs, scores, PAIR_STYLE[pair], color=MODEL_COLOR[mi % len(MODEL_COLOR)],
+                    label=f"{model}  {PAIR_LABELS[pair]}", marker="o", markersize=2.5, alpha=0.85)
+    ax.axhline(0, color="gray", linewidth=0.5)
+    ax.set_xlabel("Depth fraction")
+    ax.set_ylabel("DLA (attn + mlp) — signed contribution to gold-target logit")
+    ax.set_title("Q1 — direct logit attribution per layer (cross-model)")
+    ax.legend(loc="upper left", fontsize=8, frameon=False)
+    ax.grid(alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(out, dpi=150)
+    plt.close(fig)
+
+
 def plot_depth_partition(results: list[Path], out: Path) -> None:
     """Stacked bar of (first_quarter, mid_half, last_quarter) of IFR mass per (model, pair).
 
@@ -170,6 +195,7 @@ def main() -> None:
 
     plot_lens_combined(args.results, args.out_dir / "lens_combined.png")
     plot_ifr_combined(args.results, args.out_dir / "ifr_layer_combined.png")
+    plot_dla_combined(args.results, args.out_dir / "dla_layer_combined.png")
     plot_depth_partition(args.results, args.out_dir / "ifr_depth_partition.png")
     plot_probing_combined(args.results, args.out_dir / "probing_target_id_combined.png", "target")
     plot_probing_combined(args.results, args.out_dir / "probing_source_id_combined.png", "source")
