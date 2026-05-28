@@ -28,6 +28,7 @@ import torch
 import yaml
 
 from src.data.wmt import LanguagePair, load_wmt_pairs
+from src.interp.dla import dla
 from src.interp.ifr import ifr
 from src.interp.logit_lens import logit_lens
 from src.interp.probing import probe_layers
@@ -76,6 +77,23 @@ def _run_ifr_for_pair(model, pair: str, records: list) -> dict:
         "layer_scores": scores.layer_scores.numpy(),
         "head_scores": scores.head_scores.numpy(),
         "mlp_scores": scores.mlp_scores.numpy(),
+        "embed_score": np.array(scores.embed_score),
+        "n_examples": np.array(scores.n_examples),
+    }
+
+
+def _run_dla_for_pair(model, pair: str, records: list, target_prefix_len: int) -> dict:
+    examples = []
+    for rec in records:
+        prompt = build_mt_prompt(rec.source, pair)
+        target_ids = tokenize_target_prefix(model, rec.target, max_tokens=target_prefix_len)
+        if target_ids:
+            examples.append((prompt, target_ids))
+    scores = dla(model, examples, target_position="last")
+    return {
+        "layer_attn": scores.layer_attn.numpy(),
+        "layer_mlp": scores.layer_mlp.numpy(),
+        "head_scores": scores.head_scores.numpy(),
         "embed_score": np.array(scores.embed_score),
         "n_examples": np.array(scores.n_examples),
     }
@@ -148,17 +166,28 @@ def main() -> None:
               flush=True)
         np.savez(args.output / f"ifr_{pair}.npz", **ifr_out)
 
+        t0 = time.time()
+        dla_out = _run_dla_for_pair(model, pair, records, target_prefix_len)
+        print(f"[q1] {pair}: DLA in {time.time() - t0:.1f}s, n_examples={int(dla_out['n_examples'])}",
+              flush=True)
+        np.savez(args.output / f"dla_{pair}.npz", **dla_out)
+
         target_cls = PAIR_TO_TARGET_CLASS[pair]
         source_cls = PAIR_TO_SOURCE_CLASS[pair]
         for rec in records:
             all_target_probe_examples.append((build_mt_prompt(rec.source, pair), target_cls))
             source_probe_by_class[source_cls].append(rec.source)
 
+        # Top-5 by DLA (signed — most strongly *pushing toward* target token)
+        dla_layer_total = dla_out["layer_attn"] + dla_out["layer_mlp"]
         summary["per_pair"][pair] = {
             "n_records": len(records),
             "lens_target_mass_shape": list(lens["target_mass"].shape),
             "ifr_layer_top": int(np.argsort(ifr_out["layer_scores"])[::-1].tolist()[0])
                 if ifr_out["layer_scores"].size else None,
+            "dla_layer_top": int(np.argsort(dla_layer_total)[::-1].tolist()[0])
+                if dla_layer_total.size else None,
+            "dla_layer_top_signed": float(dla_layer_total.max()),
         }
 
     # Target-language probe (uses the full MT prompt; the prompt names the

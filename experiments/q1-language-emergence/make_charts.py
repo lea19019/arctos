@@ -98,6 +98,47 @@ def plot_ifr_heads(results_dir: Path, out_dir: Path, model_name: str, pairs: lis
         plt.close(fig)
 
 
+def plot_dla_layers(results_dir: Path, out: Path, model_name: str, pairs: list[str]) -> None:
+    fig, ax = plt.subplots(figsize=(7, 4.5))
+    for pair in pairs:
+        path = results_dir / f"dla_{pair}.npz"
+        if not path.exists():
+            continue
+        d = np.load(path)
+        total = d["layer_attn"] + d["layer_mlp"]
+        ax.plot(range(len(total)), total, marker="o", markersize=3,
+                label=PAIR_LABELS.get(pair, pair), color=PAIR_COLOR.get(pair))
+    ax.axhline(0, color="gray", linewidth=0.5)
+    ax.set_xlabel("Layer")
+    ax.set_ylabel("DLA contribution to gold-target logit (attn + mlp)")
+    ax.set_title(f"{model_name} — direct logit attribution (signed) per layer")
+    ax.legend(loc="upper left", frameon=False, fontsize=9)
+    ax.grid(alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(out, dpi=150)
+    plt.close(fig)
+
+
+def plot_dla_heads(results_dir: Path, out_dir: Path, model_name: str, pairs: list[str]) -> None:
+    for pair in pairs:
+        path = results_dir / f"dla_{pair}.npz"
+        if not path.exists():
+            continue
+        d = np.load(path)
+        head = d["head_scores"]  # (L, H) — signed
+        vmax = float(np.abs(head).max()) or 1e-6
+        fig, ax = plt.subplots(figsize=(7, 6))
+        im = ax.imshow(head, aspect="auto", origin="lower", cmap="RdBu_r",
+                       vmin=-vmax, vmax=vmax)
+        ax.set_xlabel("Head index")
+        ax.set_ylabel("Layer")
+        ax.set_title(f"{model_name} — DLA per (layer, head)  [{PAIR_LABELS.get(pair, pair)}]")
+        fig.colorbar(im, ax=ax, fraction=0.04, pad=0.02, label="DLA (logit units)")
+        fig.tight_layout()
+        fig.savefig(out_dir / f"dla_head_heatmap_{pair}.png", dpi=150)
+        plt.close(fig)
+
+
 def plot_probing(results_dir: Path, out: Path, model_name: str) -> None:
     path = results_dir / "probing_target_id.json"
     if not path.exists():
@@ -138,6 +179,8 @@ def main() -> None:
     plot_lens(args.results_dir, out_dir / "lens_target_mass.png", model_name, pairs)
     plot_ifr_layers(args.results_dir, out_dir / "ifr_layer_importance.png", model_name, pairs)
     plot_ifr_heads(args.results_dir, out_dir, model_name, pairs)
+    plot_dla_layers(args.results_dir, out_dir / "dla_layer_importance.png", model_name, pairs)
+    plot_dla_heads(args.results_dir, out_dir, model_name, pairs)
     plot_probing(args.results_dir, out_dir / "probing_target_id.png", model_name)
     # Source-ID probe (no instruction): only present if the new runner produced it.
     src_path = args.results_dir / "probing_source_id.json"
