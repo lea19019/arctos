@@ -11,31 +11,43 @@ GPU behavior:
 - On a real MT prompt, target-language token mass should be ~zero in the
   early layers and rise toward the end — a behavioral sanity check that
   catches grossly wrong implementations.
-
-TODO: implement once `src.interp.logit_lens.logit_lens` is implemented.
 """
 
 from __future__ import annotations
 
 import pytest
+import torch
+
+from src.interp.logit_lens import logit_lens
 
 
 @pytest.mark.cpu
 def test_last_layer_matches_model_logits(tiny_model):
     """At the final layer, logit lens == actual model logits (within fp tol)."""
-    pytest.skip("TODO: implement after logit_lens is implemented.")
+    prompt = "The capital of France is"
+    result = logit_lens(tiny_model, prompt)
+    with torch.no_grad():
+        real_logits = tiny_model(tiny_model.to_tokens(prompt))[0, -1]
+    diff = (real_logits.float() - result.layer_logits[-1].float()).abs().max().item()
+    assert diff < 1e-4, f"last-layer lens vs real logits diff={diff}"
 
 
 @pytest.mark.cpu
 def test_shape_contract(tiny_model):
     """layer_logits is (L, V); target_token_mass is (L, K) when requested."""
-    pytest.skip("TODO: implement after logit_lens is implemented.")
+    target_ids = tiny_model.to_tokens(" Paris")[0, 1:].tolist()
+    result = logit_lens(tiny_model, "The capital of France is", target_tokens=target_ids)
+    assert result.layer_logits.shape == (tiny_model.cfg.n_layers, tiny_model.cfg.d_vocab)
+    assert result.target_token_mass.shape == (tiny_model.cfg.n_layers, len(target_ids))
 
 
 @pytest.mark.cpu
 def test_target_mass_in_unit_interval(tiny_model):
     """All target_token_mass entries in [0, 1]."""
-    pytest.skip("TODO: implement after logit_lens is implemented.")
+    target_ids = tiny_model.to_tokens(" Paris France London")[0, 1:].tolist()
+    result = logit_lens(tiny_model, "The capital of France is", target_tokens=target_ids)
+    mass = result.target_token_mass
+    assert (mass >= 0).all() and (mass <= 1).all(), f"out-of-range mass: {mass}"
 
 
 @pytest.mark.gpu
@@ -47,4 +59,4 @@ def test_target_language_emergence(target_model):
     quartile of layers than in the last quartile. Not a strict per-layer
     monotonicity claim — that's what Q1 is investigating.
     """
-    pytest.skip("TODO: implement after logit_lens + Q1 calibration data exist.")
+    pytest.skip("TODO: implement after Q1 calibration data is loaded on GPU.")

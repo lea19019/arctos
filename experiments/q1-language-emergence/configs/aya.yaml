@@ -26,9 +26,10 @@ logit_lens:
   variant: vanilla         # "vanilla" | "tuned"
   position: last
   track_target_tokens: true
+  target_prefix_tokens: 8  # number of gold-target tokens to track mass on
 
 ifr:
-  target_position: all_target
+  target_position: last
 
 output:
-  dir: results/aya/q1
+  dir: results/aya-expanse-8b/q1

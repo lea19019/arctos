@@ -37,11 +37,11 @@ def tiny_model():
     """A tiny HookedTransformer for CPU shape / math invariant tests.
 
     Uses TransformerLens's gpt2 (~125M params; fits in CPU RAM, runs in
-    seconds). Override per-test if a smaller config is needed.
-
-    TODO: instantiate when first test that needs it is implemented.
+    seconds). Loaded once per session for speed.
     """
-    pytest.skip("tiny_model fixture: implement when first CPU test needs it.")
+    from transformer_lens import HookedTransformer
+
+    return HookedTransformer.from_pretrained("gpt2", device="cpu")
 
 
 @pytest.fixture(scope="session", params=["aya", "omt_llama", "tower"])
