@@ -95,6 +95,21 @@ GPT2_PATHS = ArchPaths(
     extract_block_resid=_block_resid_first_of_tuple,
 )
 
+# Gemma 3 (Google) — multimodal wrapper Gemma3ForConditionalGeneration.
+# The text decoder is nested under model.language_model (alongside
+# vision_tower + multi_modal_projector). Otherwise Llama-shaped
+# (q/k/v/o_proj + gate/up/down_proj + RMSNorm), with head_dim=256
+# decoupled from hidden_size/n_heads (handled by the head_dim fix).
+GEMMA3_PATHS = ArchPaths(
+    get_blocks=lambda m: list(m.model.language_model.layers),
+    get_embed=lambda m: m.model.language_model.embed_tokens,
+    get_ln_final=lambda m: m.model.language_model.norm,
+    get_lm_head=lambda m: m.lm_head,
+    get_block_attn_proj=lambda b: b.self_attn.o_proj,
+    get_block_mlp=lambda b: b.mlp,
+    extract_block_resid=_block_resid_first_of_tuple,
+)
+
 # BLOOM (BigScience) — similar to GPT-2 layout but with different submodule
 # names and ALiBi positional encoding. Uses LayerNorm, not RMSNorm; DLA's
 # `_rms_norm_scale` falls back to a LayerNorm-compatible scale when gamma
@@ -128,6 +143,11 @@ class HookedModel:
         self.tokenizer = tokenizer
         self.arch = arch
         cfg = hf_model.config
+        # Multimodal wrappers (e.g. Gemma3ForConditionalGeneration) nest the
+        # text-decoder hyperparameters under cfg.text_config. Prefer that when
+        # the top-level config doesn't carry them.
+        if getattr(cfg, "num_attention_heads", None) is None and hasattr(cfg, "text_config"):
+            cfg = cfg.text_config
         n_heads = n_heads or getattr(cfg, "num_attention_heads", None) or getattr(cfg, "n_head")
         d_model = getattr(cfg, "hidden_size", None) or getattr(cfg, "n_embd")
         d_vocab = getattr(cfg, "vocab_size")
