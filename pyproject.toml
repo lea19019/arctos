@@ -1,0 +1,72 @@
+[project]
+name = "arctos"
+version = "0.0.1"
+description = "Phase-one interpretability scaffold for understanding MT inside decoder-only LLMs"
+requires-python = ">=3.10"
+dependencies = [
+    # Core modeling stack
+    "torch>=2.4",
+    "transformers>=4.45",
+    "transformer_lens>=2.0",
+    "accelerate",
+    "datasets",
+    "safetensors",
+    "einops",
+
+    # Data / config
+    "pyyaml",
+    "sacrebleu[ja,ko,zh]",
+    "unbabel-comet",
+
+    # Plots / notebooks
+    "matplotlib",
+    "seaborn",
+    "jupyter",
+    "ipykernel",
+
+    # Utilities
+    "tqdm",
+    "rich",
+
+    # Test harness — first-class in phase one (see PHASE1-PLAN.md "Testing discipline")
+    "pytest",
+    "pytest-xdist",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "mypy",
+    "pytest-cov",
+]
+
+[tool.pytest.ini_options]
+markers = [
+    "cpu: runs on CPU; should pass on a CPU-only machine (use tiny dummy models).",
+    "gpu: requires CUDA + a real target model; skipped if CUDA unavailable.",
+    "slow: takes more than ~30s; opted into via -m slow.",
+]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+# Pin torch to the CUDA 12.8 wheel index. The BYU RC cluster driver
+# (570.195.x) only supports up to CUDA 12.8; the default cu130 wheel from
+# PyPI fails at runtime with "NVIDIA driver too old".
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128" }]
+torchvision = [{ index = "pytorch-cu128" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
