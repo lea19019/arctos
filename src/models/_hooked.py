@@ -132,12 +132,15 @@ class HookedModel:
         d_model = getattr(cfg, "hidden_size", None) or getattr(cfg, "n_embd")
         d_vocab = getattr(cfg, "vocab_size")
         n_layers = getattr(cfg, "num_hidden_layers", None) or getattr(cfg, "n_layer")
-        assert d_model % n_heads == 0, f"d_model={d_model} not divisible by n_heads={n_heads}"
+        # head_dim is NOT always d_model / n_heads. Gemma 2, for example, has
+        # head_dim=256 with d_model=3584 and n_heads=16 (so n_heads*head_dim=4096,
+        # not d_model). Read head_dim from the config if it's there, else infer.
+        d_head = getattr(cfg, "head_dim", None) or (d_model // n_heads)
         self.cfg = HookedConfig(
             n_layers=n_layers,
             n_heads=n_heads,
             d_model=d_model,
-            d_head=d_model // n_heads,
+            d_head=d_head,
             d_vocab=d_vocab,
         )
         # Precompute per-layer W_O reshaped to (n_heads, d_head, d_model)
@@ -146,20 +149,22 @@ class HookedModel:
         # per-head W_O[h] is weight[:, h * d_head : (h+1) * d_head].T.
         # For GPT-2's Conv1D, weight is (in, out) == (n_heads * d_head, d_model);
         # per-head W_O[h] is weight[h * d_head : (h+1) * d_head, :].
+        head_in = n_heads * self.cfg.d_head
         W_O_per_layer = []
         for block in self.arch.get_blocks(hf_model):
             proj = self.arch.get_block_attn_proj(block)
             w = proj.weight.detach()
-            if w.shape == (d_model, n_heads * self.cfg.d_head):
-                # nn.Linear: (out, in)
+            if w.shape == (d_model, head_in):
+                # nn.Linear: (out, in) — Llama / Gemma / Cohere / BLOOM
                 w_oh = w.t().reshape(n_heads, self.cfg.d_head, d_model)
-            elif w.shape == (n_heads * self.cfg.d_head, d_model):
+            elif w.shape == (head_in, d_model):
                 # GPT-2 Conv1D: (in, out)
                 w_oh = w.reshape(n_heads, self.cfg.d_head, d_model)
             else:
                 raise ValueError(
                     f"Unexpected attn output proj weight shape {w.shape} for "
-                    f"d_model={d_model}, n_heads={n_heads}, d_head={self.cfg.d_head}"
+                    f"d_model={d_model}, n_heads={n_heads}, d_head={self.cfg.d_head} "
+                    f"(expected one of ({d_model}, {head_in}) or ({head_in}, {d_model}))"
                 )
             W_O_per_layer.append(w_oh)
         self.W_O = torch.stack(W_O_per_layer, dim=0)  # (L, H, d_head, D)
