@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=arctos-q1-aya
 #SBATCH --account=sdrich
-#SBATCH --partition=cs,dw,dwmatrix,cssp1
+#SBATCH --partition=cs
+#SBATCH --qos=cs
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
