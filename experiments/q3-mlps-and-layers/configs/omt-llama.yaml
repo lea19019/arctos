@@ -1,0 +1,33 @@
+# Q3 config — omt-llama-8b
+model:
+  name: omt-llama-8b
+  loader: src.models.omt_llama.load_omt_llama
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz
+
+calibration:
+  n_examples: 200
+
+patching:
+  sites:
+    - mlp_out
+    - resid_post
+  metric: logit_diff
+  layers: all
+
+ifr:
+  target_position: all_target
+
+probing:
+  enabled: false
+  source: mlp_out
+  classes:
+    - source_language_id
+
+output:
+  dir: results/omt-llama/q3

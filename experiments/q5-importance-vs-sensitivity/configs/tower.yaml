@@ -1,0 +1,35 @@
+# Q5 config — TowerInstruct-7B (only run if compute permits; see PHASE1-PLAN.md risk register)
+model:
+  name: tower-instruct-7b
+  loader: src.models.tower.load_tower
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz
+
+calibration:
+  n_examples: 200
+
+inputs:
+  - results/tower/q2/head_ranking.csv
+  - results/tower/q3/layer_mlp_importance.csv
+
+perturbation:
+  noise_sigmas: [1e-3, 1e-2, 5e-2]
+  metric: comet
+  n_seeds: 3
+
+inverse_hessian:
+  enabled: true
+  source: mt_calibration
+
+activation_magnitude:
+  enabled: true
+
+mode: per_layer_only
+
+output:
+  dir: results/tower/q5

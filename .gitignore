@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environments
+.env
+.venv/
+.venv-*/
+env/
+venv/
+.uv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data and model artifacts (gitignored per scaffold; anchored to repo root
+# so src/data/ and src/models/ stay tracked).
+/data/
+/models/
+/outputs/
+/results/
+
+# Logs
+logs/
+*.log
+
+# Generated figures (keep ones explicitly committed under docs/)
+*.png
+!docs/**/*.png
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

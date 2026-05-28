@@ -1,0 +1,37 @@
+# Q5 config — omt-llama-8b (only run if compute permits; see PHASE1-PLAN.md risk register)
+model:
+  name: omt-llama-8b
+  loader: src.models.omt_llama.load_omt_llama
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz
+
+calibration:
+  n_examples: 200
+
+inputs:
+  - results/omt-llama/q2/head_ranking.csv
+  - results/omt-llama/q3/layer_mlp_importance.csv
+
+perturbation:
+  noise_sigmas: [1e-3, 1e-2, 5e-2]
+  metric: comet
+  n_seeds: 3
+
+inverse_hessian:
+  enabled: true
+  source: mt_calibration
+
+activation_magnitude:
+  enabled: true
+
+# Coarser per-layer check rather than full per-component — see fallback in
+# PHASE1-PLAN.md risk register.
+mode: per_layer_only
+
+output:
+  dir: results/omt-llama/q5

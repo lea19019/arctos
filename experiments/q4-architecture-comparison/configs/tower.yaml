@@ -1,0 +1,23 @@
+# Q4 config — Tower component
+model:
+  name: tower-instruct-7b
+  loader: src.models.tower.load_tower
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz
+
+shared_examples:
+  source: q4_shared_set
+  n: 50
+
+inputs:
+  - results/tower/q1
+  - results/tower/q2
+  - results/tower/q3
+
+output:
+  dir: results/tower/q4

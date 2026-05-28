@@ -1,0 +1,33 @@
+# Q5 config — Aya Expanse 8B (the minimum-required model for this question)
+model:
+  name: aya-expanse-8b
+  loader: src.models.aya.load_aya
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz
+
+calibration:
+  n_examples: 200
+
+inputs:
+  - results/aya/q2/head_ranking.csv          # importance ranking from Q2
+  - results/aya/q3/layer_mlp_importance.csv  # importance ranking from Q3
+
+perturbation:
+  noise_sigmas: [1e-3, 1e-2, 5e-2]
+  metric: comet
+  n_seeds: 3
+
+inverse_hessian:
+  enabled: true
+  source: mt_calibration                     # vs C4
+
+activation_magnitude:
+  enabled: true
+
+output:
+  dir: results/aya/q5

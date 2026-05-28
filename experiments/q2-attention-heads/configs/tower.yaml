@@ -1,0 +1,36 @@
+# Q2 config — TowerInstruct-7B
+model:
+  name: tower-instruct-7b
+  loader: src.models.tower.load_tower
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz
+
+calibration:
+  n_pairs: 100
+  corrupt_strategies:
+    - lexical_sub
+    - lang_id_swap
+    - target_shuffle
+
+patching:
+  sites:
+    - head_z
+  metric: logit_diff
+  layers: all
+  heads: all
+
+ablation:
+  enabled: true
+  top_k: 20
+
+attention_viz:
+  enabled: true
+  top_k: 10
+
+output:
+  dir: results/tower/q2
