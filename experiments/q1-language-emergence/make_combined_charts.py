@@ -124,12 +124,19 @@ def plot_depth_partition(results: list[Path], out: Path) -> None:
     plt.close(fig)
 
 
-def plot_probing_combined(results: list[Path], out: Path) -> None:
+def plot_probing_combined(results: list[Path], out: Path, kind: str) -> None:
+    """kind: 'target' (uses probing_target_id.json) or 'source' (probing_source_id.json)."""
+    fname = {"target": "probing_target_id.json", "source": "probing_source_id.json"}[kind]
+    title = {
+        "target": "Q1 — target-language probe selectivity across depth (leaky: prompt names target)",
+        "source": "Q1 — source-language probe selectivity across depth (raw source, no instruction)",
+    }[kind]
     fig, ax = plt.subplots(figsize=(8, 5))
+    any_data = False
     for mi, rdir in enumerate(results):
         summary = load_summary(rdir)
         model = summary["model"]
-        p = rdir / "probing_target_id.json"
+        p = rdir / fname
         if not p.exists():
             continue
         rows = json.loads(p.read_text())
@@ -138,9 +145,13 @@ def plot_probing_combined(results: list[Path], out: Path) -> None:
         xs = np.linspace(0, 1, len(layers))
         ax.plot(xs, sel, marker="o", markersize=3,
                 color=MODEL_COLOR[mi % len(MODEL_COLOR)], label=f"{model}")
+        any_data = True
+    if not any_data:
+        plt.close(fig)
+        return
     ax.set_xlabel("Depth fraction")
-    ax.set_ylabel("Target-language probe selectivity")
-    ax.set_title("Q1 — target-language probe selectivity across depth (cross-model)")
+    ax.set_ylabel("Probe selectivity")
+    ax.set_title(title)
     ax.set_ylim(-0.05, 1.05)
     ax.legend(loc="lower right", fontsize=9, frameon=False)
     ax.grid(alpha=0.3)
@@ -160,7 +171,8 @@ def main() -> None:
     plot_lens_combined(args.results, args.out_dir / "lens_combined.png")
     plot_ifr_combined(args.results, args.out_dir / "ifr_layer_combined.png")
     plot_depth_partition(args.results, args.out_dir / "ifr_depth_partition.png")
-    plot_probing_combined(args.results, args.out_dir / "probing_combined.png")
+    plot_probing_combined(args.results, args.out_dir / "probing_target_id_combined.png", "target")
+    plot_probing_combined(args.results, args.out_dir / "probing_source_id_combined.png", "source")
 
     print(f"wrote combined charts to {args.out_dir}/")
     for p in sorted(args.out_dir.glob("*.png")):

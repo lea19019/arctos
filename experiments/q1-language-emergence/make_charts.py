@@ -138,7 +138,30 @@ def main() -> None:
     plot_lens(args.results_dir, out_dir / "lens_target_mass.png", model_name, pairs)
     plot_ifr_layers(args.results_dir, out_dir / "ifr_layer_importance.png", model_name, pairs)
     plot_ifr_heads(args.results_dir, out_dir, model_name, pairs)
-    plot_probing(args.results_dir, out_dir / "probing_selectivity.png", model_name)
+    plot_probing(args.results_dir, out_dir / "probing_target_id.png", model_name)
+    # Source-ID probe (no instruction): only present if the new runner produced it.
+    src_path = args.results_dir / "probing_source_id.json"
+    if src_path.exists():
+        old_name = "probing_target_id.json"
+        # Reuse plot_probing by temporarily swapping the file it reads.
+        rows = json.loads(src_path.read_text())
+        layers = [r["layer"] for r in rows]
+        acc = [r["accuracy"] for r in rows]
+        ctrl = [r["control_accuracy"] for r in rows]
+        sel = [r["selectivity"] for r in rows]
+        fig, ax = plt.subplots(figsize=(7, 4.5))
+        ax.plot(layers, acc, marker="o", markersize=3, label="probe accuracy", color="#1f77b4")
+        ax.plot(layers, ctrl, marker="x", markersize=3, label="control-task accuracy", color="#888888")
+        ax.plot(layers, sel, marker="s", markersize=3, label="selectivity", color="#d62728")
+        ax.set_xlabel("Layer")
+        ax.set_ylabel("Score")
+        ax.set_ylim(-0.05, 1.05)
+        ax.set_title(f"{model_name} — source-language probe (raw source, no instruction)")
+        ax.legend(loc="lower right", frameon=False, fontsize=9)
+        ax.grid(alpha=0.3)
+        fig.tight_layout()
+        fig.savefig(out_dir / "probing_source_id.png", dpi=150)
+        plt.close(fig)
 
     print(f"wrote charts under {out_dir}/")
     for p in sorted(out_dir.glob("*.png")):

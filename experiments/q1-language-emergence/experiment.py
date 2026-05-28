@@ -34,6 +34,8 @@ from src.interp.probing import probe_layers
 from src.models.aya import build_mt_prompt, tokenize_target_prefix
 
 PAIR_TO_TARGET_CLASS: dict[str, int] = {"cs-de": 0, "en-zh": 1, "en-arz": 2}
+# Source-language id (binary): cs-de is Czech, the en-* pairs are English.
+PAIR_TO_SOURCE_CLASS: dict[str, int] = {"cs-de": 0, "en-zh": 1, "en-arz": 1}
 
 
 def _import_loader(dotted: str):
@@ -125,7 +127,10 @@ def main() -> None:
         "per_pair": {},
     }
 
-    all_probe_examples: list[tuple[str, int]] = []
+    all_target_probe_examples: list[tuple[str, int]] = []
+    # source_probe_examples_by_class: keep them grouped so we can subsample
+    # to a balanced binary set at the end.
+    source_probe_by_class: dict[int, list[str]] = {0: [], 1: []}
     for pair in pairs:
         print(f"[q1] === pair {pair} ===", flush=True)
         records = list(load_wmt_pairs(pair, n=n_examples))
@@ -143,9 +148,11 @@ def main() -> None:
               flush=True)
         np.savez(args.output / f"ifr_{pair}.npz", **ifr_out)
 
-        cls = PAIR_TO_TARGET_CLASS[pair]
+        target_cls = PAIR_TO_TARGET_CLASS[pair]
+        source_cls = PAIR_TO_SOURCE_CLASS[pair]
         for rec in records:
-            all_probe_examples.append((build_mt_prompt(rec.source, pair), cls))
+            all_target_probe_examples.append((build_mt_prompt(rec.source, pair), target_cls))
+            source_probe_by_class[source_cls].append(rec.source)
 
         summary["per_pair"][pair] = {
             "n_records": len(records),
@@ -154,19 +161,50 @@ def main() -> None:
                 if ifr_out["layer_scores"].size else None,
         }
 
-    print(f"[q1] === target-language probing across {len(all_probe_examples)} examples ===",
+    # Target-language probe (uses the full MT prompt; the prompt names the
+    # target language so accuracy ≈ 1.0 across layers — selectivity is the
+    # meaningful metric here).
+    print(f"[q1] === target-language probing across {len(all_target_probe_examples)} examples ===",
           flush=True)
     t0 = time.time()
-    probe_results = _run_target_probing(model, all_probe_examples, n_classes=len(pairs))
-    print(f"[q1] probing in {time.time() - t0:.1f}s; "
-          f"max selectivity = {max(r['selectivity'] for r in probe_results):.3f}", flush=True)
-    (args.output / "probing_target_id.json").write_text(json.dumps(probe_results, indent=2))
+    target_probe_results = _run_target_probing(model, all_target_probe_examples, n_classes=len(pairs))
+    print(f"[q1] target probing in {time.time() - t0:.1f}s; "
+          f"max selectivity = {max(r['selectivity'] for r in target_probe_results):.3f}",
+          flush=True)
+    (args.output / "probing_target_id.json").write_text(json.dumps(target_probe_results, indent=2))
+
+    # Source-language probe (no instruction; raw source text only — answers
+    # "when does source-language identity become linearly decodable in the
+    # residual stream?" without the prompt-leak confound).
+    n_per_class = min(len(v) for v in source_probe_by_class.values())
+    g = torch.Generator().manual_seed(0)
+    source_examples: list[tuple[str, int]] = []
+    for cls, srcs in source_probe_by_class.items():
+        idx = torch.randperm(len(srcs), generator=g).tolist()[:n_per_class]
+        for i in idx:
+            source_examples.append((srcs[i], cls))
+    print(f"[q1] === source-language probing across {len(source_examples)} balanced examples "
+          f"({n_per_class}/class, 2 classes) ===", flush=True)
+    t0 = time.time()
+    source_probe_results = _run_target_probing(model, source_examples, n_classes=2)
+    print(f"[q1] source probing in {time.time() - t0:.1f}s; "
+          f"max selectivity = {max(r['selectivity'] for r in source_probe_results):.3f}",
+          flush=True)
+    (args.output / "probing_source_id.json").write_text(json.dumps(source_probe_results, indent=2))
 
     summary["probing_target_id"] = {
-        "max_selectivity": max(r["selectivity"] for r in probe_results),
-        "max_selectivity_layer": max(probe_results, key=lambda r: r["selectivity"])["layer"],
+        "max_selectivity": max(r["selectivity"] for r in target_probe_results),
+        "max_selectivity_layer": max(target_probe_results, key=lambda r: r["selectivity"])["layer"],
         "n_classes": len(pairs),
-        "n_examples": len(all_probe_examples),
+        "n_examples": len(all_target_probe_examples),
+        "note": "leaky — prompt names the target language; accuracy is ~1.0 at every layer.",
+    }
+    summary["probing_source_id"] = {
+        "max_selectivity": max(source_probe_results, key=lambda r: r["selectivity"])["selectivity"],
+        "max_selectivity_layer": max(source_probe_results, key=lambda r: r["selectivity"])["layer"],
+        "n_classes": 2,
+        "n_examples": len(source_examples),
+        "note": "raw source only, no instruction — clean source-language ID probe.",
     }
     (args.output / "summary.json").write_text(json.dumps(summary, indent=2))
     print(f"[q1] wrote summary.json", flush=True)
