@@ -74,7 +74,7 @@ def logit_lens(
     """Apply logit lens across all layers for one prompt.
 
     Args:
-        model: a HookedTransformer.
+        model: a `HookedModel` (src.models._hooked).
         prompt: input text.
         target_tokens: token ids to track per-layer probability mass for.
             Typical use: gold target-language token prefix.
@@ -83,34 +83,27 @@ def logit_lens(
     Returns:
         LogitLensResult with `layer_logits` shape (L, V).
     """
-    device = next(model.parameters()).device
+    device = model.device
     tokens = model.to_tokens(prompt)  # (1, T)
     pos = position if position is not None else tokens.shape[-1] - 1
 
-    names_filter = lambda name: name.endswith("hook_resid_post")  # noqa: E731
-    with torch.no_grad():
-        _, cache = model.run_with_cache(tokens, names_filter=names_filter)
-
-    n_layers = model.cfg.n_layers
-    # Stack resid_post across layers at the chosen position: (L, D).
-    resid_stack = torch.stack(
-        [cache[f"blocks.{ell}.hook_resid_post"][0, pos] for ell in range(n_layers)],
-        dim=0,
-    )
+    _, cached = model.run_with_cache(tokens, capture=("resid_post",))
+    # cached.resid_post: (L, T, D) — stack at `pos` to (L, D).
+    resid_stack = cached.resid_post[:, pos, :]
     layer_logits = _decode_resid(model, resid_stack)  # (L, V)
 
     target_ids_tensor: torch.Tensor | None = None
     target_mass: torch.Tensor | None = None
     if target_tokens is not None and len(target_tokens) > 0:
         target_ids_tensor = torch.as_tensor(list(target_tokens), device=device, dtype=torch.long)
-        probs = layer_logits.softmax(dim=-1)  # (L, V)
+        probs = layer_logits.float().softmax(dim=-1)  # (L, V)
         target_mass = probs.index_select(dim=-1, index=target_ids_tensor)  # (L, K)
 
     return LogitLensResult(
         prompt_tokens=tokens[0].cpu(),
-        layer_logits=layer_logits.cpu(),
+        layer_logits=layer_logits.detach().cpu(),
         target_token_ids=target_ids_tensor.cpu() if target_ids_tensor is not None else None,
-        target_token_mass=target_mass.cpu() if target_mass is not None else None,
+        target_token_mass=target_mass.detach().cpu() if target_mass is not None else None,
     )
 
 

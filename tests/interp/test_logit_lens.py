@@ -35,7 +35,8 @@ def test_last_layer_matches_model_logits(tiny_model):
 @pytest.mark.cpu
 def test_shape_contract(tiny_model):
     """layer_logits is (L, V); target_token_mass is (L, K) when requested."""
-    target_ids = tiny_model.to_tokens(" Paris")[0, 1:].tolist()
+    target_ids = tiny_model.tokenizer(" Paris", add_special_tokens=False)["input_ids"]
+    assert len(target_ids) > 0, "tokenizer returned no tokens for ' Paris'"
     result = logit_lens(tiny_model, "The capital of France is", target_tokens=target_ids)
     assert result.layer_logits.shape == (tiny_model.cfg.n_layers, tiny_model.cfg.d_vocab)
     assert result.target_token_mass.shape == (tiny_model.cfg.n_layers, len(target_ids))
@@ -44,7 +45,7 @@ def test_shape_contract(tiny_model):
 @pytest.mark.cpu
 def test_target_mass_in_unit_interval(tiny_model):
     """All target_token_mass entries in [0, 1]."""
-    target_ids = tiny_model.to_tokens(" Paris France London")[0, 1:].tolist()
+    target_ids = tiny_model.tokenizer(" Paris France London", add_special_tokens=False)["input_ids"]
     result = logit_lens(tiny_model, "The capital of France is", target_tokens=target_ids)
     mass = result.target_token_mass
     assert (mass >= 0).all() and (mass <= 1).all(), f"out-of-range mass: {mass}"

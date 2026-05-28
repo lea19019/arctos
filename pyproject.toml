@@ -12,22 +12,18 @@ dependencies = [
     "datasets",
     "safetensors",
     "einops",
-
     # Data / config
     "pyyaml",
     "sacrebleu[ja,ko,zh]",
     "unbabel-comet",
-
     # Plots / notebooks
     "matplotlib",
     "seaborn",
     "jupyter",
     "ipykernel",
-
     # Utilities
     "tqdm",
     "rich",
-
     # Test harness — first-class in phase one (see PHASE1-PLAN.md "Testing discipline")
     "pytest",
     "pytest-xdist",

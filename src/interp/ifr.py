@@ -77,7 +77,7 @@ def ifr(
     """Compute IFR scores over a calibration set.
 
     Args:
-        model: a HookedTransformer.
+        model: a `HookedModel`.
         examples: iterable of prompts (source-target concatenated, MT setting).
         target_position: which output position to attribute.
             - "last": final token only.
@@ -94,38 +94,25 @@ def ifr(
     embed_acc = 0.0
     n_examples = 0
 
-    # Pre-fetch per-layer W_O: shape (n_heads, d_head, d_model).
-    W_O = torch.stack([model.blocks[ell].attn.W_O for ell in range(n_layers)], dim=0)
-    # W_O on the model's device; we'll move per-example contributions to CPU.
-
-    def names_filter(name: str) -> bool:
-        return name.endswith("attn.hook_z") or name.endswith("hook_mlp_out") or name == "hook_embed"
+    W_O = model.W_O  # (L, H, d_head, D), on model.device
 
     for prompt in examples:
         tokens = model.to_tokens(prompt)
-        with torch.no_grad():
-            _, cache = model.run_with_cache(tokens, names_filter=names_filter)
+        _, cached = model.run_with_cache(tokens, capture=("attn_z", "mlp_out", "embed"))
         positions = _resolve_positions(target_position, tokens.shape[-1])
 
-        # Per-example accumulators, summed over the requested positions before
-        # L1-normalizing (so per-component contributions and the embed share a
-        # single normalizing constant per example).
         head_ex = torch.zeros(n_layers, n_heads, dtype=torch.float64)
         mlp_ex = torch.zeros(n_layers, dtype=torch.float64)
         embed_ex = 0.0
 
         for pos in positions:
-            embed = cache["hook_embed"][0, pos]  # (d_model,)
-            embed_ex += float(embed.detach().to(torch.float32).abs().sum().cpu())
+            embed_ex += float(cached.embed[pos].detach().to(torch.float32).abs().sum().cpu())
             for ell in range(n_layers):
-                z = cache[f"blocks.{ell}.attn.hook_z"][0, pos]  # (n_heads, d_head)
-                # per-head contribution: (n_heads, d_model)
+                z = cached.attn_z[ell, pos]  # (H, d_head)
                 head_contrib = torch.einsum("hd,hdm->hm", z, W_O[ell])
                 head_ex[ell] += head_contrib.detach().to(torch.float32).abs().sum(dim=-1).cpu().double()
-                mlp = cache[f"blocks.{ell}.hook_mlp_out"][0, pos]  # (d_model,)
-                mlp_ex[ell] += float(mlp.detach().to(torch.float32).abs().sum().cpu())
+                mlp_ex[ell] += float(cached.mlp_out[ell, pos].detach().to(torch.float32).abs().sum().cpu())
 
-        # L1-normalize this example across all components, then accumulate.
         total = head_ex.sum().item() + mlp_ex.sum().item() + embed_ex
         if total <= 0:
             continue

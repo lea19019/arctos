@@ -137,17 +137,14 @@ def probe_layers(
     n_layers = model.cfg.n_layers
     layer_idx = list(range(n_layers)) if layers is None else list(layers)
 
-    # Collect hidden states at the last token of each prompt, per layer.
-    names_filter = lambda name: name.endswith("hook_resid_post")  # noqa: E731
     all_hidden: list[list[torch.Tensor]] = [[] for _ in layer_idx]
     all_labels: list[int] = []
     for prompt, label in examples:
         tokens = model.to_tokens(prompt)
-        with torch.no_grad():
-            _, cache = model.run_with_cache(tokens, names_filter=names_filter)
+        _, cached = model.run_with_cache(tokens, capture=("resid_post",))
         last = tokens.shape[-1] - 1
         for i, ell in enumerate(layer_idx):
-            h = cache[f"blocks.{ell}.hook_resid_post"][0, last]
+            h = cached.resid_post[ell, last]
             all_hidden[i].append(h.detach().to(dtype=torch.float32, device="cpu"))
         all_labels.append(int(label))
 

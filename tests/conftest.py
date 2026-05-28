@@ -34,14 +34,21 @@ def pytest_collection_modifyitems(config, items):
 
 @pytest.fixture(scope="session")
 def tiny_model():
-    """A tiny HookedTransformer for CPU shape / math invariant tests.
+    """A tiny HookedModel for CPU shape / math invariant tests.
 
-    Uses TransformerLens's gpt2 (~125M params; fits in CPU RAM, runs in
-    seconds). Loaded once per session for speed.
+    Uses HF's gpt2 (~125M params; fits in CPU RAM, runs in seconds),
+    wrapped by src.models._hooked.HookedModel via the GPT-2 path spec.
+    Loaded once per session for speed.
     """
-    from transformer_lens import HookedTransformer
+    from transformers import AutoModelForCausalLM, AutoTokenizer
 
-    return HookedTransformer.from_pretrained("gpt2", device="cpu")
+    from src.models._hooked import GPT2_PATHS, HookedModel
+
+    tok = AutoTokenizer.from_pretrained("gpt2")
+    if tok.pad_token is None:
+        tok.pad_token = tok.eos_token
+    hf = AutoModelForCausalLM.from_pretrained("gpt2", torch_dtype="float32").to("cpu").eval()
+    return HookedModel(hf, tok, GPT2_PATHS)
 
 
 @pytest.fixture(scope="session", params=["aya", "omt_llama", "tower"])
