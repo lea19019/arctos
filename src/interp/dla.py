@@ -58,18 +58,32 @@ class DLAScores:
 
 
 def _rms_norm_scale(model: Any, resid_final_at_p: torch.Tensor) -> torch.Tensor:
-    """Per-feature RMSNorm linearization scale at the final residual.
+    """Per-feature normalization-linearization scale at the final residual.
 
-    For an HF Llama-class RMSNorm: y = x * (gamma / sqrt(mean(x^2) + eps))
-    The per-feature scale we multiply a perturbation by is:
+    For RMSNorm (Llama, Gemma): y = x * (gamma / sqrt(mean(x^2) + eps))
         s = gamma / sqrt(mean(x^2) + eps)
+
+    For LayerNorm (GPT-2, BLOOM): y = (x - mean) * gamma / sqrt(var + eps) + beta
+    The linearization for a small perturbation Δx is approximately
+        Δy ≈ (Δx - mean(Δx)) * gamma / sqrt(var + eps)
+    The centering term (Δx - mean(Δx)) is omitted in the magnitude-only
+    DLA we compute here — it would require per-component recentering at
+    sum time. For LayerNorm models the DLA is therefore *approximate*;
+    the rank ordering is still informative but absolute numbers are
+    biased relative to RMSNorm models. For BLOOM/GPT-2 use this as a
+    diagnostic, not a quantitative comparison vs Llama-class models.
     """
     norm = model.arch.get_ln_final(model.hf_model)
     eps = getattr(norm, "variance_epsilon", None) or getattr(norm, "eps", 1e-6)
     gamma = getattr(norm, "weight", None)
     x = resid_final_at_p.to(torch.float32)
-    rms = torch.sqrt(x.pow(2).mean(dim=-1, keepdim=True) + eps)
-    s = (1.0 / rms)  # broadcastable (1,) or (...,1)
+    # Detect LayerNorm (has elementwise_affine + bias) vs RMSNorm.
+    if isinstance(norm, torch.nn.LayerNorm):
+        var = x.var(dim=-1, keepdim=True, unbiased=False)
+        s = (1.0 / torch.sqrt(var + eps))
+    else:
+        rms = torch.sqrt(x.pow(2).mean(dim=-1, keepdim=True) + eps)
+        s = (1.0 / rms)
     if gamma is not None:
         s = s * gamma.to(torch.float32)
     return s.squeeze(0) if s.dim() > 1 and s.shape[0] == 1 else s

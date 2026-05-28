@@ -95,6 +95,25 @@ GPT2_PATHS = ArchPaths(
     extract_block_resid=_block_resid_first_of_tuple,
 )
 
+# BLOOM (BigScience) — similar to GPT-2 layout but with different submodule
+# names and ALiBi positional encoding. Uses LayerNorm, not RMSNorm; DLA's
+# `_rms_norm_scale` falls back to a LayerNorm-compatible scale when gamma
+# is present and the module is a LayerNorm.
+BLOOM_PATHS = ArchPaths(
+    get_blocks=lambda m: list(m.transformer.h),
+    get_embed=lambda m: m.transformer.word_embeddings,
+    get_ln_final=lambda m: m.transformer.ln_f,
+    get_lm_head=lambda m: m.lm_head,
+    # BLOOM's per-head output projection is named `dense`. Its input is the
+    # concatenated per-head attention output (B, T, n_heads*d_head), so per-
+    # head slicing works identically to Llama-class o_proj.
+    get_block_attn_proj=lambda b: b.self_attention.dense,
+    # BLOOM's MLP output is dense_4h_to_h; the mlp module's forward returns
+    # the (B, T, D) hidden state directly (no tuple).
+    get_block_mlp=lambda b: b.mlp,
+    extract_block_resid=_block_resid_first_of_tuple,
+)
+
 
 class HookedModel:
     """HF causal LM + activation capture, with a TL-shaped API.
