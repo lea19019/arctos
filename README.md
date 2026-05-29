@@ -1,67 +1,114 @@
 # Arctos
 
-Phase-one scaffold for *Understanding translation in decoder LLMs as a foundation for compression* — an interpretability-led investigation into how machine translation is carried out inside three open-source decoder-only LLMs (Aya Expanse 8B, omt-llama-8b, TowerInstruct-7B), preceding a phase-two compression method whose hypotheses will be grounded in what phase one reveals.
+*Understanding translation in LLMs as a foundation for compression* — an
+interpretability-led investigation into **how machine translation is carried
+out inside open multilingual LLMs**, preceding a phase-two compression method
+whose design is grounded in what phase one reveals.
 
-Thesis spine, model choices, language pairs, and methodological discipline: [`docs/project-summary.md`](docs/project-summary.md).
-Investigation plan: [`PHASE1-PLAN.md`](PHASE1-PLAN.md).
-Phase-two seed candidates: [`docs/phase2-hypotheses.md`](docs/phase2-hypotheses.md).
+**Phase one is complete.** The headline result, in one line: *translation is a
+depth-staged "understand → process in a language-neutral/pivot space → emit
+the target language last" computation; the target language is a late
+conversion step, not the medium the model computes in* — and this structure
+generalizes across architectures.
+
+- **Report (start here):** [`report/arctos-translation-report.pdf`](report/arctos-translation-report.pdf) — *What and how does the translation task work inside an LLM?* (methods, tables, figures, findings, citations).
+- **Findings per question:** [`docs/findings/`](docs/findings/) — `q1.md` (language emergence), `q5.md` (importance vs sensitivity), `architecture-comparison.md` (Q4 synthesis).
+- **Tutorials:** [`notebooks/`](notebooks/) — 8 runnable `# %%` notebooks explaining each method (theory + mechanics), runnable on a tiny CPU model.
+- Thesis spine + plan: [`docs/project-summary.md`](docs/project-summary.md), [`PHASE1-PLAN.md`](PHASE1-PLAN.md).
+
+## Models studied
+
+Eight models spanning lineage, normalization, positional encoding, generation,
+and the decoder-only ↔ encoder-decoder divide:
+
+| Model | Architecture | Role |
+|-------|--------------|------|
+| Aya Expanse 8B | Cohere, RoPE, RMSNorm | general multilingual LM |
+| TowerBase 7B → TowerInstruct 7B | Llama-2 | CPT vs CPT+MT-SFT ablation |
+| Tower-Plus 9B | Gemma 2 | MT-specialist (2025) |
+| BLOOM 7B1 | ALiBi, LayerNorm | old-gen multilingual (2022) |
+| EuroLLM 9B | Llama-3 | European MT specialist |
+| Llama-3.1 8B | Llama-3, GQA | general LM |
+| Gemma-3 12B | Gemma 3 | baseline (Google QAT) |
+| NLLB-200 3.3B | encoder–decoder | MT-purpose-built |
+
+Language pairs (FLORES+): **cs→de** (same-script sanity), **en→zh** (Han),
+**en→arz** (Egyptian Arabic). *(The original plan named omt-llama-8b, which
+does not exist on HuggingFace; the set above is the realized substitute, with
+Gemma as a baseline rather than a method target.)*
+
+## Methods (`src/interp/`)
+
+All read or intervene on the residual stream through one uniform wrapper
+(`src/models/_hooked.py`, `HookedModel`) so the same code runs on every
+architecture.
+
+| File | Method | Answers |
+|------|--------|---------|
+| `logit_lens.py` | logit lens | when does the model commit to the target token? |
+| `probing.py` | linear probes + control task | where is language identity decodable? |
+| `ifr.py` | Information Flow Routes | which components are *loud* (magnitude)? |
+| `dla.py` | direct logit attribution | which components push *toward* the target (signed)? |
+| `attribution_patching.py` | attribution patching | which components, if damaged, *break* translation (causal)? |
+| `sensitivity.py` | noise injection | where does numerical *precision* matter (quant proxy)? |
+| `activation_stats.py` | AWQ-style activation magnitude | which weight channels see large activations? |
+| `language_pivot.py` | **pivot trajectory** | does the model "think in a pivot script" then convert late? |
+| `tuned_lens.py` | tuned lens (Belrose 2023) | de-biased logit lens (built, optional) |
 
 ## Layout
 
 ```
 .
-├── README.md
-├── PHASE1-PLAN.md            # the investigation plan
-├── pyproject.toml            # uv-managed env (see "Environment" below)
-├── docs/
-│   ├── project-summary.md    # 1-page synthesis of prior work + new direction
-│   ├── phase2-hypotheses.md  # seed candidates for phase two
-│   ├── claude-code-bootstrap.md
-│   ├── research.md           # annotated bibliography (phase-two reference)
-│   ├── pruning_project.pdf   # prior paper (Castillo & Richardson, BYU)
-│   ├── findings/             # writeups per question (Q1–Q5)
-│   ├── systems-notes/        # transformer math, GPU memory, kernels, etc.
-│   └── learning-log.md       # running personal notes
+├── report/                   # the compiled PDF report + LaTeX source + figures
+├── docs/findings/            # per-question writeups (q1, q5, architecture-comparison)
+├── notebooks/                # 8 method tutorials (00 overview → 08 synthesis)
 ├── experiments/
-│   ├── q1-language-emergence/
-│   ├── q2-attention-heads/
-│   ├── q3-mlps-and-layers/
-│   ├── q4-architecture-comparison/
-│   └── q5-importance-vs-sensitivity/
-├── notebooks/                # exploratory work
+│   ├── q1-language-emergence/   # logit lens, probing, IFR, DLA, pivot runners + SLURM
+│   ├── q2-attention-heads/      # attention-pattern viz
+│   ├── q4-architecture-comparison/  # combined analysis SLURM
+│   └── q5-importance-vs-sensitivity/ # noise/attribution/AWQ + chrF++ quality runners
 ├── src/
-│   ├── models/               # loaders for Aya, omt-llama, Tower
-│   ├── interp/               # core interpretability methods
-│   │   ├── logit_lens.py
-│   │   ├── activation_patching.py
-│   │   ├── ifr.py
-│   │   └── probing.py
-│   ├── data/                 # MT calibration data + clean/corrupt pair generators
-│   └── eval/                 # BLEU / chrF++ / COMET wrappers
-├── tests/                    # mirrors src/ layout; cpu + gpu markers
-├── data/                     # gitignored — datasets
-├── models/                   # gitignored — checkpoints
-├── configs/                  # shared / global run configs
-└── scripts/                  # one-off CLIs
+│   ├── models/               # per-model loaders + _hooked.py (HookedModel) + nllb.py
+│   ├── interp/               # the methods above
+│   ├── data/                 # FLORES+ loader + clean/corrupt generators
+│   └── eval/                 # chrF++/BLEU (sacrebleu)
+├── results/                  # gitignored — per-model outputs (npz/json/charts)
+├── tests/                    # cpu + gpu markers
+└── scripts/                  # fetch_flores.py etc.
 ```
-
-### Non-obvious choices
-
-- **`experiments/qN-*/` mirrors the five investigative questions, not pipeline stages.** Phase one is organized around questions; each question's directory holds its own configs and notes so the work stays reviewable per question, not per method.
-- **`src/interp/` holds methods, not models.** A method (logit lens, IFR) is implemented once with per-model adaptations flagged inside it. Per-model loaders live in `src/models/`.
-- **`docs/findings/` vs `experiments/qN-*/notes.md`.** `notes.md` is working memory while a question is open. `docs/findings/qN.md` is the satisfied-when artifact when the question closes. The split makes the gating between phase one and phase two visible.
-- **`docs/systems-notes/`** is interleaved into the questions, not run as a parallel track. The folder exists so the systems learning is collected and reusable, but each note is the result of doing one of the experiments.
-- **No phase-two scaffold yet.** Phase two will be designed from Q5 findings; pre-building its directories would invite premature commitment.
 
 ## Environment
 
 ```bash
-uv sync          # creates .venv from pyproject.toml; commit uv.lock when ready
-uv run pytest    # runs anything inside the env
+uv sync                       # .venv from pyproject.toml (Python 3.11 pinned)
+uv run pytest -m cpu          # method unit tests on a tiny CPU model
 ```
 
-Hardware target is A100 80GB; experiments that would exceed that (e.g., loading multiple models simultaneously) are flagged in the per-question configs and risk register.
+Cluster notes (BYU RC / SLURM): the env is pinned to **Python 3.11** (system
+OpenSSL compatibility) and **torch cu128** (driver compatibility); SLURM
+scripts set `OPENSSL_CONF=/dev/null` and `HF_HUB_OFFLINE=1` (compute nodes
+have no internet — models are pre-cached on the login node). Hardware target
+is a single A100 80GB.
+
+## Key findings
+
+1. **Translation does not happen in the target language until the end.** Under
+   the logit lens, target-script probability mass is ~0 through ~80–95% of
+   depth, rising only in the final layers (across 6 architectures). The middle
+   of the network operates in a Latin/pivot representation.
+2. **Depth-ordered pipeline:** source encoding (early) → language-neutral
+   processing (middle) → target commitment (last quarter), where logit-lens
+   target mass, signed DLA, and IFR magnitude all concentrate.
+3. **The signature generalizes** across lineage, normalization, positional
+   encoding, generation, and decoder-only ↔ encoder-decoder (NLLB) — the lone
+   exception is Gemma-family.
+4. **Importance ≠ quantization sensitivity** (ρ ≈ 0 across two metrics): where
+   MT computation concentrates is *not* where numerical precision matters.
 
 ## Status
 
-Scaffold only. No interpretability methods are implemented yet — see TODOs in `src/interp/*.py` and `experiments/qN-*/experiment.py`. Per the bootstrap, phase two stays empty until Q5 closes.
+**Phase one complete** — all methods implemented and run across the model set;
+findings written; report compiled. Phase two (the quantization method itself)
+is the next chapter: use the depth-signature as a coarse prior but allocate
+bits with a sensitivity-native signal (finding #4), treating Gemma-family
+separately.
