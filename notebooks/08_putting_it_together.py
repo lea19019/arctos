@@ -112,14 +112,35 @@ else:
     print(f"{m}: results not present yet — rerun after Q1+Q5 finish.")
 
 # %% [markdown]
-# ## Step 4 — The phase-two method, in one sentence
+# ## Step 4 — What the experiments actually concluded
 #
-# *Allocate the quantization bit budget per component using whichever signal
-# (DLA, IFR, AWQ, or a learned combination) Q5 shows best predicts MT-quality
-# fragility, calibrated on MT data rather than generic text, with a per-depth
-# prior that holds across Llama/BLOOM-class architectures and a separate
-# treatment for Gemma-family models.*
+# Two findings, one positive and one negative, both robust:
 #
-# Everything in notebooks 01–07 is a piece of evidence for one clause of that
-# sentence. The findings doc `docs/findings/q1.md` is the written synthesis;
-# the charts in `results/_combined/q1/` are the figures.
+# **POSITIVE (Q4/V2): the MT depth signature generalizes.** The IFR
+# importance profile — first quarter ≤12%, last quarter ~45-58%, top layers
+# in the final ~20% — holds across 6 decoder-only models AND the NLLB
+# encoder-decoder, spanning RoPE/ALiBi, RMSNorm/LayerNorm, 2022→2024, four
+# lineages. Only Gemma-family (Tower-Plus) breaks it. See
+# `docs/findings/architecture-comparison.md`.
+#
+# **NEGATIVE (Q5/V3): importance does NOT predict quantization sensitivity.**
+# Tested twice — per-head logit drop (mean ρ −0.025) and per-layer chrF++
+# quality drop (mean ρ −0.065). Both null. The stronger chrF++ experiment was
+# built specifically to rule out "the metric was too weak," and it gave the
+# same answer. So the layers/heads that do the loud MT work (high IFR/DLA)
+# are NOT the ones where quantization precision matters. See
+# `docs/findings/q5.md`.
+#
+# ## Step 5 — The phase-two method, in one honest sentence
+#
+# *Use the depth signature (Q4/V2) as a coarse model-agnostic prior for where
+# MT computation concentrates — valid for Llama/BLOOM/Cohere/enc-dec but not
+# Gemma-family — but allocate the actual quantization bit budget with a
+# sensitivity-native signal (per-component noise probing / inverse-Hessian /
+# AWQ on MT calibration data), because Q5 shows component importance does not
+# predict quantization sensitivity.*
+#
+# The clean split: interpretability (notebooks 01–05) explains *how MT works*
+# and proves the depth signature generalizes; the sensitivity + AWQ methods
+# (06–07) drive *where the bits go*. The two are different axes — that
+# dissociation is the project's central empirical finding.
