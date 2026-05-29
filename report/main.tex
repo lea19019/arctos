@@ -264,10 +264,12 @@ concentrate.
 
 \subsection{Which components, and what they do (DLA + attention)}
 
-DLA isolates recurring, pair-agnostic heads. In Aya, head L30.H8 is a strong
-cross-pair \emph{predictor} (DLA $+0.72$ on cs$\rightarrow$de, $+0.44$ on
-en$\rightarrow$arz); L29.H16 and L26.H5 are systematic \emph{suppressors}
-(negative across pairs). The signed DLA depth curve
+DLA isolates recurring heads. In Aya, head L30.H8 is a strong cross-pair
+\emph{predictor} (DLA $+0.72$ on cs$\rightarrow$de, $+0.44$ on
+en$\rightarrow$arz); L29.H16 and L26.H5 act as \emph{suppressors} (clearly
+negative on cs$\rightarrow$de, $-0.22$ and $-0.16$, but near zero on
+en$\rightarrow$arz, $-0.02$/$-0.06$ --- so the suppression is strong on the
+pair the model translates best and weak on the hard low-resource pair). The signed DLA depth curve
 (Fig.~\ref{fig:dla}) shows the same late-commitment shape as the lens, now
 direction-aware: positive contribution to the target token accumulates in the
 last layers. Attention-pattern inspection of the top-DLA heads characterizes
