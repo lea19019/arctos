@@ -22,7 +22,11 @@ import numpy as np
 
 PAIR_LABELS = {"cs-de": "cs→de", "en-zh": "en→zh", "en-arz": "en→arz"}
 PAIR_STYLE = {"cs-de": "-", "en-zh": "--", "en-arz": ":"}
-MODEL_COLOR = ["#1f77b4", "#d62728", "#2ca02c", "#9467bd"]
+# One distinct color per model (up to 10). With 8 models the old 4-color
+# cycle made Aya/BLOOM/Llama share blue, etc. — curves were indistinguishable.
+MODEL_COLOR = ["#1f77b4", "#d62728", "#2ca02c", "#9467bd",
+               "#ff7f0e", "#8c564b", "#17becf", "#bcbd22",
+               "#e377c2", "#7f7f7f"]
 
 
 def load_summary(d: Path) -> dict:
@@ -30,7 +34,7 @@ def load_summary(d: Path) -> dict:
 
 
 def plot_lens_combined(results: list[Path], out: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10.5, 5.5))
     for mi, rdir in enumerate(results):
         summary = load_summary(rdir)
         model = summary["model"]
@@ -48,15 +52,16 @@ def plot_lens_combined(results: list[Path], out: Path) -> None:
     ax.set_xlabel("Depth fraction (0 = embed, 1 = final layer)")
     ax.set_ylabel("Mean P(gold target prefix) under logit lens")
     ax.set_title("Q1 — target-language emergence across depth (cross-model)")
-    ax.legend(loc="upper left", fontsize=8, frameon=False)
+    ax.legend(loc="upper left", bbox_to_anchor=(1.01, 1.0), fontsize=7,
+              frameon=False, ncol=1)
     ax.grid(alpha=0.3)
     fig.tight_layout()
-    fig.savefig(out, dpi=150)
+    fig.savefig(out, dpi=150, bbox_inches="tight")
     plt.close(fig)
 
 
 def plot_ifr_combined(results: list[Path], out: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10.5, 5.5))
     for mi, rdir in enumerate(results):
         summary = load_summary(rdir)
         model = summary["model"]
@@ -72,15 +77,16 @@ def plot_ifr_combined(results: list[Path], out: Path) -> None:
     ax.set_xlabel("Depth fraction")
     ax.set_ylabel("IFR layer importance (L1-normalized, attn+mlp)")
     ax.set_title("Q1 — per-layer IFR importance (cross-model)")
-    ax.legend(loc="upper left", fontsize=8, frameon=False)
+    ax.legend(loc="upper left", bbox_to_anchor=(1.01, 1.0), fontsize=7,
+              frameon=False, ncol=1)
     ax.grid(alpha=0.3)
     fig.tight_layout()
-    fig.savefig(out, dpi=150)
+    fig.savefig(out, dpi=150, bbox_inches="tight")
     plt.close(fig)
 
 
 def plot_dla_combined(results: list[Path], out: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10.5, 5.5))
     for mi, rdir in enumerate(results):
         summary = load_summary(rdir)
         model = summary["model"]
@@ -97,10 +103,11 @@ def plot_dla_combined(results: list[Path], out: Path) -> None:
     ax.set_xlabel("Depth fraction")
     ax.set_ylabel("DLA (attn + mlp) — signed contribution to gold-target logit")
     ax.set_title("Q1 — direct logit attribution per layer (cross-model)")
-    ax.legend(loc="upper left", fontsize=8, frameon=False)
+    ax.legend(loc="upper left", bbox_to_anchor=(1.01, 1.0), fontsize=7,
+              frameon=False, ncol=1)
     ax.grid(alpha=0.3)
     fig.tight_layout()
-    fig.savefig(out, dpi=150)
+    fig.savefig(out, dpi=150, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -134,18 +141,18 @@ def plot_depth_partition(results: list[Path], out: Path) -> None:
     last = np.array([r[3] for r in rows])
     x = np.arange(len(labels))
     fig, ax = plt.subplots(figsize=(max(8, 1.3 * len(rows)), 4.5))
-    ax.bar(x, first, label="first quarter (L0-7)", color="#aec7e8")
-    ax.bar(x, mid, bottom=first, label="middle half (L8-23)", color="#ffbb78")
-    ax.bar(x, last, bottom=first + mid, label="last quarter (L24-31)", color="#d62728")
+    ax.bar(x, first, label="first quarter (0-25% depth)", color="#aec7e8")
+    ax.bar(x, mid, bottom=first, label="middle half (25-75% depth)", color="#ffbb78")
+    ax.bar(x, last, bottom=first + mid, label="last quarter (75-100% depth)", color="#d62728")
     ax.set_xticks(x)
     ax.set_xticklabels(labels, rotation=15, fontsize=8)
     ax.set_ylabel("Share of IFR layer mass")
     ax.set_ylim(0, 1.0)
     ax.set_title("Q1/Q4 — IFR depth partition (Q4 V2 hypothesis check)")
-    ax.legend(loc="upper right", fontsize=8, frameon=False)
+    ax.legend(loc="upper left", bbox_to_anchor=(1.005, 1.0), fontsize=8, frameon=False)
     ax.grid(axis="y", alpha=0.3)
     fig.tight_layout()
-    fig.savefig(out, dpi=150)
+    fig.savefig(out, dpi=150, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -156,7 +163,7 @@ def plot_probing_combined(results: list[Path], out: Path, kind: str) -> None:
         "target": "Q1 — target-language probe selectivity across depth (leaky: prompt names target)",
         "source": "Q1 — source-language probe selectivity across depth (raw source, no instruction)",
     }[kind]
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10.5, 5.5))
     any_data = False
     for mi, rdir in enumerate(results):
         summary = load_summary(rdir)
@@ -181,7 +188,7 @@ def plot_probing_combined(results: list[Path], out: Path, kind: str) -> None:
     ax.legend(loc="lower right", fontsize=9, frameon=False)
     ax.grid(alpha=0.3)
     fig.tight_layout()
-    fig.savefig(out, dpi=150)
+    fig.savefig(out, dpi=150, bbox_inches="tight")
     plt.close(fig)
 
 

@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{microtype}
+\usepackage[numbers,sort&compress]{natbib}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
 \usepackage{titlesec}
 \titlespacing{\section}{0pt}{1.4ex plus 1ex minus .2ex}{0.8ex}
@@ -47,7 +48,8 @@ The title question --- \emph{what and how does translation work in an LLM?}
 --- is mechanistic: not ``how well does it translate'' but ``what internal
 computation produces the translation, and where in the network does each part
 happen.'' We answer it by reading and intervening on the \textbf{residual
-stream}, the additive running sum that flows down a transformer:
+stream} \citep{elhage2021framework}, the additive running sum that flows down a
+transformer \citep{vaswani2017attention}:
 \[
 \text{resid}_\ell = \text{embed} + \sum_{\ell' \le \ell}\bigl(\text{attn\_out}_{\ell'} + \text{mlp\_out}_{\ell'}\bigr).
 \]
@@ -66,7 +68,7 @@ family, and generation (Table~\ref{tab:models}). The TowerBase\,$\rightarrow$\,
 TowerInstruct pair is a controlled ablation isolating MT-task supervised
 fine-tuning (SFT); both build on a continued-pretraining (CPT) base.
 
-\paragraph{Data.} FLORES+ dev, three language pairs chosen for contrast:
+\paragraph{Data.} FLORES+ dev \citep{nllb2022}, three language pairs chosen for contrast:
 \textbf{cs$\rightarrow$de} (same script, sanity pair), \textbf{en$\rightarrow$zh}
 (cross-script, Han target), \textbf{en$\rightarrow$arz} (cross-script, Egyptian
 Arabic --- a low-resource, non-standard variety). 200 sentences/pair for the
@@ -77,16 +79,16 @@ correlational methods; fewer for the generation-heavy causal ones.
 \toprule
 Model & Year & Architecture & Training intent \\
 \midrule
-Aya Expanse 8B & 2024 & Cohere, RoPE, RMSNorm & general multilingual LM \\
-TowerBase 7B & 2024 & Llama-2 & + bilingual CPT (no SFT) \\
-TowerInstruct 7B & 2024 & Llama-2 & + MT-task SFT \\
-Tower-Plus 9B & 2025 & \textbf{Gemma 2} & CPT + MT-SFT \\
-BLOOM 7B1 & 2022 & \textbf{ALiBi, LayerNorm} & multilingual pretraining \\
-EuroLLM 9B & 2024 & Llama-3 & European MT specialist \\
-Llama-3.1 8B & 2024 & Llama-3, GQA & general LM \\
-Gemma-3 12B & 2025 & Gemma 3 & baseline (Google QAT) \\
+Aya Expanse 8B \citep{dang2024aya} & 2024 & Cohere, RoPE, RMSNorm & general multilingual LM \\
+TowerBase 7B \citep{alves2024tower} & 2024 & Llama-2 & + bilingual CPT (no SFT) \\
+TowerInstruct 7B \citep{alves2024tower} & 2024 & Llama-2 & + MT-task SFT \\
+Tower-Plus 9B \citep{rei2025towerplus} & 2025 & \textbf{Gemma 2}~\citep{gemmateam2024gemma2} & CPT + MT-SFT \\
+BLOOM 7B1 \citep{lescao2022bloom} & 2022 & \textbf{ALiBi, LayerNorm} & multilingual pretraining \\
+EuroLLM 9B \citep{martins2024eurollm} & 2024 & Llama-3 & European MT specialist \\
+Llama-3.1 8B \citep{dubey2024llama3} & 2024 & Llama-3, GQA & general LM \\
+Gemma-3 12B \citep{gemmateam2025gemma3} & 2025 & Gemma 3 & baseline (Google QAT) \\
 \midrule
-NLLB-200 3.3B & 2022 & \textbf{encoder--decoder} & MT-purpose-built \\
+NLLB-200 3.3B \citep{nllb2022} & 2022 & \textbf{encoder--decoder} & MT-purpose-built \\
 \bottomrule
 \end{tabular}
 \caption{The model set. Bold marks the architectural outliers that test
@@ -97,20 +99,25 @@ generalization.}
 \section{The methods, and what each reveals}
 
 \paragraph{Logit lens.} Apply the model's own final norm + unembedding to an
-\emph{intermediate} residual: $\text{logits}_\ell = \text{LN}_f(\text{resid}_\ell)\,W_U$.
+\emph{intermediate} residual: $\text{logits}_\ell = \text{LN}_f(\text{resid}_\ell)\,W_U$
+\citep{nostalgebraist2020logit}.
 This reads ``what would the model predict if it had to decide at layer
 $\ell$.'' Tracking the probability mass on the gold target tokens across
 layers shows \emph{when} the model commits to the translation. (Invariant we
 verify: at the last layer the lens equals the model's real logits, to
-$<\!10^{-4}$.)
+$<\!10^{-4}$.) A learned refinement, the tuned lens \citep{belrose2023tunedlens},
+trades calibration for added trainable parameters; we use the parameter-free
+logit lens throughout.
 
-\paragraph{Probing.} Train a linear classifier per layer to predict a feature
+\paragraph{Probing.} Train a linear classifier per layer \citep{alain2017probes}
+to predict a feature
 (source/target language) from the residual; report \emph{selectivity} =
-accuracy $-$ control-task accuracy (Hewitt \& Liang 2019), which separates
+accuracy $-$ control-task accuracy \citep{hewitt2019control}, which separates
 ``the feature is represented'' from ``the probe memorized.'' Reveals
 \emph{where} language identity becomes linearly decodable.
 
-\paragraph{Information Flow Routes (IFR).} Decompose the residual into
+\paragraph{Information Flow Routes (IFR).} Following \citet{ferrando2024ifr},
+decompose the residual into
 per-component contributions and take their $L_1$-normalized magnitudes:
 $\text{IFR}(c)=\lVert c\rVert_1 / \sum_{c'}\lVert c'\rVert_1$, averaged over
 the set. Unsigned; tells you which components are \emph{loud}. Reveals
@@ -118,20 +125,20 @@ the set. Unsigned; tells you which components are \emph{loud}. Reveals
 
 \paragraph{Direct logit attribution (DLA).} Decompose the \emph{target-token
 logit} into signed per-component contributions via the norm-linearized
-unembed: $\text{DLA}(c)=(c\odot s)\cdot W_U[:,t]$. Signed: positive = pushes
+unembed \citep{elhage2021framework}: $\text{DLA}(c)=(c\odot s)\cdot W_U[:,t]$. Signed: positive = pushes
 toward the target token (a ``predictor''), negative = away (a
 ``suppressor''). Reveals \emph{which} components are causally aimed at the
 right output token.
 
 \paragraph{Attribution patching (causal).} First-order approximation of
-activation patching: $\text{effect}(c)\approx \partial L/\partial a_c \cdot
+activation patching \citep{kramar2024atp}: $\text{effect}(c)\approx \partial L/\partial a_c \cdot
 (a_c^{\text{corrupt}}-a_c^{\text{clean}})$. One backward pass scores every
 component. Reveals which components, if damaged, \emph{break} the translation.
 
 \paragraph{Noise sensitivity (quantization proxy).} Add relative Gaussian
 noise to a component's weights and measure the resulting quality drop ---
-directly simulating quantization error. Reveals where numerical
-\emph{precision} matters.
+directly simulating quantization error \citep{frantar2023gptq,lin2024awq}.
+Reveals where numerical \emph{precision} matters.
 
 \paragraph{Language-pivot trajectory (the ``how'' centerpiece).} For
 cross-script pairs the target uses a different writing system from
@@ -141,7 +148,7 @@ probability mass on Latin vs.\ target script vs.\ other. If the model
 ``thinks in English/source'' mid-stack and converts to the target script
 late, the trajectory shows Latin dominance giving way to target script in the
 final layers --- the mechanistic signature of pivot-based translation
-(cf.\ Wendler et al.\ 2024).
+\citep[cf.][]{wendler2024llamas,dumas2024tongue}.
 
 \section{Findings: what and how}
 
@@ -298,7 +305,7 @@ quantization precision matters. Tested at two levels, both null
 Experiment & perturbation & metric & mean $\rho$(importance, sensitivity) \\
 \midrule
 Per-head & one head's $W_O$ cols & target logit drop & $-0.025$ ($n{=}18$, $t{=}{-}0.55$) \\
-Per-layer & whole layer's weights & \textbf{chrF++ drop} & $-0.065$ (IFR), $-0.046$ (DLA) \\
+Per-layer & whole layer's weights & \textbf{chrF++ drop}~\citep{popovic2017chrf} & $-0.065$ (IFR), $-0.046$ (DLA) \\
 \bottomrule
 \end{tabular}
 \caption{Importance vs.\ sensitivity. The stronger per-layer/chrF++
@@ -360,5 +367,8 @@ for cross-script pairs (cs$\rightarrow$de, both Latin, cannot separate).
 All methods are in \code{src/interp/}; per-question runners and SLURM scripts
 in \code{experiments/}; the eight runnable tutorials (theory + mechanics) in
 \code{notebooks/}; per-question findings in \code{docs/findings/}.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
 
 \end{document}

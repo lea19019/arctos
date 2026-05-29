@@ -1,0 +1,183 @@
+% ---------------------------------------------------------------------------
+% References for the Arctos translation-interpretability report.
+% All entries verified against arXiv / ACL Anthology (May 2026).
+% ---------------------------------------------------------------------------
+
+% --- Foundations: architecture & probing ---
+
+@inproceedings{vaswani2017attention,
+  title     = {Attention Is All You Need},
+  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, {\L}ukasz and Polosukhin, Illia},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2017},
+  note      = {arXiv:1706.03762},
+}
+
+@article{alain2017probes,
+  title   = {Understanding Intermediate Layers Using Linear Classifier Probes},
+  author  = {Alain, Guillaume and Bengio, Yoshua},
+  journal = {arXiv preprint arXiv:1610.01644},
+  year    = {2016},
+}
+
+@inproceedings{hewitt2019control,
+  title     = {Designing and Interpreting Probes with Control Tasks},
+  author    = {Hewitt, John and Liang, Percy},
+  booktitle = {Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP-IJCNLP)},
+  pages     = {2733--2743},
+  year      = {2019},
+  doi       = {10.18653/v1/D19-1275},
+}
+
+% --- Interpretability methods used in this report ---
+
+@misc{nostalgebraist2020logit,
+  title        = {Interpreting {GPT}: The Logit Lens},
+  author       = {{nostalgebraist}},
+  year         = {2020},
+  howpublished = {LessWrong},
+  note         = {\url{https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens}},
+}
+
+@article{elhage2021framework,
+  title   = {A Mathematical Framework for Transformer Circuits},
+  author  = {Elhage, Nelson and Nanda, Neel and Olsson, Catherine and Henighan, Tom and Joseph, Nicholas and Mann, Ben and Askell, Amanda and Bai, Yuntao and Chen, Anna and Conerly, Tom and others},
+  journal = {Transformer Circuits Thread},
+  year    = {2021},
+  note    = {\url{https://transformer-circuits.pub/2021/framework/index.html}},
+}
+
+@article{belrose2023tunedlens,
+  title   = {Eliciting Latent Predictions from Transformers with the Tuned Lens},
+  author  = {Belrose, Nora and Furman, Zach and Smith, Logan and Halawi, Danny and Ostrovsky, Igor and McKinney, Lev and Biderman, Stella and Steinhardt, Jacob},
+  journal = {arXiv preprint arXiv:2303.08112},
+  year    = {2023},
+}
+
+@inproceedings{ferrando2024ifr,
+  title     = {Information Flow Routes: Automatically Interpreting Language Models at Scale},
+  author    = {Ferrando, Javier and Voita, Elena},
+  booktitle = {Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2024},
+  note      = {arXiv:2403.00824},
+}
+
+@article{kramar2024atp,
+  title   = {{AtP*}: An Efficient and Scalable Method for Localizing {LLM} Behaviour to Components},
+  author  = {Kram{\'a}r, J{\'a}nos and Lieberum, Tom and Shah, Rohin and Nanda, Neel},
+  journal = {arXiv preprint arXiv:2403.00745},
+  year    = {2024},
+}
+
+% --- The latent / pivot language of multilingual transformers ---
+
+@inproceedings{wendler2024llamas,
+  title     = {Do Llamas Work in {E}nglish? On the Latent Language of Multilingual Transformers},
+  author    = {Wendler, Chris and Veselovsky, Veniamin and Monea, Giovanni and West, Robert},
+  booktitle = {Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {15366--15394},
+  year      = {2024},
+  note      = {arXiv:2402.10588},
+}
+
+@article{dumas2024tongue,
+  title   = {Separating Tongue from Thought: Activation Patching Reveals Language-Agnostic Concept Representations in Transformers},
+  author  = {Dumas, Cl{\'e}ment and Wendler, Chris and Veselovsky, Veniamin and Monea, Giovanni and West, Robert},
+  journal = {arXiv preprint arXiv:2411.08745},
+  year    = {2024},
+}
+
+% --- Quantization ---
+
+@inproceedings{frantar2023gptq,
+  title     = {{GPTQ}: Accurate Post-Training Quantization for Generative Pre-trained Transformers},
+  author    = {Frantar, Elias and Ashkboos, Saleh and Hoefler, Torsten and Alistarh, Dan},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2023},
+  note      = {arXiv:2210.17323},
+}
+
+@inproceedings{lin2024awq,
+  title     = {{AWQ}: Activation-aware Weight Quantization for {LLM} Compression and Acceleration},
+  author    = {Lin, Ji and Tang, Jiaming and Tang, Haotian and Yang, Shang and Chen, Wei-Ming and Wang, Wei-Chen and Xiao, Guangxuan and Dang, Xingyu and Gan, Chuang and Han, Song},
+  booktitle = {Proceedings of Machine Learning and Systems (MLSys)},
+  year      = {2024},
+  note      = {arXiv:2306.00978},
+}
+
+% --- Evaluation & data ---
+
+@inproceedings{popovic2017chrf,
+  title     = {{chrF++}: Words Helping Character n-grams},
+  author    = {Popovi{\'c}, Maja},
+  booktitle = {Proceedings of the Second Conference on Machine Translation (WMT)},
+  pages     = {612--618},
+  year      = {2017},
+  doi       = {10.18653/v1/W17-4770},
+}
+
+@article{nllb2022,
+  title   = {No Language Left Behind: Scaling Human-Centered Machine Translation},
+  author  = {{NLLB Team} and Costa-juss{\`a}, Marta R. and Cross, James and {\c{C}}elebi, Onur and Elbayad, Maha and Heafield, Kenneth and Heffernan, Kevin and others},
+  journal = {arXiv preprint arXiv:2207.04672},
+  year    = {2022},
+}
+
+% --- The eight models ---
+
+@article{lescao2022bloom,
+  title   = {{BLOOM}: A 176{B}-Parameter Open-Access Multilingual Language Model},
+  author  = {{BigScience Workshop} and Le Scao, Teven and Fan, Angela and Akiki, Christopher and others},
+  journal = {arXiv preprint arXiv:2211.05100},
+  year    = {2022},
+}
+
+@inproceedings{alves2024tower,
+  title     = {Tower: An Open Multilingual Large Language Model for Translation-Related Tasks},
+  author    = {Alves, Duarte M. and Pombal, Jos{\'e} and Guerreiro, Nuno M. and Martins, Pedro H. and Alves, Jo{\~a}o and Farajian, Amin and Peters, Ben and Rei, Ricardo and Fernandes, Patrick and Agrawal, Sweta and Colombo, Pierre and de Souza, Jos{\'e} G. C. and Martins, Andr{\'e} F. T.},
+  booktitle = {Conference on Language Modeling (COLM)},
+  year      = {2024},
+  note      = {arXiv:2402.17733},
+}
+
+@article{rei2025towerplus,
+  title   = {{Tower+}: Bridging Generality and Translation Specialization in Multilingual {LLMs}},
+  author  = {Rei, Ricardo and Guerreiro, Nuno M. and Pombal, Jos{\'e} and van Stigt, Daan and Treviso, Marcos and Coheur, Lu{\'i}sa and de Souza, Jos{\'e} G. C. and Martins, Andr{\'e} F. T.},
+  journal = {arXiv preprint arXiv:2506.17080},
+  year    = {2025},
+}
+
+@article{martins2024eurollm,
+  title   = {{EuroLLM}: Multilingual Language Models for Europe},
+  author  = {Martins, Pedro Henrique and Fernandes, Patrick and Alves, Jo{\~a}o and Guerreiro, Nuno M. and Rei, Ricardo and Alves, Duarte M. and Pombal, Jos{\'e} and Farajian, Amin and Faysse, Manuel and Klimaszewski, Mateusz and Colombo, Pierre and Haddow, Barry and de Souza, Jos{\'e} G. C. and Birch, Alexandra and Martins, Andr{\'e} F. T.},
+  journal = {arXiv preprint arXiv:2409.16235},
+  year    = {2024},
+}
+
+@article{dang2024aya,
+  title   = {Aya Expanse: Combining Research Breakthroughs for a New Multilingual Frontier},
+  author  = {Dang, John and Singh, Shivalika and D'souza, Daniel and Ahmadian, Arash and Salamanca, Alejandro and Smith, Madeline and Peppin, Aidan and Hong, Sungjin and Govindassamy, Sumanth and Zhao, Terrence and others},
+  journal = {arXiv preprint arXiv:2412.04261},
+  year    = {2024},
+}
+
+@article{dubey2024llama3,
+  title   = {The {Llama 3} Herd of Models},
+  author  = {Grattafiori, Aaron and Dubey, Abhimanyu and Jauhri, Abhinav and Pandey, Abhinav and Kadian, Abhishek and others},
+  journal = {arXiv preprint arXiv:2407.21783},
+  year    = {2024},
+}
+
+@article{gemmateam2024gemma2,
+  title   = {Gemma 2: Improving Open Language Models at a Practical Size},
+  author  = {{Gemma Team}},
+  journal = {arXiv preprint arXiv:2408.00118},
+  year    = {2024},
+}
+
+@article{gemmateam2025gemma3,
+  title   = {Gemma 3 Technical Report},
+  author  = {{Gemma Team}},
+  journal = {arXiv preprint arXiv:2503.19786},
+  year    = {2025},
+}
