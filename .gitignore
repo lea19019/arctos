@@ -47,3 +47,5 @@ report/*.aux
 report/*.out
 report/*.log
 report/main.pdf
+report/*.bbl
+report/*.blg
