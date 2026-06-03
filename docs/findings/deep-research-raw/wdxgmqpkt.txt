@@ -1,0 +1,370 @@
+{
+  "summary": "Deep research harness — fan-out web searches, fetch sources, adversarially verify claims, synthesize a cited report.",
+  "agentCount": 103,
+  "logs": [
+    "Q: Novelty and operationalization check for a proposed MACHINE-TRANSLATION-specific…",
+    "Decomposed into 5 angles: broad/primary — MT-specific mixed-precision quantization novelty, interpretability-for-compression bridge, operationalization — localizing the target-language conversion circuit, academic/technical — layer depth vs quantization sensitivity, practitioner/serving — modular multilingual MT vs quantization",
+    "academic/technical — layer depth vs quantization sensitivity: 6 results",
+    "operationalization — localizing the target-language conversion circuit: 6 results",
+    "broad/primary — MT-specific mixed-precision quantization novelty: 6 results",
+    "broad/primary — MT-specific mixed-precision quantization novelty: 3 novel (3 filtered)",
+    "interpretability-for-compression bridge: 6 results",
+    "interpretability-for-compression bridge: 4 novel (2 filtered)",
+    "practitioner/serving — modular multilingual MT vs quantization: 6 results",
+    "practitioner/serving — modular multilingual MT vs quantization: 3 novel (3 filtered)",
+    "Fetched 22 sources → 103 claims → verifying top 25",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"This is the first large-scale evaluation of PTQ on…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"Multilingual Llama-2 transformers process input th…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"Language-matched calibration helps only at extreme…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The model's abstract intermediate 'concept space' …\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"Quantization degrades MT unevenly: 4-bit largely p…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The paper contains NO mention of quantization, com…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"M-Wanda is a one-shot PRUNING method (not quantiza…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The forward pass is characterized as moving throug…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"M-Wanda is NOT evaluated on machine-translation qu…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The 'compression' in this paper's title refers to …\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"X-ALMA uses a plug-and-play language-specific MODU…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"Quantization disproportionately degrades MT qualit…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The paper does NOT perform any layer-wise / depth-…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"Middle layers carry mostly language-agnostic signa…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"Multilingual transformers (Llama family) develop l…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"LAHIS identifies language-specific attention heads…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"Language-specific attention heads are concentrated…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The paper empirically attributes a depth pipeline …\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The output language is committed/encoded at an EAR…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"A language-neutral mean concept representation exi…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The latent-to-target-language crossover, and the i…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"In these vision-language models the multilingual-r…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"Language-specific neurons in multilingual LLMs are…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"Multilingual LLMs internally emit representations …\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The LAPE (language activation probability entropy)…\": 0-0 (3 abstain) ✗",
+    "Verify done: 25 claims → 0 confirmed, 25 killed"
+  ],
+  "result": {
+    "question": "Novelty and operationalization check for a proposed MACHINE-TRANSLATION-specific quantization method: \"pipeline-aware / endpoint-protection quantization\" — aggressively quantize the LANGUAGE-NEUTRAL MIDDLE layers of a multilingual MT LLM while preserving in high precision the two LANGUAGE-SPECIFIC endpoints: (a) the early-layer SUPER WEIGHTS (Yu et al. 2411.07191) that create the massive activations carrying source meaning forward, and (b) the LATE target-language CONVERSION CIRCUIT (the layers/heads that convert the language-neutral pivot representation into target-language tokens — late DLA \"predictor\" heads, the logit-lens pivot→target crossover, top-layer language-specific neurons). Grounded in: our phase-one finding that MT is a depth pipeline (encode → language-neutral pivot → late target commitment), and Tang et al. 2024 \"Language-Specific Neurons\" (LAPE, arXiv:2402.16438) showing language-specific neurons concentrate in TOP+BOTTOM layers with a shared language-agnostic MIDDLE.\n\nAnswer with specifics and citations:\n1. NOVELTY: has anyone done DEPTH/STAGE-aware or ENDPOINT-protection mixed-precision quantization (or pruning) SPECIFICALLY for machine translation / multilingual LLMs, evaluated on MT quality (BLEU/chrF/COMET/XCOMET)? Flag the closest prior work. Is \"protect language-specific endpoints, crush the neutral middle, for MT quant\" genuinely unoccupied?\n2. Has the language-specific-neuron / language-neutral-middle structure (LAPE arXiv:2402.16438; middle-layer alignment 2502.14830; shared-neuron 2506.01629; cross-layer transcoders 2511.10840) been used for COMPRESSION (quantization or pruning), or only for understanding/steering/MoE routing (e.g. NeuronMoE 2603.05046)?\n3. OPERATIONALIZATION: what is the best-evidenced way to identify the \"target-language conversion circuit\" to protect — LAPE language-specific neurons, DLA/attribution target-predictor heads, logit-lens latent-language crossover (Wendler 2402.10588, Dumas 2411.08745), or last-quarter layers? Which localizes the language-specific machinery most reliably?\n4. EVIDENCE that MIDDLE layers are more quantization-robust / compressible than early/late layers in decoder LLMs (layer-wise sensitivity vs depth); any results that contradict it (e.g. middle layers being sensitive)?\n5. The ambitious variant — a single quantized SHARED TRUNK + small per-language-pair high-precision CONVERSION TIPS for multilingual MT serving: what is the closest prior (per-language LoRA/adapters, language-specific MoE experts, modular MT like X-ALMA 2410.03115) and how does a QUANTIZATION version differ / is it novel?\n6. Is there precedent that protecting a SMALL MECHANISTICALLY-IDENTIFIED set (super weights + conversion heads) beats generic activation-magnitude/outlier salient protection at equal bits?\n\nContext: we already showed (8 multilingual models, XCOMET-XL) that MT-conditional GPTQ recovers much of the 3-bit cliff but no healing-free PTQ reaches FP16 at 3-bit; super-weight strength is multilingual-model-varying; salient-channel FP16 recovers W3 but not sub-2-bit. Deliverable: a per-question novelty verdict, the single closest competing paper for each sub-idea, the recommended operationalization of the conversion circuit, and an honest judgment of whether this is a defensible novel thesis contribution or already covered. Prioritize 2023-2026, ACL/EMNLP/NAACL/NeurIPS/ICLR/ICML/MLSys, WMT24/WMT25, and interpretability venues (COLM, BlackboxNLP).",
+    "summary": "All 25 claims refuted by adversarial verification. Research inconclusive — sources may be low-quality or claims overstated.",
+    "findings": [],
+    "refuted": [
+      {
+        "claim": "This is the first large-scale evaluation of PTQ on MT across 55 languages using five LLMs (1.7B-70B), comparing four quantization techniques (AWQ, BitsAndBytes, GGUF, AutoRound) -- but it is a uniform/whole-model PTQ benchmarking study, NOT a depth-aware, stage-aware, or mixed-precision endpoint-protection method. The paper contains zero mentions of layer-wise quantization, mixed-precision, salient channels, super weights, or language-specific neurons, leaving the proposed endpoint-protection thesis unoccupied by this closest MT-quant paper.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2508.20893"
+      },
+      {
+        "claim": "Quantization degrades MT unevenly: 4-bit largely preserves quality for high-resource languages and large models, but low-resource and typologically diverse languages (especially Indic) degrade significantly at 2-bit, in some cases losing translation ability entirely -- consistent with Arctos's 3-bit cliff and motivating language-aware protection, but the paper attributes robustness to model size and algorithm, not to protecting any mechanistically-identified component.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2508.20893"
+      },
+      {
+        "claim": "Language-matched calibration helps only at extreme (2-bit) quantization, not at moderate bit-widths -- a calibration finding (changing WHAT data calibrates the quantizer) distinct from and weaker than protecting language-specific WEIGHTS/components in high precision; this circumscribes the calibration-only approach and leaves room for the endpoint-protection idea.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2508.20893"
+      },
+      {
+        "claim": "Multilingual Llama-2 transformers process input through three depth phases: early layers where embeddings are far from output tokens, middle layers that can already decode a semantically correct next token but assign higher probability to its ENGLISH version, and late layers that move into an input/target-language-specific region of embedding space. This is direct evidence for a late-layer pivot-to-target crossover.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2402.10588"
+      },
+      {
+        "claim": "The model's abstract intermediate 'concept space' lies closer to English than to other languages, supporting the claim that an English-aligned language-neutral pivot representation occupies the middle of the network while language-specific commitment is deferred to the endpoints.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2402.10588"
+      },
+      {
+        "claim": "The forward pass is characterized as moving through three distinct functional regions of embedding space — input space, concept space, and output space — corresponding to early, middle, and late layers, which operationally frames the target-language conversion circuit as residing in the LATE layers (transition from concept space to output space).",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2402.10588"
+      },
+      {
+        "claim": "X-ALMA uses a plug-and-play language-specific MODULE architecture (modular per-language-group components on a multilingual MT model) to prevent language conflicts during training, covering 50 languages — but the modularity is parameter/training-driven, NOT quantization or mixed-precision; a quantization variant (shared quantized trunk + small high-precision per-language conversion tips) is therefore distinct and not addressed here.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2410.03115"
+      },
+      {
+        "claim": "The paper contains NO mention of quantization, compression, mixed-precision, pruning, or bit allocation — its 'modular' contribution is full-precision plug-and-play modules plus a preference-optimization method (ARPO), confirming that an endpoint-protection / depth-aware QUANTIZATION method for MT is not occupied by X-ALMA.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2410.03115"
+      },
+      {
+        "claim": "M-Wanda is a one-shot PRUNING method (not quantization) that adapts layerwise sparsity by language-aware activation statistics; it claims to be the first to explicitly optimize pruning for multilingual performance, making it the closest prior to depth/language-aware MT compression but distinct from a quantization method.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2505.21171"
+      },
+      {
+        "claim": "M-Wanda is NOT evaluated on machine-translation quality (no BLEU/chrF/COMET/XCOMET in the abstract); it targets general multilingual performance under sparsity, leaving MT-specific depth/endpoint compression unoccupied by this work.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2505.21171"
+      },
+      {
+        "claim": "The 'compression' in this paper's title refers to representational consolidation during pre-training (information-theoretic convergence from language-specific to cross-lingual abstractions), NOT model-size compression like quantization or pruning. The paper performs analysis only and does no quantization/pruning.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2506.01629"
+      },
+      {
+        "claim": "The paper empirically attributes a depth pipeline to multilingual decoder LLMs: early layers handle language comprehension, middle layers do language-independent reasoning, and later layers generate language-specific predictions — directly corroborating the proposed encode -> neutral-pivot -> late-target-commitment framing.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2408.14398"
+      },
+      {
+        "claim": "Middle layers carry mostly language-agnostic signal while language-specific signal concentrates in the attention output and FFN down-projection of EARLY and LATE layers — supporting the endpoint-protection thesis that the neutral middle is the compressible region and the language-specific machinery sits at the two endpoints.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2408.14398"
+      },
+      {
+        "claim": "Quantization disproportionately degrades MT quality for low-resource and typologically diverse languages, with the worst-baseline languages suffering most, especially at 2-bit (e.g., Malayalam dropped 17 COMET points En->X on Qwen3-8B vs. 2 points for Japanese).",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2508.20893v1"
+      },
+      {
+        "claim": "The paper does NOT perform any layer-wise / depth-wise / stage-aware analysis of quantization sensitivity for MT, and does not test mixed-precision by depth, protected layers, super-weights, or endpoint protection — it operates only at the whole-model post-training quantization level.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2508.20893v1"
+      },
+      {
+        "claim": "Multilingual transformers (Llama family) develop language-agnostic concept representations: activation patching can transplant a concept latent from a source prompt into a target prompt and swap the concept while preserving the output language, and vice versa, demonstrating that concept ('thought') and language ('tongue') are separable axes encoded in the residual stream.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2411.08745"
+      },
+      {
+        "claim": "The output language is committed/encoded at an EARLIER layer than the concept to be translated, establishing a depth ordering where language commitment precedes semantic concept representation in the forward pass.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2411.08745"
+      },
+      {
+        "claim": "A language-neutral mean concept representation exists: patching with the mean representation of a concept averaged across different languages does not harm and in fact improves the model's ability to translate it, evidencing a genuinely language-agnostic pivot embedding inside the network.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2411.08745"
+      },
+      {
+        "claim": "LAHIS identifies language-specific attention heads via gradient-based attribution using a trainable soft head mask, estimating head-wise importance in a single forward-backward pass (first-order Taylor approximation), rather than activation-magnitude/outlier signals.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2511.07498v1"
+      },
+      {
+        "claim": "Language-specific attention heads are concentrated in the LOWER (early) layers of multilingual LLMs, where heads show greater feature differentiation — supporting localization of language-specific machinery at network endpoints rather than uniformly.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2511.07498v1"
+      },
+      {
+        "claim": "Language-specific neurons in multilingual LLMs are concentrated predominantly in the model's top and bottom layers, not distributed uniformly across depth.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2402.16438"
+      },
+      {
+        "claim": "The LAPE (language activation probability entropy) metric can identify the small subset of language-specific neurons within LLMs.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/2402.16438"
+      },
+      {
+        "claim": "Multilingual LLMs internally emit representations close to English for semantically-loaded (lexical) words before transforming them into the target language during generation, supporting an English-pivot pipeline where a latent-language stage precedes late target-language conversion.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2502.15603v1"
+      },
+      {
+        "claim": "The latent-to-target-language crossover, and the interpretable English-pivot representations, appear in the middle-to-late layers (from the middle layers onward), while early layers are less interpretable — consistent with a late-layer conversion circuit being the locus of target-language commitment.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2502.15603v1"
+      },
+      {
+        "claim": "In these vision-language models the multilingual-relevant, language-specific structure concentrates in SHALLOW (early) layers, not the deep/late layers — a localization that differs from the proposal's claim of a LATE target-language conversion circuit.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/pdf/2508.18381"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2508.20893",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2402.10588",
+        "quality": "primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/abs/2410.03115",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2505.21171",
+        "quality": "primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/abs/2506.01629",
+        "quality": "primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/html/2408.14398",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2508.20893v1",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2411.08745",
+        "quality": "primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://www.emergentmind.com/papers/2402.10588",
+        "quality": "secondary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2511.07498v1",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2402.16438",
+        "quality": "primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/html/2502.15603v1",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/2508.18381",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2503.06518",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2411.07191",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2502.02790",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2503.04704",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2509.15455",
+        "quality": "primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/html/2510.16805v1",
+        "quality": "primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://neurips.cc/virtual/2024/poster/95811",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2212.09811",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/2411.07191",
+        "quality": "primary",
+        "claimCount": 5
+      }
+    ],
+    "stats": {
+      "angles": 5,
+      "sources": 22,
+      "claims": 103,
+      "verified": 25,
+      "confirmed": 0,
+      "killed": 25
+    }
+  }
+}

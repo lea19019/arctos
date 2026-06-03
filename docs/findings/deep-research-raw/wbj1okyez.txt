@@ -1,0 +1,365 @@
+{
+  "summary": "Deep research harness — fan-out web searches, fetch sources, adversarially verify claims, synthesize a cited report.",
+  "agentCount": 102,
+  "logs": [
+    "Q: Which HEALING-FREE low-bit PTQ quantizer should we build as the BASE under an MT…",
+    "Decomposed into 6 angles: broad/comparative survey, GPTVQ + QTIP repos/kernels/no-healing quality, SqueezeLLM dense-and-sparse FP16 outlier storage, LeanQuant + per-layer mixed-precision compatibility, practitioner integration: protected FP16 subset + per-layer bits, skeptical: when is VQ/trellis worth it over GPTQ",
+    "practitioner integration: protected FP16 subset + per-layer bits: 6 results",
+    "LeanQuant + per-layer mixed-precision compatibility: 6 results",
+    "LeanQuant + per-layer mixed-precision compatibility: 4 novel (2 filtered)",
+    "SqueezeLLM dense-and-sparse FP16 outlier storage: 6 results",
+    "SqueezeLLM dense-and-sparse FP16 outlier storage: 4 novel (2 filtered)",
+    "broad/comparative survey: 6 results",
+    "broad/comparative survey: 1 novel (5 filtered)",
+    "skeptical: when is VQ/trellis worth it over GPTQ: 6 results",
+    "skeptical: when is VQ/trellis worth it over GPTQ: 3 novel (3 filtered)",
+    "GPTVQ + QTIP repos/kernels/no-healing quality: 6 results",
+    "GPTVQ + QTIP repos/kernels/no-healing quality: 2 novel (4 filtered)",
+    "fetch failed: https://arxiv.org/abs/2402.15319 — agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "fetch failed: https://arxiv.org/html/2402.15319v1 — agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "Fetched 20 sources → 87 claims → verifying top 25",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The official GPTQ CUDA inference kernel is a 3-bit…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"GPTQ achieves WikiText2 perplexity of 8.07 (LLaMA-…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"GPTQ is a weight-only post-training quantization m…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"At W2 on Llama-2 7B, QTIP (1MAD, no fine-tuning) r…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The FP16 sparse subset is stored in compressed spa…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"QTIP without fine-tuning (no RFT) outperforms QuIP…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"SqueezeLLM's dense-and-sparse decomposition keeps …\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"SqueezeLLM's Dense-and-Sparse decomposition retain…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"SqueezeLLM keeps 0.45% of weights in full precisio…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"SqueezeLLM is a training-free post-training quanti…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"SqueezeLLM ships 3/4-bit CUDA LUT-based kernels ac…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"SqueezeLLM has an official open-source repository …\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"SqueezeLLM's 3-bit LLaMA-7B (with 0.45% sparse FP1…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"LeanQuant does NOT support keeping any subset of w…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"LeanQuant is a weight-only, healing-free PTQ metho…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"Marlin is a weight-only FP16xINT4 (4-bit) inferenc…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"On LLaMA-7B at 3-bit, dense-only SqueezeLLM reache…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"LeanQuant's core method replaces the standard min-…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"LeanQuant supports both affine (uniform INT) and n…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"The QTIP paper describes only uniform per-layer bi…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"SqueezeLLM is released under the permissive MIT li…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"SqueezeLLM ships CUDA kernels supporting 3-bit and…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"QTIP ships custom CUDA kernels for 2-, 3-, and 4-b…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"QTIP's quantization method is weight-only PTQ that…\": 0-0 (3 abstain) ✗",
+    "parallel[0] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[1] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "parallel[2] failed: agent({schema}): subagent completed without calling StructuredOutput (after 2 in-conversation nudges)",
+    "\"SqueezeLLM uses dense-and-sparse decomposition: a …\": 0-0 (3 abstain) ✗",
+    "Verify done: 25 claims → 0 confirmed, 25 killed"
+  ],
+  "result": {
+    "question": "Which HEALING-FREE low-bit PTQ quantizer should we build as the BASE under an MT-specific endpoint-protection overlay (preserve early super-weights + late conversion circuit in FP16, crush the language-neutral middle), and exactly how? We need: weight-only, no fine-tuning/QAT, ~3-bit (and 4-bit), deployable on A100, and compatible with a custom PER-LAYER mixed-precision + small FP16 salient/super-weight set. Evaluate, with specifics and citations:\n1. GPTVQ (arXiv:2402.15319) — codebook/vector quant, fully healing-free. Open-source repo? license? A100/vLLM kernel + actual inference speed? exact W3/W4 WikiText2 + zero-shot WITHOUT fine-tuning for Llama-2/3 7-13B? codebook dims (1D/2D/4D) tradeoff; quantization time/memory for 7-13B on one GPU; does the repo support per-layer custom bit-widths / leaving some channels in FP16?\n2. QTIP (arXiv:2406.11235) WITHOUT RFT — quality vs GPTVQ at W2/W3 no-healing; trellis/incoherence; repo/kernel/deployability; per-layer flexibility.\n3. LeanQuant (arXiv:2407.10032) — loss-aware INT grid, Marlin/LUT-GEMM compatible; repo; W3 quality; supports mixed precision?\n4. SqueezeLLM dense-and-sparse (arXiv:2306.07629) — keeps ~0.05% outliers FP16 (≈ our salient preservation); repo, kernel, W3 quality, how it stores the sparse FP16 part (directly relevant to our super-weight/conversion-circuit FP16 set).\n5. Plain GPTQ (we already implemented from scratch) as the baseline — when is the extra complexity of VQ/trellis worth it for ~3-bit MT?\n\nDeliverable: a ranked recommendation of the single best base quantizer to implement/adopt given our constraints (weight-only, healing-free, ~3-bit, A100-deployable, supports a protected FP16 subset + per-layer bit-widths), with repo links, licenses, kernel status, and the concrete integration path for layering our endpoint protection on top. Flag any that CANNOT keep an arbitrary FP16 subset (which would break our method). Prioritize 2023-2026, MLSys/NeurIPS/ICLR/ICML and official repos.",
+    "summary": "All 25 claims refuted by adversarial verification. Research inconclusive — sources may be low-quality or claims overstated.",
+    "findings": [],
+    "refuted": [
+      {
+        "claim": "GPTQ is a weight-only post-training quantization method requiring no fine-tuning/QAT/healing, supporting 2/3/4-bit compression of OPT and BLOOM family models including weight grouping.",
+        "vote": "0-0",
+        "source": "https://github.com/ist-daslab/gptq"
+      },
+      {
+        "claim": "GPTQ achieves WikiText2 perplexity of 8.07 (LLaMA-7B) and 6.63 (LLaMA-13B) at 3-bit, and 6.09 (7B) / 5.36 (13B) at 4-bit, without any fine-tuning — establishing the healing-free baseline at W3/W4 for 7-13B models.",
+        "vote": "0-0",
+        "source": "https://github.com/ist-daslab/gptq"
+      },
+      {
+        "claim": "The official GPTQ CUDA inference kernel is a 3-bit matrix x FP16-vector product that is only optimized for OPT-175B on 1xA100 or 2xA6000, so the repo provides no general A100-deployable fast kernel for Llama 7-13B.",
+        "vote": "0-0",
+        "source": "https://github.com/ist-daslab/gptq"
+      },
+      {
+        "claim": "QTIP without fine-tuning (no RFT) outperforms QuIP# even when QuIP# uses fine-tuning, at almost all model sizes — making QTIP a strong healing-free quantizer at 2-bit/3-bit.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2406.11235v1"
+      },
+      {
+        "claim": "At W2 on Llama-2 7B, QTIP (1MAD, no fine-tuning) reaches ~6.82 WikiText2 perplexity, beating no-FT QuIP# (8.22) and approaching fine-tuned AQLM (6.64); at 13B it reaches ~5.52 vs QuIP# 6.06 (no FT) and AQLM 5.70 (FT).",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2406.11235v1"
+      },
+      {
+        "claim": "The QTIP paper describes only uniform per-layer bitrate quantization and gives no mechanism for per-layer mixed precision or keeping an arbitrary FP16 subset of weights — a gap directly relevant to layering an endpoint-protection overlay on top.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2406.11235v1"
+      },
+      {
+        "claim": "SqueezeLLM's dense-and-sparse decomposition keeps roughly 0.45% of weights in FP16, split into 0.05% sensitivity-selected (Fisher) values plus 0.4% magnitude outliers, which is directly analogous to the project's salient/super-weight FP16 protection set.",
+        "vote": "0-0",
+        "source": "https://ar5iv.labs.arxiv.org/html/2306.07629"
+      },
+      {
+        "claim": "The FP16 sparse subset is stored in compressed sparse row (CSR) format and multiplied by a separate dedicated sparse matrix-vector kernel that overlaps with the dense low-bit kernel, showing exactly how an arbitrary protected FP16 set can be deployed alongside quantized weights.",
+        "vote": "0-0",
+        "source": "https://ar5iv.labs.arxiv.org/html/2306.07629"
+      },
+      {
+        "claim": "SqueezeLLM ships 3/4-bit CUDA LUT-based kernels achieving up to ~2.3-2.4x speedup over FP16 on GPU (A6000), confirming A100-class deployability of the low-bit base with the FP16 overlay.",
+        "vote": "0-0",
+        "source": "https://ar5iv.labs.arxiv.org/html/2306.07629"
+      },
+      {
+        "claim": "SqueezeLLM's Dense-and-Sparse decomposition retains both outlier weights AND a small set of highly sensitive (Fisher-information-identified) weights in FP16, stored as a sparse matrix in compressed sparse row (CSR) format; extracting just 0.45% of values (0.05% sensitive + 0.4% outliers) gives near-lossless 3-bit compression. This is a direct precedent for keeping an arbitrary FP16 salient/super-weight subset.",
+        "vote": "0-0",
+        "source": "https://openreview.net/pdf?id=pZhdz4oyzo"
+      },
+      {
+        "claim": "SqueezeLLM is a training-free post-training quantization method (no fine-tuning/QAT/healing): sensitivity uses a diagonal Fisher-information approximation of the Hessian computed from ~100 calibration samples, and weights are quantized via sensitivity-weighted k-means clustering. This matches the healing-free, weight-only constraint.",
+        "vote": "0-0",
+        "source": "https://openreview.net/pdf?id=pZhdz4oyzo"
+      },
+      {
+        "claim": "On LLaMA-7B at 3-bit, dense-only SqueezeLLM reaches 6.32 WikiText2 / 7.75 C4 PPL and the 0.45%-sparse version reaches 6.13 WikiText2 / 7.56 C4 (FP16 baseline 5.68/7.08), beating non-grouped GPTQ (7.55/9.55) and g128 GPTQ/AWQ; LLaMA-13B 3-bit SqueezeLLM-0.45% reaches 5.45 WikiText2 / 6.92 C4. This quantifies W3 quality versus plain GPTQ.",
+        "vote": "0-0",
+        "source": "https://openreview.net/pdf?id=pZhdz4oyzo"
+      },
+      {
+        "claim": "SqueezeLLM keeps 0.45% of weights in full precision (FP16) as a sparse component (0.05% sensitivity-based + 0.4% outliers), directly demonstrating storing an arbitrary salient/outlier subset outside the quantized grid.",
+        "vote": "0-0",
+        "source": "https://huggingface.co/papers/2306.07629"
+      },
+      {
+        "claim": "SqueezeLLM's 3-bit LLaMA-7B (with 0.45% sparse FP16) achieves 7.56 C4 / 6.13 WikiText-2 perplexity, vs FP16 baseline 7.08 C4 / 5.68 WikiText-2, all post-training with no fine-tuning/QAT.",
+        "vote": "0-0",
+        "source": "https://huggingface.co/papers/2306.07629"
+      },
+      {
+        "claim": "SqueezeLLM has an official open-source repository at github.com/SqueezeAILab/SqueezeLLM, with deployed GPU kernels delivering up to 2.4x speedup at 3-bit on an A6000.",
+        "vote": "0-0",
+        "source": "https://huggingface.co/papers/2306.07629"
+      },
+      {
+        "claim": "LeanQuant is a weight-only, healing-free PTQ method that builds directly on GPTQ's error-compensation framework, replacing GPTQ's non-adaptive min-max affine grids with loss-error-aware grids weighted by inverse-Hessian diagonals; it requires no fine-tuning or QAT.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2407.10032"
+      },
+      {
+        "claim": "LeanQuant does NOT support keeping any subset of weights/outliers in FP16 and does NOT support per-layer mixed-precision or variable bit-widths; it quantizes the whole model uniformly at a single bit-width, with outlier emphasis happening only within the chosen bit-width via inverse-Hessian weighting. This is a hard incompatibility with an arbitrary protected FP16 subset.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/html/2407.10032"
+      },
+      {
+        "claim": "Marlin is a weight-only FP16xINT4 (4-bit) inference kernel that supports only uniform INT4 group quantization (groupsize 128), with no support for arbitrary bit-widths, per-layer mixed precision, sparse/outlier handling, or leaving channels in FP16 — so it cannot directly serve a method requiring a protected FP16 subset or per-layer bit-widths.",
+        "vote": "0-0",
+        "source": "https://github.com/IST-DASLab/marlin"
+      },
+      {
+        "claim": "LeanQuant's core method replaces the standard min-max affine quantization grid with a learned loss-error-aware grid, motivated by outliers in inverse Hessian diagonals degrading quality (a healing-free, loss-aware INT grid approach consistent with the research question's framing).",
+        "vote": "0-0",
+        "source": "https://iclr.cc/virtual/2025/poster/30168"
+      },
+      {
+        "claim": "LeanQuant supports both affine (uniform INT) and non-uniform quantization, which is relevant to its claimed compatibility with multiple deployment kernel frameworks.",
+        "vote": "0-0",
+        "source": "https://iclr.cc/virtual/2025/poster/30168"
+      },
+      {
+        "claim": "SqueezeLLM uses dense-and-sparse decomposition: a heavily-quantized dense component plus a sparse FP16 component that explicitly preserves sensitive and outlier weights, with selectable sparsity levels of 0%, 0.05%, and 0.45%. This directly maps to the project's protected FP16 super-weight/conversion-circuit subset.",
+        "vote": "0-0",
+        "source": "https://github.com/SqueezeAILab/SqueezeLLM"
+      },
+      {
+        "claim": "SqueezeLLM is released under the permissive MIT license as the official ICML 2024 repo (arXiv:2306.07629), making it adoptable as a base quantizer without licensing friction.",
+        "vote": "0-0",
+        "source": "https://github.com/SqueezeAILab/SqueezeLLM"
+      },
+      {
+        "claim": "SqueezeLLM ships CUDA kernels supporting 3-bit and 4-bit quantized models, satisfying the ~3-bit / 4-bit weight-only requirement.",
+        "vote": "0-0",
+        "source": "https://github.com/SqueezeAILab/SqueezeLLM"
+      },
+      {
+        "claim": "QTIP ships custom CUDA kernels for 2-, 3-, and 4-bit matrix-vector multiplication, integrated into a BitshiftLinear class, so it is A100-deployable at the bit-widths we need (W3/W4).",
+        "vote": "0-0",
+        "source": "https://github.com/Cornell-RelaxML/qtip"
+      },
+      {
+        "claim": "QTIP's quantization method is weight-only PTQ that uses incoherence processing plus trellis coded quantization (TCQ), not a plain INT grid, which is the distinguishing trellis/incoherence design the research question asks about.",
+        "vote": "0-0",
+        "source": "https://github.com/Cornell-RelaxML/qtip"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://github.com/ist-daslab/gptq",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2406.11235v1",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2402.15319",
+        "quality": "unreliable",
+        "claimCount": 0
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2306.07629",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://openreview.net/pdf?id=pZhdz4oyzo",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://kaitchup.substack.com/p/squeezellm-better-3-bit-and-4-bit",
+        "quality": "blog",
+        "claimCount": 5
+      },
+      {
+        "url": "https://huggingface.co/papers/2306.07629",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2407.10032",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/IST-DASLab/marlin",
+        "quality": "primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://iclr.cc/virtual/2025/poster/30168",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://developers.redhat.com/articles/2024/04/17/how-marlin-pushes-boundaries-mixed-precision-llm-inference",
+        "quality": "secondary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/SqueezeAILab/SqueezeLLM",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/Cornell-RelaxML/qtip",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/Qualcomm-AI-research/gptvq",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/LeanModels/LeanQuant",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/vllm-project/vllm",
+        "quality": "primary",
+        "claimCount": 3
+      },
+      {
+        "url": "https://arxiv.org/abs/2306.07629",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2411.02355v3",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.together.ai/blog/even-better-even-faster-quantized-llms-with-qtip",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2402.15319v1",
+        "quality": "unreliable",
+        "claimCount": 0
+      }
+    ],
+    "stats": {
+      "angles": 6,
+      "sources": 20,
+      "claims": 87,
+      "verified": 25,
+      "confirmed": 0,
+      "killed": 25
+    }
+  }
+}
