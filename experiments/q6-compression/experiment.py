@@ -479,6 +479,9 @@ def main() -> None:
         q = max(1, n // 4)
         ends = list(range(0, q)) + list(range(n - q, n))     # language-specific
         middle = list(range(q, n - q))                       # language-neutral
+        half = n // 2
+        early = list(range(0, half))                         # source-encode + pivot
+        late = list(range(half, n))                          # pivot + target-commit
         res = {"n_layers": n, "ends_layers": ends, "middle_layers": middle,
                "ends_frac": round(len(ends) / n, 3)}
         # FP16 baseline already in summary["baseline_chrf"]; also score uniform refs per level.
@@ -489,6 +492,11 @@ def main() -> None:
                 block["crush_middle_endsFP16"] = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
             with quantize_linears(model, low, layers=ends, group_size=args.group_size):
                 block["crush_ends_middleFP16"] = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
+            # EARLY vs LATE at matched (50/50) budget — which end is MT-critical?
+            with quantize_linears(model, low, layers=early, group_size=args.group_size):
+                block["crush_early_lateFP16"] = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
+            with quantize_linears(model, low, layers=late, group_size=args.group_size):
+                block["crush_late_earlyFP16"] = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
             with quantize_linears(model, low, group_size=args.group_size):
                 block["uniform"] = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
             # crush middle but ALSO restore any super weights that fall in the middle
