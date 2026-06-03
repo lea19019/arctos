@@ -430,6 +430,34 @@ def bits_by_fisher(per_module_fisher: dict[str, float], avg_bits: float,
     return out
 
 
+def module_bits_from_layer_bits(model: Any, layer_bits: dict[int, int], *,
+                                layers: Iterable[int] | None = None,
+                                default: int = 4) -> dict[str, int]:
+    """Expand a per-LAYER bit assignment to the per-MODULE dict quantize_mixed_
+    precision wants. Module names are 'blocks.{li}.<sub>'."""
+    out: dict[str, int] = {}
+    for name, _mod in _iter_named_linears(model, layers):
+        li = int(name.split(".")[1])
+        out[name] = layer_bits.get(li, default)
+    return out
+
+
+def allocate_layer_bits(layer_drops: dict[int, float], avg_bits: float,
+                        low: int = 3, high: int = 4) -> dict[int, int]:
+    """Assign `high` bits to the most-sensitive layers, `low` to the rest, so the
+    average ≈ avg_bits. Sensitivity = measured quality drop when that layer alone
+    is quantized to `low` (a direct, sensitivity-native signal — not Fisher)."""
+    layers = list(layer_drops)
+    if not layers:
+        return {}
+    n = len(layers)
+    frac_hi = max(0.0, min(1.0, (avg_bits - low) / (high - low)))
+    n_hi = int(round(frac_hi * n))
+    order = sorted(layers, key=lambda li: layer_drops[li], reverse=True)  # most sensitive first
+    hi = set(order[:n_hi])
+    return {li: (high if li in hi else low) for li in layers}
+
+
 @contextmanager
 def quantize_mixed_precision(model: Any, bits_by_module: dict[str, int], *,
                              layers: Iterable[int] | None = None,

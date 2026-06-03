@@ -530,3 +530,37 @@ sweet spot than binary. The interesting question at 1.58/1-bit is whether
 **super-weight + salient-channel FP16 preservation rescues the collapse for MT**
 (extending BiLLM/PB-LLM logic to multilingual MT + XCOMET), and how the
 degradation cliff looks across 4→3→2→1.58→1. Differentiate hard from BiLLM/PB-LLM.
+
+---
+
+# ADDENDUM 3 (2026-06-03) — task-specific direction: pipeline-aware quantization
+
+Literature supporting "protect the language-specific endpoints, crush the
+language-neutral middle" for MT (see `docs/findings/phase2-novel-direction.md`).
+
+- **Tang et al. 2024, "Language-Specific Neurons: The Key to Multilingual
+  Capabilities" (LAPE)** — [arXiv:2402.16438](https://arxiv.org/abs/2402.16438).
+  Language-specific neurons concentrate in **top + bottom layers**; bottom layers
+  encode input into a unified semantic space, top layers project semantics into
+  each language's vocabulary. **Direct mechanistic support for the endpoint
+  structure.** (Used for steering, NOT compression → gap.)
+- **Middle-Layer Representation Alignment for Cross-Lingual Transfer** —
+  [arXiv:2502.14830](https://arxiv.org/abs/2502.14830). Middle layers form the
+  strongest shared cross-lingual space.
+- **Cross-Lingual Generalization and Compression: language-specific → shared
+  neurons** — [arXiv:2506.01629](https://arxiv.org/abs/2506.01629). Reps evolve
+  language-specific → shared; supports middle-as-redundant.
+- **Tracing Multilingual Reps with Cross-Layer Transcoders** —
+  [arXiv:2511.10840](https://arxiv.org/abs/2511.10840).
+- **CoopQ** [arXiv:2509.15455] / **Channel-wise MP** [arXiv:2410.13056] —
+  mixed-precision <4-bit needs inter-layer interactions (isolated per-layer
+  metrics fail → why our Fisher 2/4 split failed; motivates stage-level split).
+- **NeuronMoE** [arXiv:2603.05046] — language-neuron-guided MoE expert allocation
+  (~40% param cut); closest in spirit to per-language compression, but MoE not
+  quantization → our endpoint-quant framing is distinct.
+
+**Novelty status:** the endpoint structure (language-specific top+bottom, shared
+middle) is established for *understanding/steering/MoE*, but **no one uses it for
+MT quantization** (protect early super-weights + late conversion circuit, crush
+the neutral middle, eval on MT quality). That is the open contribution. Confirm
+with the second deep-research pass.

@@ -1,0 +1,262 @@
+{
+  "summary": "Deep research harness — fan-out web searches, fetch sources, adversarially verify claims, synthesize a cited report.",
+  "agentCount": 103,
+  "logs": [
+    "Q: Focused question: which post-training quantization methods reach NEAR-FP16-BASEL…",
+    "Decomposed into 5 angles: rotation-based / primary, codebook/vector quant, loss-aware grid + sensitivity mixed-precision, MT / multilingual + WMT25, deployability / kernel implementation",
+    "deployability / kernel implementation: 6 results",
+    "codebook/vector quant: 6 results",
+    "loss-aware grid + sensitivity mixed-precision: 6 results",
+    "loss-aware grid + sensitivity mixed-precision: 4 novel (2 filtered)",
+    "rotation-based / primary: 6 results",
+    "rotation-based / primary: 3 novel (3 filtered)",
+    "MT / multilingual + WMT25: 6 results",
+    "MT / multilingual + WMT25: 2 novel (4 filtered)",
+    "Fetched 21 sources → 102 claims → verifying top 25",
+    "\"At 4-bit weight, activation, AND KV-cache (W4A4) o…\": 3-0 ✓",
+    "\"SpinQuant uses learned (optimized) rotation matric…\": 3-0 ✓",
+    "\"QuIP# combines incoherence processing via randomiz…\": 3-0 ✓",
+    "\"At 2-bit weight-only with fine-tuning, QuIP# on Ll…\": 3-0 ✓",
+    "\"Multilingual calibration sets reduce average perpl…\": 3-0 ✓",
+    "\"Calibration-language effects are strongly quantize…\": 3-0 ✓",
+    "\"At 2-bit, VPTQ improves over prior SOTA codebook q…\": 3-0 ✓",
+    "\"QuIP# best results rely on block/inter-layer fine-…\": 3-0 ✓",
+    "\"GPTVQ is a pure post-training vector-quantization …\": 3-0 ✓",
+    "\"QuIP# is a weight-only PTQ method that achieves st…\": 3-0 ✓",
+    "\"VPTQ is a pure post-training vector/codebook quant…\": 1-2 ✗",
+    "\"Without any block fine-tuning, GPTVQ matches AQLM …\": 1-2 ✗",
+    "\"QuIP# uses fine-tuning as a core component of the …\": 3-0 ✓",
+    "\"AQLM's standard procedure includes block-wise fine…\": 3-0 ✓",
+    "\"QTIP WITHOUT recovery fine-tuning (RFT) matches or…\": 3-0 ✓",
+    "\"AQLM is Pareto-optimal below 3 bits and beats QuIP…\": 2-1 ✓",
+    "\"VPTQ achieves extreme low-bit (sub-2-bit and 2-bit…\": 3-0 ✓",
+    "\"LeanQuant is pure post-training quantization (no f…\": 3-0 ✓",
+    "\"At 2-bit weight-only (2.125 bpv) GPTVQ leaves a la…\": 2-1 ✓",
+    "\"At ~2 bits weight-only on Llama 2, AQLM leaves a s…\": 3-0 ✓",
+    "\"At 3-bit weight-only (3.125 bpv, W3 g128) GPTVQ cl…\": 3-0 ✓",
+    "\"QTIP enables high-quality 2-bit LLMs and shows min…\": 0-3 ✗",
+    "\"VPTQ is a pure post-training quantization method t…\": 0-3 ✗",
+    "\"At 3-bit weight-only on Llama-2-7B, LeanQuant (aff…\": 3-0 ✓",
+    "\"At 2-bit weight-only on Llama-2-7B, LeanQuant rema…\": 3-0 ✓",
+    "Verify done: 25 claims → 21 confirmed, 4 killed"
+  ],
+  "result": {
+    "question": "Focused question: which post-training quantization methods reach NEAR-FP16-BASELINE quality at 3-bit (and 2-bit) WITHOUT any fine-tuning / healing / QAT — pure PTQ — for 7-13B decoder-only LLMs, and which best suit machine translation? We showed GPTQ with MT-calibration + salient-channel FP16 preservation recovers much of the 3-bit cliff but leaves a 10-30% gap to FP16 baseline on translation (chrF++/XCOMET-XL); healing/fine-tuning is explicitly disallowed. Map, with specifics and numbers, the healing-free low-bit PTQ landscape:\n1. ROTATION-BASED (QuaRot arXiv:2404.00456, SpinQuant arXiv:2405.16406, QuIP/QuIP# arXiv:2402.04396): how close to FP16 at W3/W4 weight-only with NO fine-tuning? Does SpinQuant's learned rotation count as healing? Weight-only vs needs activation quant? A100/vLLM kernels? Any MT/multilingual eval?\n2. CODEBOOK/VECTOR quant (AQLM arXiv:2401.06118, QuIP#, VPTQ EMNLP2024, GPTVQ): near-baseline at 2-3 bit? AQLM/QuIP# use block fine-tuning — is the no-healing version still good?\n3. LOSS-AWARE GRID (LeanQuant arXiv:2407.10032, SqueezeLLM dense-and-sparse arXiv:2306.07629): 3-bit gap-to-FP16 without healing.\n4. MIXED-PRECISION done right (HAWQ-V2, per-layer sensitivity allocation): does keeping some layers at 4-bit and rest at 3-bit reach baseline without healing, and what per-layer SENSITIVITY signal works best (Hessian trace, reconstruction error, direct quality probe)? A naive Fisher-diagonal 2/4-bit split UNDERPERFORMED uniform in our tests.\n5. Which of these have been applied to MACHINE TRANSLATION / multilingual models, and is the WMT25 (XCOMET-XL) setting covered?\n\nDeliverable: per-method best reported W3 (and W2) gap-to-FP16 WITHOUT fine-tuning, kernel/deployability status, whether tried on MT, and a ranked recommendation of 1-2 healing-free mechanisms to add to close our 3-bit gap on translation. Flag anything already doing \"MT + rotation/codebook + no healing\". Prioritize 2023-2026, MLSys/NeurIPS/ICLR/ICML/ACL/EMNLP and the WMT25 compression task.",
+    "summary": "No healing-free PTQ reaches FP16 at 3-bit; 2-bit far for all. Best healing-free W3 mechanisms: pure-PTQ codebook VQ (GPTVQ) and QTIP without RFT. Rotation methods target W4A4. Recommend codebook VQ plus multilingual MT calibration.",
+    "findings": [
+      {
+        "claim": "No healing-free PTQ reaches FP16 at W3. Llama-2-7B WikiText2, FP16 5.47: GPTVQ-2D 5.83, SqueezeLLM 6.18, LeanQuant 6.61, GPTQ 8.37. W2: GPTVQ-4D 7.18, LeanQuant 25.69. 70B GPTVQ-2D 3.58 vs 3.31.",
+        "confidence": "high",
+        "sources": [
+          "https://arxiv.org/pdf/2402.15319",
+          "https://arxiv.org/abs/2407.10032"
+        ],
+        "evidence": "GPTVQ beats GPTQ/AWQ/OmniQuant; LeanQuant Table 7. Pure PTQ.",
+        "vote": "3-0 (9,18,19,20)"
+      },
+      {
+        "claim": "GPTVQ is fully healing-free codebook PTQ (GPTQ pass, Hessian comp, GD codebook only, no weight FT); 70B in 3-11h on one H100; accuracy rises 1D to 2D to 4D. Strongest pure-PTQ codebook at W3.",
+        "confidence": "high",
+        "sources": [
+          "https://arxiv.org/pdf/2402.15319"
+        ],
+        "evidence": "Abstract: VQ without end-to-end fine-tuning.",
+        "vote": "3-0 (8,9)"
+      },
+      {
+        "claim": "QTIP without RFT matches/exceeds QuIP-sharp and AQLM with RFT (7B 2-bit 6.82 vs QuIP-sharp-FT 8.22). QuIP-sharp/AQLM/VPTQ headline numbers are NOT healing-free; FT is core (QuIP-sharp NoFT 8.22 vs FT 6.19 vs 5.12). VPTQ no-healing claim refuted.",
+        "confidence": "high",
+        "sources": [
+          "https://arxiv.org/abs/2406.11235",
+          "https://arxiv.org/abs/2402.04396",
+          "https://arxiv.org/abs/2401.06118"
+        ],
+        "evidence": "QTIP NeurIPS Table 3; AQLM Phase 3 intra-block FT.",
+        "vote": "3-0 (2,3,11,12,13,14,16)"
+      },
+      {
+        "claim": "Rotation (SpinQuant, QuaRot) targets W4A4. SpinQuant 2.9-pt gap is W4A4 plus KV4 on 7B, not W3; learns rotations (Cayley SGD) vs QuaRot random (up to 13 pts). LeanQuant healing-free loss-aware grid: W3 7B 6.61, beats GPTQ 8.37.",
+        "confidence": "high",
+        "sources": [
+          "https://arxiv.org/abs/2405.16406",
+          "https://arxiv.org/abs/2407.10032"
+        ],
+        "evidence": "SpinQuant abstract; no MT eval.",
+        "vote": "3-0 (0,1,18,19,20)"
+      },
+      {
+        "claim": "MT healing-free lever is calibration-language: multilingual cuts 4-bit weight-only ppl up to 3.52 (GPTQ); GPTQ prefers diverse mixes, AWQ varies 0.35 and prefers language-matched. Recommend GPTVQ or QTIP-no-RFT plus multilingual MT calibration on salient-channel FP16; use Hessian or recon-error, not Fisher.",
+        "confidence": "high",
+        "sources": [
+          "https://arxiv.org/pdf/2601.18306",
+          "https://aclanthology.org/2024.emnlp-main.467/"
+        ],
+        "evidence": "EACL 2026 up to 3.52 ppl; VPTQ 2-bit beats SOTA 0.01-0.34 LLaMA-2.",
+        "vote": "3-0 (5,6,7,17)"
+      }
+    ],
+    "caveats": "Use NoFT/no-RFT ablations for QuIP-sharp, AQLM, VPTQ under a strict no-healing bar. AQLM beats QTIP-no-RFT at 7B 2-bit. Two VPTQ no-healing claims refuted. Only EACL 2026 covers MT, at 4-bit weight-only; no WMT25 or XCOMET-XL found.</parameter>\n<parameter name=\"openQuestions\">[\"No healing-free method has a verified MT eval at W3.\", \"WMT25 compression not addressed by any verified PTQ method.\", \"Best healing-free sensitivity signal for mixed-precision MT remains open.\"]",
+    "refuted": [
+      {
+        "claim": "VPTQ is a pure post-training vector/codebook quantization method for LLMs that uses second-order optimization (no fine-tuning, QAT, or healing).",
+        "vote": "1-2",
+        "source": "https://aclanthology.org/2024.emnlp-main.467/"
+      },
+      {
+        "claim": "Without any block fine-tuning, GPTVQ matches AQLM on the size-vs-accuracy trade-off; AQLM only surpasses it by adding (disallowed) block fine-tuning, which greatly increases compression cost. This is direct evidence that the no-healing version of codebook VQ is competitive.",
+        "vote": "1-2",
+        "source": "https://arxiv.org/pdf/2402.15319"
+      },
+      {
+        "claim": "QTIP enables high-quality 2-bit LLMs and shows minimal degradation at 2-3 bits on Llama 3.1, indicating near-baseline quality is achievable in the W2-W3 regime.",
+        "vote": "0-3",
+        "source": "https://www.together.ai/blog/even-better-even-faster-quantized-llms-with-qtip"
+      },
+      {
+        "claim": "VPTQ is a pure post-training quantization method that compresses 70B and 405B LLMs to 1-2 bits without retraining (no fine-tuning/healing).",
+        "vote": "0-3",
+        "source": "https://github.com/microsoft/VPTQ"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2405.16406",
+        "quality": "primary",
+        "angle": "rotation-based / primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/html/2402.04396v1",
+        "quality": "primary",
+        "angle": "rotation-based / primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/2601.18306",
+        "quality": "primary",
+        "angle": "rotation-based / primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://aclanthology.org/2024.emnlp-main.467/",
+        "quality": "primary",
+        "angle": "codebook/vector quant",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/2402.15319",
+        "quality": "primary",
+        "angle": "codebook/vector quant",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2402.04396",
+        "quality": "primary",
+        "angle": "codebook/vector quant",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2401.06118",
+        "quality": "primary",
+        "angle": "codebook/vector quant",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.together.ai/blog/even-better-even-faster-quantized-llms-with-qtip",
+        "quality": "primary",
+        "angle": "codebook/vector quant",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/microsoft/VPTQ",
+        "quality": "primary",
+        "angle": "codebook/vector quant",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2407.10032",
+        "quality": "primary",
+        "angle": "loss-aware grid + sensitivity mixed-precision",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/2306.07629",
+        "quality": "primary",
+        "angle": "loss-aware grid + sensitivity mixed-precision",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.stat.berkeley.edu/~mmahoney/pubs/NeurIPS-2020-hawq-v2.pdf",
+        "quality": "primary",
+        "angle": "loss-aware grid + sensitivity mixed-precision",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2402.14866",
+        "quality": "primary",
+        "angle": "loss-aware grid + sensitivity mixed-precision",
+        "claimCount": 5
+      },
+      {
+        "url": "https://aclanthology.org/2025.wmt-1.25/",
+        "quality": "primary",
+        "angle": "MT / multilingual + WMT25",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2508.20893",
+        "quality": "primary",
+        "angle": "MT / multilingual + WMT25",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/2404.00456",
+        "quality": "primary",
+        "angle": "deployability / kernel implementation",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/html/2405.04532v2",
+        "quality": "primary",
+        "angle": "deployability / kernel implementation",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2409.17066",
+        "quality": "primary",
+        "angle": "deployability / kernel implementation",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/pdf/2401.06118",
+        "quality": "primary",
+        "angle": "deployability / kernel implementation",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/2405.16406",
+        "quality": "primary",
+        "angle": "deployability / kernel implementation",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/vahe1994/AQLM",
+        "quality": "primary",
+        "angle": "deployability / kernel implementation",
+        "claimCount": 5
+      }
+    ],
+    "stats": {
+      "angles": 5,
+      "sourcesFetched": 21,
+      "claimsExtracted": 102,
+      "claimsVerified": 25,
+      "confirmed": 21,
+      "killed": 4,
+      "afterSynthesis": 5,
+      "urlDupes": 4,
+      "budgetDropped": 5,
+      "agentCalls": 103
+    }
+  }
+}

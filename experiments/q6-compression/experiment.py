@@ -45,7 +45,7 @@ from src.interp.activation_stats import collect_activation_stats
 from src.interp.compress import (
     quantize_linears, prune_linears, ablate_weights, magnitude_mask,
     collect_hessians, gptq_quantize_linears, bits_by_fisher, quantize_mixed_precision,
-    parse_spec,
+    parse_spec, allocate_layer_bits, module_bits_from_layer_bits,
 )
 from src.interp.super_weights import detect_super_weights, verify_super_weight, _mlp_out_linear
 from src.interp.salient_channels import salience_by_regime, compare_salience
@@ -133,6 +133,13 @@ def main() -> None:
     ap.add_argument("--use-comet", action="store_true",
                     help="score gptq/alloc/calib stages with XCOMET-XL (WMT25 metric)")
     ap.add_argument("--comet-gpus", type=int, default=1)
+    ap.add_argument("--mixed-low", type=int, default=3, help="floor bits for mixedlayer")
+    ap.add_argument("--mixed-high", type=int, default=4, help="protected bits for mixedlayer")
+    ap.add_argument("--mixed-avg-bits", type=float, nargs="+", default=[3.25, 3.5],
+                    help="average-bit targets for the per-layer mixed-precision sweep")
+    ap.add_argument("--probe-n", type=int, default=12, help="examples for the per-layer sensitivity probe")
+    ap.add_argument("--pipe-levels", type=str, nargs="+", default=["3", "2", "ternary"],
+                    help="bit-specs to crush the middle (and ends) at in the pipeline stage")
     args = ap.parse_args()
     global _USE_COMET, _COMET_GPUS
     _USE_COMET = args.use_comet
@@ -233,7 +240,7 @@ def main() -> None:
     # Baselines per pair (clean generation quality).
     base: dict[str, float] = {}
     eval_sets: dict[str, tuple] = {}
-    if any(s in args.stages for s in ("shrink", "keep", "prune", "calib", "gptq", "alloc")):
+    if any(s in args.stages for s in ("shrink", "keep", "prune", "calib", "gptq", "alloc", "mixedlayer", "pipeline")):
         for pair in pairs:
             recs = list(load_wmt_pairs(pair, n=args.n_examples))
             refs = [r.target for r in recs]
@@ -428,6 +435,76 @@ def main() -> None:
                 p: {m: (mixed[p][m] - uniform[p][m])
                     for m in ("chrf", "comet") if mixed[p][m] is not None} for p in pairs}}
         print(f"[q6][alloc] avg={avg}b mixed_minus_uniform={summary['alloc']['mixed_minus_uniform']}", flush=True)
+
+    # ---------------- MIXEDLAYER (per-layer mixed precision, done right) ---- #
+    if "mixedlayer" in args.stages:
+        low, high = args.mixed_low, args.mixed_high
+        n_layers = model.cfg.n_layers
+        # DIRECT per-layer sensitivity: quantize one layer at `low`, rest FP16,
+        # measure chrF++ drop (a sensitivity-native signal; Fisher proxy failed).
+        print(f"[q6][mixedlayer] probing per-layer sensitivity at W{low} (n={args.probe_n}) ...", flush=True)
+        probe_sets = {p: (eval_sets[p][0][:args.probe_n], p, eval_sets[p][2][:args.probe_n]) for p in pairs}
+        base_probe = {p: _mean_chrf(model, *probe_sets[p], args.max_new_tokens) for p in pairs}
+        drops = {}
+        for li in range(n_layers):
+            with quantize_linears(model, low, layers=[li], group_size=args.group_size):
+                q = {p: _mean_chrf(model, *probe_sets[p], args.max_new_tokens) for p in pairs}
+            drops[li] = float(np.mean([base_probe[p] - q[p] for p in pairs]))
+        summary["mixedlayer"] = {"low": low, "high": high,
+                                 "layer_drops": drops,
+                                 "most_sensitive": sorted(drops, key=drops.get, reverse=True)[:8]}
+        print(f"[q6][mixedlayer] most-sensitive layers: {summary['mixedlayer']['most_sensitive']}", flush=True)
+        # uniform references at low and high
+        for b in (low, high):
+            with quantize_linears(model, b, group_size=args.group_size):
+                summary["mixedlayer"][f"uniform_w{b}"] = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
+        # mixed-precision at each avg-bit target
+        for avg in args.mixed_avg_bits:
+            lb = allocate_layer_bits(drops, avg, low=low, high=high)
+            mb = module_bits_from_layer_bits(model, lb, default=high)
+            n_hi = sum(1 for v in lb.values() if v == high)
+            with quantize_mixed_precision(model, mb, group_size=args.group_size):
+                row = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
+            summary["mixedlayer"][f"mixed_avg{avg}"] = {"n_high": n_hi, "of": n_layers, "quality": row}
+            print(f"[q6][mixedlayer] avg={avg}b ({n_hi}/{n_layers} at W{high}): "
+                  f"{ {p: row[p] for p in pairs} }", flush=True)
+
+    # ---------------- PIPELINE (the novel MT-grounded test) --------------- #
+    # Translation = language-specific endpoints (early super-weights + late
+    # conversion circuit) around a language-NEUTRAL middle. Test: crush the
+    # middle vs crush the ends at MATCHED budget. If crush_middle >> crush_ends,
+    # the language-neutral middle is over-provisioned and the method works.
+    if "pipeline" in args.stages:
+        n = model.cfg.n_layers
+        q = max(1, n // 4)
+        ends = list(range(0, q)) + list(range(n - q, n))     # language-specific
+        middle = list(range(q, n - q))                       # language-neutral
+        res = {"n_layers": n, "ends_layers": ends, "middle_layers": middle,
+               "ends_frac": round(len(ends) / n, 3)}
+        # FP16 baseline already in summary["baseline_chrf"]; also score uniform refs per level.
+        sw_in_middle = [(li, o, j) for (li, o, j) in super_coords if li in middle]
+        for low in args.pipe_levels:
+            block = {}
+            with quantize_linears(model, low, layers=middle, group_size=args.group_size):
+                block["crush_middle_endsFP16"] = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
+            with quantize_linears(model, low, layers=ends, group_size=args.group_size):
+                block["crush_ends_middleFP16"] = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
+            with quantize_linears(model, low, group_size=args.group_size):
+                block["uniform"] = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
+            # crush middle but ALSO restore any super weights that fall in the middle
+            if sw_in_middle:
+                with quantize_linears(model, low, layers=middle, group_size=args.group_size):
+                    blocks = model.arch.get_blocks(model.hf_model)
+                    cand_by = {(c["layer"], c["out_dim"], c["in_dim"]): c["weight_value"]
+                               for c in summary.get("find_super_weights", {}).get("candidates", [])}
+                    for (li, o, j) in sw_in_middle:
+                        if (li, o, j) in cand_by:
+                            _mlp_out_linear(model, blocks[li]).weight[o, j] = cand_by[(li, o, j)]
+                    block["crush_middle_plus_superweight"] = _eval_q(model, eval_sets, pairs, args.max_new_tokens)
+            summary.setdefault("pipeline", {})[f"w{low}"] = block
+            cm = {p: block["crush_middle_endsFP16"][p] for p in pairs}
+            ce = {p: block["crush_ends_middleFP16"][p] for p in pairs}
+            print(f"[q6][pipeline] W{low}: crush_middle={cm}  crush_ends={ce}", flush=True)
 
     (args.output / "q6_summary.json").write_text(json.dumps(summary, indent=2))
     print(f"[q6] wrote {args.output/'q6_summary.json'}", flush=True)

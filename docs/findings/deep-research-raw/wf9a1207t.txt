@@ -1,0 +1,333 @@
+{
+  "summary": "Deep research harness — fan-out web searches, fetch sources, adversarially verify claims, synthesize a cited report.",
+  "agentCount": 109,
+  "logs": [
+    "Q: Research goal: design a NOVEL post-training compression method for multilingual …",
+    "Decomposed into 6 angles: calibration-data PTQ (primary), super weights / massive activations multilingual, task-conditional mixed-precision + salient channels, MT-conditional pruning + recovery, WMT25 compression shared task systems, MT LLM quantization low-bit cliff (cross-cutting)",
+    "calibration-data PTQ (primary): 6 results",
+    "task-conditional mixed-precision + salient channels: 6 results",
+    "MT-conditional pruning + recovery: 6 results",
+    "MT-conditional pruning + recovery: 4 novel (2 filtered)",
+    "super weights / massive activations multilingual: 6 results",
+    "super weights / massive activations multilingual: 4 novel (2 filtered)",
+    "MT LLM quantization low-bit cliff (cross-cutting): 6 results",
+    "MT LLM quantization low-bit cliff (cross-cutting): 3 novel (3 filtered)",
+    "WMT25 compression shared task systems: 6 results",
+    "WMT25 compression shared task systems: 3 novel (3 filtered)",
+    "Fetched 26 sources → 125 claims → verifying top 25",
+    "\"4-bit quantization preserves translation quality f…\": 3-0 ✓",
+    "\"Tailoring the calibration set to the evaluation la…\": 3-0 ✓",
+    "\"Language-matched calibration data for PTQ of MT LL…\": 3-0 ✓",
+    "\"The study evaluates language-matched calibration o…\": 3-0 ✓",
+    "\"Non-English and multilingual calibration sets sign…\": 3-0 ✓",
+    "\"The study evaluated four quantizers — AWQ, BitsAnd…\": 3-0 ✓",
+    "\"Modern LLMs (Llama-2 7B, Llama-3 8B, Command-R 35B…\": 2-1 ✓",
+    "\"Pruning methods (SparseGPT, Wanda) are substantial…\": 3-0 ✓",
+    "\"Improvements in pre-training have reduced the rele…\": 0-3 ✗",
+    "\"Automatic metrics severely underestimate quantizat…\": 3-0 ✓",
+    "\"At 4-bit weight quantization, the calibration data…\": 2-1 ✓",
+    "\"Calibration-data choice affects pruning more than …\": 3-0 ✓",
+    "\"Quantization harms non-Latin/divergent-script lang…\": 2-1 ✓",
+    "\"The paper experiments only with English models and…\": 3-0 ✓",
+    "\"Removing a single 'super weight' parameter catastr…\": 3-0 ✓",
+    "\"Super weights can be identified with a data-free m…\": 3-0 ✓",
+    "\"Additional calibration examples give diminishing r…\": 3-0 ✓",
+    "\"Self-calibration generates synthetic calibration d…\": 3-0 ✓",
+    "\"Super weights are detected by spotting spikes in i…\": 3-0 ✓",
+    "\"Super weights in LLMs are typically located in an …\": 3-0 ✓",
+    "\"Massive activations are a small set (often as few …\": 3-0 ✓",
+    "\"The study covers only English-centric model famili…\": 3-0 ✓",
+    "\"Preserving super activations (the large activation…\": 3-0 ✓",
+    "\"Preserving super activations in high precision let…\": 2-1 ✓",
+    "\"Models contain very few super weights (Llama-7B ha…\": 3-0 ✓",
+    "Verify done: 25 claims → 24 confirmed, 1 killed"
+  ],
+  "result": {
+    "question": "Research goal: design a NOVEL post-training compression method for multilingual machine-translation LLMs (decoder-only, 7-12B: Aya Expanse, TowerInstruct/Tower-Plus, Llama-3.1, EuroLLM, BLOOM; Gemma as a QAT baseline), evaluated on the WMT25 Model Compression Shared Task setting (language pairs cs→de, en→zh, en→arz; primary metric XCOMET-XL, also MetricX-24; secondary on-disk size and tokens/sec on A100). We need to know precisely what has ALREADY been done so we can find an unoccupied, defensible novelty (\"the gem\").\n\nMap the literature and identify the gaps for these specific levers we are testing:\n1. TASK/DOMAIN/LANGUAGE-MATCHED CALIBRATION DATA for PTQ of MT LLMs: who has compared MT-parallel or language-matched vs generic (C4/Wikipedia) calibration, for which quantizers (GPTQ, AWQ, LeanQuant, GGUF, AutoRound, BitsAndBytes), at which bit-widths (4/3/2-bit), and where does the benefit concentrate (low-bit? low-resource langs? divergent scripts)? Anchor: \"The Uneven Impact of PTQ in Machine Translation\" (arXiv:2508.20893) found language-matched calibration helps mainly at 2-bit for low-resource, using AWQ/BnB/GGUF/AutoRound but NOT GPTQ. Is MT-conditional GPTQ specifically unexplored? Also Williams & Aletras 2024 (arXiv:2311.09755) and arXiv:2405.20835 (diminishing calibration effect on modern LLM weight quant).\n2. SUPER WEIGHTS / MASSIVE ACTIVATIONS (Yu et al. 2411.07191; Sun et al. 2402.17762) in MULTILINGUAL/MT models specifically — has anyone studied super-weight location/strength across multilingual model families, or preserved them during quantization for MT quality?\n3. HESSIAN/FISHER-DRIVEN MIXED-PRECISION bit allocation (HAWQ, HAWQ-V2, Q-BERT) at LLM-scale for MT, and whether anyone makes the sensitivity signal TASK-CONDITIONAL (MT-specific Fisher).\n4. SALIENT-CHANNEL FP16 PRESERVATION (SqueezeLLM dense-and-sparse, AWQ) for recovering the low-bit cliff in MT.\n5. MT-CONDITIONAL PRUNING (Wanda/SparseGPT with parallel-data calibration) + recovery (LoRA/DoRA/distillation) for MT — and the ALMA finding that large parallel corpora hurt.\n6. The WMT25 Model Compression Shared Task (Gaido et al. 2025): submitted systems (LeanAya, GeLaCo+GKD, TCD-Kreasof), methods, XCOMET-XL/MetricX numbers, and the explicit Pareto gap (~4-6GB at COMET 45-52).\n\nPreliminary findings to contextualize (chrF++, n=24, directional): MT-conditional calibration helps PRUNING (Wanda, 19/24 positive, median +2.2 chrF++) but NOT quantization (AWQ, 9/24); keeping top-1% salient channels FP16 recovers most of the 3-bit cliff (Gemma 12.7->48.4); causal-ranked super weights are early-layer and model-varying (EuroLLM ablation KL 3.28, Gemma near-zero); Wanda >> magnitude pruning.\n\nDeliverable: a cited report that (a) states, per lever, what is already established vs genuinely open, (b) names the single most defensible novel contribution for an MT-specific compression method given these gaps, and (c) flags any paper that already does what we plan. Prioritize 2023-2026 work, WMT24/WMT25 compression tasks, and ACL/EMNLP/NeurIPS/ICLR/MLSys venues.",
+    "summary": "For an MT-specific post-training compression method, the literature establishes a clear opportunity structure. On calibration data (lever 1), the dominant finding is asymmetric: language/task-matched calibration helps PRUNING substantially but barely moves WEIGHT QUANTIZATION, and where it does help quantization, the benefit concentrates at 2-bit and low-resource/divergent-script languages, not 4-bit. Critically, the anchor MT-quantization paper (2508.20893) never tested GPTQ, while the GPTQ-multilingual paper (2601.18306) only measured perplexity, never MT quality (XCOMET/MetricX) — so MT-QUALITY-conditional GPTQ at low bit-width is genuinely unoccupied, though the prior on it paying off for 4-bit quantization is weak. On super weights / massive activations (levers 2, 4), the mechanism is rock-solid (1-6 scalars, mostly early-layer down_proj, removal is catastrophic, FP16 preservation rescues RTN), but ALL of it was established on English-centric models with English benchmarks — no multilingual/MT model has been studied for super-weight location/strength or for MT-quality recovery, matching your own finding that causal-ranked super weights are model-varying across multilingual families. The single most defensible novel contribution is therefore a MULTILINGUAL/MT-conditional salient-element (super-weight + super-activation) preservation scheme, ideally paired with causal-KL ranking on MT data and a low-bit (2-3 bit) recovery target evaluated with XCOMET-XL — this sits in the intersection of two documented gaps (no multilingual super-weight study; no MT-quality salient-FP16 recovery at the low-bit cliff) and is corroborated by your preliminary Gemma 12.7->48.4 recovery. The literature did NOT surface coverage of levers 3 (MT-conditional Hessian/Fisher mixed-precision) or 6 (WMT25 shared-task submitted systems and Pareto numbers), so those remain open in this evidence set.",
+    "findings": [
+      {
+        "claim": "Language/task-matched calibration for PTQ of MT LLMs helps mainly at LOW bit-width (2-bit) and for low-resource / typologically divergent (non-Latin script) languages; at 4-bit it has minimal-to-no impact and the compression method matters more than the calibration distribution.",
+        "confidence": "high",
+        "vote": "3-0 (merged from 4 claims; one component 2-1)",
+        "sources": [
+          "https://arxiv.org/abs/2508.20893",
+          "https://arxiv.org/abs/2311.09755",
+          "https://arxiv.org/abs/2407.03211"
+        ],
+        "evidence": "2508.20893 abstract: 'language-matched calibration offers benefits primarily in low-bit scenarios'; at 2-bit Bengali calibration gives +3.1 COMET on EN->Bn, at 4-bit calibration language has minimal impact (~0.2 COMET). 2508.20893 also: '4-bit quantization often preserves translation quality for high-resource languages and large models, [while] significant degradation occurs for low-resource and typologically diverse languages, particularly in 2-bit settings.' Williams & Aletras (2311.09755): at 4-bit 'the compression method itself may be a more influential factor' than calibration distribution. Marchisio et al. (2407.03211): non-Latin scripts harmed more (-1.9% vs -0.7% at 103B). Merges claims [0],[2],[7],[10]."
+      },
+      {
+        "claim": "MT-QUALITY-conditional GPTQ calibration at low bit-width is genuinely unexplored: the anchor MT-PTQ study never tested GPTQ, and the multilingual-GPTQ study measured only perplexity, never MT quality (XCOMET/MetricX/chrF).",
+        "confidence": "high",
+        "vote": "3-0 (merged from 2 claims)",
+        "sources": [
+          "https://arxiv.org/abs/2508.20893",
+          "https://arxiv.org/abs/2601.18306"
+        ],
+        "evidence": "2508.20893 evaluated four quantizers — 'AWQ, BitsAndBytes, GGUF, and AutoRound' — and used GPTQ only as a background citation, not an experiment. 2601.18306 (Chimoto et al., EACL 2026) DID test GPTQ+AWQ with language-matched/multilingual calibration but its metric is PERPLEXITY only; no BLEU/chrF/XCOMET. Thus the cell {GPTQ x MT-quality metric x low-resource MT} is unoccupied. Merges claims [1],[5]. Caveat: prior from claim [7] suggests 4-bit GPTQ gains may be small — target 2-3 bit."
+      },
+      {
+        "claim": "Non-English / multilingual calibration sets do improve quantized multilingual LLMs on PERPLEXITY (multilingual mixes give largest overall reduction up to 3.52 ppl; language-matched gives largest per-language gains), but this benefit is demonstrated only on perplexity, not on MT quality.",
+        "confidence": "high",
+        "vote": "3-0 (merged from 3 claims)",
+        "sources": [
+          "https://arxiv.org/abs/2601.18306"
+        ],
+        "evidence": "Chimoto, Elhoushi & Bassett, 'Calibrating Beyond English' (EACL 2026): 'non-English and multilingual calibration sets significantly improve perplexity compared to English-only baselines ... multilingual mixes achieving the largest overall reductions of up to 3.52 points'; 'tailoring calibration sets to the evaluation language yields the largest improvements for individual languages.' 3.52 figure is Llama3.1-8B+GPTQ across 10 languages. Merges claims [3],[4]. Important caveat: perplexity gains may not transfer to XCOMET/MetricX — and your own AWQ result (9/24 chrF++) suggests they do not for MT quantization."
+      },
+      {
+        "claim": "Calibration data choice affects PRUNING far more than weight QUANTIZATION — both in dispersion across calibration sets (up to 7.5% for SparseGPT vs <2% for AWQ/GPTQ) and in quantity sensitivity (SparseGPT 55.26->11.12 ppl over 1->128 examples vs GPTQ 6.13->5.90).",
+        "confidence": "high",
+        "vote": "3-0 (merged from 3 claims)",
+        "sources": [
+          "https://arxiv.org/abs/2311.09755",
+          "https://arxiv.org/html/2410.17170v1"
+        ],
+        "evidence": "Williams & Aletras (ACL 2024): quantization methods 'exhibit lower levels of dispersion than the pruning methods... SparseGPT consistently demonstrates the highest'; quantity sensitivity numbers verbatim (6.13->5.90 GPTQ, 5.74 SpQR flat, 55.26->11.12 SparseGPT). Self-calibration paper (NAACL 2025): 'Pruning benefits the most from self-calibration' with up-to-7.5% gaps for pruning (Gemma 2B: 0.6% AWQ / 2.0% GPTQ vs 7.5% SparseGPT / 3.2% Wanda). Merges claims [6],[8],[13]. Directly corroborates your preliminary finding that MT-conditional calibration helps pruning (19/24) but not quantization (9/24)."
+      },
+      {
+        "claim": "Modern LLMs are robust to calibration-set choice under standard (English, conventional bit-width) PTQ; the calibration-data lever has a diminishing effect on modern weight quantization — but this was NOT tested in 2-bit or multilingual/MT regimes, which other work shows is exactly where calibration regains importance.",
+        "confidence": "medium",
+        "vote": "2-1",
+        "sources": [
+          "https://arxiv.org/abs/2405.20835"
+        ],
+        "evidence": "Paglieri et al. abstract: older OPT 'shows significant performance deterioration... with varying calibration sets, [while] newer models like Llama-2 7B, Llama-3 8B, Command-R 35B, and Mistral 7B demonstrate strong robustness.' Scope caveat (the source of the split vote): study is monolingual, English-centric, conventional bit-width; 2508.20893 and 2601.18306 show calibration regains importance at 2-bit and multilingually. The companion 'outliers irrelevant' claim was REFUTED 0-3. Claim [9]."
+      },
+      {
+        "claim": "Automatic MT/multilingual metrics severely UNDERESTIMATE quantization damage relative to human evaluation (e.g., -0.3% French / -1.7% Japanese automatic vs -16.6% / -16.0% human).",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://arxiv.org/html/2407.03211v1"
+        ],
+        "evidence": "Marchisio et al. (EMNLP 2024 Findings): 'Automatic metrics severely underestimate damage... -0.3% (French) and -1.7% (Japanese) vs -16.6% and -16.0% reported by human evaluators' (Command R+ 103B, W4-g). Claim [11]. Methodological implication: XCOMET-XL/MetricX alone may understate low-bit MT damage; consider a human-eval or stress-test component."
+      },
+      {
+        "claim": "Self-calibration (model generates its own calibration data from the BOS token) removes the need for external calibration corpora for both quantization and pruning — but it was tested only on English and explicitly defers multilingual/language-matched calibration to future work.",
+        "confidence": "high",
+        "vote": "3-0 (merged from 2 claims)",
+        "sources": [
+          "https://arxiv.org/html/2410.17170v1"
+        ],
+        "evidence": "Williams, Chrysostomou & Aletras (NAACL 2025): 'Our approach removes the need for external calibration data sources, instead leveraging the model itself to automatically generate synthetic calibration data'; limitations: 'we experimented with English models and evaluation tasks... we hope to explore this matter further in a future work,' constraining multilingual generation to English via stop-word lists. Merges claims [12],[14]. Note: 'high-to-low temperature schedule' is an ablation, not the default (default is constant t=1.0). Gap: MT-conditional self-calibration is unaddressed."
+      },
+      {
+        "claim": "Super weights are 1-6 scalar parameters (often a single one), located mostly in an early-layer MLP down_proj, detectable data-free in one forward pass via activation spikes; removing one is catastrophic (perplexity +3 orders of magnitude, accuracy to chance). Exact per-model coordinates are published (e.g., Llama-7B layers[2].mlp.down_proj.weight[3968,7003]).",
+        "confidence": "high",
+        "vote": "3-0 (merged from 6 claims)",
+        "sources": [
+          "https://arxiv.org/abs/2411.07191",
+          "https://machinelearning.apple.com/research/the-super-weight",
+          "https://arxiv.org/html/2402.17762"
+        ],
+        "evidence": "Yu et al. 2411.07191 (ICLR/ICML 2025): 'data-free method... single forward pass'; 'pruning as few as a single parameter can... increase perplexity by 3 orders of magnitude and reduce zero-shot accuracy to guessing.' Apple page: 'consistently found in the down projection... typically in an early layer'; coords table (Llama-7B L2 [3968,7003], etc.); counts 1-6 (Phi-3=6, OLMo-7B=4). Sun et al. 2402.17762: at most four massive activations, ~4 orders larger than median, zeroing them -> inf perplexity, mean-substitution negligible — 'fixed but important biases.' Merges claims [15],[16],[19],[20],[21],[23]. Note: detection (activation-spike, data-free) is distinct from RANKING; your own work uses causal-KL ranking, which is a defensible improvement, not a contradiction."
+      },
+      {
+        "claim": "Preserving super weights / super activations in FP16 makes simple round-to-nearest quantization competitive with SOTA quantizers — validating salient-element FP16 preservation as a low-bit recovery lever.",
+        "confidence": "high",
+        "vote": "3-0 (merged from 2 claims; one component 2-1)",
+        "sources": [
+          "https://arxiv.org/abs/2411.07191",
+          "https://machinelearning.apple.com/research/the-super-weight"
+        ],
+        "evidence": "Yu et al.: 'When preserved with high precision, super activations can improve simple round-to-nearest quantization to become competitive with state-of-the-art methods' (mechanism: median-substitute, RTN quant/dequant, restore activation in FP16). Merges claims [17],[22]. Scope limit (source of the 2-1 split): the SOTA-matching result is for W8A8 8-bit ACTIVATION quantization on English 7B models, NOT the aggressive 2/3/4-bit WEIGHT quantization or MT setting central to WMT25. This is precisely the gap your Gemma 3-bit cliff recovery (12.7->48.4 with top-1% salient channels FP16) would fill."
+      },
+      {
+        "claim": "Super-weight / massive-activation analysis has been done ONLY on English-centric model families (Llama, Mistral, OLMo, Phi-3); no multilingual or MT model (Aya, Tower, BLOOM, EuroLLM, mT5, NLLB) has been studied for super-weight location/strength or MT-quality preservation. THIS IS THE PRIMARY OPEN GAP.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://arxiv.org/abs/2411.07191",
+          "https://machinelearning.apple.com/research/the-super-weight"
+        ],
+        "evidence": "Full-text check of 2411.07191 confirms analyzed models are exclusively English-centric (LLaMA 7/13/30B, Llama2 7/13B, Mistral-7B, OLMo 1/7B, Phi-3) on English-only benchmarks (PIQA, HellaSwag, LAMBADA). No multilingual/MT model or translation-task analysis. Claim [18]. This is the cleanest unoccupied novelty: super-weight location/strength across multilingual MT families + MT-quality-conditional (causal-KL) preservation at the low-bit cliff, corroborated by your EuroLLM ablation KL 3.28 vs Gemma near-zero (model-varying) and Gemma 12.7->48.4 recovery."
+      }
+    ],
+    "caveats": "METRIC MISMATCH is the largest caveat: the strongest 'calibration helps' evidence for quantization (2601.18306) is PERPLEXITY-only and the robustness evidence (2405.20835) is English-only standard-bit — neither speaks to XCOMET-XL/MetricX. Multiple sources (2407.03211) warn automatic metrics understate low-bit MT damage by ~10x vs human eval, so perplexity- and even XCOMET-based conclusions should be treated cautiously at 2-3 bit. Two split votes (claims [9] modern-LLM robustness, [22] RTN-competitive) are bounded by scope (English/standard-bit/W8A8) rather than refuted, but those scope limits matter for your aggressive low-bit weight-quant MT setting. One related claim was REFUTED 0-3 (that pre-training advances made activation outliers irrelevant) — do not rely on it. TIME-SENSITIVITY: this is a fast-moving 2024-2026 area; 2601.18306 (EACL 2026) and 2508.20893 (Aug 2025) are very recent, so a competing multilingual super-weight or MT-conditional GPTQ paper could appear at any WMT/EMNLP/ICLR cycle — re-check before claiming priority. EVIDENCE GAPS IN THIS SET: no verified claims were returned for lever 3 (MT-conditional Hessian/Fisher mixed-precision; HAWQ/Q-BERT at LLM scale) or lever 6 (WMT25 shared-task submitted systems LeanAya/GeLaCo+GKD/TCD-Kreasof, their XCOMET/MetricX numbers, the ~4-6GB Pareto gap). Absence here is absence of evidence in the verified set, not evidence those gaps are filled — they need a dedicated search pass.",
+    "openQuestions": [
+      "Lever 3 unconfirmed: has any work made Hessian/Fisher mixed-precision bit allocation TASK-CONDITIONAL (MT-specific Fisher) at 7-12B scale? Your Q5 null (importance perpendicular to quant sensitivity) suggests a sensitivity-native, MT-conditional signal is needed — is that signal novel, or has HAWQ-style work been adapted to MT?",
+      "Lever 6 unconfirmed: what are the actual XCOMET-XL/MetricX-24 numbers, methods, and on-disk sizes of the WMT25 Model Compression submissions (LeanAya, GeLaCo+GKD, TCD-Kreasof), and is the stated ~4-6GB-at-COMET-45-52 Pareto gap real and unclaimed by salient-FP16 or super-weight methods?",
+      "Does MT-quality (XCOMET/MetricX) — as opposed to perplexity — actually benefit from language/MT-matched GPTQ calibration at 2-3 bit, or does your AWQ-style null (9/24) generalize to GPTQ, collapsing the 'MT-conditional GPTQ' novelty?",
+      "Do multilingual/MT models (EuroLLM, Aya, Tower, BLOOM) have super weights in different locations/counts than English models, and does causal-KL ranking on MT data identify MT-quality-critical weights that activation-spike detection misses — i.e., is the model-varying behavior you observed (EuroLLM KL 3.28 vs Gemma ~0) a publishable, generalizable phenomenon?"
+    ],
+    "refuted": [
+      {
+        "claim": "Improvements in pre-training have reduced the relevance of activation outliers for quantization, motivating a reassessment of outlier-handling assumptions in the quantization literature.",
+        "vote": "0-3",
+        "source": "https://arxiv.org/abs/2405.20835"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2508.20893",
+        "quality": "primary",
+        "angle": "calibration-data PTQ (primary)",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2601.18306",
+        "quality": "primary",
+        "angle": "calibration-data PTQ (primary)",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2311.09755",
+        "quality": "primary",
+        "angle": "calibration-data PTQ (primary)",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2405.20835",
+        "quality": "primary",
+        "angle": "calibration-data PTQ (primary)",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/html/2407.03211v1",
+        "quality": "primary",
+        "angle": "calibration-data PTQ (primary)",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2410.17170v1",
+        "quality": "primary",
+        "angle": "calibration-data PTQ (primary)",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2411.07191",
+        "quality": "primary",
+        "angle": "super weights / massive activations multilingual",
+        "claimCount": 5
+      },
+      {
+        "url": "https://machinelearning.apple.com/research/the-super-weight",
+        "quality": "primary",
+        "angle": "super weights / massive activations multilingual",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2402.17762",
+        "quality": "primary",
+        "angle": "super weights / massive activations multilingual",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2508.20893v1",
+        "quality": "primary",
+        "angle": "super weights / massive activations multilingual",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2511.06516",
+        "quality": "primary",
+        "angle": "task-conditional mixed-precision + salient channels",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/2306.07629",
+        "quality": "primary",
+        "angle": "task-conditional mixed-precision + salient channels",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/abs/2405.14917",
+        "quality": "primary",
+        "angle": "task-conditional mixed-precision + salient channels",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2402.14866",
+        "quality": "primary",
+        "angle": "task-conditional mixed-precision + salient channels",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/pdf/1911.03852",
+        "quality": "primary",
+        "angle": "task-conditional mixed-precision + salient channels",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2510.16805v1",
+        "quality": "secondary",
+        "angle": "task-conditional mixed-precision + salient channels",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2505.21171",
+        "quality": "primary",
+        "angle": "MT-conditional pruning + recovery",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/html/2408.14398",
+        "quality": "primary",
+        "angle": "MT-conditional pruning + recovery",
+        "claimCount": 5
+      },
+      {
+        "url": "https://aclanthology.org/2025.wmt-1.78/",
+        "quality": "primary",
+        "angle": "MT-conditional pruning + recovery",
+        "claimCount": 5
+      },
+      {
+        "url": "https://openreview.net/pdf?id=farT6XXntP",
+        "quality": "primary",
+        "angle": "MT-conditional pruning + recovery",
+        "claimCount": 4
+      },
+      {
+        "url": "https://aclanthology.org/2025.wmt-1.25.pdf",
+        "quality": "primary",
+        "angle": "WMT25 compression shared task systems",
+        "claimCount": 5
+      },
+      {
+        "url": "https://aclanthology.org/2025.wmt-1.77.pdf",
+        "quality": "primary",
+        "angle": "WMT25 compression shared task systems",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/thammegowda/wmt25-model-compression",
+        "quality": "primary",
+        "angle": "WMT25 compression shared task systems",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2601.18306v1",
+        "quality": "primary",
+        "angle": "MT LLM quantization low-bit cliff (cross-cutting)",
+        "claimCount": 5
+      },
+      {
+        "url": "https://aclanthology.org/2024.findings-emnlp.935/",
+        "quality": "primary",
+        "angle": "MT LLM quantization low-bit cliff (cross-cutting)",
+        "claimCount": 5
+      },
+      {
+        "url": "https://aclanthology.org/2025.wmt-1.25/",
+        "quality": "primary",
+        "angle": "MT LLM quantization low-bit cliff (cross-cutting)",
+        "claimCount": 5
+      }
+    ],
+    "stats": {
+      "angles": 6,
+      "sourcesFetched": 26,
+      "claimsExtracted": 125,
+      "claimsVerified": 25,
+      "confirmed": 24,
+      "killed": 1,
+      "afterSynthesis": 10,
+      "urlDupes": 2,
+      "budgetDropped": 8,
+      "agentCalls": 109
+    }
+  }
+}

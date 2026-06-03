@@ -209,6 +209,26 @@ def test_bits_by_fisher_hits_average():
 
 
 @pytest.mark.cpu
+def test_allocate_layer_bits():
+    from src.interp.compress import allocate_layer_bits
+    drops = {i: float(i) for i in range(20)}  # layer 19 most sensitive
+    lb = allocate_layer_bits(drops, avg_bits=3.5, low=3, high=4)
+    assert abs(sum(lb.values()) / len(lb) - 3.5) < 0.1
+    assert lb[19] == 4 and lb[0] == 3            # most-sensitive gets high bits
+    # avg=low -> all low; avg=high -> all high
+    assert set(allocate_layer_bits(drops, 3.0, 3, 4).values()) == {3}
+    assert set(allocate_layer_bits(drops, 4.0, 3, 4).values()) == {4}
+
+
+@pytest.mark.cpu
+def test_module_bits_from_layer_bits(tiny_llama):
+    from src.interp.compress import module_bits_from_layer_bits
+    mb = module_bits_from_layer_bits(tiny_llama, {0: 4, 1: 3}, default=4)
+    assert all(v in (3, 4) for v in mb.values())
+    assert any(k.startswith("blocks.0.") for k in mb) and any(k.startswith("blocks.1.") for k in mb)
+
+
+@pytest.mark.cpu
 def test_mixed_precision_restores(tiny_llama):
     from src.interp.compress import quantize_mixed_precision
     tiny_model = tiny_llama
