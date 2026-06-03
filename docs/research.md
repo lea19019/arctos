@@ -465,3 +465,68 @@ The common throughline across all three: **task-conditional calibration on MT pa
 ---
 
 *Verification caveats.* All arXiv IDs in this document were verified via search unless explicitly flagged. PiSSA, rsLoRA, LoRA+, and original LoRA were verified only via secondary citations in this pass; specific numerical claims for PB-LLM, OneBit, BitDistiller, and the exact WikiText-2 PPLs cited for GPTQ/AWQ/SqueezeLLM/QuIP#/HQQ/SpinQuant were not confirmed directly from tables — marked UNVERIFIED where relevant. No system description paper exists for the WMT25 LeanAya submission (authors did not submit one); method inferred from Gaido et al. 2025 §3 and the LeanQuant paper. The WMT25 Findings paper reports XCOMET-XL (0–100), while Vicomtech's own system paper reports wmt22-comet-da (0–1); the two are not directly comparable and both are cited in their native scales above.
+---
+
+# ADDENDUM (2026-06-02) — papers for the phase-two q6 experiments
+
+Fresh literature for the new tests (GPTQ task-calibration, Fisher/Hessian
+mixed precision, MT PTQ, WMT25 metric). Full deep-research report:
+`docs/findings/phase2-deep-research.md` (when complete).
+
+- **Williams & Aletras (2024), "On the Impact of Calibration Data in PTQ and
+  Pruning"** — [arXiv:2311.09755](https://arxiv.org/abs/2311.09755) (ACL 2024).
+  Calibration data matters MORE than previously thought, and **more for pruning
+  than quantization** — directly corroborates our calib result (MT helps Wanda,
+  not AWQ).
+- **"Outliers and Calibration Sets have Diminishing Effect on Quantization of
+  Modern LLMs"** — [arXiv:2405.20835](https://arxiv.org/abs/2405.20835).
+  Calibration choice has a *diminishing* effect on weight quant for modern LLMs
+  — explains our AWQ-quant null.
+- **"The Uneven Impact of PTQ in Machine Translation" (Aug 2025)** —
+  [arXiv:2508.20893](https://arxiv.org/abs/2508.20893). THE closest work: PTQ
+  on MT across 55 languages, 1.7–70B. **Language-matched calibration helps
+  PRIMARILY at low-bit (2-bit) and for low-resource / divergent-script langs.**
+  4-bit ~preserves quality for high-resource; 1.7B loses up to ~5 COMET at
+  4-bit. Tests AWQ/BitsAndBytes/GGUF/AutoRound (**NOT GPTQ**); GGUF most
+  consistent at 2-bit. **No super-weight, no salient-channel, no Hessian/Fisher
+  mixed-precision angle** → gaps we can occupy.
+- **HAWQ / HAWQ-V2 (Dong et al. 2019/2020); Q-BERT** — Hessian-trace mixed
+  precision; prior art for our Fisher-driven allocator. Not MT-conditional, not
+  LLM-MT scale → our novelty.
+- **Self-calibration (arXiv:2410.17170)** — model-generated calibration data.
+
+**Refined hypothesis for the gem:** the MT-conditional calibration win is
+concentrated at **2-bit and on en-arz (low-resource)** — exactly the cells we
+under-tested (calib ran at W3). Re-run GPTQ/calib at **W2**, report per-pair
+(especially en-arz), scored with XCOMET-XL.
+
+---
+
+# ADDENDUM 2 (2026-06-02) — extreme low-bit (<2-bit) PTQ
+
+Going below 2-bit (ternary 1.58-bit, binary 1-bit). Key prior art — note the
+salient-preservation family already exists at 1-bit, so our novelty there is the
+MT/multilingual setting + super-weight causal-KL + XCOMET, NOT the mechanism.
+
+- **BiLLM (arXiv:2402.04291)** — first 1-bit PTQ; **splits salient vs non-salient
+  weights**, binary-residual for salient, optimal-split binarization for the
+  rest. Structurally our "preserve salient, quantize rest" idea at 1-bit →
+  **must differentiate** (English-only, no MT/XCOMET, Hessian-magnitude saliency
+  vs our super-weight causal-KL).
+- **PB-LLM (arXiv:2310.00034)** — partially-binarized; filters salient by
+  magnitude/Hessian, keeps them higher precision. Same family.
+- **ARB-LLM** — adaptive binary, competitive 1-bit.
+- **PTQTP (arXiv:2509.16989, 2025)** — PTQ to trit-planes (ternary).
+- **PT2-LLM (arXiv:2510.03267, 2025)** — post-training ternarization; ternary
+  fits the unimodal LLM weight distribution → **higher accuracy than binary**.
+- **Saliency-aware partial retraining for ultra-low-bit (arXiv:2504.13932)**.
+- **D2Quant (arXiv:2602.02546, 2026)** — accurate low-bit PTQ.
+- **VPTQ (EMNLP 2024); AQLM; QuIP#** — 2-3 bit vector quantization (codebooks).
+- **BitNet b1.58 (Ma et al. 2024) + b1.58-2B4T (2025)** — 1.58-bit but TRAINED
+  from scratch / QAT, not PTQ → not a drop-in; our ternary is PTQ RTN-style.
+
+**Implication for our experiments:** ternary (1.58) is likely the better sub-2
+sweet spot than binary. The interesting question at 1.58/1-bit is whether
+**super-weight + salient-channel FP16 preservation rescues the collapse for MT**
+(extending BiLLM/PB-LLM logic to multilingual MT + XCOMET), and how the
+degradation cliff looks across 4→3→2→1.58→1. Differentiate hard from BiLLM/PB-LLM.

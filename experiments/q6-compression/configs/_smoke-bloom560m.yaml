@@ -1,0 +1,9 @@
+# Q6 smoke-test config — bloom-560m on the login-node T4 (NOT a study model)
+model:
+  name: bloom-560m-smoke
+  loader: src.models._smoke.load_bloom560m
+  dtype: float32
+  device: cpu
+
+language_pairs:
+  - en-zh

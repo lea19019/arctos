@@ -39,6 +39,52 @@ def sentence_chrfpp(hypothesis: str, reference: str) -> float:
     return float(CHRF(word_order=2).sentence_score(hypothesis, [reference]).score)
 
 
+# ---- COMET (WMT-grade semantic MT metric) ------------------------------------
+# DEFAULT = XCOMET-XL, the primary metric of the WMT25 Model Compression Shared
+# Task (Gaido et al., 2025). Falls back to wmt22-comet-da if XCOMET-XL isn't
+# cached. COMET is source-aware (src+mt+ref) — it can reveal adequacy gains
+# that chrF++ (character overlap) misses, which is exactly the worry about our
+# chrF++-only verdict.
+WMT25_COMET_MODEL = "Unbabel/XCOMET-XL"
+_COMET_MODELS: dict[str, object] = {}
+
+
+def _comet_ckpt(model_name: str) -> str:
+    import glob, os
+    slug = "models--" + model_name.replace("/", "--")
+    hits = glob.glob(os.path.expanduser(
+        f"~/.cache/huggingface/hub/{slug}/**/checkpoints/model.ckpt"), recursive=True)
+    if not hits:
+        raise FileNotFoundError(f"{model_name} checkpoint not in HF cache")
+    return hits[0]
+
+
+def comet_score(sources, hypotheses, references, *,
+                model_name: str = WMT25_COMET_MODEL,
+                batch_size: int = 16, gpus: int = 1, fallback: bool = True):
+    """Corpus + per-segment COMET. Returns (system_score, [scores]).
+
+    Defaults to XCOMET-XL (the WMT25 compression-task metric). gpus=1 uses GPU;
+    gpus=0 runs on CPU (smoke tests). If XCOMET-XL is unavailable and
+    fallback=True, uses wmt22-comet-da instead.
+    """
+    global _COMET_MODELS
+    if model_name not in _COMET_MODELS:
+        from comet import load_from_checkpoint
+        try:
+            ckpt = _comet_ckpt(model_name)
+        except FileNotFoundError:
+            if not fallback:
+                raise
+            model_name = "Unbabel/wmt22-comet-da"
+            ckpt = _comet_ckpt(model_name)
+        _COMET_MODELS[model_name] = load_from_checkpoint(ckpt)
+    data = [{"src": s, "mt": h, "ref": r}
+            for s, h, r in zip(sources, hypotheses, references)]
+    out = _COMET_MODELS[model_name].predict(data, batch_size=batch_size, gpus=gpus, progress_bar=False)
+    return float(out.system_score), [float(x) for x in out.scores]
+
+
 def evaluate(
     hypotheses: Sequence[str],
     references: Sequence[str],

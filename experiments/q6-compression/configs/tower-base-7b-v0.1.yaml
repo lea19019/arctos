@@ -1,0 +1,11 @@
+# Q6 (find/keep/shrink/prune) config — tower-base-7b-v0.1
+model:
+  name: tower-base-7b-v0.1
+  loader: src.models.tower_base.load_tower_base
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz

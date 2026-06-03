@@ -1,0 +1,11 @@
+# Q6 (find/keep/shrink/prune) config — tower-plus-9b
+model:
+  name: tower-plus-9b
+  loader: src.models.tower_plus.load_tower_plus
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz

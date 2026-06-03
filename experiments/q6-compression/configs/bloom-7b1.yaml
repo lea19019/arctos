@@ -1,0 +1,11 @@
+# Q6 (find/keep/shrink/prune) config — bloom-7b1
+model:
+  name: bloom-7b1
+  loader: src.models.bloom.load_bloom
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz

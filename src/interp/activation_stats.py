@@ -97,7 +97,11 @@ def collect_activation_stats(
     # and a sampled set of values for the quantile.
     state: dict[str, dict[str, torch.Tensor | int]] = {}
     sampled_per_mod: dict[str, list[torch.Tensor]] = {name: [] for name in targets}
-    QUANTILE_SAMPLE_CAP = 32_000  # cap reservoir per module per channel
+    # Cap the reservoir aggressively: it stores rows x channels in RAM, and for
+    # an 8B+ model with ~200 linears a 32k cap is ~20GB/process — which swap-
+    # thrashes when several jobs pack one node. 1024 rows still gives a robust
+    # per-channel q99 (~10 samples in the top 1%) at ~30x less memory.
+    QUANTILE_SAMPLE_CAP = 1_024  # cap reservoir rows per module
 
     handles = []
 

@@ -1,0 +1,11 @@
+# Q6 (find/keep/shrink/prune) config — llama-3.1-8b-instruct
+model:
+  name: llama-3.1-8b-instruct
+  loader: src.models.llama.load_llama
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz

@@ -1,0 +1,11 @@
+# Q6 (find/keep/shrink/prune) config — gemma-3-12b-it
+model:
+  name: gemma-3-12b-it
+  loader: src.models.gemma3.load_gemma3
+  dtype: bfloat16
+  device: cuda
+
+language_pairs:
+  - cs-de
+  - en-zh
+  - en-arz
