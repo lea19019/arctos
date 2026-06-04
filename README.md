@@ -12,6 +12,7 @@ conversion step, not the medium the model computes in* — and this structure
 generalizes across architectures.
 
 - **📖 Reading guide (start here):** [`docs/READING-GUIDE.md`](docs/READING-GUIDE.md) — an ordered path through every experiment, result, and paper, phase one → phase two.
+- **📚 Papers + learning hub:** [`docs/READING-LIST.md`](docs/READING-LIST.md) — every cited paper (clickable, grouped by theme) + videos/sites to learn the foundations. [`docs/MATH-PLAN.md`](docs/MATH-PLAN.md) — 6-month math curriculum.
 - **Phase-one report:** [`report/arctos-translation-report.pdf`](report/arctos-translation-report.pdf) — *What and how does the translation task work inside an LLM?* (methods, tables, figures, findings, citations).
 - **Phase-two (compression):** see [Phase two](#phase-two--compression-for-translation) below — the find/keep/shrink/prune sandbox, the **MT-conditional GPTQ** result, and the honest negatives.
 - **Findings per question:** [`docs/findings/`](docs/findings/) — `q1.md`, `q5.md`, `architecture-comparison.md` (phase one); `phase2-synthesis.md`, `phase2-results.md` (phase two).
