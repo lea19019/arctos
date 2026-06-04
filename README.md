@@ -11,9 +11,12 @@ the target language last" computation; the target language is a late
 conversion step, not the medium the model computes in* — and this structure
 generalizes across architectures.
 
-- **Report (start here):** [`report/arctos-translation-report.pdf`](report/arctos-translation-report.pdf) — *What and how does the translation task work inside an LLM?* (methods, tables, figures, findings, citations).
-- **Findings per question:** [`docs/findings/`](docs/findings/) — `q1.md` (language emergence), `q5.md` (importance vs sensitivity), `architecture-comparison.md` (Q4 synthesis).
-- **Tutorials:** [`notebooks/`](notebooks/) — 8 runnable `# %%` notebooks explaining each method (theory + mechanics), runnable on a tiny CPU model.
+- **📖 Reading guide (start here):** [`docs/READING-GUIDE.md`](docs/READING-GUIDE.md) — an ordered path through every experiment, result, and paper, phase one → phase two.
+- **Phase-one report:** [`report/arctos-translation-report.pdf`](report/arctos-translation-report.pdf) — *What and how does the translation task work inside an LLM?* (methods, tables, figures, findings, citations).
+- **Phase-two (compression):** see [Phase two](#phase-two--compression-for-translation) below — the find/keep/shrink/prune sandbox, the **MT-conditional GPTQ** result, and the honest negatives.
+- **Findings per question:** [`docs/findings/`](docs/findings/) — `q1.md`, `q5.md`, `architecture-comparison.md` (phase one); `phase2-synthesis.md`, `phase2-results.md` (phase two).
+- **Where it's going:** [`docs/ROADMAP.md`](docs/ROADMAP.md) — the multi-dimensional "sweet spot of compression for translation" program (quant × prune × distill across bit-scales).
+- **Tutorials:** [`notebooks/`](notebooks/) — 8 runnable `# %%` notebooks (theory + mechanics) on a tiny CPU model.
 - Thesis spine + plan: [`docs/project-summary.md`](docs/project-summary.md), [`PHASE1-PLAN.md`](PHASE1-PLAN.md).
 
 ## Models studied
@@ -105,10 +108,38 @@ is a single A100 80GB.
 4. **Importance ≠ quantization sensitivity** (ρ ≈ 0 across two metrics): where
    MT computation concentrates is *not* where numerical precision matters.
 
+## Phase two — compression for translation
+
+The interpretability-grounded compression chapter. Sandbox + experiments in
+[`experiments/q6-compression/`](experiments/q6-compression/); code in
+`src/interp/{compress,super_weights,hessian_diag,salient_channels}.py` +
+`src/eval/metrics.py` (XCOMET-XL). Run: `submit_gem.sh` / `submit_extreme.sh`;
+collect: `python scripts/q6gem_collect.py`; status: `bash scripts/q6_status.sh`.
+
+**Docs (read in this order):**
+1. [`docs/findings/phase2-synthesis.md`](docs/findings/phase2-synthesis.md) — **the honest consolidated read** (what holds, what doesn't).
+2. [`docs/findings/phase2-results.md`](docs/findings/phase2-results.md) — cross-model tables (chrF++ / XCOMET-XL).
+3. [`docs/findings/compression-primer.md`](docs/findings/compression-primer.md) — find/keep/shrink/prune framework + reading list.
+4. [`docs/findings/phase2-method-primer.md`](docs/findings/phase2-method-primer.md) — the method + literature-gap/novelty map.
+5. [`docs/findings/phase2-novel-direction.md`](docs/findings/phase2-novel-direction.md) — the pipeline-aware idea (now a reported **negative**).
+6. [`docs/findings/q6.md`](docs/findings/q6.md) — the chrF++ sweep writeup.
+7. [`docs/research.md`](docs/research.md) — annotated bibliography + 3 deep-research addenda; raw reports in [`docs/findings/deep-research-raw/`](docs/findings/deep-research-raw/).
+8. [`docs/advisor-brief.md`](docs/advisor-brief.md) — talking doc. [`docs/replication-uneven-ptq-mt-brief.md`](docs/replication-uneven-ptq-mt-brief.md) — replication of arXiv:2508.20893.
+
+**Phase-two key findings (directional; chrF++/XCOMET-XL, small n):**
+- ✅ **MT-conditional GPTQ** recovers the 3-bit cliff (all 6 models, +0.13–0.52 COMET); *generic-text calibration is worse than not quantizing.* The contribution.
+- ✅ **Salient-channel / super-weight FP16 preservation** independently recovers 3-bit (Gemma 12.7→48.4 chrF).
+- ❌ **Depth-pipeline ≠ a compression rule:** protecting the language-specific endpoints vs the neutral middle is a wash (Q5 null reconfirmed at stage level).
+- 🔭 **No healing-free PTQ reaches FP16 at 3-bit** (any method) → goal = *best healing-free MT-specific option at a given size.*
+
 ## Status
 
-**Phase one complete** — all methods implemented and run across the model set;
-findings written; report compiled. Phase two (the quantization method itself)
-is the next chapter: use the depth-signature as a coarse prior but allocate
-bits with a sensitivity-native signal (finding #4), treating Gemma-family
-separately.
+**Phase one complete; phase two has a result.** Headline: *for low-bit
+translation, GPTQ must be calibrated on MT data — generic calibration actively
+hurts — and salient/super-weight preservation recovers the 3-bit cliff, while
+the depth-pipeline does **not** localize quantization fragility.* Next program
+(6-month, fall start): the multi-dimensional **sweet-spot study** — quant ×
+prune × distill across bit-scales and weight types, on MT (and speech↔text) —
+see [`docs/ROADMAP.md`](docs/ROADMAP.md). All phase-two numbers are directional
+(small n, generic prompt); the paper-grade run needs larger n + chat templates +
+a human spot-check.
