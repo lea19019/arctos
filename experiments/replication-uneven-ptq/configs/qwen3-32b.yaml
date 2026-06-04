@@ -1,0 +1,8 @@
+# PTQ-MT replication — Qwen3-32B (the paper's "large, robust" model).
+model:
+  name: qwen3-32b
+  hf_path: Qwen/Qwen3-32B
+  chat_kwargs:
+    enable_thinking: false
+  max_new_tokens: 512
+  batch_size: 8

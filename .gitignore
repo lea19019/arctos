@@ -49,3 +49,8 @@ report/*.log
 report/main.pdf
 report/*.bbl
 report/*.blg
+
+# PTQ-MT replication: derived calibration text (regenerate via precache.py)
+experiments/replication-uneven-ptq/calib/
+# crash core dumps
+core.*

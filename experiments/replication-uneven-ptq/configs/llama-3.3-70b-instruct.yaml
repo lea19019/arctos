@@ -1,0 +1,8 @@
+# PTQ-MT replication — Llama-3.3-70B-Instruct (the paper's largest model).
+# Baseline fp16 needs ~140 GB → multi-GPU (device_map=auto handles it).
+# Run this model's job alone on >=2 A100s; quantized variants fit one GPU.
+model:
+  name: llama-3.3-70b-instruct
+  hf_path: meta-llama/Llama-3.3-70B-Instruct
+  max_new_tokens: 512
+  batch_size: 8

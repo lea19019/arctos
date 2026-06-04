@@ -1,0 +1,9 @@
+# PTQ-MT replication — Qwen3-1.7B (the paper's smallest model).
+model:
+  name: qwen3-1.7b
+  hf_path: Qwen/Qwen3-1.7B
+  # Qwen3 are reasoning models; the paper disables reasoning.
+  chat_kwargs:
+    enable_thinking: false
+  max_new_tokens: 512
+  batch_size: 32

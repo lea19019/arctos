@@ -1,0 +1,7 @@
+# PTQ-MT replication — Llama-3.1-8B-Instruct (cached; also the C3 calib model).
+model:
+  name: llama-3.1-8b-instruct
+  hf_path: meta-llama/Llama-3.1-8B-Instruct
+  # Llama chat template has no reasoning toggle; chat_kwargs omitted.
+  max_new_tokens: 512
+  batch_size: 16

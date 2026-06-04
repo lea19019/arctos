@@ -1,0 +1,8 @@
+# PTQ-MT replication — Qwen3-8B.
+model:
+  name: qwen3-8b
+  hf_path: Qwen/Qwen3-8B
+  chat_kwargs:
+    enable_thinking: false
+  max_new_tokens: 512
+  batch_size: 16
