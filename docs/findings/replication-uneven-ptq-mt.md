@@ -15,7 +15,7 @@ Independent replication of **arXiv:2508.20893** (Marie & Fujita, NICT, Aug 2025 
 | Claim | Verdict | Evidence (ours) |
 |---|---|---|
 | **C1** 4-bit preserves quality for high-resource langs & large models | ✅ reproduced | 4-bit ΔCOMET on ja/fr = -0.5 (near-zero); large-model 4-bit mean Δ = -1.0 |
-| **C2** low-resource / divergent-script degrade most, esp. 2-bit | ✅ reproduced | GGUF 2-bit mean Δ: low-res(bn/ml/zu)=-14.8 vs high-res(ja/fr)=-6.9 |
+| **C2** low-resource / divergent-script degrade most, esp. 2-bit | ✅ en→X / ✗ X→en | en→X GGUF-2bit Δ: low-res=-14.8 vs high-res=-6.9 (reproduces); BUT X→en low-res 4-bit mean Δ=-1.2 — paper's headline collapse (bn/ml→en −7 to −10) does NOT reproduce |
 | **C3** language-matched calibration helps mainly at 2-bit / low-resource | ✅ reproduced | en→bn @2-bit: Bengali-calib 50.1 vs English-calib 48.3 = **+1.8** (paper +3.1) |
 | **C4** GGUF most consistent, even at 2-bit | ✅ reproduced | 4-bit mean Δ by method (higher=better): gguf=-0.8, bnb=-1.5, autoround=-1.5, awq=-1.6 |
 | **C5** small (~1.7B) lose up to ~5 at 4-bit; 32B/70B ≤1 | ✅ reproduced | qwen3-1.7b worst 4-bit Δ = -7.7 (several pts); large models on ja/fr 4-bit mean Δ = -0.3 (≈0) |
@@ -93,6 +93,17 @@ Llama-3.1-8B, GGUF. COMET ours (paper):
 - **Low-resource COMET is noisy**; chrF/BLEU are stored alongside in the per-unit JSON for corroboration.
 - **AutoRound on 32B/70B** uses reduced iters/samples for feasibility; its low-bit numbers there are indicative, not paper-faithful.
 
+## Where it diverges from the paper (the important part)
+
+This is a **partial / critical** replication, not a clean full reproduction:
+
+- **en→X and high-resource cells reproduce within ±1–2 COMET** — C1, C4, C5, and the en→bn 2-bit collapse (C2's core) all hold; C3 holds directionally.
+- **The paper's headline low-resource finding does NOT reproduce.** It reports Llama-3.1-8B *into English* collapsing under quantization (bnb bn→en −7.7, ml→en −9.7). In our runs those pairs **barely drop** (bn→en bnb +2.4, ml→en ~0). Measuring the mechanism directly: bn→en off-target (Indic) output is 21.9% at baseline and *falls* to ~5% at 4-bit — quantization here *reduces* the failure mode, the opposite of the paper's account.
+- **Malayalam runs ~+10 COMET even at fp16 baseline**, so that gap is a setup-level divergence (prompt / chat template / decoding / COMET library version), not a quantization effect. The X→en direction is the one the paper itself flags as 'artificial' (translationese source).
+- Likely causes of the divergence: COMET library version, our use of each model's chat template + greedy decoding, llama.cpp / AutoAWQ / bnb versions, and n≈960 vs the paper's full set. We did not have the paper's exact code.
+
 ## Bottom line
 
-The load-bearing claims for the phase-two direction — **C2** (low-resource 2-bit collapse) and **C3** (language-matched calibration rescues it at 2-bit) — reproduce. C1 (4-bit safe for high-resource/large) and C4 (GGUF most consistent) also hold. C5 (size-precision) holds in our data. Absolute COMET deviates from the paper in magnitude but the claim-bearing deltas match — solid enough to build on.
+**For the phase-two direction:** the claims you'd build on — **C2 (low-resource 2-bit degradation) and C3 (language-matched calibration helps at 2-bit) — hold in the en→X regime** (translating *into* the low-resource language), which is the relevant one for rescuing en→bn-type collapse. C1/C4/C5 also reproduce.
+
+**Caveat that must not be buried:** the paper's most dramatic low-resource result — the *into-English* Indic collapse under quantization — **did not reproduce** in our pipeline, and absolute Indic COMET diverges from the paper (esp. Malayalam) even at baseline. So the *uneven-impact* thesis holds qualitatively for en→X, but the specific magnitudes (and the X→en story) are setup-dependent and should not be taken at face value. A useful negative result: build on C2/C3 for en→X, but verify any X→en or absolute-magnitude claim independently.

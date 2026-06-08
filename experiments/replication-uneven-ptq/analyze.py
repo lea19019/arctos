@@ -195,14 +195,24 @@ def build_doc(rows, c3_rows, fig_ok, fig_rel) -> str:
         c1ev += f"; large-model 4-bit mean Δ = {_f(lg4)}"
     L.append(f"| **C1** 4-bit preserves quality for high-resource langs & large models | {c1} | {c1ev} |")
 
-    # C2 — low-resource degrade most, especially at 2-bit. Use GGUF Q2_K (the
-    # usable 2-bit method); AutoRound-2bit collapses ALL langs (paper shows the
-    # same), so averaging it in would mask the low-resource-specific effect.
-    lo2 = mean(deltas(present, ["gguf"], 2, LO_RES))
-    hi2 = mean(deltas(present, ["gguf"], 2, HI_RES))
-    if lo2 is not None and hi2 is not None:
-        c2 = "✅ reproduced" if lo2 < hi2 - 3 else "partial"
-        c2ev = f"GGUF 2-bit mean Δ: low-res(bn/ml/zu)={_f(lo2)} vs high-res(ja/fr)={_f(hi2)}"
+    # C2 — low-resource degrade most, especially at 2-bit. Direction-SPLIT: this
+    # reproduces for en->X (into the low-resource language) but NOT for X->en,
+    # where the paper's headline collapse (Llama-3.1-8B bnb bn->en -7.7, ml->en
+    # -9.7) does not appear in our runs (our quantized models barely drop; off-
+    # target output actually decreases with quantization). Report both.
+    lo2_enx = mean(deltas(present, ["gguf"], 2, LO_RES))
+    hi2_enx = mean(deltas(present, ["gguf"], 2, HI_RES))
+    # X->en low-res drop at 4-bit (the paper's headline cells) — compute over bnb/gguf.
+    xen_lo4 = mean([delta(m, meth, 4, lg, frm="x") for m in present
+                    for meth in ("bnb", "gguf", "awq") for lg in LO_RES
+                    if delta(m, meth, 4, lg, frm="x") is not None] or [None])
+    if lo2_enx is not None and hi2_enx is not None:
+        enx_ok = lo2_enx < hi2_enx - 3
+        xen_collapses = xen_lo4 is not None and xen_lo4 < -3
+        c2 = "✅ en→X / ✗ X→en" if (enx_ok and not xen_collapses) else ("✅ reproduced" if enx_ok else "partial")
+        c2ev = (f"en→X GGUF-2bit Δ: low-res={_f(lo2_enx)} vs high-res={_f(hi2_enx)} (reproduces); "
+                f"BUT X→en low-res 4-bit mean Δ={_f(xen_lo4)} — paper's headline collapse "
+                f"(bn/ml→en −7 to −10) does NOT reproduce")
     else:
         c2, c2ev = "_pending_", "need GGUF 2-bit low/high-res deltas"
     L.append(f"| **C2** low-resource / divergent-script degrade most, esp. 2-bit | {c2} | {c2ev} |")
@@ -315,15 +325,38 @@ def build_doc(rows, c3_rows, fig_ok, fig_rel) -> str:
     L.append("- **AutoRound on 32B/70B** uses reduced iters/samples for feasibility; its "
              "low-bit numbers there are indicative, not paper-faithful.")
 
+    # ---- direction-split / off-target diagnostic -------------------------- #
+    L.append("\n## Where it diverges from the paper (the important part)\n")
+    L.append("This is a **partial / critical** replication, not a clean full reproduction:\n")
+    L.append("- **en→X and high-resource cells reproduce within ±1–2 COMET** — C1, C4, C5, and "
+             "the en→bn 2-bit collapse (C2's core) all hold; C3 holds directionally.")
+    L.append("- **The paper's headline low-resource finding does NOT reproduce.** It reports "
+             "Llama-3.1-8B *into English* collapsing under quantization (bnb bn→en −7.7, ml→en "
+             "−9.7). In our runs those pairs **barely drop** (bn→en bnb +2.4, ml→en ~0). "
+             "Measuring the mechanism directly: bn→en off-target (Indic) output is 21.9% at "
+             "baseline and *falls* to ~5% at 4-bit — quantization here *reduces* the failure "
+             "mode, the opposite of the paper's account.")
+    L.append("- **Malayalam runs ~+10 COMET even at fp16 baseline**, so that gap is a "
+             "setup-level divergence (prompt / chat template / decoding / COMET library "
+             "version), not a quantization effect. The X→en direction is the one the paper "
+             "itself flags as 'artificial' (translationese source).")
+    L.append("- Likely causes of the divergence: COMET library version, our use of each "
+             "model's chat template + greedy decoding, llama.cpp / AutoAWQ / bnb versions, and "
+             "n≈960 vs the paper's full set. We did not have the paper's exact code.")
+
     # ---- bottom line ------------------------------------------------------ #
     L.append("\n## Bottom line\n")
-    solid = [c for c, v in [("C2", c2), ("C3", c3v), ("C4", c4)] if "reproduced" in str(v)]
-    L.append(f"The load-bearing claims for the phase-two direction — **C2** (low-resource "
-             f"2-bit collapse) and **C3** (language-matched calibration rescues it at 2-bit) — "
-             f"{'reproduce' if 'C2' in solid and 'C3' in solid else 'are supported by our data'}. "
-             f"C1 (4-bit safe for high-resource/large) and C4 (GGUF most consistent) also hold. "
-             f"C5 (size-precision) holds in our data. Absolute COMET deviates from the paper in "
-             f"magnitude but the claim-bearing deltas match — solid enough to build on.\n")
+    L.append("**For the phase-two direction:** the claims you'd build on — **C2 (low-resource "
+             "2-bit degradation) and C3 (language-matched calibration helps at 2-bit) — hold in "
+             "the en→X regime** (translating *into* the low-resource language), which is the "
+             "relevant one for rescuing en→bn-type collapse. C1/C4/C5 also reproduce.\n")
+    L.append("**Caveat that must not be buried:** the paper's most dramatic low-resource result "
+             "— the *into-English* Indic collapse under quantization — **did not reproduce** in "
+             "our pipeline, and absolute Indic COMET diverges from the paper (esp. Malayalam) "
+             "even at baseline. So the *uneven-impact* thesis holds qualitatively for en→X, but "
+             "the specific magnitudes (and the X→en story) are setup-dependent and should not be "
+             "taken at face value. A useful negative result: build on C2/C3 for en→X, but verify "
+             "any X→en or absolute-magnitude claim independently.\n")
     return "\n".join(L)
 
 
