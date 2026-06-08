@@ -18,10 +18,14 @@ from typing import Sequence
 
 SUPPORTED_BITS = (4, 2)
 
-# Paper hyperparameters (overridable via env for fast smoke tests).
+# Paper hyperparameters (overridable via env for fast smoke tests and for
+# memory/time feasibility on the 32B/70B models).
 _ITERS = int(os.environ.get("AUTOROUND_ITERS", "512"))
 _SEQLEN = int(os.environ.get("AUTOROUND_SEQLEN", "4096"))
 _NSAMPLES = int(os.environ.get("AUTOROUND_NSAMPLES", "512"))
+# Big models OOM in AutoRound's per-block optimizer even with device_map=auto;
+# low_gpu_mem_usage keeps the model on CPU and tunes one block at a time on GPU.
+_LOW_GPU_MEM = os.environ.get("AUTOROUND_LOW_GPU_MEM", "0") == "1"
 _GROUP_SIZE = {4: 128, 2: 32}
 
 
@@ -77,8 +81,11 @@ def quantize_to_disk(
 
     os.makedirs(artifact_dir, exist_ok=True)
     tokenizer = AutoTokenizer.from_pretrained(base_dir)
+    # With low_gpu_mem_usage AutoRound owns device placement (model stays on CPU,
+    # blocks move to GPU one at a time); otherwise spread across GPUs for speed.
     model = AutoModelForCausalLM.from_pretrained(
-        base_dir, torch_dtype=torch.bfloat16, device_map="auto"  # spread 32B/70B
+        base_dir, torch_dtype=torch.bfloat16,
+        device_map="cpu" if _LOW_GPU_MEM else "auto",
     )
     # AutoRound's `dataset` arg expects dataset *names* or a local json/jsonl
     # path (registered "local" loader) — NOT a list of raw strings (that parses
@@ -104,6 +111,7 @@ def quantize_to_disk(
         seqlen=_SEQLEN,
         nsamples=_NSAMPLES,
         dataset=calib_path,
+        low_gpu_mem_usage=_LOW_GPU_MEM,
     )
     ar.quantize()
     # Native auto_round format supports low-bit (incl. 2-bit) cleanly.
