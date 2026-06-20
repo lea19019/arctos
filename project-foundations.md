@@ -205,17 +205,18 @@ the sensitivity map from the interpretability diagnostics.
 ## 5. Does Compression for XTTS Make Sense?
 
 **Yes, for the deployment goal.** The target is moving the dubbing app from A100 (~$3–4/hr)
-to T4 (~$0.50/hr). Memory math on a T4 (16GB):
+to T4 (~$0.50/hr). NLLB and XTTS are deployed as separate API services — each on its own
+server — so the question is whether each model fits and runs at real-time latency on its
+target GPU independently.
 
-| Component | Size (compressed) |
-|---|---|
-| Whisper Large v3 (ASR) | ~3.0 GB |
-| NLLB-3.3B INT4 | ~1.65 GB |
-| XTTS v2 INT8 | ~1.7 GB |
-| **Total** | **~6.35 GB** — comfortable T4 headroom |
+| Component | FP16 size | Compressed size | Target |
+|---|---|---|---|
+| NLLB-3.3B | ~6.6 GB | ~1.65 GB (INT4) | T4 (16 GB) |
+| XTTS v2 | ~1.87 GB | ~1.0 GB (INT8) | T4 (16 GB) |
 
-Without compression, especially on NLLB-3.3B (~6.6 GB FP16), you cannot run the full pipeline
-on a T4.
+NLLB-3.3B at FP16 fits in a T4's 16 GB, but T4 FP16 throughput (~8 TFLOPS) is 10× slower
+than A100 (~78 TFLOPS) — not viable for real-time latency. With CTranslate2 INT8 (fused
+kernels), the T4 runs at 65 TOPS INT8, making latency competitive while halving memory.
 
 **The scope caveat:** XTTS compression is more engineering-heavy and quality metrics are noisier.
 If the project is time-constrained at 150 hours, the sensible prioritization is:
@@ -308,23 +309,18 @@ NLLB stands alone as the primary result. Having both models is the ambition, not
 |---|---|
 | UTMOS (Interspeech 2022) | Neural MOS predictor — automated naturalness score for TTS, no human raters needed |
 | SpeechBrain speaker verification | Speaker similarity metric for checking voice identity is preserved after compression |
-| Whisper (for CER) | Use as ASR for back-transcription CER measurement on compressed XTTS output |
 
 ---
 
 ## 9. Quick Reference: Model Sizes on T4
 
-T4 = 16GB VRAM. Target: run full dubbing pipeline.
+T4 = 16GB VRAM. Each model is a separate API service on its own server.
 
 | Component | FP16 | INT8 | INT4 |
 |---|---|---|---|
 | NLLB-distilled-1.3B | 2.6 GB | 1.3 GB | 0.65 GB |
 | NLLB-3.3B | 6.6 GB | 3.3 GB | 1.65 GB |
 | XTTS v2 (full) | ~1.87 GB | ~1.0 GB | — |
-| Whisper Large v3 | ~3.0 GB | ~1.5 GB | — |
-
-Full pipeline (NLLB-3.3B INT4 + XTTS INT8 + Whisper INT8):
-**~1.65 + ~1.0 + ~1.5 = ~4.15 GB** — well within T4 headroom.
 
 ---
 
