@@ -96,7 +96,7 @@ Math now serves your own questions.
 Each math skill is used on a real experiment (so it sticks):
 quadratic form/Hessian → GPTQ/`compress.py`; outliers/quantiles → super-weights
 & AWQ salience; bootstrap/CI → hardening GPTQ-MT (`phase2_results.md`); SVD/
-rotation → trying QuaRot/QuIP as a base quantizer (roadmap). See `plans/roadmap.md`.
+rotation → trying QuaRot/QuIP as a base quantizer (roadmap). See `../archive/roadmap_compression_program.md`.
 
 *(Calibration: 6 months of this gets you research-functional, not a
 mathematician — and that's the bar. Maturity keeps compounding for years; the

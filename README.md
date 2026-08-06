@@ -29,12 +29,23 @@ whether the "emergence" everyone reports is real phase structure or an artifact
 of the metric used to measure it.
 
 The plan is Tier 1 of the Matrix Lab program *Does the Interlingua Grok?*:
-train small decoder-only models from scratch on EN/FR/TR and track mechanistic
-and behavioral measures across ~60 log-spaced checkpoints. The sharp move is
+train small (~36M) models from scratch on EN/FR/TR and track mechanistic and
+behavioral measures across ~60 log-spaced checkpoints. **The architecture is not
+settled** — the proposal specifies three arms (encoder-only mBERT-like,
+encoder-only XLM-R-like, encoder-decoder NLLB-like) and makes the comparison
+between two of them a hypothesis under test; the working plan argues for
+decoder-only on tooling grounds and flags it as the PI's call. The sharp move is
 refusing to report the headline claim as stated — a lag between a smooth
 mechanistic curve and a jumpy accuracy curve is *guaranteed by construction*
 when the behavioral metric is discontinuous, so the real experiment is whether
 the lag survives a continuous metric. No outcome is empty.
+
+**Tier 1 as written is not being built.** Two audits on 2026-08-06 — one of the
+prior art, one of the program's premises — concluded that the plan's claimed
+novelty does not survive and that two of its measures manufacture or invert
+their own results. The verdict is *salvageable, smaller*, with a few-GPU-hour
+pilot as the next step rather than the fifteen proposed runs. Both are linked
+from the track README; read them before proposing anything here.
 
 Docs only so far; nothing is built yet.
 
@@ -92,11 +103,14 @@ Top-level [`docs/`](docs/) holds only what spans tracks or outlives them:
 |---|---|
 | [`docs/registry.md`](docs/registry.md) | **What has been done and what is ruled out, with the numbers.** Read before proposing anything. |
 | [`docs/research_standards.md`](docs/research_standards.md) | How experiments are run here, sourced. |
-| [`docs/learning/`](docs/learning/) | Explanations of the *subject* — quantization from scratch, the architectures, every paper worth reading, the math plan. |
-| [`docs/plans/`](docs/plans/) | What's next. [`open_work.md`](docs/plans/open_work.md) ranks open directions mined from the future-work sections of 95 cited papers, cross-referenced against what is already done or ruled out — start there when picking up a thread. |
-| [`docs/archive/`](docs/archive/) | History from before the repo split into tracks. Superseded, kept for context. |
+| [`docs/learning/`](docs/learning/) | Explanations of the *subject* — quantization from scratch, the architectures, every paper worth reading, the math and skills plans. |
+| [`docs/decisions/`](docs/decisions/) + [`docs/templates/`](docs/templates/) | Decision records, and the shapes a new experiment README / notes entry / decision record take. |
+| [`docs/archive/`](docs/archive/) | Not being pursued. Pre-split history, **and the compression program itself** — its roadmap and its ranked backlog of open directions. |
 
-Most of what's written down describes work that is **parked**, not active.
+**What's next is `interlingua/`, and its plan lives with the track.** There is no
+top-level "plans" folder: the compression roadmap and the 95-paper backlog were
+moved to `docs/archive/` because that direction is being left behind. Nothing in
+them was refuted — they are where compression would resume from if it ever does.
 
 → [`docs/README.md`](docs/README.md) for the full index.
 

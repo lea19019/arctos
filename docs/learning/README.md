@@ -29,6 +29,10 @@ find/keep/shrink/prune framework) and
 
 - [`math_plan.md`](math_plan.md) — the six-month, just-in-time math curriculum:
   getting to the point of re-deriving the core results in this area.
+- [`skills_plan.md`](skills_plan.md) — the career track through spring 2027
+  (interview cadence, production toolkit, application calendar). Independent of
+  which research direction is live, which is why it survived the move away from
+  the compression program. Overlaps `math_plan.md`; worth reconciling.
 - [`learning_log.md`](learning_log.md) — dated running notes: dead ends,
   surprises, bookmarks. **Currently empty** — `CLAUDE.md` asks for dead ends to
   be recorded here and none have been.

@@ -6,7 +6,7 @@ inside open multilingual LLMs** (phase one), followed by a compression method
 chapter whose design is grounded in what phase one revealed (phase two).
 
 **Both phases are complete.** This track is largely concluded; open directions
-that came out of it are indexed in [`../docs/plans/open_work.md`](../docs/plans/open_work.md).
+that came out of it are indexed in [`../docs/archive/open_work_compression.md`](../docs/archive/open_work_compression.md).
 
 - **Start here:** [`docs/reading_guide.md`](docs/reading_guide.md) — an ordered path through every experiment and result.
 - **The paper:** [`report/arctos-translation-report.pdf`](report/arctos-translation-report.pdf) — phase one, with methods, tables, figures, and citations.

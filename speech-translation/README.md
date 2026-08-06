@@ -150,4 +150,4 @@ variant as a listening reference; the rest of the local audio is gitignored.
 
 - [`docs/nllb_xtts_compression_survey.md`](docs/nllb_xtts_compression_survey.md) — survey of PTQ/pruning/distillation for both model families.
 - [`docs/nllb_xtts_interp_map.md`](docs/nllb_xtts_interp_map.md) — the low-resource-language preservation angle.
-- [`../docs/plans/open_work.md`](../docs/plans/open_work.md) — ranked open directions, including the `nllb-encdec` and `tts-xtts` tracks.
+- [`../docs/archive/open_work_compression.md`](../docs/archive/open_work_compression.md) — ranked open directions, including the `nllb-encdec` and `tts-xtts` tracks.

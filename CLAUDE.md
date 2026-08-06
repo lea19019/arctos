@@ -12,9 +12,22 @@ docs/                only what spans tracks
 ```
 
 **A track's write-ups live with the track**, in `<track>/docs/`. Top-level
-`docs/` holds only `registry.md`, `research_standards.md`, `learning/`
-(explanations of the subject), `plans/` (cross-track), `archive/` (pre-split
-history), and `papers/`. Put a new finding in the track that produced it.
+`docs/` holds only `registry.md`, `research_standards.md`, `decisions/`,
+`templates/`, `learning/` (explanations of the subject), `archive/`, and
+`papers/`. Put a new finding in the track that produced it.
+
+**There is no top-level `plans/`.** The compression program's roadmap and its
+ranked backlog are in `docs/archive/` — those directions are still *open*, but
+they are not being pursued. The live direction is `interlingua/`, and its plan
+lives with the track in `interlingua/docs/tier1_plan.md`. Do not propose
+compression work unless asked for it by name.
+
+**`tier1_plan.md` is partly superseded.** Two 2026-08-06 audits sit above it —
+`interlingua/docs/prior_work_map.md` (prior art, claim by claim: the surviving-
+novelty claim in §7 does not survive) and `interlingua/docs/program_critique.md`
+(the program's premises; verdict *salvageable, but much smaller*, with two
+findings that are measurements rather than literature). **Read both before
+proposing anything in this track.** Tier 1 as written is not to be built.
 
 Markdown docs are named `lower_case_with_underscores.md`; `README.md` and
 bibliographic PDFs are the exceptions.

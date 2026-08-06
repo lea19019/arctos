@@ -37,7 +37,7 @@ Read in this order:
   - **Mechanism:** Language-Specific Neurons / LAPE (2402.16438); "Do Llamas Work in English?" (Wendler 2024); calibration-data impact (2311.09755).
 
 ## 4. What's next
-- [`docs/plans/roadmap.md`](../../docs/plans/roadmap.md) — the ambitious 6-month program (the multi-dimensional sweet-spot study + distillation + pruning + speech↔text + skills plan).
+- [`docs/archive/roadmap_compression_program.md`](../../docs/archive/roadmap_compression_program.md) — the ambitious 6-month program (the multi-dimensional sweet-spot study + distillation + pruning + speech↔text + skills plan).
 - [`docs/archive/session_handoff_2026_06_03.md`](../../docs/archive/session_handoff_2026_06_03.md) — live state for resuming.
 
 ## How to reproduce / poke at results yourself

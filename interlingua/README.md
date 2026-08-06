@@ -110,6 +110,15 @@ NLLB models, same dubbing platform.
 
 ## Literature
 
+[`docs/method_landscape.md`](docs/method_landscape.md) — a map of what exists in
+the method and tooling space (nine area surveys, compiled 2026-08-06).
+Deliberately **not** a plan and not a recommendation: it chooses nothing and
+ranks nothing. Every entry carries a verification flag —
+`[verified]` / `[discovery]` / `[UNVERIFIED]` — and nothing flagged short of
+`[verified]` may enter a findings doc, the registry, or a paper without the
+confirmation pass its flag implies. Where it contradicts `tier1_plan.md`, it
+says so and sources the contradiction.
+
 [`papers/`](papers/) holds 47 papers plus CS 601R course materials. The PDFs are
 gitignored (~191 MB); [`papers/README.md`](papers/README.md) indexes them.
 
