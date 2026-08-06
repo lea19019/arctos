@@ -22,7 +22,7 @@ Aya, omt-llama, Tower.
 ## Expected artifacts
 
 - `results/{model}/q3/layer_mlp_importance.csv` — per-layer MLP importance from each method, with one column per method to make disagreement visible.
-- `docs/findings/q3.md` — depth profile of where cross-lingual mapping concentrates per model.
+- `compression/docs/q3.md` — depth profile of where cross-lingual mapping concentrates per model.
 
 ## Satisfied when
 

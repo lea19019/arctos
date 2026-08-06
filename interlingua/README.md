@@ -9,10 +9,10 @@ this track asks **when and how it forms during training** — and whether the
 
 ## The direction: Tier 1
 
-The umbrella program is [`docs/does-the-interlingua-grok-ringger-2026.pdf`](docs/does-the-interlingua-grok-ringger-2026.pdf)
+The umbrella program is [`docs/does_the_interlingua_grok_ringger_2026.pdf`](docs/does_the_interlingua_grok_ringger_2026.pdf)
 — *Does the Interlingua Grok? Tracking the Emergence of Cross-Lingual Alignment
 via Mechanistic Interpretability Progress Measures* (PI: Eric Ringger, Matrix
-Lab, 23 pp). **[`docs/tier1-plan.md`](docs/tier1-plan.md) is the working plan for
+Lab, 23 pp). **[`docs/tier1_plan.md`](docs/tier1_plan.md) is the working plan for
 Tier 1 of it, and Tier 1 is what's being pursued.** Tiers 2 and 3 are out of
 scope.
 
@@ -65,11 +65,11 @@ encoder, framing, the language set, and whether crosscoders are expected.
 
 ## The parked alternative
 
-[`docs/ms-proposal-v2-last-mile.md`](docs/ms-proposal-v2-last-mile.md) —
+[`docs/ms_proposal_v2_last_mile.md`](docs/ms_proposal_v2_last_mile.md) —
 *The Last Mile of the Shared Meaning Space* — is a **different** project:
 diagnosing and repairing decode-out failure for African low-resource languages
 on Gemma 4, with a deployed quality-estimation service for ToAll.
-[`docs/ms-proposal-v1-shared-meaning-space.md`](docs/ms-proposal-v1-shared-meaning-space.md)
+[`docs/ms_proposal_v1_shared_meaning_space.md`](docs/ms_proposal_v1_shared_meaning_space.md)
 is its earlier draft (frozen encoders, geometric probing).
 
 It is not the direction being taken, but it is kept because it is close to
@@ -86,8 +86,8 @@ gitignored (~191 MB); [`papers/README.md`](papers/README.md) indexes them.
 
 The two committed documents there are the substance:
 
-- [`papers/PAPER_SUMMARIES.md`](papers/PAPER_SUMMARIES.md) — per-paper summaries (problem / method / findings / relevance).
-- [`papers/LITERATURE_SWEEP_2026-07.md`](papers/LITERATURE_SWEEP_2026-07.md) — positioning report on the 2026 state of the field: what replaced the strong interlingua hypothesis, and where the Platonic Representation Hypothesis is currently under attack.
+- [`papers/paper_summaries.md`](papers/paper_summaries.md) — per-paper summaries (problem / method / findings / relevance).
+- [`papers/literature_sweep_2026_07.md`](papers/literature_sweep_2026_07.md) — positioning report on the 2026 state of the field: what replaced the strong interlingua hypothesis, and where the Platonic Representation Hypothesis is currently under attack.
 
 ## Relation to the rest of the repo
 

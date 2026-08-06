@@ -7,7 +7,7 @@ Mirrors `src/` layout. Two markers, both required for any new method:
 
 `@pytest.mark.slow` exists for tests over ~30s; opt in with `-m slow`.
 
-Per `PHASE1-PLAN.md` "Testing discipline": a method is not done until both CPU and GPU tests exist.
+Per `archive/phase1_plan.md` "Testing discipline": a method is not done until both CPU and GPU tests exist.
 
 ## Running
 

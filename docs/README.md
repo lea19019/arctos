@@ -1,71 +1,86 @@
-# docs — the written record
+# docs — what spans the tracks
 
-Findings, reading, and planning for the `compression/` and `speech-translation/`
-tracks. Most of what's here describes work that is **done or parked**, not in
-progress — this is the archive you mine when picking up a thread, not a to-do
-list.
+**The rule:** a track's own write-ups live with the track. This folder holds only
+what is shared or outlives any one track.
 
-The `interlingua/` track keeps its own docs and bibliography under
-[`../interlingua/`](../interlingua/), since they're specific to it.
+```
+docs/
+├── registry.md            ← what has been done and what is ruled out. Read before proposing anything.
+├── research_standards.md  ← how experiments are run here, with sources.
+├── learning/              understand the subject matter — read these first if you're new
+├── plans/                 forward-looking, across tracks
+├── archive/               history from before the tracks split
+└── papers/                shared PDFs
+```
 
-## Start here
+Per-track write-ups:
 
-| Document | What it is |
+| Track | Its docs |
 |---|---|
-| [`OPEN-WORK.md`](OPEN-WORK.md) | **The most useful doc in this folder.** A ranked brief of open directions, mined from the future-work and limitations sections of 95 cited papers and cross-referenced against what has already been done or ruled out. Honest novelty labels. |
-| [`READING-GUIDE.md`](READING-GUIDE.md) | An ordered path through every experiment and result, phase one → phase two. |
-| [`project-summary.md`](project-summary.md) | The thesis spine. |
-| [`ROADMAP.md`](ROADMAP.md) | The multi-dimensional "sweet spot of compression for translation" program (quant × prune × distill across bit-scales). |
+| `compression/` | [`../compression/docs/`](../compression/docs/) — q1/q4/q5/q6, phase two, the primers, the bibliography |
+| `speech-translation/` | [`../speech-translation/docs/`](../speech-translation/docs/) — the NLLB/XTTS surveys |
+| `interlingua/` | [`../interlingua/docs/`](../interlingua/docs/) + [`../interlingua/papers/`](../interlingua/papers/) — the Tier 1 plan, the MS proposals, the literature sweep |
 
-## Findings (`findings/`)
+## I want to…
 
-Per-question writeups backing the two tracks.
+| …do this | …go here |
+|---|---|
+| Check whether an idea was already tried or killed | [`registry.md`](registry.md) |
+| Know how to run an experiment properly here | [`research_standards.md`](research_standards.md) |
+| **Understand the subject matter from scratch** | [`learning/project_foundations.md`](learning/project_foundations.md) |
+| Read a whole track in order | that track's `docs/README.md` |
+| Look up a compression result | [`../compression/docs/`](../compression/docs/) |
+| Pick up an open thread | [`plans/open_work.md`](plans/open_work.md) |
+| Find a paper to read | [`learning/reading_list.md`](learning/reading_list.md) |
 
-**Phase one — interpretability:** [`q1.md`](findings/q1.md) (when and where the
-target language emerges), [`q5.md`](findings/q5.md) (**the pivotal negative** —
-importance ⟂ quantization sensitivity), [`architecture-comparison.md`](findings/architecture-comparison.md)
-(does the depth signature generalize).
+## The two documents at the top
 
-**Phase two — compression:** [`phase2-synthesis.md`](findings/phase2-synthesis.md)
-(the honest consolidated read — start here for conclusions),
-[`phase2-results.md`](findings/phase2-results.md) (cross-model tables),
-[`q6.md`](findings/q6.md) (the chrF++ sweep),
-[`compression-primer.md`](findings/compression-primer.md) (the find/keep/shrink/prune
-framework), [`phase2-method-primer.md`](findings/phase2-method-primer.md) (method +
-literature-gap map), [`phase2-novel-direction.md`](findings/phase2-novel-direction.md)
-(the pipeline-aware idea — read knowing it became a **negative result**).
+[`registry.md`](registry.md) — the audited record (2026-08-05). What was
+attempted, what was established, **what was ruled out with the numbers that
+killed it**, and where documentation and raw data disagree. Several plausible
+ideas are already dead; this is where you find out before spending a week. It
+spans all three tracks, which is why it lives here.
 
-**Speech + deployment:** [`compression-nllb-xtts-research.md`](findings/compression-nllb-xtts-research.md),
-[`interp-lrl-nllb-xtts.md`](findings/interp-lrl-nllb-xtts.md).
+[`research_standards.md`](research_standards.md) — the sourced backing for
+[`../CLAUDE.md`](../CLAUDE.md). §§1–11 are research method (statistics, null
+models, interventions, representational similarity, phase transitions,
+checkpoint suites, reporting). §§12–19 are the engineering layer. A lookup
+reference, not a read-through.
 
-**Replication:** [`replication-uneven-ptq-mt.md`](findings/replication-uneven-ptq-mt.md) —
-independent replication of arXiv:2508.20893, with the paper's red flags noted.
+## [`learning/`](learning/) — explanations
 
-`findings/deep-research-raw/` holds the unedited deep-research transcripts behind
-the synthesis docs.
+The teaching material, kept here because it is about the *subject*, not about
+any one track's results: what quantization is, how these architectures work,
+every paper worth reading, and the math curriculum. Start with
+[`project_foundations.md`](learning/project_foundations.md). See
+[`learning/README.md`](learning/README.md).
 
-## Background and learning
+Track-specific primers are with their track — e.g. the find/keep/shrink/prune
+framework is
+[`../compression/docs/compression_primer.md`](../compression/docs/compression_primer.md).
 
-- [`llm-quant-foundations.md`](llm-quant-foundations.md) — architecture + compression reference covering all three tracks.
-- [`project-foundations.md`](project-foundations.md) — what quantization is, conceptually. Read before the above.
-- [`READING-LIST.md`](READING-LIST.md) — every cited paper, grouped by theme, plus videos and sites for the foundations.
-- [`MATH-PLAN.md`](MATH-PLAN.md) — 6-month math curriculum.
-- [`research.md`](research.md) — annotated bibliography + deep-research addenda.
-- [`learning-log.md`](learning-log.md) — running notes.
+## [`plans/`](plans/) — what's next
 
-## Planning and administrative
+[`open_work.md`](plans/open_work.md) is the useful one: a ranked brief of open
+directions mined from the future-work sections of 95 cited papers, cross-checked
+against what is already done or ruled out — and it spans tracks, which is why
+it's here rather than in one of them. Also [`roadmap.md`](plans/roadmap.md) (the
+6-month program) and [`skills_plan.md`](plans/skills_plan.md).
 
-- [`PHASE1-PLAN.md`](PHASE1-PLAN.md) — the original phase-one investigation plan and V1/V2/V3 claim structure.
-- [`ms-project-plan.md`](ms-project-plan.md) — MS project planning doc and research roadmap.
-- [`proposal-form.md`](proposal-form.md) — CS 698R master's project approval requirements.
-- [`advisor-brief.md`](advisor-brief.md), [`project-ideas-advisor-brief.md`](project-ideas-advisor-brief.md) — talking docs.
-- [`replication-uneven-ptq-mt-brief.md`](replication-uneven-ptq-mt-brief.md) — the replication brief.
-- [`phase2-hypotheses.md`](phase2-hypotheses.md), [`ideas.md`](ideas.md) — candidate directions, mostly superseded by `OPEN-WORK.md`.
-- [`skills-plan.md`](skills-plan.md) — career/interview plan through spring 2027 (DSA cadence, production toolkit, application calendar, visa checklist). **Overlaps** [`ROADMAP.md`](ROADMAP.md) and [`MATH-PLAN.md`](MATH-PLAN.md), which cover research skills over a similar horizon — worth reconciling into one plan rather than three.
-- [`SESSION-HANDOFF.md`](SESSION-HANDOFF.md), [`claude-code-bootstrap.md`](claude-code-bootstrap.md) — working-process notes.
-- [`systems-notes/`](systems-notes/) — cluster and environment notes.
+## [`archive/`](archive/) — history
 
-## Papers (`papers/`)
+Advisor briefs, the phase-one plan, the MS project plan, proposal paperwork,
+process notes. These were written **before the repo split into tracks**, when
+"phase one / phase two" *was* the whole project — which is why they're here and
+not under `compression/`. Accurate for their moment, superseded now. See
+[`archive/README.md`](archive/README.md).
 
-- `pruning_project.pdf` — prior work applying IFR-guided pruning.
-- `mmmc-multilingual-corpus.pdf` — MMMC: A Massively Multi-way-aligned Multilingual Corpus.
+## Naming
+
+Markdown files are `lower_case_with_underscores.md`. The only exceptions are
+`README.md` (a convention every tool expects) and PDFs, which keep bibliographic
+filenames so they sort by author.
+
+Experiment folders under `compression/experiments/` still use dashes
+(`q6-compression/`) — those names are hard-coded in SLURM scripts and configs,
+so they were deliberately left alone.

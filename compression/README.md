@@ -6,11 +6,11 @@ inside open multilingual LLMs** (phase one), followed by a compression method
 chapter whose design is grounded in what phase one revealed (phase two).
 
 **Both phases are complete.** This track is largely concluded; open directions
-that came out of it are indexed in [`../docs/OPEN-WORK.md`](../docs/OPEN-WORK.md).
+that came out of it are indexed in [`../docs/plans/open_work.md`](../docs/plans/open_work.md).
 
-- **Start here:** [`../docs/READING-GUIDE.md`](../docs/READING-GUIDE.md) — an ordered path through every experiment and result.
+- **Start here:** [`docs/reading_guide.md`](docs/reading_guide.md) — an ordered path through every experiment and result.
 - **The paper:** [`report/arctos-translation-report.pdf`](report/arctos-translation-report.pdf) — phase one, with methods, tables, figures, and citations.
-- **Findings:** [`../docs/findings/`](../docs/findings/) — `q1.md`, `q5.md`, `architecture-comparison.md` (phase one); `phase2-synthesis.md`, `phase2-results.md`, `q6.md` (phase two).
+- **All write-ups:** [`docs/`](docs/) — `q1_language_emergence.md`, `q5_importance_vs_sensitivity.md`, `q4_architecture_comparison.md` (phase one); `phase2_synthesis.md`, `phase2_results.md`, `q6_compression.md` (phase two); the primers and the bibliography. Index in [`docs/README.md`](docs/README.md).
 
 ## Layout
 
@@ -22,6 +22,7 @@ compression/
 │   ├── quant/       # quantizer backends: bnb, AWQ, AutoRound, GGUF, GPTQ registry
 │   ├── data/        # FLORES+ loader + clean/corrupt prompt generators
 │   └── eval/        # chrF++/BLEU (sacrebleu) + XCOMET-XL
+├── docs/            # this track's write-ups: findings, primers, bibliography
 ├── experiments/     # one folder per research question, each with configs/ + slurm/
 ├── tests/           # cpu + gpu markers
 ├── scripts/         # result collectors + job-status helpers
@@ -135,10 +136,10 @@ architecture.
 Super weights are detected by **causal KL**, not activation-spike magnitude —
 ranking by spike size produces last-layer false positives.
 
-> **Read the findings docs against [`../docs/REGISTRY.md`](../docs/REGISTRY.md).**
+> **Read the findings docs against [`../docs/registry.md`](../docs/registry.md).**
 > An audit of every claim against the raw results found the headline numbers
 > reproduce exactly, but also several documented claims that don't — including a
-> `q1.md` DLA value that contradicts the paper, Gemma-3 missing from both
+> `q1_language_emergence.md` DLA value that contradicts the paper, Gemma-3 missing from both
 > findings docs, and an undisclosed dropped cell in Q5's n=17 statistic.
 
 ## Running it

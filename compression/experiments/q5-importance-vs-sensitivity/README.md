@@ -12,7 +12,7 @@ This is the bridge to phase two.
 
 ## Models covered
 
-Aya at minimum (continuity with prior paper). The other two if compute permits — multi-model loading is the constraint here, see `PHASE1-PLAN.md` risk register.
+Aya at minimum (continuity with prior paper). The other two if compute permits — multi-model loading is the constraint here, see `archive/phase1_plan.md` risk register.
 
 ## Embedded learning
 
@@ -23,11 +23,11 @@ Aya at minimum (continuity with prior paper). The other two if compute permits �
 ## Expected artifacts
 
 - `results/aya/q5/importance_vs_sensitivity.csv` — per-component (importance, sensitivity) pairs for the three sensitivity definitions.
-- Updated `docs/phase2-hypotheses.md` with phase-one evidence supporting or killing each candidate.
+- Updated `docs/archive/phase2_hypotheses.md` with phase-one evidence supporting or killing each candidate.
 
 ## Satisfied when
 
-A per-component (importance × sensitivity) map exists for at least Aya, and `docs/phase2-hypotheses.md` has been updated from a seed doc into a hypothesis-shaped writeup the phase-two design draws from.
+A per-component (importance × sensitivity) map exists for at least Aya, and `docs/archive/phase2_hypotheses.md` has been updated from a seed doc into a hypothesis-shaped writeup the phase-two design draws from.
 
 ## Tests
 

@@ -2,7 +2,7 @@
 
 Running log of design decisions and fixes for the find/keep/shrink/prune
 sandbox. Conceptual background + reading list:
-[`docs/findings/compression-primer.md`](../../docs/findings/compression-primer.md).
+[`compression/docs/compression_primer.md`](../../docs/compression_primer.md).
 
 ## 2026-06-02 — super-weight ranking fix (causal, not spike)
 
@@ -40,7 +40,7 @@ unit tests in `tests/interp/test_compress.py` cover detect + verify.
 ## 2026-06-02 — phase-two GEM run (deep-research-driven)
 
 Deep-research (run wf_36650cc2-1b3) + primer #2
-(`docs/findings/phase2-method-primer.md`) identified the verified novelty:
+(`compression/docs/phase2_method_primer.md`) identified the verified novelty:
 **multilingual / MT-conditional super-weight + salient-channel FP16 preservation
 at the low-bit (W2/W3) cliff, causal-KL ranked, XCOMET-XL eval** — two
 intersecting documented gaps (no multilingual super-weight study; no MT-quality

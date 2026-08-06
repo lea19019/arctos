@@ -3,7 +3,7 @@
 Operationalizes the phase-two ideas on every decoder model, measured by
 **chrF++ on generated translations** (not target-token logit — the fix for
 Q5's weak metric) using **faithful** quant/prune operations (not Gaussian
-noise). Concept + reading list: [`docs/findings/compression-primer.md`](../../docs/findings/compression-primer.md).
+noise). Concept + reading list: [`compression/docs/compression_primer.md`](../../docs/compression_primer.md).
 
 ## Stages
 

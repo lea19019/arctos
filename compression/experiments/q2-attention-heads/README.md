@@ -24,7 +24,7 @@ Aya, omt-llama, Tower.
 
 - `results/{model}/q2/head_ranking.csv` — per-head patching effect size with metric.
 - `results/{model}/q2/top_heads_attention.png` — attention pattern plots for top ~10 heads.
-- `docs/findings/q2.md` — informal characterization of the top heads per model + cross-model comparison.
+- `compression/docs/q2.md` — informal characterization of the top heads per model + cross-model comparison.
 
 ## Satisfied when
 

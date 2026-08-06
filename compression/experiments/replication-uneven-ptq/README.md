@@ -2,7 +2,7 @@
 
 Independent, critical replication of **arXiv:2508.20893** (Marie & Fujita,
 NICT, Aug 2025 — a **preprint, not peer-reviewed**). Brief:
-`docs/replication-uneven-ptq-mt-brief.md`. Kept deliberately separate from the
+`docs/archive/replication_uneven_ptq_brief.md`. Kept deliberately separate from the
 Arctos q6 work so it stays an independent check.
 
 ## What it reproduces
@@ -31,7 +31,7 @@ Paper's exact setup, scaled to our budget:
 
 Code lives in `src/data/wmt24pp.py`, `src/models/_chat_prompt.py`,
 `src/quant/` (the official-library wrappers). Results → `results/` (gitignored);
-findings → `docs/findings/replication-uneven-ptq-mt.md`.
+findings → `compression/docs/replication_uneven_ptq_mt.md`.
 
 ## Run order
 

@@ -25,7 +25,7 @@ Aya Expanse 8B, omt-llama-8b, TowerInstruct-7B.
 
 - `results/{model}/q1/` — per-layer probe (accuracy, control, selectivity), per-layer logit-lens target-mass.
 - Plots: per-model layer × probe accuracy; per-model layer × target-language mass.
-- `docs/findings/q1.md` — synthesis.
+- `compression/docs/q1_language_emergence.md` — synthesis.
 
 ## Satisfied when
 

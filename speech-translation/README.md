@@ -14,6 +14,7 @@ speech-translation/
 ├── xtts_experiment.py      # XTTS v2: FP16 vs BnB INT8 on the GPT component
 ├── fetch_flores.py         # FLORES+ dev data for en/es/fr → data/
 ├── prepare_ref_audio.py    # one reference clip per language for speaker conditioning
+├── docs/                   # this track's write-ups: the two survey documents
 ├── configs/                # nllb.yaml, xtts.yaml
 ├── slurm/                  # precache (login node) + run/smoke jobs (compute nodes)
 ├── mobile-tts/             # separate: Swahili MMS-TTS speaker fine-tuning
@@ -147,6 +148,6 @@ variant as a listening reference; the rest of the local audio is gitignored.
 
 ## Related reading
 
-- [`../docs/findings/compression-nllb-xtts-research.md`](../docs/findings/compression-nllb-xtts-research.md) — survey of PTQ/pruning/distillation for both model families.
-- [`../docs/findings/interp-lrl-nllb-xtts.md`](../docs/findings/interp-lrl-nllb-xtts.md) — the low-resource-language preservation angle.
-- [`../docs/OPEN-WORK.md`](../docs/OPEN-WORK.md) — ranked open directions, including the `nllb-encdec` and `tts-xtts` tracks.
+- [`docs/nllb_xtts_compression_survey.md`](docs/nllb_xtts_compression_survey.md) — survey of PTQ/pruning/distillation for both model families.
+- [`docs/nllb_xtts_interp_map.md`](docs/nllb_xtts_interp_map.md) — the low-resource-language preservation angle.
+- [`../docs/plans/open_work.md`](../docs/plans/open_work.md) — ranked open directions, including the `nllb-encdec` and `tts-xtts` tracks.

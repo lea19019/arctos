@@ -6,10 +6,10 @@ the index; the PDFs are recoverable from the sources below.
 
 Two companion documents here *are* committed, and they are the substance:
 
-- **[`PAPER_SUMMARIES.md`](PAPER_SUMMARIES.md)** — detailed per-paper summaries
+- **[`paper_summaries.md`](paper_summaries.md)** — detailed per-paper summaries
   (problem / method / findings / relevance), ordered to match the CS 601R course
   schedule. This is the useful entry point.
-- **[`LITERATURE_SWEEP_2026-07.md`](LITERATURE_SWEEP_2026-07.md)** — a positioning
+- **[`literature_sweep_2026_07.md`](literature_sweep_2026_07.md)** — a positioning
   report on the 2026 state of the field: what replaced the strong interlingua
   hypothesis, where the Platonic Representation Hypothesis is under attack, and
   where the open ground is.

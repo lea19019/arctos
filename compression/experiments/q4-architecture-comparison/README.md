@@ -28,7 +28,7 @@ All three jointly.
 
 ## Expected artifacts
 
-- `docs/findings/architecture-comparison.md` — paper-style writeup pitched at someone unfamiliar with the project.
+- `compression/docs/q4_architecture_comparison.md` — paper-style writeup pitched at someone unfamiliar with the project.
 
 ## Satisfied when
 

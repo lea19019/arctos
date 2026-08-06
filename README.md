@@ -79,14 +79,24 @@ per-language evaluation is not optional.
 
 ## Where the ideas live
 
-`docs/` is the written record for both tracks — per-question findings, the
-annotated bibliography, the reading and math plans, and the planning documents.
+**A track's write-ups live with the track.** Each of the three has its own
+`docs/`: [`compression/docs/`](compression/docs/) (q1/q4/q5/q6, phase two, the
+primers, the bibliography), [`speech-translation/docs/`](speech-translation/docs/)
+(the NLLB/XTTS surveys), [`interlingua/docs/`](interlingua/docs/) (the Tier 1
+plan and the MS proposals, with its bibliography in
+[`interlingua/papers/`](interlingua/papers/)).
 
-Most of what's in `docs/` describes directions that were explored and **parked**,
-not active work. [`docs/OPEN-WORK.md`](docs/OPEN-WORK.md) is the useful index of
-those: a ranked brief of open directions mined from the future-work sections of
-95 cited papers, cross-referenced against what has already been done or ruled
-out. Start there when picking up a thread.
+Top-level [`docs/`](docs/) holds only what spans tracks or outlives them:
+
+| | |
+|---|---|
+| [`docs/registry.md`](docs/registry.md) | **What has been done and what is ruled out, with the numbers.** Read before proposing anything. |
+| [`docs/research_standards.md`](docs/research_standards.md) | How experiments are run here, sourced. |
+| [`docs/learning/`](docs/learning/) | Explanations of the *subject* — quantization from scratch, the architectures, every paper worth reading, the math plan. |
+| [`docs/plans/`](docs/plans/) | What's next. [`open_work.md`](docs/plans/open_work.md) ranks open directions mined from the future-work sections of 95 cited papers, cross-referenced against what is already done or ruled out — start there when picking up a thread. |
+| [`docs/archive/`](docs/archive/) | History from before the repo split into tracks. Superseded, kept for context. |
+
+Most of what's written down describes work that is **parked**, not active.
 
 → [`docs/README.md`](docs/README.md) for the full index.
 
