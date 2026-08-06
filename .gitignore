@@ -94,3 +94,8 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Claude Code — commit the shared conventions, not personal state.
+# .claude/skills/ holds the workflows every session and every agent must follow,
+# so it is tracked. settings.local.json is per-machine permission state.
+.claude/settings.local.json

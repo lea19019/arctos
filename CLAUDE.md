@@ -8,15 +8,36 @@ interlingua/         training dynamics of cross-lingual alignment (next; docs on
 compression/         interp → quantization (concluded)
 speech-translation/  NLLB + XTTS dubbing pipeline
 notebooks/           method tutorials (import from compression/src)
-docs/                findings, planning, the registry
+docs/                only what spans tracks
 ```
 
-**Read [`docs/REGISTRY.md`](docs/REGISTRY.md) before proposing any experiment.**
+**A track's write-ups live with the track**, in `<track>/docs/`. Top-level
+`docs/` holds only `registry.md`, `research_standards.md`, `learning/`
+(explanations of the subject), `plans/` (cross-track), `archive/` (pre-split
+history), and `papers/`. Put a new finding in the track that produced it.
+
+Markdown docs are named `lower_case_with_underscores.md`; `README.md` and
+bibliographic PDFs are the exceptions.
+
+**Read [`docs/registry.md`](docs/registry.md) before proposing any experiment.**
 It records what was done, what was ruled out with evidence, and which documented
 claims failed an audit against the raw data. Several plausible ideas are already
 dead.
 
-Full sourced standards: [`docs/RESEARCH-STANDARDS.md`](docs/RESEARCH-STANDARDS.md).
+Full sourced standards: [`docs/research_standards.md`](docs/research_standards.md).
+
+**Workflows live as skills, not as prose.** Invoke them rather than
+improvising: `/new-experiment` (spec before runner), `/close-experiment`
+(verdict, back-annotation, filing the negative), `/audit-claim` (check a claim
+against the raw data before it lands), `/record-decision` (a decision record in
+`docs/decisions/`).
+
+**Writing the first code in a track? Read `docs/research_standards.md` §20.3
+first.** It is a short trigger table saying which mechanism is due *now* — the
+provenance manifest writer, a test that every committed config loads, invariant
+tests for any similarity/probe measure — and which can wait. All of these are
+cheap to add up front and expensive to retrofit; provenance especially, because
+retrofitting it is how you end up with results you cannot cite.
 
 ---
 
@@ -68,9 +89,10 @@ drifting from their evidence. Guard against exactly that:
 
 ## Adding an experiment
 
-Each track follows `experiments/<name>/` with `README.md` (question,
-satisfied-when), `configs/*.yaml` (one per run), `slurm/`, and `notes.md` (a
-dated changelog — including what broke).
+Use `/new-experiment`. Each track follows `experiments/<name>/` with `README.md`
+(question, satisfied-when — template: `docs/templates/experiment_readme.md`),
+`configs/*.yaml` (one per run), `slurm/`, and `notes.md` (a dated changelog,
+including what broke — template: `docs/templates/notes_entry.md`).
 
 - **One YAML per run.** No hidden defaults in code that override config.
 - **Write `git_sha`, the resolved config, library versions, and the seed into
@@ -84,12 +106,12 @@ dated changelog — including what broke).
 ## Recording negatives and dead ends
 
 Negatives are the most reused content in this repo — and the least well kept.
-`docs/learning-log.md` was created for dead ends and has zero entries.
+`docs/learning/learning_log.md` was created for dead ends and has zero entries.
 
-- A ruled-out idea goes in `docs/REGISTRY.md` under **Ruled out**, with the
+- A ruled-out idea goes in `docs/registry.md` under **Ruled out**, with the
   evidence and the numbers that killed it.
 - When a proposal becomes a negative, **update the proposal document itself**
-  with a results section. `phase2-novel-direction.md` still reads as a live
+  with a results section. `phase2_novel_direction.md` still reads as a live
   proposal for an idea that died.
 - Keep a **chronicle** for any long training run: a timestamped prose log of
   instabilities, restarts, and fixes, keyed to step numbers.
@@ -116,7 +138,7 @@ nodes have no internet — pre-cache on the login node. Python 3.11, torch cu128
 ## For the interlingua track specifically
 
 Not yet built. Decisions worth making before code exists, from
-`docs/RESEARCH-STANDARDS.md`:
+`docs/research_standards.md`:
 
 - **Define the model as an HF `LlamaForCausalLM`** — `HookedModel` provably works
   on a randomly-initialized one, so ~900 lines of existing method code transfers
@@ -135,8 +157,15 @@ Not yet built. Decisions worth making before code exists, from
 
 ---
 
-*Rules above are grounded in sourced practice where `docs/RESEARCH-STANDARDS.md`
-cites a source, and are editorial judgment otherwise. The general
-software-engineering layer — Hydra vs YAML, experiment trackers, data versioning,
-formal reproducibility checklists — has **not** been researched yet and is
-explicitly open.*
+*Rules above are grounded in sourced practice where `docs/research_standards.md`
+cites a source, and are editorial judgment otherwise. The research-engineering
+layer — configuration, provenance, tracking, artifacts, repo structure, testing
+numerical code, and how failure gets recorded — is §§12–19, compiled from
+primary sources read as code. §20 says which of these rules can be mechanised,
+which cannot, and what to build at which point.*
+
+*Enforcement is deliberately unbuilt: there is no CI, no pre-commit hook and no
+fitness-function suite, because the track they would govern has no code yet.
+§20.3 names the trigger for each. Build them when the trigger fires, not before
+— a gate whose failures are all pre-existing debt gets switched off within a
+week.*
