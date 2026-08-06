@@ -254,6 +254,48 @@ premise audit above:
   formation, objective × dynamics matched from-scratch, and whether the Wang et al.
   non-monotonic drop is real or a corrupted checkpoint.
 
+⚠️ **Methods and tooling were mapped separately the same day** — see
+[`../interlingua/docs/method_landscape.md`](../interlingua/docs/method_landscape.md)
+(nine area surveys + three discovery passes; unfiltered candidates in
+[`method_landscape_candidates.md`](../interlingua/docs/method_landscape_candidates.md)).
+It takes **no position on novelty or on whether to proceed** — it asks only what
+methods exist, what they cost, and whether they have a null. It **independently
+corroborates the premise audit above** on the two points where they overlap:
+the changepoint→bootstrap composition is invalid (bootstrap inconsistency for a
+non-regular parameter, Seijo & Sen 2011) and **a parametric sigmoid midpoint is
+the regular-parameter fix** — reached from the statistics literature rather than
+from simulation. What it adds:
+
+- **`tier1_plan.md` §3.1's tooling argument surveys the wrong three tools.**
+  TransformerLens 3.6.0 ships `HookedEncoder` with hook names identical to
+  `HookedTransformer` and an `m2m100.py` adapter whose docstring names NLLB-200;
+  omitted are `inseq` (encoder-decoder-*first*) and `pico-analyze` (never loads a
+  model). **Verified inside the published wheel.** What is still genuinely
+  decoder-only is **SAEs and circuit tracing**.
+- **§3.1's JSD/decoder-only reason does not hold at all.** The metric needs a
+  distribution over the vocabulary at a designated slot; an MLM at `[MASK]`
+  supplies it, and the **encoder-decoder arm needs no adaptation** — so the
+  objection never touched the arm H3a is defined over. Nobody has published the
+  MLM version, which costs a citation, not a method.
+- **The agreement minimal pairs are largely a download.** MultiBLiMP ships
+  EN 770 / FR 2548 / TR 1742 (counts verified); TurBLiMP adds 18k Turkish items.
+  ⚠️ But Başar & Bisazza (SIGTURK 2026) show Turkish minimal pairs are confounded
+  by morpheme, subword and length counts — which custom construction does not fix.
+- **The regime is hostile to spectral measures.** At n=1012 and d=512, d/n ≈ 0.51:
+  the CCA family is excluded outright, and permutation calibration is *cheap*
+  (O(n²) on cached Grams — minutes for the whole grid), so an uncalibrated CKA
+  curve is a known-confounded result rather than an unpolished one.
+- **Free assets the plan did not know about:** **Ettin** (arXiv:2507.11412) —
+  paired encoder and decoder models, 17M–1B, identical data and recipe, 250+
+  checkpoints; and the proposed config is **Pythia-70M's transformer body
+  exactly** (18,915,328 non-embedding params), so measures can be validated
+  against 154 existing checkpoints before any training.
+- **Super-weight detection still has no null anywhere in the literature** —
+  confirmed by three independent zero-result searches, and **no planted-structure
+  benchmark plants a single scalar weight.** The nearest off-the-shelf answer to
+  "I searched 19M weights for the largest KL" is the neuroimaging max-statistic
+  permutation null (Nichols & Holmes 2002), not random matrix theory.
+
 ---
 
 # Ruled out — do not redo

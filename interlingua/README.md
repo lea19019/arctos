@@ -23,6 +23,20 @@ this track asks **when and how it forms during training** — and whether the
 > recommended next action is a few-GPU-hour pilot confirming the behavioral axis moves at all
 > in the chosen architecture, before committing the fifteen runs.
 > **Read both before proposing anything in this track.**
+>
+> A third audit of the same date, [`docs/method_landscape.md`](docs/method_landscape.md),
+> maps **methods and tooling** and takes no position on novelty or on whether to
+> proceed: for each measure, what it costs at ~900 checkpoint-analyses, what it
+> requires, which architecture families it supports, whether it has a **calibrated
+> null**, and whether its implementation is maintained. Its §8 tabulates thirteen
+> claims across `tier1_plan.md`, `CLAUDE.md`, `research_standards.md` and
+> `registry.md` that it contradicts; §9 is a ranked reading list; §10 is its own
+> verification debt. Unfiltered candidate lists — ~130 papers surfaced but not
+> opened — are in [`docs/method_landscape_candidates.md`](docs/method_landscape_candidates.md).
+> It corroborates the premise audit independently on the two points where they
+> overlap (the Δt pipeline, and the sigmoid-midpoint fix), and separately finds
+> that **§3.1's case for dropping the encoder and encoder-decoder arms does not
+> hold on either of its two stated reasons.**
 
 The umbrella program is [`docs/does_the_interlingua_grok_ringger_2026.pdf`](docs/does_the_interlingua_grok_ringger_2026.pdf)
 — *Does the Interlingua Grok? Tracking the Emergence of Cross-Lingual Alignment

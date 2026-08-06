@@ -261,14 +261,51 @@ and record the flags in every metric row.**
 | nnsight | v0.7.0, active | Best for arbitrary `nn.Module`; no cache/patching library — escape hatch |
 | devinterp | v2.0.1 | *The* training-dynamics library; steal its Zarr/xarray data model |
 | TorchLens | active | Use once, early, to verify the graph |
-| penzai | **dormant ~14 months** | Do not adopt |
-| transformer-debugger | **abandoned** | Ignore despite 4.1k stars |
-| tuned-lens | PyPI stale since 2023 | Reimplement (~150 lines) |
+| penzai | **dormant ~14 months** | Do not adopt — **and it is JAX-first** (`jax>=0.4.23`; torch only as a conversion dep), which disqualifies it here independently of dormancy |
+| transformer-debugger | **abandoned** | Ignore despite 4.1k stars. ⚠️ Re-checked 2026-08-06: **not archived**, but the last commit is a pre-commit pin bump, and it calls `gpt-4o` — disqualifying on an offline node |
+| tuned-lens | PyPI stale since 2023 | Reimplement (~150 lines). ⚠️ Also: `wandb` is still a **mandatory** dependency — a hard failure on an offline node |
+| inseq | v0.7.1 (2026-03), active | **Encoder-decoder-*first*.** Config names `M2M100ForConditionalGeneration` (= NLLB-200) and `NllbMoe`. Added 2026-08-06 |
+| pico-analyze | commit 2026-02 | **Never loads a model** — reads saved tensors only, so CKA/PWCCA/effective rank are architecture-agnostic for free. Added 2026-08-06 |
+| pyvene | v0.1.8, semi-maintained | Architecture-general interventions; its ESM card maps verbatim BERT module paths, so a RoBERTa card is a file copy. Added 2026-08-06 |
+
+⚠️ **The encoder / encoder-decoder picture changed in 2026.** Verified inside the
+published `transformer_lens-3.6.0` wheel on 2026-08-06: `HookedEncoder` uses the
+**same `blocks.{i}` hook names as `HookedTransformer`**, so
+`transformer_lens.patching` runs unmodified on BERT; `HookedEncoderDecoder` plus
+**12 encoder-decoder bridge adapters** ship, including `m2m100.py` whose
+docstring names **NLLB-200**, with HF logit parity < 1e-5. Caveats: **no
+RoBERTa/XLM-R adapter** (the BERT one is ~150 declarative lines), and the NLLB
+adapter landed 2026-07-27 in a machine-generated 406-file PR with an open
+correctness issue (#1611, seq2seq `return_type="loss"`). **What is still
+genuinely decoder-only is SAEs and circuit tracing** — on tooling grounds *and*
+on the absence of any published SAE precedent on a text encoder or MT
+encoder-decoder. Detail: `interlingua/docs/method_landscape.md` §3.
+
+⚠️ **Correction (2026-08-06): `run_with_cache` does *not* raise on batch size
+> 1.** The `NotImplementedError` is scoped to `generate(return_cache=True)`;
+the batched-`run_with_cache` issue (#1265) closed 2026-04-22. Bugs #1568 and
+#1587 above **are** still open, but both live in the `boot_native`
+train-inside-TransformerLens path — training in HF `transformers` and wrapping
+with `boot_transformers(hf_model=…)` avoids both, which is what
+[`decisions/0001`](decisions/0001_interlingua_model_implementation_substrate.md)
+already proposes.
 
 **There is no library for tracking interp metrics across a checkpoint grid.** An
 xarray `DataArray` indexed by `(run, step, layer, language, metric)` is the right
 data model. Use W&B for training curves, JSONL/Zarr on disk for interp metrics —
 a 900-point grid is a re-analyzable array, not a live stream.
+
+⚠️ **This may be superseded.** **TRACE** ([arXiv:2507.03668](https://arxiv.org/abs/2507.03668),
+EMNLP 2025 demo `2025.emnlp-demos.62`) is a modular **in-training** analysis
+toolkit — probing, intrinsic dimensionality, Hessian curvature, layer-wise
+diagnostics — whose paper explicitly claims existing tools *"lack temporal
+tracking."* **Unverified beyond the abstract**; evaluate before building the
+xarray harness. Also **SAE-Track** ([arXiv:2412.17626](https://arxiv.org/abs/2412.17626))
+for warm-started SAE series across checkpoints, and `reward-lens`
+([arXiv:2604.26130](https://arxiv.org/abs/2604.26130)) for a ten-method adapter
+protocol that isolates architecture-specific details so lens/patching/SAE modules
+are written once. ⚠️ Note a **name collision**: arXiv:2505.17998 is a different
+"TRACE" (a phase-transition detector).
 
 ## 9. SAEs
 

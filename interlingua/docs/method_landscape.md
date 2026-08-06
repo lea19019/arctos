@@ -6,6 +6,16 @@ recommendation. It does not choose an architecture, design an experiment, or
 rank the directions. Where it contradicts [`tier1_plan.md`](tier1_plan.md), the
 contradiction is stated and sourced.
 
+**Two companion audits landed the same day and answer different questions.**
+[`prior_work_map.md`](prior_work_map.md) asks *what is already occupied*;
+[`program_critique.md`](program_critique.md) audits *the program's premises*.
+**This document asks only what methods and tools exist and what they cost** — it
+takes no position on novelty or on whether the program should proceed. Where the
+three overlap they were produced independently, so agreement is corroboration;
+the two places they touch are noted inline in §8. The unfiltered candidate lists
+behind this document are in
+[`method_landscape_candidates.md`](method_landscape_candidates.md).
+
 **How to read the verification flags.** Most agents exhausted their web-search
 budget partway through and finished by fetching primary sources directly. That
 makes this document **stronger as an audit of named methods than as an
@@ -299,16 +309,26 @@ to every "fit":
 "requires a fit" are deterministic given the data and have no fitting noise at
 all.
 
-### 2.2 ⚠️ Correction to `tier1_plan.md` §2
+### 2.2 The SAE seed-instability numbers, now sourced
 
-The plan justifies dropping per-checkpoint SAEs with "cross-seed matched-feature
-rates **as low as 1–4%** for large TopK dictionaries; feature reproducibility
-21–30%." **The 1–4% figure is not in the cited paper.** Paulo & Belrose
-(arXiv:2501.16615) report **30%** (Llama-3-8B, 131K latents) and **42%**
-(Pythia-160M, 2^15 TopK); the abstract's only other quantitative claim is
-directional. [verified — abstract fetched independently, full text read by the
-survey agent] The direction of the argument holds; the number needs a source or
-removal.
+This sweep found that the "1–4%" figure in `tier1_plan.md` §2 was **not** in
+Paulo & Belrose (arXiv:2501.16615), which reports **30%** (Llama-3-8B, 131K
+latents) and **42%** (Pythia-160M, 2^15 TopK). [verified — abstract fetched
+independently, full text read by the survey agent]
+
+⚠️ **A parallel audit on the same day located the real source and the row is now
+corrected in place:** cross-seed matched-feature rates of **1.1–3.9%** at τ=0.7
+mutual-nearest-neighbour for 8× TopK dictionaries (**arXiv:2603.25325**), with
+Paulo & Belrose supplying the 30%/42% figures. The "21–30%" reproducibility
+figure traced only to a 14.5M-parameter clinical model (arXiv:2605.04072) and
+does not apply. **So the number was real and the citation was wrong**, not the
+other way round — the argument for dropping per-checkpoint SAEs stands and is now
+properly sourced.
+
+⚠️ Note the countervailing finding inside arXiv:2603.25325 itself: *population-level*
+SAE statistics **are** stable across seeds even though individual features are
+not. That is the same shape as arXiv:2606.12138 (§2.2 below) and it bounds what a
+dictionary measure may legitimately claim — subspace-level, not feature-level.
 
 Adjacent, and more recent: **arXiv:2606.12138** *Unstable Features, Reproducible
 Subspaces* — individual SAE features are seed-unstable but the spanned
@@ -1339,11 +1359,11 @@ points."* ⚠️ But anchors matter **more for distant pairs**, so EN–FR and E
 
 | Document | Claim | Status |
 |---|---|---|
-| `tier1_plan.md` §2 | SAE cross-seed matched features "as low as **1–4%**" | ⚠️ **Not in the cited paper.** Paulo & Belrose report 30% / 42%. Source it or remove it |
+| `tier1_plan.md` §2 | SAE cross-seed matched features "as low as **1–4%**" | ✅ **Resolved 2026-08-06, and the plan was right.** Not in Paulo & Belrose (30% / 42%), but a parallel audit sourced it to **arXiv:2603.25325** (1.1–3.9% at τ=0.7, 8× TopK). Row corrected in place |
 | `tier1_plan.md` §3.1 reason 1 | JSD measures are next-token, so encoders are out | ⚠️ **Does not hold.** An MLM at `[MASK]` gives the required object; the encoder-decoder arm needs no adaptation at all (§7.1) |
 | `tier1_plan.md` §3.1 reason 2 | TransformerLens / SAELens / circuit-tracer are decoder-first | ⚠️ **True of those three tools, but it surveys the wrong three.** TL 3.6.0 ships an NLLB adapter; `inseq` is enc-dec-first; `pico-analyze` is architecture-agnostic (§3) |
 | `tier1_plan.md` §3.3, §6 W2 | Agreement minimal pairs are "real linguistic work — budget for it" | ⚠️ **Largely a download.** MultiBLiMP covers EN/FR/TR; TurBLiMP adds 18,000 Turkish items (§6.3) |
-| `tier1_plan.md` §3.6 | Log spacing justified by "Dumas et al. … first 10% of tokens" | ⚠️ **Misattributed** — arXiv:2601.22851 is **Körner, Müller-Eberstein, Korhonen & Plank**. The 10% figure itself is **unconfirmed against the primary source** |
+| `tier1_plan.md` §3.6 | Log spacing justified by "Dumas et al. … first 10% of tokens" | ✅ **Already corrected in place 2026-08-06** by the parallel prior-work audit, independently of this sweep. Attribution fixed to **Körner, Müller-Eberstein, Korhonen & Plank**, EACL 2026 `2026.eacl-long.145`; the 10% figure is flagged unverified and not to be cited. This sweep reached the same conclusion separately |
 | `tier1_plan.md` §5 | PELT/BOCPD then bootstrap over 5 seeds for a CI on Δt | ⚠️ **Not a valid composition** — the bootstrap is inconsistent for a changepoint location (§4.1). And 5 seeds caps any exact paired test at p = 0.0625 (§4.2) |
 | `CLAUDE.md`, `research_standards.md` §8 | `run_with_cache` raises on batch size > 1 | ⚠️ **Stale.** Scoped to `generate(return_cache=True)`; the batching issue closed 2026-04-22 |
 | `research_standards.md` §8 | penzai dormant | ✅ true, **and additionally JAX-only** — disqualifying for a PyTorch project |

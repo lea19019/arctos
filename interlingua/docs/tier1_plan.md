@@ -14,6 +14,15 @@
 > Individual sections are annotated below. The companion premise audit is
 > [`program_critique.md`](program_critique.md).
 
+> ⚠️ **A third audit, [`method_landscape.md`](method_landscape.md) (2026-08-06),
+> maps the methods and tooling** and takes no position on novelty. It contradicts
+> this plan in five places, annotated below: **§2** (SAE figure — now sourced,
+> and the plan was right), **§3.1 reason 1** (the JSD/decoder-only objection does
+> not hold), **§3.1 reason 2** (true of the three tools named, but the wrong
+> three tools), **§3.3 / §6 W2** (the minimal pairs are largely a download), and
+> **§5** (the changepoint→bootstrap composition is invalid, and 5 seeds caps any
+> exact paired test at p = 0.0625). Its §8 is the full contradictions table.
+
 ---
 
 ## 1. What this experiment is actually for
@@ -105,6 +114,37 @@ JSD measures actually measure anyway.
 2. TransformerLens / SAELens / circuit-tracer are decoder-first; encoder support is second-class.
 3. Phase 2's targets are decoders.
 
+> ⚠️ **Reasons 1 and 2 do not survive audit (2026-08-06, `method_landscape.md`
+> §7.1 and §3).**
+>
+> **Reason 1 is wrong as stated.** The metric requires only *a probability
+> distribution over the vocabulary at a designated slot, conditioned on context*
+> — verified against the full text of `2026.eacl-long.32`. An MLM at `[MASK]`
+> supplies exactly that object, and **the encoder-decoder arm needs no adaptation
+> at all**, since an NLLB-like decoder emits a genuine next-token distribution.
+> So the objection does not touch the arm **H3a is defined over**. The
+> consistency objection to MLM scoring (Torroba Hennigen & Kim, ACL 2023) bites
+> *sentence-level* scoring, which needs a joint distribution; it does not bite a
+> single-slot divergence, which never does. What is true is narrower: **nobody
+> has published the MLM version** (arXiv search for `"masked language model" AND
+> "Jensen-Shannon" AND "training dynamics"` returns 0). That costs a citation,
+> not a method. Real costs: a bidirectional exemplar-first baseline window, and
+> the step axis is not cross-arm comparable because at equal steps an MLM has
+> received ~15% as many prediction targets.
+>
+> **Reason 2 is true of the three tools named, but surveys the wrong three.**
+> TransformerLens 3.6.0 ships `HookedEncoder` using the *same* `blocks.{i}` hook
+> names as `HookedTransformer` (so `patching.py` runs unmodified on BERT) and an
+> `m2m100.py` adapter whose docstring names **NLLB-200**, with HF logit parity
+> < 1e-5 — though that adapter is ten days old and machine-generated. Omitted
+> from the survey: **`inseq`**, which is encoder-decoder-*first* and names
+> `M2M100ForConditionalGeneration` and `NllbMoe` in its config, and
+> **`pico-analyze`**, which never loads a model at all. **What remains genuinely
+> closed to non-decoders is SAEs and circuit tracing** — on tooling grounds *and*
+> on the absence of any published SAE precedent on a text encoder or MT
+> encoder-decoder. The defensible version of the argument scopes *measures*, not
+> arms.
+
 Counterargument to put to the PI: the classic cross-lingual-structure literature (Chi et al.,
 K et al. ICLR 2020) is encoder-based, and mBERT/XLM-R are the course's focal models. Tier 3 can
 still cover encoders cross-sectionally. **This is a PI decision, not mine.**
@@ -153,6 +193,24 @@ measures redefined accordingly. That is a scope increase, not a language swap.
   Hewitt-Manning structural probes.
 - **Agreement minimal pairs:** custom-built per language for the JSD measures. This is real
   linguistic work — budget for it explicitly (§6, W2).
+
+> ⚠️ **Largely unnecessary — 2026-08-06, `method_landscape.md` §6.3.**
+> **MultiBLiMP 1.0** (arXiv:2504.02768, TACL) ships subject-verb agreement
+> minimal pairs for all three languages — **EN 770 / FR 2548 / TR 1742**, counts
+> verified against the HF datasets-server — generated from UD + UniMorph, so the
+> construction is identically operationalized across languages, which is what
+> §3.2 wanted. **TurBLiMP** (EMNLP 2025, `2025.emnlp-main.834`) adds 16 phenomena
+> × 1000 Turkish pairs including explicit Subject Agreement, with human
+> acceptability ratings. Both are HF-downloadable and therefore pre-cacheable for
+> offline nodes. `minicons` exposes `MaskedLMScorer`, `IncrementalLMScorer` **and
+> `Seq2SeqScorer`** — one API across all four arms. Note **CLAMS covers EN/FR but
+> not TR**, so a CLAMS-based design silently drops a language.
+>
+> ⚠️ **But the Turkish items carry a documented confound.** Başar & Bisazza
+> (SIGTURK 2026, `2026.sigturk-1.9`) — the author of TurBLiMP, on her own
+> benchmark's use — show Turkish minimal-pair benchmarks are confounded by
+> **morpheme count, subword count and sentence length.** Custom construction does
+> not avoid this; it is a property of Turkish under subword tokenization.
 
 ### 3.4 Run matrix
 
@@ -301,6 +359,42 @@ Instead:
 > per-checkpoint metrics across seeds; Hoogland et al. (TMLR,
 > [arXiv:2402.02364](https://arxiv.org/abs/2402.02364)) use the local learning coefficient.
 
+> ⚠️ **A second, independent audit ([`method_landscape.md`](method_landscape.md)
+> §4, 2026-08-06) reached the same verdict on (4) and adds four things.**
+>
+> **The framing decides whether a CI exists at all.** A changepoint location is a
+> *non-regular* parameter — hence the bootstrap inconsistency in (4). A **sigmoid
+> midpoint in log(step) is regular**: delta-method and profile-likelihood CIs are
+> valid, the bootstrap is consistent, and it drops into a mixed model with a
+> random effect per seed. That single reframing moves the whole analysis into
+> standard asymptotics.
+>
+> **The simultaneity-null concern has a named literature.** Sassenhagen &
+> Draschkow (*Psychophysiology* 2019, e13335) show cluster-based permutation
+> tests **do not license latency claims**, and that with more power the apparent
+> onset moves *earlier* — so a noisier measure appears to transition later for
+> that reason alone. **Cluster-depth tests** ([arXiv:2105.07514](https://arxiv.org/abs/2105.07514))
+> restore point-wise FWER control; cluster-*mass* does not.
+>
+> **Nothing in the covered changepoint literature produces a CI on the
+> *difference* of two changepoints**, which is the headline quantity. Four
+> outside-field families do: **stress–strength reliability / stochastic
+> precedence** (R = P(X<Y), an effect size in [0,1] rather than a test);
+> **doubly interval-censored estimation** (a log-spaced grid makes every emergence
+> time interval-censored by construction); **hierarchical Bayesian change-point
+> models with order constraints** (PMC8980247; [arXiv:2603.14681](https://arxiv.org/abs/2603.14681)
+> for irregular designs and group structure), which yield a posterior over the
+> difference directly; and **Systems Factorial Technology** (R `sft`), which
+> diagnoses serial-vs-parallel from the *sign* of a double-factorial interaction
+> contrast by design manipulation rather than curve-fitting.
+>
+> **Two cheap additions.** The across-seed **variance peak** (susceptibility) is a
+> second, mechanistically independent onset estimate — free, given 5 seeds, and a
+> maximum-finding rather than threshold-crossing problem, so it does not inherit
+> the "noisier looks later" confound. And **anytime-valid / e-value inference**
+> (Koning & van Meer, *JRSS-B* 2026) makes peeking at every checkpoint and every
+> added seed free, at no power cost at the terminal sample size.
+
 ### Controls — build these in week 1, before any real analysis
 
 **Positive control.** Replicate the known Nanda modular-addition grokking lag through *your own*
@@ -330,7 +424,7 @@ Weeks are part-time-shaped; compress if full-time.
 | Week | Work | Gate |
 |---|---|---|
 | **W1** | Throughput pilot (200 steps, measured tokens/sec). Tokenizer trained + fertility table. Data pipeline for FineWeb2 EN/FR/TR. Checkpoint storage confirmed. **Positive control: Nanda modular-addition lag recovered through own changepoint pipeline.** | Pipeline recovers the known lag. If not, stop and fix the statistics before spending GPU-hours. |
-| **W2** | Agreement minimal pairs built for EN/FR/TR (real linguistic work — do not underestimate). Behavioral eval harness: bits-per-byte, POS probe, structural probe, both metric families. Pre-registration frozen. | Eval harness runs end-to-end on a random-init model without crashing. |
+| **W2** | Agreement minimal pairs built for EN/FR/TR (real linguistic work — do not underestimate). ⚠️ **Mostly a download — see §3.3: MultiBLiMP covers all three, TurBLiMP adds 18k Turkish items.** Behavioral eval harness: bits-per-byte, POS probe, structural probe, both metric families. Pre-registration frozen. | Eval harness runs end-to-end on a random-init model without crashing. |
 | **W3** | All 15 runs (3 configs × 5 seeds), log-spaced checkpointing. Behavioral measures computed across all checkpoints. | Training curves sane; checkpoints readable; no silent divergence. |
 | **W4** | JSD measures + exemplar-first baseline across all checkpoints. | Cross-lingual class divergence shows *any* structured trajectory. If flat everywhere, see risk table. |
 | **W5** | Geometry measures (debiased CKA + MNN). Changepoint analysis, bootstrap CIs, Δt test. Negative control. | **Main go/no-go: does Δt exclude zero under the continuous metric?** |
