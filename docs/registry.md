@@ -125,6 +125,10 @@ Four facts that matter for any future use:
 2. **TowerBase and TowerInstruct share the *same* super weight** — L1, out 2533,
    in 7890, identical weight value 1.5390625 — and SFT only sharpens it
    (KL 0.96 → 1.25). *This is the only training-dynamics datapoint in the repo.*
+   ⚠️ **The shared-coordinate half is a replication, not a finding** (noted
+   2026-08-06): Yu et al. already report identical super-weight coordinates for
+   instruction-tuned variants. The **quantified sharpening** is the part that is
+   ours, and it is **n=1** — one model pair, no CI.
 3. **Decisive for removal, irrelevant for quantization.** Ablating one super
    weight: EuroLLM 57.9 → **4.8** chrF++. Ablating the **1000 largest-magnitude**
    weights: 60.0 (nothing). But FP16-preserving them during quantization does
@@ -331,7 +335,12 @@ from simulation. What it adds:
 
 - **Super-weight formation across training.** Nothing tracks when super weights
   appear. On no backlog, in no proposal. The TowerBase→TowerInstruct datapoint is
-  the only hint. Directly enabled by a checkpoint-suite study.
+  the only hint. Directly enabled by a checkpoint-suite study. ✅ **Confirmed
+  still unclaimed, 2026-08-06** — three independent zero-result searches in
+  `interlingua/docs/method_landscape.md` §5. Note also that the widely-repeated
+  "super weights emerge gradually, beginning early in pre-training" traces to
+  **Kovaleva 2021 on BERT LayerNorm outliers**, which are not super weights; do
+  not cite it as prior art here.
 - Unreported results already on disk: the `crush_early`/`crush_late` pipeline
   arms (7 models × 5 bit-widths), the fact that both pipeline allocations beat
   uniform-W3 on every model, and EuroLLM's second super weight.

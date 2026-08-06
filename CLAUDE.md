@@ -160,22 +160,32 @@ Not yet built. Decisions worth making before code exists, from
   them**, so the architecture contrast is a hypothesis under test, not an
   implementation detail. `tier1_plan.md` §3.1 narrows Tier 1 to decoder-only on
   tooling grounds but says outright that this is a PI decision, and §8 lists it
-  as open question #1. **Until the PI answers, write nothing that assumes a
-  decoder** — substrate, measures, or tooling. See
+  as open question #1 — and the 2026-08-06 method survey found **neither of
+  §3.1's two stated reasons holds**: an MLM at `[MASK]` gives the JSD measures
+  what they need and the encoder-decoder arm needs no adaptation, and TL 3.6.0
+  ships an NLLB adapter while `inseq` is enc-dec-first and `pico-analyze` is
+  architecture-agnostic. What is genuinely decoder-only is **SAEs and circuit
+  tracing**. **Until the PI answers, write nothing that assumes a decoder** —
+  substrate, measures, or tooling. See
   [`docs/decisions/0001`](docs/decisions/0001_interlingua_model_implementation_substrate.md).
 - **Use standard HF `transformers` classes** as the training substrate, chosen
   per arm, and attach interpretability tooling via a wrapper. `HookedModel` is at
   `compression/src/models/_hooked.py:133`; how much of `compression/src/` (5,140
   lines) transfers unchanged is **unmeasured**.
-- **Pin `transformer-lens==3.6.0`** and use the deprecated `HookedTransformer`
-  path; the successor has two open bugs that silently corrupt from-scratch
-  training and checkpoint reloading.
+- **Pin `transformer-lens==3.6.0`.** Its two open bugs (#1568, #1587) corrupt
+  from-scratch training and checkpoint reloading, but both live in the
+  `boot_native` train-inside-TransformerLens path — training in HF
+  `transformers` and wrapping with `boot_transformers(hf_model=…)` avoids both,
+  which is what decision 0001 already proposes. **Separate venvs are mandatory:**
+  `transformer-lens` 3.6.0 needs `transformers>=5.9`, `circuit-tracer` pins
+  `<=4.57.3`, `jlens` needs `>=5.5`.
 - **Use a WSD/trapezoidal LR schedule, not cosine**, so checkpoints are
   comparable to each other.
 - **Log-spaced checkpoints must stay dense past the induction-formation window**
   — Pythia's documented mistake is that its dense grid stops right before it.
-- **`run_with_cache` raises on batch size > 1.** Fix this before running 60
-  checkpoints × 15 runs.
+- **`run_with_cache` does *not* raise on batch size > 1** — an earlier rule here
+  said it does. The `NotImplementedError` is scoped to
+  `generate(return_cache=True)`; issue #1265 closed 2026-04-22.
 - Match **Pico**'s layer naming: free tooling (CKA, PWCCA, effective rank) and two
   public baselines bracketing 36M.
 

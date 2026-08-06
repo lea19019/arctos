@@ -87,8 +87,11 @@ and use the deprecated `HookedTransformer` path.
   **how much of `compression/src/` (5,140 lines total) transfers unchanged has
   not been measured** — an earlier "~900 lines" figure in `CLAUDE.md` is
   unverified.
-- `run_with_cache` raises on batch size > 1. Fix before running the full
-  checkpoint × seed matrix.
+- ~~`run_with_cache` raises on batch size > 1. Fix before running the full
+  checkpoint × seed matrix.~~ **Stale — 2026-08-06.** It does not; the
+  `NotImplementedError` is scoped to `generate(return_cache=True)` and issue
+  #1265 closed 2026-04-22. Struck rather than deleted: the record is immutable.
+  See `interlingua/docs/method_landscape.md` §3.3.
 - Checkpoints are HF-standard: reusable and publishable, larger than a minimal
   state dict.
 
