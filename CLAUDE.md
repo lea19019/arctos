@@ -140,9 +140,20 @@ nodes have no internet — pre-cache on the login node. Python 3.11, torch cu128
 Not yet built. Decisions worth making before code exists, from
 `docs/research_standards.md`:
 
-- **Define the model as an HF `LlamaForCausalLM`** — `HookedModel` provably works
-  on a randomly-initialized one, so ~900 lines of existing method code transfers
-  unchanged.
+- **This track is not decoder-only.** The proposal
+  (`interlingua/docs/does_the_interlingua_grok_ringger_2026.pdf`) specifies three
+  arms at 6L/512d/8h — encoder-only mBERT-like, encoder-only XLM-R-like, and
+  **encoder-decoder NLLB-like** — and **H3a is the comparison between two of
+  them**, so the architecture contrast is a hypothesis under test, not an
+  implementation detail. `tier1_plan.md` §3.1 narrows Tier 1 to decoder-only on
+  tooling grounds but says outright that this is a PI decision, and §8 lists it
+  as open question #1. **Until the PI answers, write nothing that assumes a
+  decoder** — substrate, measures, or tooling. See
+  [`docs/decisions/0001`](docs/decisions/0001_interlingua_model_implementation_substrate.md).
+- **Use standard HF `transformers` classes** as the training substrate, chosen
+  per arm, and attach interpretability tooling via a wrapper. `HookedModel` is at
+  `compression/src/models/_hooked.py:133`; how much of `compression/src/` (5,140
+  lines) transfers unchanged is **unmeasured**.
 - **Pin `transformer-lens==3.6.0`** and use the deprecated `HookedTransformer`
   path; the successor has two open bugs that silently corrupt from-scratch
   training and checkpoint reloading.

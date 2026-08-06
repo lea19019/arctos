@@ -23,4 +23,8 @@ Rationale and sourcing: [`../research_standards.md`](../research_standards.md) Â
 
 | # | Decision | Status | Date |
 | --- | --- | --- | --- |
-| [0001](0001_interlingua_model_as_llamaforcausallm.md) | Define the interlingua model as an HF `LlamaForCausalLM` | accepted | 2026-08-06 |
+| [0001](0001_interlingua_model_implementation_substrate.md) | Model implementation substrate for interlingua from-scratch training | **proposed** â€” blocked on PI decision | 2026-08-06 |
+
+A record stays `proposed` until the person who owns the decision has actually
+made it. Marking a record `accepted` because it sounds settled is how a guess
+acquires authority it never earned.

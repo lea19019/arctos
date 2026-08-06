@@ -1489,9 +1489,19 @@ should apply them without being asked:
 
 Design decisions made before code exists are the ones whose reasoning is lost
 fastest, because nothing in the repository records them. The interlingua
-decisions in CLAUDE.md — `LlamaForCausalLM` over a native `HookedTransformer`,
-`transformer-lens==3.6.0`, WSD over cosine, the checkpoint grid — are being
-made now and each has a real alternative that was rejected for a reason.
+decisions in CLAUDE.md — the training substrate, `transformer-lens==3.6.0`, WSD
+over cosine, the checkpoint grid — are being made now and each has a real
+alternative that was rejected for a reason.
+
+A record also has to be honest about **who** decided. `docs/decisions/0001` was
+first written asserting a decoder-only substrate and marked `accepted`; the
+proposal in fact specifies three architecture arms and makes the architecture
+contrast a hypothesis (H3a), and nobody had accepted anything. **A record stays
+`proposed` until the person who owns the decision has made it** — marking it
+`accepted` because it reads as settled is how a guess acquires authority it
+never earned. The failure mode is the same one §20.4 is about: a claim drifting
+from its evidence, here into a document that future work will treat as
+foundational.
 
 Use a decision record per choice in `docs/decisions/NNNN_slug.md`, Nygard
 format: **Context / Decision / Status / Consequences**. Three properties make
