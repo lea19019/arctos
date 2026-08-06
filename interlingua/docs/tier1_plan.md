@@ -2,7 +2,17 @@
 
 **Scope:** Tier 1 of "Does the Interlingua Grok?" only. Tiers 2 and 3 are out of scope for this document.
 **Compute assumption:** A100-class lab GPUs.
-**Status:** draft for discussion with PI.
+**Status:** draft for discussion with PI — **and superseded in part.**
+
+> ⚠️ **Read [`prior_work_map.md`](prior_work_map.md) before acting on this plan.** A
+> 2026-08-06 prior-work adjudication found that **the surviving-novelty claim in §7 does
+> not survive**: the metric-artifact adjudication is largely occupied (Körner et al.,
+> EACL 2026, causally), and both claimed gaps behind the statistical protocol are false as
+> stated (structural-break tests date to Chow 1960; Gröger et al. 2026 published
+> permutation-null calibration with BH-FDR for CKA and mutual-kNN specifically). The
+> analysis protocol in §5 is also unsound as specified — see `prior_work_map.md` §5c.
+> Individual sections are annotated below. The companion premise audit is
+> [`program_critique.md`](program_critique.md).
 
 ---
 
@@ -37,9 +47,18 @@ is the foundation the rest of the program stands on.
 ### Framing amendment to raise with the PI
 
 The proposal's three-phase story (memorization → circuit formation → cleanup) is in tension with
-two published results: Dumas et al. found shared concept space forming within the **first 10% of
-tokens**, and "Where to find Grokking in LLM Pretraining" found grokking in real pretraining is
-**local and asynchronous** across data groups, not a clean global transition.
+two published results: shared concept space forms **early** in training, and "Where to find
+Grokking in LLM Pretraining" found grokking in real pretraining is **local and asynchronous**
+across data groups, not a clean global transition.
+
+> **Citation corrected 2026-08-06.** This previously read "Dumas et al. found shared concept
+> space forming within the **first 10% of tokens**." arXiv:2601.22851 is **Körner,
+> Müller-Eberstein, Korhonen & Plank**, EACL 2026 Main, pp. 3149–3169
+> ([`2026.eacl-long.145`](https://aclanthology.org/2026.eacl-long.145/)) — *not* Dumas et al.;
+> the proposal PDF carries the same error. Their verified claim is that shared concept spaces
+> *"emerge early and continue to refine, but that alignment with them is language-dependent."*
+> **The specific "first 10% of tokens" figure was not verified against that paper** and should
+> not be cited until it is.
 
 Recommendation: defend *per-construction, per-language-pair* transitions rather than a single
 global phase transition. Better supported, dodges the strongest counterevidence, and it is what the
@@ -62,8 +81,8 @@ JSD measures actually measure anyway.
 
 | Dropped | Reason |
 |---|---|
-| Circuit extraction / edge Jaccard (§4.3) | Three independent 2024–2026 papers document that EAP/EAP-IG circuits have high resampling, rephrasing, and sample-wise variance, and that faithfulness depends on ablation methodology. Jaccard across two languages × two checkpoints compounds all of it. Highest cost, lowest yield. |
-| Per-checkpoint independent SAEs (§4.2) | Cross-seed matched-feature rates as low as 1–4% for large TopK dictionaries; feature reproducibility 21–30%. Retraining the dictionary per checkpoint means "fraction cross-lingual" measures dictionary-fitting noise as much as model change. Crosscoder or nothing. |
+| Circuit extraction / edge Jaccard (§4.3) | Three 2024–2026 papers document that EAP/EAP-IG circuits have high resampling, rephrasing, and sample-wise variance, and that faithfulness depends on ablation methodology: Miller, Chughtai & Saunders (COLM 2024, [arXiv:2407.08734](https://arxiv.org/abs/2407.08734)); Méloux, Portet & Peyrard ([arXiv:2510.00845](https://arxiv.org/abs/2510.00845)); Wu, Tonin & Cevher ([arXiv:2606.16920](https://arxiv.org/abs/2606.16920)). Jaccard across two languages × two checkpoints compounds all of it. Highest cost, lowest yield. **Caveat added 2026-08-06:** Wu et al. call sample-wise variance *"largely benign"*; only rephrasing variance survives their analysis. The honest justification is "the measure is dominated by rephrasing noise at our scale", not "these methods are unreliable." |
+| Per-checkpoint independent SAEs (§4.2) | Cross-seed matched-feature rates as low as **1.1–3.9%** at τ=0.7 mutual-nearest-neighbour for 8× TopK dictionaries ([arXiv:2603.25325](https://arxiv.org/abs/2603.25325)); feature reproducibility **30%** at 131k latents on Llama-3-8B and **42%** at 32k on Pythia-160M (Paulo & Belrose, [arXiv:2501.16615](https://arxiv.org/abs/2501.16615)). Retraining the dictionary per checkpoint means "fraction cross-lingual" measures dictionary-fitting noise as much as model change. Crosscoder or nothing. **Corrected 2026-08-06:** this row previously read "21–30%" uncited; the 21% figure traces only to a 14.5M-parameter clinical model ([arXiv:2605.04072](https://arxiv.org/abs/2605.04072)) and does not apply. Note also that 2603.25325's own conclusion is that *population-level* SAE statistics **are** stable across seeds even though individual features are not. |
 | NLLB-like encoder-decoder arm | Weakest tooling support (TransformerLens encoder-decoder support is poor; circuit-tracer and Edge Pruning are decoder-oriented), and the least informative of the three arms. |
 | Experiment B (curriculum, 4 variants) | Foroutan et al. already established that curriculum order doesn't change the endpoint and that transitions cause forgetting spikes. A "grokking signature" at the switch point is not separable from forgetting/re-learning at this scale. |
 | Languages beyond 3 | See §3.2. The H4 contrast needs two distances, not eight languages. |
@@ -170,9 +189,11 @@ against the estimate above.
 
 ### 3.6 Checkpoint schedule — log-spaced, not uniform
 
-The proposal specifies every 1000 steps. **That will miss the phenomenon.** Dumas et al. found
-shared concept space forming within the first 10% of tokens; uniform spacing puts almost no
-resolution there. Pythia's uniform cadence is a known limitation of Pythia, not a model to copy.
+The proposal specifies every 1000 steps. **That will miss the phenomenon.** Shared concept space
+forms early in training (Körner et al., EACL 2026 — see the §1 citation correction; and Leino &
+Tiedemann, [arXiv:2603.29026](https://arxiv.org/abs/2603.29026), find PWCCA rising by ~5k steps);
+uniform spacing puts almost no resolution there. Pythia's uniform cadence is a known limitation of
+Pythia, not a model to copy.
 
 At batch = 262k tokens/step, 2B tokens ≈ 7600 steps. Use ~60 log-spaced checkpoints from step 1 to
 7600 — which puts roughly half of them below step 760 (the first 10%), where the action is.
@@ -255,6 +276,31 @@ Instead:
 3. **Bootstrap over the 5 seeds** to get a CI on Δt = t_behavioral − t_mechanistic.
 4. The claim is: the CI on Δt excludes zero. Not "the curves look different."
 
+> ⚠️ **This protocol is unsound as specified — established 2026-08-06,
+> [`prior_work_map.md`](prior_work_map.md) §5.** Five separable problems, briefly:
+> **(1)** PELT assumes a piecewise-constant mean; a training curve is a smooth sigmoid, which
+> contains no changepoint at all — fitting one returns a staircase artifact whose steps are set
+> by the penalty and the SNR (Baranowski, Chen & Fryzlewicz, JRSS-B 2019, Fig. 1).
+> **(2)** Checkpoint-evaluated metrics are strongly autocorrelated, which causes PELT to
+> *overestimate* the number of changes (Romano et al., JASA 2022).
+> **(3)** Min-max normalization is not neutral: it rescales each curve's noise by 1/(max−min),
+> so a fixed penalty means a different detection threshold per curve — **this alone can
+> manufacture a nonzero Δt** from a dynamic-range difference.
+> **(4)** Bootstrapping a changepoint *location* is known to be inconsistent (Seijo & Sen,
+> Annals of Statistics 2011; Cattaneo et al., Econometrica 2020).
+> **(5)** n=5 yields only C(9,4)=126 distinct bootstrap multisets, so the decision rule reduces
+> to "did all 5 seeds agree in sign", capped at p=0.031 — against a quantity Zhao et al.
+> (ICML 2025, 250 seeds) showed is **bimodal across seeds even under continuous metrics**.
+>
+> Also missing, and more important than any of the above: a **simultaneity null** — two curves
+> known to transition together, corrupted with each measure's empirical noise, showing the
+> pipeline recovers Δt ≈ 0 with correct coverage. Without it, a nonzero Δt is confounded with
+> the SNR gap between the mechanistic and behavioural measures, since any thresholded detector
+> fires earlier on the smoother curve. Prior art to read first: Hu, Chen, Saphra & Cho
+> (TMLR 2023, [arXiv:2308.09543](https://arxiv.org/abs/2308.09543)) fit an HMM over
+> per-checkpoint metrics across seeds; Hoogland et al. (TMLR,
+> [arXiv:2402.02364](https://arxiv.org/abs/2402.02364)) use the local learning coefficient.
+
 ### Controls — build these in week 1, before any real analysis
 
 **Positive control.** Replicate the known Nanda modular-addition grokking lag through *your own*
@@ -301,7 +347,7 @@ Weeks are part-time-shaped; compress if full-time.
 | JSD trajectories are flat — no structure at all | Most likely cause is that the minimal pairs are too easy or the model is too small to represent the construction. Diagnose by checking whether the model gets agreement right *at all* at the final checkpoint before concluding anything about dynamics. |
 | Seed variance swamps Δt | The honest answer is that the effect is smaller than seed noise, which is itself worth reporting given that the scooping papers used one seed. Adding seeds is cheap (~4 GPU-hours each) — go to 10 before giving up. |
 | CKA and MNN disagree | Report it. It is a real methodological finding about a measure the field uses uncritically. |
-| Scooped further during the work | The descriptive two-stage finding is already scooped (Inaba EMNLP 2025; Riemenschneider & Frank ACL 2025; copy-first-translate-later). The defensible novelty was never the phenomenon — it is the metric-artifact adjudication and the statistical protocol. That is harder to scoop because it requires someone to care about being right. |
+| ~~Scooped further during the work~~ **— REFUTED 2026-08-06, see [`prior_work_map.md`](prior_work_map.md)** | This row previously read: *"The descriptive two-stage finding is already scooped (Inaba EMNLP 2025; Riemenschneider & Frank ACL 2025; copy-first-translate-later). The defensible novelty was never the phenomenon — it is the metric-artifact adjudication and the statistical protocol."* **All four claims in it are wrong or unsupportable.** (1) Inaba et al. is **Findings** of EMNLP 2025, not main. (2) Riemenschneider & Frank claim *gradual* convergence and never say "two-stage" — they are the gradualist counterpoint, not a scoop. (3) The metric-artifact adjudication is largely occupied: Körner et al., EACL 2026, published a *causal* finding that apparent multilingual training gains partly reflect behavioural shifts rather than capability; and Du et al. (NeurIPS 2024) already ran the accuracy/CorrectChoiceProb/Brier triple across checkpoints on non-English benchmarks, where **emergence survived**. (4) The statistical protocol rests on two gaps that are false as stated — see §5 note. |
 | Turkish tokenizer fertility is much worse than EN/FR | Expected — Turkish is agglutinative. This is why fertility gets reported and why bits-per-byte is the metric. If fertility is extreme, consider a per-language vocabulary allocation and report both. |
 
 ---
