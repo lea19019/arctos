@@ -3,7 +3,7 @@
 > Run 2026-06-02/03 on A100, XCOMET-XL + chrF++. n=24–32 sentences, greedy,
 > generic prompt → **directional, not final**. 6/8 gem, 7/8 extreme complete at
 > time of writing (gemma/bloom gem + llama extreme resubmitted after transient
-> CUDA faults). Collect: `scripts/q6gem_collect.py [--subdir q6gem|q6extreme]`.
+> CUDA faults). Collect: `compression/scripts/q6gem_collect.py [--subdir q6gem|q6extreme]`.
 
 ## Headline: MT-conditional GPTQ recovers the 3-bit cliff
 

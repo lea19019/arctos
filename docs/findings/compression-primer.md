@@ -39,9 +39,9 @@ saliency**, borrowed from the PTQ literature, not interpretability. So: the
 
 ## The four `find` experiments (what they are, what they output)
 
-All implemented in `src/interp/`, all run on **MT calibration data** (the
+All implemented in `compression/src/interp/`, all run on **MT calibration data** (the
 under-explored lever — `docs/research.md` §1D), all summarized by `q6` into
-`results/{model}/q6/q6_summary.json`.
+`compression/results/{model}/q6/q6_summary.json`.
 
 ### 1. Super-weight / super-activation detection — `super_weights.py`
 - **What:** a single forward pass locates the handful (sometimes one) of
@@ -108,7 +108,7 @@ under-explored lever — `docs/research.md` §1D), all summarized by `q6` into
 These are the three *actions* a compression method takes on the structure
 `find` located. All evaluated in `q6` by **chrF++ on generated translations**
 (not target-token logit — the fix for Q5's weak metric), using the faithful
-operations in `src/interp/compress.py`, not Gaussian noise.
+operations in `compression/src/interp/compress.py`, not Gaussian noise.
 
 ### SHRINK — quantize the bulk
 - **What:** round-to-nearest INT-k (`absmax_quantize`), per-output-channel
@@ -155,8 +155,8 @@ operations in `src/interp/compress.py`, not Gaussian noise.
 4. **Is magnitude a valid saliency?** (`prune` stress test) — expected: no.
 
 ## Where the results live
-`results/{model}/q6/q6_summary.json` (+ `fisher.npz`). Runner:
-`experiments/q6-compression/experiment.py`; SLURM:
-`experiments/q6-compression/slurm/` (`submit_all.sh` for the sweep).
-Library: `src/interp/{super_weights,salient_channels,hessian_diag,compress}.py`.
+`compression/results/{model}/q6/q6_summary.json` (+ `fisher.npz`). Runner:
+`compression/experiments/q6-compression/experiment.py`; SLURM:
+`compression/experiments/q6-compression/slurm/` (`submit_all.sh` for the sweep).
+Library: `compression/src/interp/{super_weights,salient_channels,hessian_diag,compress}.py`.
 Validated on CPU/bloom-560m before the A100 sweep.

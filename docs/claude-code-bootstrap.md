@@ -281,8 +281,8 @@ The investigation plan as a working document. Sections:
 
 ### 3. Stub code for the core interpretability methods
 
-`src/interp/logit_lens.py`, `src/interp/activation_patching.py`,
-`src/interp/ifr.py`, `src/interp/probing.py` — stubs with clear
+`compression/src/interp/logit_lens.py`, `compression/src/interp/activation_patching.py`,
+`compression/src/interp/ifr.py`, `compression/src/interp/probing.py` — stubs with clear
 docstrings, type signatures, and TODOs marking the implementation work.
 For IFR specifically, port what makes sense from my prior code (assume
 I'll show you that code when ready); for the others, write stubs that
@@ -295,7 +295,7 @@ contributions accessed via separate hook").
 
 ### 4. Per-question experiment scaffolds
 
-Under `experiments/qN-*/`, for each of Q1–Q5:
+Under `compression/experiments/qN-*/`, for each of Q1–Q5:
 
 - `README.md` restating the question, the methods, the satisfied-when
   criterion, and the embedded learning
@@ -372,7 +372,7 @@ Shared Task round 2 set:
   there's a register-shift question on top of the language-shift
   question. Where in the model does that distinction get made?
 
-Evaluation caveats to document explicitly in `src/eval/`:
+Evaluation caveats to document explicitly in `compression/src/eval/`:
 - COMET wmt22-comet-da is trained mostly on standard varieties; it
   may misjudge Egyptian Arabic. Use the WMT25 task's prescribed
   metric protocol where available; report wmt22-comet-da alongside

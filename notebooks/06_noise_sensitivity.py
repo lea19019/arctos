@@ -39,7 +39,7 @@
 # ## Why a context manager matters
 #
 # We perturb weights *in place* and must restore them exactly between
-# measurements, or the noise accumulates. `src/interp/sensitivity.py` uses a
+# measurements, or the noise accumulates. `compression/src/interp/sensitivity.py` uses a
 # context manager that clones the original, adds noise, yields, then copies
 # the original back — guaranteeing each measurement is independent.
 
@@ -103,14 +103,14 @@ for (l, h) in [(0, 0), (6, 3), (12, 5), (18, 10), (23, 15)]:
 # %% [markdown]
 # ## The real Q5 experiment (running on the cluster now)
 #
-# `experiments/q5-importance-vs-sensitivity/experiment.py` does this at scale
+# `compression/experiments/q5-importance-vs-sensitivity/experiment.py` does this at scale
 # per model:
 # 1. rank heads by |DLA| from that model's Q1 results,
 # 2. noise-sweep top-DLA / bottom-DLA / random groups (12 heads each),
 # 3. report **Spearman(|DLA|, drop@σ=0.5)** and the group-mean drops,
 # 4. attribution-patch (causal cross-check) and AWQ stats alongside.
 #
-# Read `results/{model}/q5/q5_summary.json` for each model's headline:
+# Read `compression/results/{model}/q5/q5_summary.json` for each model's headline:
 # - `spearman_absdla_vs_noisedrop`: is importance predictive of sensitivity?
 # - `top_vs_random_ratio`: how much more does damaging a top-DLA head hurt vs
 #   a random head?

@@ -1,0 +1,4 @@
+variant	pair	bleu	chrfpp	xcomet_xl	tok_per_sec	latency_ms	elapsed_s	peak_vram_gb	n_examples
+fp16	eng_Latn-spa_Latn	41.62	69.35	nan	3.1	24523.1	49.046	0.00	2
+fp16	eng_Latn-fra_Latn	39.25	64.05	nan	3.0	28294.6	56.589	0.00	2
+fp16	spa_Latn-fra_Latn	38.40	61.17	nan	3.0	31989.3	63.979	0.00	2

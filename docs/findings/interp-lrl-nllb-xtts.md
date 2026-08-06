@@ -119,10 +119,10 @@ A 1.7% automatic metric drop in Japanese corresponds to ~16% drop in human evalu
 Run AWQ on NLLB-3.3B with: (A) flores200 EN-FR/EN-DE (HRL), (B) flores200 EN-BN/EN-ML/EN-ZU (LRL). Compare salient channel masks — find channels in B but not A. Evaluate both at 4-bit and 2-bit on LRL test set. If LRL-calibrated model protects different channels and achieves better LRL COMET, that confirms LRL-specific salient channels exist.
 
 **Experiment 2: Super-weight detection under LRL vs HRL**
-Adapt `src/interp/super_weights.py` (causal-KL ranking) to NLLB. Run with LRL activation traces vs HRL. Non-overlapping super-weight positions = LRL-specific super-weights missed by standard calibration.
+Adapt `compression/src/interp/super_weights.py` (causal-KL ranking) to NLLB. Run with LRL activation traces vs HRL. Non-overlapping super-weight positions = LRL-specific super-weights missed by standard calibration.
 
 **Experiment 3: Per-layer Fisher under LRL calibration**
-Run `src/interp/hessian_diag.py` with LRL calibration. Compare layer-wise Fisher rank order vs HRL calibration. Layers with largest rank-order difference = where LRL calibration most changes what gets protected.
+Run `compression/src/interp/hessian_diag.py` with LRL calibration. Compare layer-wise Fisher rank order vs HRL calibration. Layers with largest rank-order difference = where LRL calibration most changes what gets protected.
 
 **Experiment 4: DecoderLens LRL layer mapping**
 Apply DecoderLens (arXiv:2310.03686) to NLLB-3.3B. Freeze encoder at layer k, measure translation quality vs k for LRL and HRL inputs separately. The divergence point is the minimum protection depth for LRL.
@@ -166,13 +166,13 @@ Risk is poor tokenizer coverage for LRL scripts (Malayalam, Bengali, Zulu clicks
 Four conditions: (A) Q8 everything, (B) GPT Q4 + vocoder Q8, (C) GPT Q8 + vocoder Q4, (D) Q4 everything. Evaluate CER + UTMOS on LRL utterances (flores200 Bengali, Malayalam, Zulu). Quality step-down (A)→(B) vs (A)→(C) directly identifies bottleneck.
 
 **Step 2: Per-layer Wanda sensitivity in XTTS-GPT**
-Run `src/interp/compress.py::wanda_mask` on XTTS-GPT layers using LRL text→audio token sequences as calibration. Identify highest-sensitivity layers → assign 8-bit.
+Run `compression/src/interp/compress.py::wanda_mask` on XTTS-GPT layers using LRL text→audio token sequences as calibration. Identify highest-sensitivity layers → assign 8-bit.
 
 **Step 3: Codebook ablation sanity check**
 Quantize only codebook to Q4, keep GPT full precision. Measure quality degradation. Should be minimal if codebook is the problem; validates keeping it at 16-bit.
 
 **Step 4: Super-weight detection in XTTS-GPT**
-`src/interp/super_weights.py` transfers directly (XTTS-GPT is decoder-only). Run with LRL audio token calibration traces vs HRL (EN, ES). Non-overlapping positions = LRL-specific super-weights.
+`compression/src/interp/super_weights.py` transfers directly (XTTS-GPT is decoder-only). Run with LRL audio token calibration traces vs HRL (EN, ES). Non-overlapping positions = LRL-specific super-weights.
 
 ---
 
@@ -195,19 +195,19 @@ No paper uses mechanistic interpretability (LAPE maps, DecoderLens curves, causa
 | Step | Experiment | Arctos tool | Output |
 |---|---|---|---|
 | 1 | DecoderLens LRL layer mapping on NLLB-3.3B | New (forward-pass modification) | Minimum protection depth for LRL encoder |
-| 2 | AWQ salient channel LRL vs HRL split | `src/interp/salient_channels.py` | LRL-specific salient channel mask |
+| 2 | AWQ salient channel LRL vs HRL split | `compression/src/interp/salient_channels.py` | LRL-specific salient channel mask |
 | 3 | Attention sink analysis on cross-attention heads | New (replicate arXiv:2605.01229) | Content-routing heads to protect |
-| 4 | Super-weight detection LRL vs HRL | `src/interp/super_weights.py` adapted | LRL-specific super-weight positions |
-| 5 | Per-layer Fisher under LRL calibration | `src/interp/hessian_diag.py` | Per-layer sensitivity ranking under LRL |
-| 6 | Mixed-precision assembly + COMET evaluation | `src/interp/compress.py` | LRL COMET vs uniform baseline |
+| 4 | Super-weight detection LRL vs HRL | `compression/src/interp/super_weights.py` adapted | LRL-specific super-weight positions |
+| 5 | Per-layer Fisher under LRL calibration | `compression/src/interp/hessian_diag.py` | Per-layer sensitivity ranking under LRL |
+| 6 | Mixed-precision assembly + COMET evaluation | `compression/src/interp/compress.py` | LRL COMET vs uniform baseline |
 
 ### XTTS (3–4 weeks)
 | Step | Experiment | Arctos tool | Output |
 |---|---|---|---|
 | 1 | Component ablation (GPT vs vocoder bottleneck) | New (bitsandbytes on components separately) | Identifies bottleneck empirically |
-| 2 | Per-layer Wanda sensitivity in XTTS-GPT | `src/interp/compress.py::wanda_mask` | Sensitive layer ranking |
+| 2 | Per-layer Wanda sensitivity in XTTS-GPT | `compression/src/interp/compress.py::wanda_mask` | Sensitive layer ranking |
 | 3 | Codebook ablation sanity check | New | Validates 16-bit codebook decision |
-| 4 | Super-weight detection in XTTS-GPT | `src/interp/super_weights.py` direct transfer | LRL super-weight positions |
+| 4 | Super-weight detection in XTTS-GPT | `compression/src/interp/super_weights.py` direct transfer | LRL super-weight positions |
 | 5 | Mixed-precision scheme + CER/UTMOS evaluation | New | LRL CER vs naive Q4 baseline |
 
 ---

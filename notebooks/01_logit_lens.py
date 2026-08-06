@@ -104,7 +104,7 @@ for layer in range(model.cfg.n_layers):
 # from 0.003 (L18) to 0.091 (L31). cs→de and en→arz stay near zero (Aya
 # distributes probability over many German/Arabic paraphrases rather than
 # the exact gold prefix). The cross-model chart
-# `results/_combined/q1/lens_combined.png` shows Aya commits in a late
+# `compression/results/_combined/q1/lens_combined.png` shows Aya commits in a late
 # *band* of layers, while Tower models defer commitment to the final 1-2
 # layers — a real architectural fingerprint.
 #

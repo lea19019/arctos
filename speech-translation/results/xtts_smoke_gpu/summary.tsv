@@ -1,0 +1,7 @@
+variant	lang	cer	wer	rtf	latency_ms	audio_s_per_s	peak_vram_gb	n_examples	utmos
+fp16	en	0.4487	0.5566	0.3143	4681.8	3.18	5.33	3	
+fp16	es	0.4433	0.5462	0.3134	4743.2	3.19	5.35	3	
+fp16	fr	1.4622	2.1777	0.3117	7640.0	3.21	5.50	3	
+bnb_int8_gpt	en	0.2977	0.3946	0.3264	5889.1	3.06	5.30	3	
+bnb_int8_gpt	es	1.6918	2.0906	0.3315	6252.8	3.02	5.39	3	
+bnb_int8_gpt	fr	0.5629	0.6985	0.3314	5198.4	3.02	5.19	3	

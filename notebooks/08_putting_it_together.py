@@ -3,7 +3,7 @@
 #
 # This notebook reads the **actual experiment results** (not toy models) and
 # walks the full chain of reasoning the project is built on. Run it after the
-# Q1 and Q5 jobs have populated `results/`.
+# Q1 and Q5 jobs have populated `compression/results/`.
 #
 # ## The chain of reasoning
 #

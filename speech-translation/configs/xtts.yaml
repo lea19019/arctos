@@ -1,0 +1,42 @@
+# XTTS v2 compression experiment — same three languages as NLLB experiment.
+#
+# Components and compression targets:
+#   GPT-2 transformer (~350-450M params) — main compression target
+#   HiFi-GAN vocoder (~50M params)       — tested at INT8
+#   VQ-VAE codebook                       — always FP16, non-negotiable
+#   Speaker Perceiver                     — always INT8
+
+model:
+  # Path set by precache.sh after downloading; null = auto-detect from TTS cache
+  checkpoint_dir: null
+
+# XTTS v2 language codes (ISO 639-1)
+languages:
+  - en
+  - es
+  - fr
+
+# FLORES-200 codes for fetching the text to synthesize
+flores_codes:
+  en: eng_Latn
+  es: spa_Latn
+  fr: fra_Latn
+
+compression_variants:
+  - name: fp16
+
+  # BnB INT8 applied only to the GPT-2 autoregressive transformer.
+  # Vocoder, codebook, and speaker encoder remain at FP16.
+  - name: bnb_int8_gpt
+    target: gpt
+    threshold: 6.0    # LLM.int8() outlier threshold
+
+n_examples: 50        # FLORES dev sentences per language
+
+eval:
+  whisper_model: openai/whisper-medium   # cached; used for CER
+  use_utmos: false                       # requires internet; set true if pre-downloaded
+  compute_rtf: true                      # real-time factor (synthesis speed)
+
+# Reference audio directory (populated by prepare_ref_audio.py)
+reference_audio_dir: speech-translation/data/ref_audio

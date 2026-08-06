@@ -1,0 +1,39 @@
+{
+  "fp16": {
+    "variant": "fp16",
+    "device": "cpu",
+    "eng_Latn-spa_Latn": {
+      "bleu": 41.62,
+      "chrfpp": 69.35,
+      "xcomet_xl": NaN,
+      "tok_per_sec": 3.1,
+      "latency_ms": 24523.1,
+      "elapsed_s": 49.046,
+      "peak_vram_gb": 0.0,
+      "n_examples": 2,
+      "n_warmup": 1
+    },
+    "eng_Latn-fra_Latn": {
+      "bleu": 39.25,
+      "chrfpp": 64.05,
+      "xcomet_xl": NaN,
+      "tok_per_sec": 3.0,
+      "latency_ms": 28294.6,
+      "elapsed_s": 56.589,
+      "peak_vram_gb": 0.0,
+      "n_examples": 2,
+      "n_warmup": 1
+    },
+    "spa_Latn-fra_Latn": {
+      "bleu": 38.4,
+      "chrfpp": 61.17,
+      "xcomet_xl": NaN,
+      "tok_per_sec": 3.0,
+      "latency_ms": 31989.3,
+      "elapsed_s": 63.979,
+      "peak_vram_gb": 0.0,
+      "n_examples": 2,
+      "n_warmup": 1
+    }
+  }
+}

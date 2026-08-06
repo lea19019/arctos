@@ -98,5 +98,5 @@ for quantization + the early/late endpoint split.)
 - Cross-layer transcoders, multilingual — arXiv:2511.10840.
 - Mixed-precision <4-bit needs inter-layer view — CoopQ arXiv:2509.15455;
   channel-wise MP arXiv:2410.13056.
-- Phase one (pivot, depth pipeline, DLA heads): `report/`, `docs/findings/q1.md`,
+- Phase one (pivot, depth pipeline, DLA heads): `compression/report/`, `docs/findings/q1.md`,
   `architecture-comparison.md`. Super weights: `phase2-method-primer.md`.

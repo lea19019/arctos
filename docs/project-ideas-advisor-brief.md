@@ -21,7 +21,7 @@ I enjoy system-level thinking, cloud infrastructure (which I'm actively learning
 - Super-weights, AWQ salient channels, Fisher/Hessian, and Wanda are the right sensitivity-native signals
 - MT-conditional calibration (bilingual vs generic) matters — especially at 2-bit for LRL languages
 - Confirmed via independent replication of arXiv:2508.20893 (PTQ-MT paper)
-- Tools built: `src/interp/super_weights.py`, `salient_channels.py`, `hessian_diag.py`, `compress.py`
+- Tools built: `compression/src/interp/super_weights.py`, `salient_channels.py`, `hessian_diag.py`, `compress.py`
 
 ---
 
@@ -40,9 +40,9 @@ The PTQ-MT replication I completed (arXiv:2508.20893) confirmed: language-matche
 **Experimental plan:**
 1. **AWQ salient channel LRL vs HRL split** — Run AWQ on Aya Expanse 8B with two calibration sets: (A) English-French (HRL), (B) English-Bengali + English-Malayalam + English-Zulu (LRL). Compare salient channel masks. Channels in B but not A are LRL-specific. Evaluate both at 4-bit and 2-bit on LRL test set with COMET-22.
 
-2. **Super-weight detection under LRL vs HRL inputs** — Adapt causal-KL super-weight ranking (`src/interp/super_weights.py`) to compare which super-weight positions appear under LRL vs HRL activation traces. Non-overlapping positions = LRL-specific super-weights missed by standard calibration.
+2. **Super-weight detection under LRL vs HRL inputs** — Adapt causal-KL super-weight ranking (`compression/src/interp/super_weights.py`) to compare which super-weight positions appear under LRL vs HRL activation traces. Non-overlapping positions = LRL-specific super-weights missed by standard calibration.
 
-3. **Per-layer Fisher under LRL calibration** — Run `src/interp/hessian_diag.py` with LRL calibration. Compare layer-wise Fisher rank order vs HRL calibration. Layers with largest rank-order difference = where LRL calibration changes what gets protected. Use this to drive per-layer bit-width decisions.
+3. **Per-layer Fisher under LRL calibration** — Run `compression/src/interp/hessian_diag.py` with LRL calibration. Compare layer-wise Fisher rank order vs HRL calibration. Layers with largest rank-order difference = where LRL calibration changes what gets protected. Use this to drive per-layer bit-width decisions.
 
 4. **Mixed-precision scheme assembly** — Combine signals from 1–3 into a per-layer bit-width map. Assign higher bits to LRL-critical layers. Evaluate on flores200 LRL/HRL test sets with COMET-22 vs uniform-precision baselines.
 
@@ -109,9 +109,9 @@ Architecture:
 
 1. **Component ablation** — Four conditions: Q8 everything / GPT Q4 + vocoder Q8 / GPT Q8 + vocoder Q4 / Q4 everything. Evaluate CER + UTMOS (MOS proxy) on LRL utterances from flores200 (Bengali, Malayalam, Swahili, Zulu). Identifies empirically whether GPT or vocoder is the LRL bottleneck.
 
-2. **Per-layer Wanda sensitivity in XTTS-GPT** — Apply `src/interp/compress.py::wanda_mask` to XTTS-GPT using LRL text→audio token sequences as calibration. Identify highest-sensitivity layers.
+2. **Per-layer Wanda sensitivity in XTTS-GPT** — Apply `compression/src/interp/compress.py::wanda_mask` to XTTS-GPT using LRL text→audio token sequences as calibration. Identify highest-sensitivity layers.
 
-3. **Super-weight detection in XTTS-GPT** — `src/interp/super_weights.py` transfers directly (GPT module is decoder-only). Run with LRL audio token calibration vs HRL (English, Spanish). Non-overlapping positions = LRL-specific super-weights.
+3. **Super-weight detection in XTTS-GPT** — `compression/src/interp/super_weights.py` transfers directly (GPT module is decoder-only). Run with LRL audio token calibration vs HRL (English, Spanish). Non-overlapping positions = LRL-specific super-weights.
 
 4. **Mixed-precision XTTS scheme** — GPT attention layers at 8-bit for LRL-sensitive layers, FFN middle at 4-bit, VQ-VAE codebook at 16-bit, HiFi-GAN at 4-bit. Evaluate real-time factor + CER on LRL.
 

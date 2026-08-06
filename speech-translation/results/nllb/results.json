@@ -1,0 +1,113 @@
+{
+  "fp16": {
+    "variant": "fp16",
+    "device": "cuda",
+    "eng_Latn-spa_Latn": {
+      "bleu": 28.81,
+      "chrfpp": 54.32,
+      "xcomet_xl": 0.9113,
+      "tok_per_sec": 1141.2,
+      "latency_ms": 55.9,
+      "elapsed_s": 5.591,
+      "peak_vram_gb": 17.85,
+      "n_examples": 100,
+      "n_warmup": 3
+    },
+    "eng_Latn-fra_Latn": {
+      "bleu": 46.52,
+      "chrfpp": 66.17,
+      "xcomet_xl": 0.878,
+      "tok_per_sec": 1179.6,
+      "latency_ms": 62.6,
+      "elapsed_s": 6.256,
+      "peak_vram_gb": 17.88,
+      "n_examples": 100,
+      "n_warmup": 3
+    },
+    "spa_Latn-fra_Latn": {
+      "bleu": 32.54,
+      "chrfpp": 56.09,
+      "xcomet_xl": 0.8953,
+      "tok_per_sec": 1121.1,
+      "latency_ms": 70.6,
+      "elapsed_s": 7.058,
+      "peak_vram_gb": 18.5,
+      "n_examples": 100,
+      "n_warmup": 3
+    }
+  },
+  "bnb_int8": {
+    "variant": "bnb_int8",
+    "device": "cuda",
+    "eng_Latn-spa_Latn": {
+      "bleu": 28.59,
+      "chrfpp": 53.95,
+      "xcomet_xl": 0.9093,
+      "tok_per_sec": 264.9,
+      "latency_ms": 239.0,
+      "elapsed_s": 23.9,
+      "peak_vram_gb": 17.5,
+      "n_examples": 100,
+      "n_warmup": 3
+    },
+    "eng_Latn-fra_Latn": {
+      "bleu": 45.78,
+      "chrfpp": 65.82,
+      "xcomet_xl": 0.8712,
+      "tok_per_sec": 262.5,
+      "latency_ms": 281.7,
+      "elapsed_s": 28.173,
+      "peak_vram_gb": 17.54,
+      "n_examples": 100,
+      "n_warmup": 3
+    },
+    "spa_Latn-fra_Latn": {
+      "bleu": 32.88,
+      "chrfpp": 56.2,
+      "xcomet_xl": 0.8978,
+      "tok_per_sec": 265.5,
+      "latency_ms": 296.1,
+      "elapsed_s": 29.614,
+      "peak_vram_gb": 18.16,
+      "n_examples": 100,
+      "n_warmup": 3
+    }
+  },
+  "bnb_nf4": {
+    "variant": "bnb_nf4",
+    "device": "cuda",
+    "eng_Latn-spa_Latn": {
+      "bleu": 27.88,
+      "chrfpp": 53.55,
+      "xcomet_xl": 0.9093,
+      "tok_per_sec": 369.5,
+      "latency_ms": 172.7,
+      "elapsed_s": 17.266,
+      "peak_vram_gb": 17.33,
+      "n_examples": 100,
+      "n_warmup": 3
+    },
+    "eng_Latn-fra_Latn": {
+      "bleu": 46.05,
+      "chrfpp": 65.77,
+      "xcomet_xl": 0.8663,
+      "tok_per_sec": 405.5,
+      "latency_ms": 180.0,
+      "elapsed_s": 18.002,
+      "peak_vram_gb": 17.37,
+      "n_examples": 100,
+      "n_warmup": 3
+    },
+    "spa_Latn-fra_Latn": {
+      "bleu": 31.72,
+      "chrfpp": 55.02,
+      "xcomet_xl": 0.8876,
+      "tok_per_sec": 403.7,
+      "latency_ms": 192.9,
+      "elapsed_s": 19.29,
+      "peak_vram_gb": 17.98,
+      "n_examples": 100,
+      "n_warmup": 3
+    }
+  }
+}

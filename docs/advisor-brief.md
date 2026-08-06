@@ -97,8 +97,8 @@ low-bit cliff" is an open, defensible contribution.
 3. Scope of evaluation: how many language pairs / models for a credible claim?
 
 ## Pointers (in the repo)
-- Phase-one report: `report/arctos-translation-report.pdf`
+- Phase-one report: `compression/report/arctos-translation-report.pdf`
 - Method primer (the gem + literature gaps): `docs/findings/phase2-method-primer.md`
 - Framework + reading list: `docs/findings/compression-primer.md`
-- Phase-two results: `docs/findings/q6.md`; collectors `scripts/q6gem_collect.py`
+- Phase-two results: `docs/findings/q6.md`; collectors `compression/scripts/q6gem_collect.py`
 - Replication plan for the closest prior paper: `docs/replication-uneven-ptq-mt-brief.md`

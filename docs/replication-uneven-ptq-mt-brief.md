@@ -112,10 +112,10 @@ report n. Run on SLURM A100 (see §3).
   gsm8k. **COMET:** `Unbabel/wmt22-comet-da` and `Unbabel/XCOMET-XL` (+ its
   encoder `facebook/xlm-roberta-xl`) are cached.
 - **Reference only (do NOT reuse for replication):** the Arctos q6 harness
-  (`experiments/q6-compression/`, `src/interp/compress.py`) is our *own*
+  (`compression/experiments/q6-compression/`, `compression/src/interp/compress.py`) is our *own*
   from-scratch quantizers; the replication must use the paper's actual tools.
-  But `src/data/wmt.py` (FLORES loader), `src/eval/metrics.py` (chrF++ + COMET +
-  XCOMET-XL wiring), and `src/models/_prompt.py` are fine to reuse.
+  But `compression/src/data/wmt.py` (FLORES loader), `compression/src/eval/metrics.py` (chrF++ + COMET +
+  XCOMET-XL wiring), and `compression/src/models/_prompt.py` are fine to reuse.
 - This is the user's CLAUDE.md "orchestrator" territory if you want autonomy:
   Python orchestrator + `claude -p` headless in tmux submitting sbatch jobs.
 
@@ -136,7 +136,7 @@ Write `docs/findings/replication-uneven-ptq-mt.md` containing:
 5. A one-paragraph bottom line: which claims are solid enough to build on, which
    aren't.
 
-Save raw outputs under `results/replication/` (gitignored).
+Save raw outputs under `compression/results/replication/` (gitignored).
 
 ---
 

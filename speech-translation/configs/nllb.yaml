@@ -1,0 +1,46 @@
+# NLLB-200 compression experiment — three languages supported by XTTS v2.
+#
+# Languages: English / Spanish / French (all high-resource in NLLB, all
+# supported by XTTS v2).  Three translation directions give full coverage.
+#
+# Models tested:
+#   distilled-600M  — faster iteration; already cached
+#   3.3B            — higher quality; also cached; uncomment to run
+
+model:
+  hf_name: facebook/nllb-200-distilled-600M
+  # hf_name: facebook/nllb-200-3.3B
+
+# Source → target FLORES-200 language codes (NLLB format)
+pairs:
+  - [eng_Latn, spa_Latn]   # en → es
+  - [eng_Latn, fra_Latn]   # en → fr
+  - [spa_Latn, fra_Latn]   # es → fr
+
+# Each compression variant is tested independently (model reloaded each time).
+compression_variants:
+  - name: fp16
+    dtype: float16
+
+  - name: bnb_int8
+    bnb_load_in_8bit: true
+
+  - name: bnb_nf4
+    bnb_load_in_4bit: true
+    bnb_4bit_quant_type: nf4
+    bnb_4bit_compute_dtype: bfloat16
+
+  # CTranslate2 INT8 — run precache.sh first to convert the model.
+  # Comment out if ct2 directory doesn't exist yet.
+  - name: ct2_int8
+    ct2_model_dir: speech-translation/results/nllb/ct2_int8
+
+n_examples: 100     # FLORES+ dev has 997 examples; 100 gives fast results
+batch_size: 16
+num_beams: 4
+max_length: 256
+
+eval:
+  bleu: true
+  chrfpp: true
+  xcomet: true       # uses cached Unbabel/XCOMET-XL

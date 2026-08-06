@@ -98,7 +98,7 @@ print("they're active but not pushing toward the answer. That's why we need both
 # systematic "suppressors" (negative across multiple pairs). These appear
 # regardless of language pair — candidate MT-circuit components.
 #
-# The cross-model DLA depth curve (`results/_combined/q1/dla_layer_combined.png`)
+# The cross-model DLA depth curve (`compression/results/_combined/q1/dla_layer_combined.png`)
 # shows Aya accumulating positive DLA across its last ~10 layers, while Tower
 # models stay flat until the final 1-2 layers then jump — the same
 # "distributed vs deferred commitment" split the logit lens showed, now

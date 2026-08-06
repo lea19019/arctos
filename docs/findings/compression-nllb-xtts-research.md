@@ -130,7 +130,7 @@ WER-based layer importance scoring → structured depth pruning → multi-level 
 
 ## 4. Transfer from Arctos Existing Tools
 
-| Arctos tool (`src/interp/`) | NLLB encoder | NLLB decoder + cross-attn | XTTS-GPT |
+| Arctos tool (`compression/src/interp/`) | NLLB encoder | NLLB decoder + cross-attn | XTTS-GPT |
 |---|---|---|---|
 | Super-weight causal-KL | Adapt: measure encoder output KL under ablation with LRL inputs | Adapt: separate per attention type | Direct transfer (decoder-only) |
 | AWQ salient channels (`salient_channels.py`) | Applicable; run separate LRL vs HRL calibration split | Applicable; bilingual pairs required | Direct transfer |

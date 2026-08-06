@@ -5,14 +5,14 @@ and the papers. Work top to bottom; each item says why it matters.
 
 ## 0. Orientation (15 min)
 - [`README.md`](../README.md) — the map.
-- [`docs/project-summary.md`](project-summary.md) + [`PHASE1-PLAN.md`](../PHASE1-PLAN.md) — the thesis spine and original plan.
+- [`docs/project-summary.md`](project-summary.md) + [`PHASE1-PLAN.md`](PHASE1-PLAN.md) — the thesis spine and original plan.
 
 ## 1. Phase one — how translation works inside an LLM (the foundation)
-- [`report/arctos-translation-report.pdf`](../report/arctos-translation-report.pdf) — **the full phase-one paper.** Read this first for the science.
+- [`compression/report/arctos-translation-report.pdf`](../compression/report/arctos-translation-report.pdf) — **the full phase-one paper.** Read this first for the science.
 - Per-question detail: [`docs/findings/q1.md`](findings/q1.md) (when/where language emerges),
   [`docs/findings/architecture-comparison.md`](findings/architecture-comparison.md) (does the depth signature generalize),
   [`docs/findings/q5.md`](findings/q5.md) (**the pivotal negative:** component importance ⟂ quantization sensitivity).
-- Methods, with runnable tutorials: [`notebooks/`](../notebooks/) (00 overview → 08 synthesis), code in [`src/interp/`](../src/interp/).
+- Methods, with runnable tutorials: [`notebooks/`](../notebooks/) (00 overview → 08 synthesis), code in [`compression/src/interp/`](../compression/src/interp/).
 - **One-line takeaway:** translation = encode source (early) → think in a shared
   language-neutral pivot (middle) → convert to the target language (late). The
   signature generalizes except Gemma. *Importance does not predict where
@@ -26,7 +26,7 @@ Read in this order:
 4. [`docs/findings/phase2-method-primer.md`](findings/phase2-method-primer.md) — the proposed method + the literature-gap/novelty map.
 5. [`docs/findings/phase2-novel-direction.md`](findings/phase2-novel-direction.md) — the pipeline-aware ("protect endpoints, crush middle") idea — **read knowing it became a negative result** (the experiment is in `q6`).
 6. [`docs/findings/q6.md`](findings/q6.md) — the chrF++ sweep writeup.
-- Code to actually run it: [`experiments/q6-compression/`](../experiments/q6-compression/) (`README.md` + `notes.md` changelog), [`src/interp/compress.py`](../src/interp/compress.py) (RTN/AWQ/GPTQ/ternary/binary/prune/mixed-precision), collectors in [`scripts/`](../scripts/).
+- Code to actually run it: [`compression/experiments/q6-compression/`](../compression/experiments/q6-compression/) (`README.md` + `notes.md` changelog), [`compression/src/interp/compress.py`](../compression/src/interp/compress.py) (RTN/AWQ/GPTQ/ternary/binary/prune/mixed-precision), collectors in [`compression/scripts/`](../compression/scripts/).
 
 ## 3. The literature (papers to read)
 - [`docs/research.md`](research.md) — **annotated bibliography** (pruning, quantization, recovery) + **3 addenda** with the phase-two papers and **3 deep-research syntheses** (verified claims + votes). The raw agent reports: [`docs/findings/deep-research-raw/`](findings/deep-research-raw/).
@@ -47,5 +47,5 @@ python scripts/q6gem_collect.py            # phase-two gem tables (if results/ p
 python scripts/q6gem_collect.py --subdir q6extreme   # the sub-2-bit cliff
 bash scripts/q6_status.sh                   # live SLURM + completion status
 ```
-(`results/` is gitignored — regenerate via the SLURM runners on an A100, or read
+(`compression/results/` is gitignored — regenerate via the SLURM runners on an A100, or read
 the numbers already transcribed into `phase2-results.md` / `phase2-synthesis.md`.)

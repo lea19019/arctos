@@ -20,7 +20,7 @@
 # the quality lost to naive quantization, using *only activation statistics*
 # — no gradients, no interpretability.
 #
-# `src/interp/activation_stats.py` collects, per Linear module, the
+# `compression/src/interp/activation_stats.py` collects, per Linear module, the
 # per-input-channel statistics over a calibration set:
 # - `max_abs[j]`  = max over tokens of |x_j|
 # - `mean_abs[j]` = mean over tokens of |x_j|

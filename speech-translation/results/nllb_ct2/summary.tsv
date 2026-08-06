@@ -1,0 +1,4 @@
+variant	pair	bleu	chrfpp	xcomet_xl	tok_per_sec	latency_ms	elapsed_s	peak_vram_gb	n_examples
+ct2_int8	eng_Latn-spa_Latn	28.87	53.96	0.9114	1524.0	22.7	2.275	16.64	100
+ct2_int8	eng_Latn-fra_Latn	45.03	65.36	0.8627	1511.0	25.9	2.594	16.67	100
+ct2_int8	spa_Latn-fra_Latn	33.23	56.28	0.8944	1509.1	28.0	2.795	17.28	100

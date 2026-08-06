@@ -16,16 +16,25 @@ That means:
 - **Convert to a real notebook** if you prefer: `pip install jupytext` then
   `jupytext --to notebook notebooks/01_logit_lens.py`.
 
-Run from the repo root so `import src...` works:
+These notebooks import the research code (`from src.interp...`), which lives in
+[`../compression/`](../compression/) — so they run in **that track's
+environment**, not one of their own:
 
 ```bash
-cd ~/arctos
-.venv/bin/python notebooks/01_logit_lens.py
+cd ~/arctos/compression
+uv sync                                    # if you haven't already
+.venv/bin/python ../notebooks/01_logit_lens.py
+```
+
+Or from the repo root, without activating anything:
+
+```bash
+uv run --project compression python notebooks/01_logit_lens.py
 ```
 
 Notebooks 01–07 use a **tiny CPU model** (gpt2 or bloom-560m) so they run in
 seconds without a GPU — they teach the mechanics. Notebook 08 reads the
-**real experiment results** under `results/` and walks the full
+**real experiment results** under `compression/results/` and walks the full
 interpretability→quantization reasoning chain.
 
 ## Order

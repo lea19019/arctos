@@ -1,0 +1,73 @@
+[project]
+name = "arctos-speech-translation"
+version = "0.1.0"
+description = "Compression of the NLLB-200 + XTTS v2 dubbing pipeline for single-GPU deployment"
+requires-python = ">=3.11"
+dependencies = [
+    # Core modeling stack. Whisper (used for CER back-transcription in the
+    # XTTS eval) comes from transformers — it is not a separate dependency.
+    "torch>=2.4",
+    "torchaudio",
+    "transformers>=4.57",
+    "accelerate",
+    "datasets",
+    "safetensors",
+    "sentencepiece",
+    # TTS. `coqui-tts` is the maintained fork of the original (archived)
+    # coqui-ai/TTS package; XTTS v2 is loaded through it.
+    "coqui-tts==0.27.5",
+    # Audio I/O + resampling
+    "soundfile",
+    "librosa",
+    "scipy",
+    # MT metrics: BLEU / chrF++ via sacrebleu, XCOMET-XL via unbabel-comet
+    "sacrebleu[ja,ko,zh]",
+    "unbabel-comet",
+    # Config / data
+    "pyyaml",
+    "pandas",
+    "numpy<2",
+    # Plots / utilities
+    "matplotlib",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+# CTranslate2 is the fused-kernel INT8 inference path for NLLB. Kept optional
+# because it needs its own model conversion step (slurm/run_nllb_ct2.sh).
+ct2 = [
+    "ctranslate2==4.8.0",
+]
+# bitsandbytes provides the INT8 / NF4 variants for both NLLB and the XTTS
+# GPT-2 core.
+quant = [
+    "bitsandbytes==0.49.2",
+]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[tool.pytest.ini_options]
+markers = [
+    "cpu: runs on CPU; should pass on a CPU-only machine.",
+    "gpu: requires CUDA + a real checkpoint; skipped if CUDA unavailable.",
+    "slow: takes more than ~30s; opted into via -m slow.",
+]
+testpaths = ["mobile-tts/tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+# Pin torch to the CUDA 12.8 wheel index. The BYU RC cluster driver
+# (570.195.x) only supports up to CUDA 12.8; the default cu130 wheel from
+# PyPI fails at runtime with "NVIDIA driver too old".
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128" }]
+torchaudio = [{ index = "pytorch-cu128" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

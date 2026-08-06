@@ -1,0 +1,76 @@
+{
+  "fp16": {
+    "variant": "fp16",
+    "device": "cuda",
+    "eng_Latn-spa_Latn": {
+      "bleu": 37.95,
+      "chrfpp": 65.79,
+      "xcomet_xl": 0.9679,
+      "tok_per_sec": 441.9,
+      "latency_ms": 172.0,
+      "elapsed_s": 0.86,
+      "peak_vram_gb": 16.14,
+      "n_examples": 5,
+      "n_warmup": 2
+    },
+    "eng_Latn-fra_Latn": {
+      "bleu": 41.23,
+      "chrfpp": 63.46,
+      "xcomet_xl": 0.9121,
+      "tok_per_sec": 410.0,
+      "latency_ms": 207.3,
+      "elapsed_s": 1.037,
+      "peak_vram_gb": 16.26,
+      "n_examples": 5,
+      "n_warmup": 2
+    },
+    "spa_Latn-fra_Latn": {
+      "bleu": 40.54,
+      "chrfpp": 61.69,
+      "xcomet_xl": 0.8942,
+      "tok_per_sec": 410.2,
+      "latency_ms": 234.1,
+      "elapsed_s": 1.17,
+      "peak_vram_gb": 16.39,
+      "n_examples": 5,
+      "n_warmup": 2
+    }
+  },
+  "bnb_int8": {
+    "variant": "bnb_int8",
+    "device": "cuda",
+    "eng_Latn-spa_Latn": {
+      "bleu": 37.11,
+      "chrfpp": 64.82,
+      "xcomet_xl": 0.9571,
+      "tok_per_sec": 90.9,
+      "latency_ms": 814.1,
+      "elapsed_s": 4.071,
+      "peak_vram_gb": 15.8,
+      "n_examples": 5,
+      "n_warmup": 2
+    },
+    "eng_Latn-fra_Latn": {
+      "bleu": 41.23,
+      "chrfpp": 63.46,
+      "xcomet_xl": 0.9121,
+      "tok_per_sec": 88.4,
+      "latency_ms": 961.0,
+      "elapsed_s": 4.805,
+      "peak_vram_gb": 15.92,
+      "n_examples": 5,
+      "n_warmup": 2
+    },
+    "spa_Latn-fra_Latn": {
+      "bleu": 41.18,
+      "chrfpp": 62.27,
+      "xcomet_xl": 0.8766,
+      "tok_per_sec": 92.9,
+      "latency_ms": 1033.5,
+      "elapsed_s": 5.167,
+      "peak_vram_gb": 16.04,
+      "n_examples": 5,
+      "n_warmup": 2
+    }
+  }
+}

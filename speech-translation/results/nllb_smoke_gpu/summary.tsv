@@ -1,0 +1,7 @@
+variant	pair	bleu	chrfpp	xcomet_xl	tok_per_sec	latency_ms	elapsed_s	peak_vram_gb	n_examples
+fp16	eng_Latn-spa_Latn	37.95	65.79	0.9679	441.9	172.0	0.860	16.14	5
+fp16	eng_Latn-fra_Latn	41.23	63.46	0.9121	410.0	207.3	1.037	16.26	5
+fp16	spa_Latn-fra_Latn	40.54	61.69	0.8942	410.2	234.1	1.170	16.39	5
+bnb_int8	eng_Latn-spa_Latn	37.11	64.82	0.9571	90.9	814.1	4.071	15.80	5
+bnb_int8	eng_Latn-fra_Latn	41.23	63.46	0.9121	88.4	961.0	4.805	15.92	5
+bnb_int8	spa_Latn-fra_Latn	41.18	62.27	0.8766	92.9	1033.5	5.167	16.04	5

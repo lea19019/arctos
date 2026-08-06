@@ -1,0 +1,74 @@
+{
+  "fp16": {
+    "variant": "fp16",
+    "en": {
+      "cer": 0.4487,
+      "wer": 0.5566,
+      "rtf": 0.3143,
+      "elapsed_s": 14.046,
+      "latency_ms": 4681.8,
+      "audio_s_per_s": 3.18,
+      "peak_vram_gb": 5.33,
+      "n_examples": 3,
+      "n_warmup": 1
+    },
+    "es": {
+      "cer": 0.4433,
+      "wer": 0.5462,
+      "rtf": 0.3134,
+      "elapsed_s": 14.23,
+      "latency_ms": 4743.2,
+      "audio_s_per_s": 3.19,
+      "peak_vram_gb": 5.35,
+      "n_examples": 3,
+      "n_warmup": 1
+    },
+    "fr": {
+      "cer": 1.4622,
+      "wer": 2.1777,
+      "rtf": 0.3117,
+      "elapsed_s": 22.92,
+      "latency_ms": 7640.0,
+      "audio_s_per_s": 3.21,
+      "peak_vram_gb": 5.5,
+      "n_examples": 3,
+      "n_warmup": 1
+    }
+  },
+  "bnb_int8_gpt": {
+    "variant": "bnb_int8_gpt",
+    "en": {
+      "cer": 0.2977,
+      "wer": 0.3946,
+      "rtf": 0.3264,
+      "elapsed_s": 17.667,
+      "latency_ms": 5889.1,
+      "audio_s_per_s": 3.06,
+      "peak_vram_gb": 5.3,
+      "n_examples": 3,
+      "n_warmup": 1
+    },
+    "es": {
+      "cer": 1.6918,
+      "wer": 2.0906,
+      "rtf": 0.3315,
+      "elapsed_s": 18.758,
+      "latency_ms": 6252.8,
+      "audio_s_per_s": 3.02,
+      "peak_vram_gb": 5.39,
+      "n_examples": 3,
+      "n_warmup": 1
+    },
+    "fr": {
+      "cer": 0.5629,
+      "wer": 0.6985,
+      "rtf": 0.3314,
+      "elapsed_s": 15.595,
+      "latency_ms": 5198.4,
+      "audio_s_per_s": 3.02,
+      "peak_vram_gb": 5.19,
+      "n_examples": 3,
+      "n_warmup": 1
+    }
+  }
+}

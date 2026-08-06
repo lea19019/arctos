@@ -7,6 +7,7 @@ build/
 dist/
 *.egg-info/
 .eggs/
+.pytest_cache/
 
 # Environments
 .env
@@ -19,20 +20,62 @@ venv/
 # Jupyter
 .ipynb_checkpoints/
 
-# Data and model artifacts (gitignored per scaffold; anchored to repo root
-# so src/data/ and src/models/ stay tracked).
-/data/
-/models/
-/outputs/
-/results/
+# ---------------------------------------------------------------------------
+# compression/ — the interpretability + quantization research track.
+# Everything under results/ is regenerable by re-running the SLURM jobs; the
+# numbers that back the writeups live in docs/findings/.
+# ---------------------------------------------------------------------------
+/compression/data/
+/compression/models/
+/compression/outputs/
+/compression/results/
+/compression/logs/
+# Derived calibration text (regenerate via precache.py)
+/compression/experiments/replication-uneven-ptq/calib/
+
+# LaTeX build artifacts
+/compression/report/*.aux
+/compression/report/*.out
+/compression/report/*.log
+/compression/report/*.bbl
+/compression/report/*.blg
+/compression/report/main.pdf
+
+# ---------------------------------------------------------------------------
+# speech-translation/ — the NLLB + XTTS dubbing pipeline.
+# Corpora and reference audio are regenerable (fetch_flores.py,
+# prepare_ref_audio.py); model conversions and bulk synthesis are not kept.
+# Small results.json / summary.tsv ARE committed — they are the measurements.
+# ---------------------------------------------------------------------------
+/speech-translation/data/
+/speech-translation/logs/
+/speech-translation/mobile-tts/data/*.csv
+/speech-translation/mobile-tts/checkpoints/
+# CTranslate2 / GGUF / safetensors model conversions
+/speech-translation/results/**/ct2_*/
+*.gguf
+*.safetensors
+
+# Synthesized audio: keep one curated fp16-vs-int8 English pair as the demo,
+# plus the mobile-tts listening set; the rest stays local.
+/speech-translation/results/**/*.wav
+!/speech-translation/results/xtts/*/en/0000.wav
+/speech-translation/mobile-tts/outputs/sentence_*.wav
 
 # Logs
 logs/
 *.log
+# SLURM job stdout (one finetune log is 2 MB of progress bars)
+*.out
 
-# Generated figures (keep ones explicitly committed under docs/)
+# Generated figures — committed ones are explicitly re-included below
 *.png
 !docs/**/*.png
+!/compression/report/figures/*.png
+!/speech-translation/**/*.png
+
+# Crash core dumps
+core.*
 
 # OS / IDE
 .DS_Store
@@ -40,17 +83,3 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
-!report/figures/*.png
-
-# LaTeX build artifacts
-report/*.aux
-report/*.out
-report/*.log
-report/main.pdf
-report/*.bbl
-report/*.blg
-
-# PTQ-MT replication: derived calibration text (regenerate via precache.py)
-experiments/replication-uneven-ptq/calib/
-# crash core dumps
-core.*

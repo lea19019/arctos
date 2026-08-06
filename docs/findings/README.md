@@ -17,4 +17,4 @@ One file per investigative question, written when the question's satisfied-when 
 - `phase2-novel-direction.md` — pipeline-aware idea (now a reported negative)
 - `deep-research-raw/` — raw deep-research syntheses
 
-Each is a writeup that someone unfamiliar with the project could read and understand. Until a question is satisfied, working notes live in `experiments/qN-*/notes.md`.
+Each is a writeup that someone unfamiliar with the project could read and understand. Until a question is satisfied, working notes live in `compression/experiments/qN-*/notes.md`.

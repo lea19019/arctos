@@ -54,7 +54,7 @@ The single most valuable stretch. Tie everything to GPTQ/super-weights.
 - **Pull-paper: GPTQ + Optimal Brain Surgeon.** Read with the goal of seeing
   ΔL ≈ ½Δwᵀ H Δw *inside the method*. Re-derive the OBS single-weight update in
   numpy on a toy linear layer; confirm it beats round-to-nearest at fixed bits
-  (you already have this experiment in `src/interp/compress.py::gptq_quantize`).
+  (you already have this experiment in `compression/src/interp/compress.py::gptq_quantize`).
 - **Probability/outliers:** distributions, variance, quantiles; why a few
   heavy-tailed weights/activations (super-weights) dominate — read the
   super-weight paper with the stats in hand.

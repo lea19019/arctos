@@ -1,146 +1,76 @@
 # Arctos
 
-*Understanding translation in LLMs as a foundation for compression* — an
-interpretability-led investigation into **how machine translation is carried
-out inside open multilingual LLMs**, preceding a phase-two compression method
-whose design is grounded in what phase one reveals.
+MS project work (BYU CS) on **compressing multilingual translation and speech
+models so they run on cheap hardware** — with an interpretability lens on *why*
+compression hurts what it hurts.
 
-**Phase one is complete.** The headline result, in one line: *translation is a
-depth-staged "understand → process in a language-neutral/pivot space → emit
-the target language last" computation; the target language is a late
-conversion step, not the medium the model computes in* — and this structure
-generalizes across architectures.
-
-- **📖 Reading guide (start here):** [`docs/READING-GUIDE.md`](docs/READING-GUIDE.md) — an ordered path through every experiment, result, and paper, phase one → phase two.
-- **📚 Papers + learning hub:** [`docs/READING-LIST.md`](docs/READING-LIST.md) — every cited paper (clickable, grouped by theme) + videos/sites to learn the foundations. [`docs/MATH-PLAN.md`](docs/MATH-PLAN.md) — 6-month math curriculum.
-- **Phase-one report:** [`report/arctos-translation-report.pdf`](report/arctos-translation-report.pdf) — *What and how does the translation task work inside an LLM?* (methods, tables, figures, findings, citations).
-- **Phase-two (compression):** see [Phase two](#phase-two--compression-for-translation) below — the find/keep/shrink/prune sandbox, the **MT-conditional GPTQ** result, and the honest negatives.
-- **Findings per question:** [`docs/findings/`](docs/findings/) — `q1.md`, `q5.md`, `architecture-comparison.md` (phase one); `phase2-synthesis.md`, `phase2-results.md` (phase two).
-- **Where it's going:** [`docs/ROADMAP.md`](docs/ROADMAP.md) — the multi-dimensional "sweet spot of compression for translation" program (quant × prune × distill across bit-scales).
-- **Tutorials:** [`notebooks/`](notebooks/) — 8 runnable `# %%` notebooks (theory + mechanics) on a tiny CPU model.
-- Thesis spine + plan: [`docs/project-summary.md`](docs/project-summary.md), [`PHASE1-PLAN.md`](PHASE1-PLAN.md).
-
-## Models studied
-
-Eight models spanning lineage, normalization, positional encoding, generation,
-and the decoder-only ↔ encoder-decoder divide:
-
-| Model | Architecture | Role |
-|-------|--------------|------|
-| Aya Expanse 8B | Cohere, RoPE, RMSNorm | general multilingual LM |
-| TowerBase 7B → TowerInstruct 7B | Llama-2 | CPT vs CPT+MT-SFT ablation |
-| Tower-Plus 9B | Gemma 2 | MT-specialist (2025) |
-| BLOOM 7B1 | ALiBi, LayerNorm | old-gen multilingual (2022) |
-| EuroLLM 9B | Llama-3 | European MT specialist |
-| Llama-3.1 8B | Llama-3, GQA | general LM |
-| Gemma-3 12B | Gemma 3 | baseline (Google QAT) |
-| NLLB-200 3.3B | encoder–decoder | MT-purpose-built |
-
-Language pairs (FLORES+): **cs→de** (same-script sanity), **en→zh** (Han),
-**en→arz** (Egyptian Arabic). *(The original plan named omt-llama-8b, which
-does not exist on HuggingFace; the set above is the realized substitute, with
-Gemma as a baseline rather than a method target.)*
-
-## Methods (`src/interp/`)
-
-All read or intervene on the residual stream through one uniform wrapper
-(`src/models/_hooked.py`, `HookedModel`) so the same code runs on every
-architecture.
-
-| File | Method | Answers |
-|------|--------|---------|
-| `logit_lens.py` | logit lens | when does the model commit to the target token? |
-| `probing.py` | linear probes + control task | where is language identity decodable? |
-| `ifr.py` | Information Flow Routes | which components are *loud* (magnitude)? |
-| `dla.py` | direct logit attribution | which components push *toward* the target (signed)? |
-| `attribution_patching.py` | attribution patching | which components, if damaged, *break* translation (causal)? |
-| `sensitivity.py` | noise injection | where does numerical *precision* matter (quant proxy)? |
-| `activation_stats.py` | AWQ-style activation magnitude | which weight channels see large activations? |
-| `language_pivot.py` | **pivot trajectory** | does the model "think in a pivot script" then convert late? |
-| `tuned_lens.py` | tuned lens (Belrose 2023) | de-biased logit lens (built, optional) |
-
-## Layout
+The repo holds two research tracks plus their shared writing. Each top-level
+folder is self-contained and has its own README explaining what's in it.
 
 ```
-.
-├── report/                   # the compiled PDF report + LaTeX source + figures
-├── docs/findings/            # per-question writeups (q1, q5, architecture-comparison)
-├── notebooks/                # 8 method tutorials (00 overview → 08 synthesis)
-├── experiments/
-│   ├── q1-language-emergence/   # logit lens, probing, IFR, DLA, pivot runners + SLURM
-│   ├── q2-attention-heads/      # attention-pattern viz
-│   ├── q4-architecture-comparison/  # combined analysis SLURM
-│   └── q5-importance-vs-sensitivity/ # noise/attribution/AWQ + chrF++ quality runners
-├── src/
-│   ├── models/               # per-model loaders + _hooked.py (HookedModel) + nllb.py
-│   ├── interp/               # the methods above
-│   ├── data/                 # FLORES+ loader + clean/corrupt generators
-│   └── eval/                 # chrF++/BLEU (sacrebleu)
-├── results/                  # gitignored — per-model outputs (npz/json/charts)
-├── tests/                    # cpu + gpu markers
-└── scripts/                  # fetch_flores.py etc.
+arctos/
+├── compression/         # LLM interpretability → quantization research (largely concluded)
+├── speech-translation/  # NLLB-200 + XTTS v2 dubbing pipeline (the forward track)
+├── notebooks/           # 8 runnable method tutorials on a tiny CPU model
+└── docs/                # findings, reading lists, planning, papers
 ```
 
-## Environment
+Nothing runs at the top level. `compression/` and `speech-translation/` each
+carry their own `pyproject.toml` and build their own `.venv`.
 
-```bash
-uv sync                       # .venv from pyproject.toml (Python 3.11 pinned)
-uv run pytest -m cpu          # method unit tests on a tiny CPU model
-```
+## The two tracks
 
-Cluster notes (BYU RC / SLURM): the env is pinned to **Python 3.11** (system
-OpenSSL compatibility) and **torch cu128** (driver compatibility); SLURM
-scripts set `OPENSSL_CONF=/dev/null` and `HF_HUB_OFFLINE=1` (compute nodes
-have no internet — models are pre-cached on the login node). Hardware target
-is a single A100 80GB.
+### `compression/` — how translation works inside an LLM, and what that means for quantization
 
-## Key findings
+An interpretability-led study of **how machine translation is carried out inside
+open multilingual LLMs**, followed by a compression chapter grounded in what it
+found. Eight models, three language pairs, phase one and phase two both complete.
 
-1. **Translation does not happen in the target language until the end.** Under
-   the logit lens, target-script probability mass is ~0 through ~80–95% of
-   depth, rising only in the final layers (across 6 architectures). The middle
-   of the network operates in a Latin/pivot representation.
-2. **Depth-ordered pipeline:** source encoding (early) → language-neutral
-   processing (middle) → target commitment (last quarter), where logit-lens
-   target mass, signed DLA, and IFR magnitude all concentrate.
-3. **The signature generalizes** across lineage, normalization, positional
-   encoding, generation, and decoder-only ↔ encoder-decoder (NLLB) — the lone
-   exception is Gemma-family.
-4. **Importance ≠ quantization sensitivity** (ρ ≈ 0 across two metrics): where
-   MT computation concentrates is *not* where numerical precision matters.
+The headline: *translation is depth-staged — understand the source early,
+process in a language-neutral/pivot space in the middle, emit the target
+language only in the last quarter.* The target language is a late conversion
+step, not the medium the model computes in. This generalizes across lineage,
+normalization, positional encoding, and the decoder-only ↔ encoder-decoder
+divide.
 
-## Phase two — compression for translation
+And the load-bearing negative: **component importance is uncorrelated with
+quantization sensitivity** (ρ ≈ 0). Where MT computation concentrates is *not*
+where numerical precision matters — so the depth pipeline, however real, is not
+a bit-allocation rule.
 
-The interpretability-grounded compression chapter. Sandbox + experiments in
-[`experiments/q6-compression/`](experiments/q6-compression/); code in
-`src/interp/{compress,super_weights,hessian_diag,salient_channels}.py` +
-`src/eval/metrics.py` (XCOMET-XL). Run: `submit_gem.sh` / `submit_extreme.sh`;
-collect: `python scripts/q6gem_collect.py`; status: `bash scripts/q6_status.sh`.
+→ [`compression/README.md`](compression/README.md) for methods, results, and how to run it.
 
-**Docs (read in this order):**
-1. [`docs/findings/phase2-synthesis.md`](docs/findings/phase2-synthesis.md) — **the honest consolidated read** (what holds, what doesn't).
-2. [`docs/findings/phase2-results.md`](docs/findings/phase2-results.md) — cross-model tables (chrF++ / XCOMET-XL).
-3. [`docs/findings/compression-primer.md`](docs/findings/compression-primer.md) — find/keep/shrink/prune framework + reading list.
-4. [`docs/findings/phase2-method-primer.md`](docs/findings/phase2-method-primer.md) — the method + literature-gap/novelty map.
-5. [`docs/findings/phase2-novel-direction.md`](docs/findings/phase2-novel-direction.md) — the pipeline-aware idea (now a reported **negative**).
-6. [`docs/findings/q6.md`](docs/findings/q6.md) — the chrF++ sweep writeup.
-7. [`docs/research.md`](docs/research.md) — annotated bibliography + 3 deep-research addenda; raw reports in [`docs/findings/deep-research-raw/`](docs/findings/deep-research-raw/).
-8. [`docs/advisor-brief.md`](docs/advisor-brief.md) — talking doc. [`docs/replication-uneven-ptq-mt-brief.md`](docs/replication-uneven-ptq-mt-brief.md) — replication of arXiv:2508.20893.
+### `speech-translation/` — compressing the dubbing pipeline
 
-**Phase-two key findings (directional; chrF++/XCOMET-XL, small n):**
-- ✅ **MT-conditional GPTQ** recovers the 3-bit cliff (all 6 models, +0.13–0.52 COMET); *generic-text calibration is worse than not quantizing.* The contribution.
-- ✅ **Salient-channel / super-weight FP16 preservation** independently recovers 3-bit (Gemma 12.7→48.4 chrF).
-- ❌ **Depth-pipeline ≠ a compression rule:** protecting the language-specific endpoints vs the neutral middle is a wash (Q5 null reconfirmed at stage level).
-- 🔭 **No healing-free PTQ reaches FP16 at 3-bit** (any method) → goal = *best healing-free MT-specific option at a given size.*
+The applied track: getting **NLLB-200 (translation) + XTTS v2 (voice cloning)**
+to run together on a single cheap GPU at real-time latency, rather than an
+A100. Includes `mobile-tts/`, a Swahili TTS fine-tuning experiment.
+
+Two findings from the baseline sweep that shaped everything after:
+**CTranslate2 INT8 is the only compression here that is actually faster**
+(2.4× vs FP16 at equal quality), while `bitsandbytes` INT8 is **4× slower than
+FP16** — smaller does not mean faster. And INT8 on the XTTS GPT core is quality-
+neutral for English and Spanish but **triples French CER** (0.061 → 0.157), so
+per-language evaluation is not optional.
+
+→ [`speech-translation/README.md`](speech-translation/README.md) for the tables and pipeline.
+
+## Where the ideas live
+
+`docs/` is the written record for both tracks — per-question findings, the
+annotated bibliography, the reading and math plans, and the planning documents.
+
+Most of what's in `docs/` describes directions that were explored and **parked**,
+not active work. [`docs/OPEN-WORK.md`](docs/OPEN-WORK.md) is the useful index of
+those: a ranked brief of open directions mined from the future-work sections of
+95 cited papers, cross-referenced against what has already been done or ruled
+out. Start there when picking up a thread.
+
+→ [`docs/README.md`](docs/README.md) for the full index.
 
 ## Status
 
-**Phase one complete; phase two has a result.** Headline: *for low-bit
-translation, GPTQ must be calibrated on MT data — generic calibration actively
-hurts — and salient/super-weight preservation recovers the 3-bit cliff, while
-the depth-pipeline does **not** localize quantization fragility.* Next program
-(6-month, fall start): the multi-dimensional **sweet-spot study** — quant ×
-prune × distill across bit-scales and weight types, on MT (and speech↔text) —
-see [`docs/ROADMAP.md`](docs/ROADMAP.md). All phase-two numbers are directional
-(small n, generic prompt); the paper-grade run needs larger n + chat templates +
-a human spot-check.
+`compression/` is concluded — the phase-one report is written and phase two has
+its result. `speech-translation/` is the active direction. Numbers in the
+phase-two writeups are directional (small n, generic prompts); a paper-grade run
+would need larger n, chat templates, and a human spot-check.

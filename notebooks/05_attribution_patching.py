@@ -103,7 +103,7 @@ for i in flat.abs().topk(6).indices.tolist():
 # %% [markdown]
 # ## In the real pipeline (Q2 + Q5)
 #
-# The Q5 runner builds clean/corrupt pairs with `src/data/clean_corrupt.py`
+# The Q5 runner builds clean/corrupt pairs with `compression/src/data/clean_corrupt.py`
 # (LEXICAL_SUB: swap one content word in the source for an in-distribution
 # word from another sentence) and runs attribution patching over the
 # calibration set, saving a per-(layer, head) causal map to

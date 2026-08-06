@@ -1,0 +1,55 @@
+{
+  "device": "cuda",
+  "model": "facebook/mms-tts-swh",
+  "sample_rate": 16000,
+  "rtf_pass_threshold": 5.0,
+  "mean_rtf": 0.342098,
+  "pass": true,
+  "sentences": [
+    {
+      "sentence_index": 1,
+      "text": "Habari yako leo?",
+      "infer_time_s": 2.949941,
+      "audio_duration_s": 1.92,
+      "rtf": 1.536428,
+      "wav_path": "outputs/sentence_1_cuda.wav",
+      "gpu_peak_mem_mb": 180.41
+    },
+    {
+      "sentence_index": 2,
+      "text": "Ninafurahi kukutana nawe.",
+      "infer_time_s": 0.111867,
+      "audio_duration_s": 2.432,
+      "rtf": 0.045998,
+      "wav_path": "outputs/sentence_2_cuda.wav",
+      "gpu_peak_mem_mb": 187.48
+    },
+    {
+      "sentence_index": 3,
+      "text": "Watoto wanacheza mpira.",
+      "infer_time_s": 0.245271,
+      "audio_duration_s": 2.608,
+      "rtf": 0.094046,
+      "wav_path": "outputs/sentence_3_cuda.wav",
+      "gpu_peak_mem_mb": 188.53
+    },
+    {
+      "sentence_index": 4,
+      "text": "Daktari anasema kwamba unahitaji kupumzika.",
+      "infer_time_s": 0.070173,
+      "audio_duration_s": 4.672,
+      "rtf": 0.01502,
+      "wav_path": "outputs/sentence_4_cuda.wav",
+      "gpu_peak_mem_mb": 214.76
+    },
+    {
+      "sentence_index": 5,
+      "text": "Serikali imepanga mkutano mkubwa kesho asubuhi.",
+      "infer_time_s": 0.067184,
+      "audio_duration_s": 3.536,
+      "rtf": 0.019,
+      "wav_path": "outputs/sentence_5_cuda.wav",
+      "gpu_peak_mem_mb": 200.48
+    }
+  ]
+}

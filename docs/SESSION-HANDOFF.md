@@ -32,7 +32,7 @@ alive) OR the workflow transcript dir
   stage (crush_middle vs crush_ends at matched budget).
 
 ## Pending experiments (code committed, needs GPU run)
-- **`pipeline` + `mixedlayer` stages** added to `experiments/q6-compression/
+- **`pipeline` + `mixedlayer` stages** added to `compression/experiments/q6-compression/
   experiment.py`. CPU smoke timed out (slow); **needs a GPU canary** then a run.
   Launch: `sbatch --job-name=bloom-7b1 experiments/q6-compression/slurm/
   run_q6gem.sh ...` adapted, OR add a run_q6pipeline.sh with

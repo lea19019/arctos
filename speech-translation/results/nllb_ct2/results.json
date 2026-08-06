@@ -1,0 +1,39 @@
+{
+  "ct2_int8": {
+    "variant": "ct2_int8",
+    "device": "cuda",
+    "eng_Latn-spa_Latn": {
+      "bleu": 28.87,
+      "chrfpp": 53.96,
+      "xcomet_xl": 0.9114,
+      "tok_per_sec": 1524.0,
+      "latency_ms": 22.7,
+      "elapsed_s": 2.275,
+      "peak_vram_gb": 16.64,
+      "n_examples": 100,
+      "n_warmup": 3
+    },
+    "eng_Latn-fra_Latn": {
+      "bleu": 45.03,
+      "chrfpp": 65.36,
+      "xcomet_xl": 0.8627,
+      "tok_per_sec": 1511.0,
+      "latency_ms": 25.9,
+      "elapsed_s": 2.594,
+      "peak_vram_gb": 16.67,
+      "n_examples": 100,
+      "n_warmup": 3
+    },
+    "spa_Latn-fra_Latn": {
+      "bleu": 33.23,
+      "chrfpp": 56.28,
+      "xcomet_xl": 0.8944,
+      "tok_per_sec": 1509.1,
+      "latency_ms": 28.0,
+      "elapsed_s": 2.795,
+      "peak_vram_gb": 17.28,
+      "n_examples": 100,
+      "n_warmup": 3
+    }
+  }
+}
