@@ -62,6 +62,17 @@ venv/
 !/speech-translation/results/xtts/*/en/0000.wav
 /speech-translation/mobile-tts/outputs/sentence_*.wav
 
+# ---------------------------------------------------------------------------
+# interlingua/ — the training-dynamics track.
+# The paper PDFs are ~191 MB and all recoverable from arXiv / ACL Anthology /
+# transformer-circuits.pub; papers/README.md indexes them, and the two
+# markdown companions (summaries + literature sweep) ARE committed.
+# ---------------------------------------------------------------------------
+/interlingua/papers/**/*.pdf
+/interlingua/checkpoints/
+/interlingua/results/
+/interlingua/data/
+
 # Logs
 logs/
 *.log

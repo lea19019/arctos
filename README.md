@@ -4,13 +4,14 @@ MS project work (BYU CS) on **compressing multilingual translation and speech
 models so they run on cheap hardware** — with an interpretability lens on *why*
 compression hurts what it hurts.
 
-The repo holds two research tracks plus their shared writing. Each top-level
+The repo holds three research tracks plus their shared writing. Each top-level
 folder is self-contained and has its own README explaining what's in it.
 
 ```
 arctos/
-├── compression/         # LLM interpretability → quantization research (largely concluded)
-├── speech-translation/  # NLLB-200 + XTTS v2 dubbing pipeline (the forward track)
+├── interlingua/         # training dynamics of cross-lingual alignment (next up)
+├── compression/         # LLM interpretability → quantization research (concluded)
+├── speech-translation/  # NLLB-200 + XTTS v2 dubbing pipeline
 ├── notebooks/           # 8 runnable method tutorials on a tiny CPU model
 └── docs/                # findings, reading lists, planning, papers
 ```
@@ -18,7 +19,26 @@ arctos/
 Nothing runs at the top level. `compression/` and `speech-translation/` each
 carry their own `pyproject.toml` and build their own `.venv`.
 
-## The two tracks
+## The three tracks
+
+### `interlingua/` — when does the shared meaning space form? *(the direction being taken up)*
+
+Where `compression/` asked what the language-neutral space looks like in a
+*finished* model, this asks **when and how it forms during training** — and
+whether the "emergence" everyone reports is real phase structure or an artifact
+of the metric used to measure it.
+
+The plan is Tier 1 of the Matrix Lab program *Does the Interlingua Grok?*:
+train small decoder-only models from scratch on EN/FR/TR and track mechanistic
+and behavioral measures across ~60 log-spaced checkpoints. The sharp move is
+refusing to report the headline claim as stated — a lag between a smooth
+mechanistic curve and a jumpy accuracy curve is *guaranteed by construction*
+when the behavioral metric is discontinuous, so the real experiment is whether
+the lag survives a continuous metric. No outcome is empty.
+
+Docs only so far; nothing is built yet.
+
+→ [`interlingua/README.md`](interlingua/README.md).
 
 ### `compression/` — how translation works inside an LLM, and what that means for quantization
 
@@ -71,6 +91,8 @@ out. Start there when picking up a thread.
 ## Status
 
 `compression/` is concluded — the phase-one report is written and phase two has
-its result. `speech-translation/` is the active direction. Numbers in the
-phase-two writeups are directional (small n, generic prompts); a paper-grade run
-would need larger n, chat templates, and a human spot-check.
+its result. `speech-translation/` has its baseline sweep done and is the applied
+thread. `interlingua/` is the direction being taken up next and has no code yet.
+
+Numbers in the phase-two writeups are directional (small n, generic prompts); a
+paper-grade run would need larger n, chat templates, and a human spot-check.

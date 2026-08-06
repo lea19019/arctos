@@ -1,8 +1,12 @@
 # docs — the written record
 
-Findings, reading, and planning for both tracks. Most of what's here describes
-work that is **done or parked**, not in progress — this is the archive you mine
-when picking up a thread, not a to-do list.
+Findings, reading, and planning for the `compression/` and `speech-translation/`
+tracks. Most of what's here describes work that is **done or parked**, not in
+progress — this is the archive you mine when picking up a thread, not a to-do
+list.
+
+The `interlingua/` track keeps its own docs and bibliography under
+[`../interlingua/`](../interlingua/), since they're specific to it.
 
 ## Start here
 
@@ -57,6 +61,7 @@ the synthesis docs.
 - [`advisor-brief.md`](advisor-brief.md), [`project-ideas-advisor-brief.md`](project-ideas-advisor-brief.md) — talking docs.
 - [`replication-uneven-ptq-mt-brief.md`](replication-uneven-ptq-mt-brief.md) — the replication brief.
 - [`phase2-hypotheses.md`](phase2-hypotheses.md), [`ideas.md`](ideas.md) — candidate directions, mostly superseded by `OPEN-WORK.md`.
+- [`skills-plan.md`](skills-plan.md) — career/interview plan through spring 2027 (DSA cadence, production toolkit, application calendar, visa checklist). **Overlaps** [`ROADMAP.md`](ROADMAP.md) and [`MATH-PLAN.md`](MATH-PLAN.md), which cover research skills over a similar horizon — worth reconciling into one plan rather than three.
 - [`SESSION-HANDOFF.md`](SESSION-HANDOFF.md), [`claude-code-bootstrap.md`](claude-code-bootstrap.md) — working-process notes.
 - [`systems-notes/`](systems-notes/) — cluster and environment notes.
 
