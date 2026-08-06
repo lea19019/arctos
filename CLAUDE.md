@@ -22,12 +22,27 @@ they are not being pursued. The live direction is `interlingua/`, and its plan
 lives with the track in `interlingua/docs/tier1_plan.md`. Do not propose
 compression work unless asked for it by name.
 
-**`tier1_plan.md` is partly superseded.** Two 2026-08-06 audits sit above it —
+**`tier1_plan.md` is partly superseded.** Three 2026-08-06 audits sit above it —
 `interlingua/docs/prior_work_map.md` (prior art, claim by claim: the surviving-
-novelty claim in §7 does not survive) and `interlingua/docs/program_critique.md`
+novelty claim in §7 does not survive), `interlingua/docs/program_critique.md`
 (the program's premises; verdict *salvageable, but much smaller*, with two
-findings that are measurements rather than literature). **Read both before
-proposing anything in this track.** Tier 1 as written is not to be built.
+findings that are measurements rather than literature), and
+`interlingua/docs/method_landscape.md` (methods and tooling: cost, requirements,
+architecture support, whether a **calibrated null** exists, maintenance status —
+**no position on novelty**). **Read all three before proposing anything in this
+track.** Tier 1 as written is not to be built.
+
+The method landscape's §8 lists thirteen claims across this file,
+`docs/research_standards.md`, `docs/registry.md` and `tier1_plan.md` that it
+contradicts; §9 is a ranked reading list; §10 is its verification debt — every
+`[discovery]`-flagged citation in it came from a search listing and was **never
+opened**, so confirm before citing. `method_landscape_candidates.md` holds ~130
+further unopened candidates. **Two of its findings reopen questions the other two
+audits treat as settled downstream:** `tier1_plan.md` §3.1's case for dropping the
+encoder and encoder-decoder arms fails on *both* stated reasons (an MLM at
+`[MASK]` supplies what the JSD measures need, and the encoder-decoder arm needs no
+adaptation at all; the tooling claim surveys the wrong three tools). What is
+still genuinely decoder-only is **SAEs and circuit tracing**.
 
 Markdown docs are named `lower_case_with_underscores.md`; `README.md` and
 bibliographic PDFs are the exceptions.
