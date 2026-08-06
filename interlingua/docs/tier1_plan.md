@@ -347,7 +347,8 @@ Instead:
 > **(4)** Bootstrapping a changepoint *location* is known to be inconsistent (Seijo & Sen,
 > Annals of Statistics 2011; Cattaneo et al., Econometrica 2020).
 > **(5)** n=5 yields only C(9,4)=126 distinct bootstrap multisets, so the decision rule reduces
-> to "did all 5 seeds agree in sign", capped at p=0.031 — against a quantity Zhao et al.
+> to "did all 5 seeds agree in sign", capped at p=0.031 one-sided / 0.0625 two-sided (the
+> latter is the figure `method_landscape.md` §4.2 quotes — same test) — against a quantity Zhao et al.
 > (ICML 2025, 250 seeds) showed is **bimodal across seeds even under continuous metrics**.
 >
 > Also missing, and more important than any of the above: a **simultaneity null** — two curves

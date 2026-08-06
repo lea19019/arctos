@@ -668,9 +668,10 @@ competitors already in the space (Hu et al.'s HMM; Hoogland et al.'s LLC). Gap (
 mutual-kNN specifically**, the exact planned measures, in February 2026. And the proposed
 machinery does not work: PELT on a smooth sigmoid is a model misspecification that returns
 staircase artifacts; min-max normalization can manufacture a nonzero Δt from an SNR gap
-alone; and the n=5 bootstrap reduces to a sign test capped at p = 0.031 — against a
-quantity Zhao et al. (ICML 2025) showed to be **bimodal across seeds even under continuous
-metrics**, which makes 5 seeds mis-specified rather than merely underpowered.
+alone; and the n=5 bootstrap reduces to a sign test capped at p = 0.031 one-sided / 0.0625 two-sided
+(`method_landscape.md` §4.2 quotes the two-sided figure — same test, not a disagreement) —
+against a quantity Zhao et al. (ICML 2025) showed to be **bimodal across seeds even under
+continuous metrics**, which makes 5 seeds mis-specified rather than merely underpowered.
 
 Add the design problem nobody has raised: at 1B tokens/language, EN→FR zero-shot POS is
 plausibly saturated (Deshpande et al. got 97.2 at one-tenth the budget), so the primary
