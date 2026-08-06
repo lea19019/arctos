@@ -21,7 +21,7 @@ dependencies = [
     "librosa",
     "scipy",
     # MT metrics: BLEU / chrF++ via sacrebleu, XCOMET-XL via unbabel-comet
-    "sacrebleu[ja,ko,zh]",
+    "sacrebleu[ja,ko]",
     "unbabel-comet",
     # Config / data
     "pyyaml",

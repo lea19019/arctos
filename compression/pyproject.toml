@@ -14,7 +14,7 @@ dependencies = [
     "einops",
     # Data / config
     "pyyaml",
-    "sacrebleu[ja,ko,zh]",
+    "sacrebleu[ja,ko]",
     "unbabel-comet",
     # Plots / notebooks
     "matplotlib",
