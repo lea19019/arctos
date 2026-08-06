@@ -32,8 +32,10 @@ compression/
 
 ## Models and languages
 
-Eight models spanning lineage, normalization, positional encoding, generation,
-and the decoder-only ↔ encoder-decoder divide:
+Nine models spanning lineage, normalization, positional encoding, generation,
+and the decoder-only ↔ encoder-decoder divide (TowerBase and TowerInstruct share
+a row below but are two separate models — other docs in this repo say "eight",
+counting them once):
 
 | Model | Architecture | Role |
 |-------|--------------|------|
@@ -72,15 +74,15 @@ architecture.
 
 ## Experiments
 
-| Folder | Question |
-|--------|----------|
-| `q1-language-emergence/` | when and where does the target language emerge? (logit lens, probing, IFR, DLA, pivot) |
-| `q2-attention-heads/` | what do attention patterns look like during translation? |
-| `q3-mlps-and-layers/` | what do MLPs and layers contribute? |
-| `q4-architecture-comparison/` | does the depth signature generalize across architectures? |
-| `q5-importance-vs-sensitivity/` | **the pivotal negative** — is importance correlated with quantization sensitivity? |
-| `q6-compression/` | the find/keep/shrink/prune compression sandbox (phase two) |
-| `replication-uneven-ptq/` | independent replication of arXiv:2508.20893 (uneven PTQ impact on MT) |
+| Folder | Question | Status |
+|--------|----------|--------|
+| `q1-language-emergence/` | when and where does the target language emerge? (logit lens, probing, IFR, DLA, pivot) | ✅ run, 9 models |
+| `q2-attention-heads/` | which heads are MT-critical? | ⚠️ **partial** — only attention-pattern viz ran (6 models, one prompt per pair). `experiment.py` is a stub; the planned causal head ranking never ran, and there is no `q2.md` |
+| `q3-mlps-and-layers/` | what do MLPs and layers contribute? | ❌ **never run.** `experiment.py` is a stub; no results, no writeup. Raw material exists (IFR `mlp_scores`, DLA `layer_mlp` in the q1 `.npz`) but was never analyzed |
+| `q4-architecture-comparison/` | does the depth signature generalize across architectures? | ✅ synthesis (written by hand; the runner is a stub) |
+| `q5-importance-vs-sensitivity/` | **the pivotal negative** — is importance correlated with quantization sensitivity? | ✅ run, 6 models |
+| `q6-compression/` | the find/keep/shrink/prune compression sandbox (phase two) | ✅ run, 8 models (GPTQ stage: 6 — see below) |
+| `replication-uneven-ptq/` | independent replication of arXiv:2508.20893 (uneven PTQ impact on MT) | ✅ run, 31 of 35 planned units |
 
 ## Key findings
 
@@ -92,27 +94,52 @@ architecture.
    processing (middle) → target commitment (last quarter), where logit-lens
    target mass, signed DLA, and IFR magnitude all concentrate.
 3. **The signature generalizes** across lineage, normalization, positional
-   encoding, generation, and decoder-only ↔ encoder-decoder (NLLB) — the lone
-   exception is the Gemma family.
+   encoding, and generation — the lone exception is the Gemma family.
+   *Caveat on the encoder-decoder half:* NLLB's number is **not IFR**. The
+   enc-dec runner computes `‖resid[l] − resid[l−1]‖₁` (an "IFR-like" proxy, per
+   its own docstring), and NLLB has no probing or DLA at all, so the
+   decoder-only ↔ enc-dec generalization rests on one lens curve plus one
+   magnitude proxy. The synthesis docs place it in the same table column as the
+   true IFR values without flagging the substitution.
 4. **Importance ≠ quantization sensitivity** (ρ ≈ 0 across two metrics): where
    MT computation concentrates is *not* where numerical precision matters. This
    is the negative that constrains everything downstream.
 
 ### Phase two (directional; chrF++/XCOMET-XL, small n)
 
-- ✅ **MT-conditional GPTQ** recovers the 3-bit cliff on all 6 models
-  (+0.13–0.52 COMET); *generic-text calibration is worse than not quantizing at
-  all.* This is the contribution.
-- ✅ **Salient-channel / super-weight FP16 preservation** independently recovers
-  3-bit (Gemma 12.7 → 48.4 chrF).
+- ✅ **MT-calibrated GPTQ ≫ generic-calibrated GPTQ** at W3 on all 6 models with
+  data (+0.13–0.52 COMET). State it as this comparison, *not* as "GPTQ-MT beats
+  not calibrating": against plain RTN, **Aya is much worse** (cs-de 66.3 → 49.3
+  chrF, −0.218 COMET). And "generic calibration is worse than not quantizing" is
+  **unsupported** — the comparison behind it is GPTQ-generic vs RTN-W3, and RTN
+  W3 *is* quantization; FP16 COMET was never measured.
+  *Coverage:* 6 of 8 models. Gemma and BLOOM are missing because this repo's own
+  GPTQ dies on them with `linalg.cholesky: not positive-definite`
+  (`compress.py:349/351`) — a deterministic bug, not the "transient CUDA faults"
+  the findings doc claims.
+- ✅ **Salient-channel FP16 preservation** recovers much of the 3-bit cliff
+  (Gemma 12.7 → 48.4 chrF). **Super-weight preservation does not** — `rtn+SW ≈
+  rtn` on every model. The two are different objects and behave oppositely;
+  super weights matter for *removal* (ablating one takes EuroLLM 57.9 → 4.8
+  chrF, while ablating the 1000 largest-magnitude weights costs nothing).
 - ❌ **The depth pipeline is not a compression rule.** Protecting the
   language-specific endpoints vs the neutral middle is a wash — the Q5 null,
-  reconfirmed at stage level.
+  reconfirmed at stage level. *On 7 models, not 8:* Gemma — the designated
+  outlier family — is absent, its job having died with a CUDA launch failure
+  that was never resubmitted. Unreported: both allocations beat uniform-W3 on
+  every model, and the `crush_early`/`crush_late` arms ran on all 7 and appear
+  in no document.
 - 🔭 **No healing-free PTQ reaches FP16 at 3-bit** by any method, so the honest
   goal is *the best healing-free MT-specific option at a given size.*
 
 Super weights are detected by **causal KL**, not activation-spike magnitude —
 ranking by spike size produces last-layer false positives.
+
+> **Read the findings docs against [`../docs/REGISTRY.md`](../docs/REGISTRY.md).**
+> An audit of every claim against the raw results found the headline numbers
+> reproduce exactly, but also several documented claims that don't — including a
+> `q1.md` DLA value that contradicts the paper, Gemma-3 missing from both
+> findings docs, and an undisclosed dropped cell in Q5's n=17 statistic.
 
 ## Running it
 

@@ -28,19 +28,35 @@ support). **Data:** FLORES+ dev.
 
 ### NLLB-200 (distilled-600M), 100 examples per direction
 
-| Variant | chrF++ (en→es / en→fr / es→fr) | XCOMET-XL | tok/s | latency | peak VRAM |
-|---|---|---|---|---|---|
-| FP16 | 54.32 / 66.17 / 56.09 | .911 / .878 / .895 | ~1150 | 56–71 ms | 17.9–18.5 GB |
-| BnB INT8 | 53.95 / 65.82 / 56.20 | .909 / .871 / .898 | ~264 | 239–296 ms | 17.5–18.2 GB |
-| BnB NF4 | 53.55 / 65.77 / 55.02 | .909 / .866 / .888 | ~393 | 173–193 ms | 17.3–18.0 GB |
-| **CTranslate2 INT8** | 53.96 / 65.36 / 56.28 | .911 / .863 / .894 | **~1515** | **23–28 ms** | **16.6–17.3 GB** |
+| Variant | chrF++ (en→es / en→fr / es→fr) | XCOMET-XL | wall-clock | latency |
+|---|---|---|---|---|
+| FP16 | 54.32 / 66.17 / 56.09 | .911 / .878 / .895 | 5.59–7.06 s | 56–71 ms |
+| BnB INT8 | 53.95 / 65.82 / 56.20 | .909 / .871 / .898 | 23.9–29.6 s | 239–296 ms |
+| BnB NF4 | 53.55 / 65.77 / 55.02 | .909 / .866 / .888 | 17.3–19.3 s | 173–193 ms |
+| **CTranslate2 INT8** | 53.96 / 65.36 / 56.28 | .911 / .863 / .894 | **2.28–2.80 s** | **23–28 ms** |
 
 **The load-bearing result: smaller is not faster.** `bitsandbytes` INT8 is
 **4.3× slower than FP16** at essentially identical quality — its dequantization
 overhead dominates at this model size. NF4 is also slower than FP16. Only
-CTranslate2 INT8 delivers what compression is supposed to deliver: **2.4× faster
-than FP16, lowest VRAM, quality within noise.** Any deployment path here goes
-through fused-kernel runtimes, not `bitsandbytes`.
+CTranslate2 INT8 delivers a real speedup: **2.4× faster than FP16 in
+wall-clock**, quality within roughly a chrF++ point. Any deployment path here
+goes through fused-kernel runtimes, not `bitsandbytes`.
+
+> **Two columns from the raw `summary.tsv` are deliberately omitted, because
+> they don't measure what they appear to.**
+> *`peak_vram_gb`* is read **after** XCOMET-XL is loaded on the same GPU, which
+> is why a 600M FP16 model reports 17.9 GB — it is mostly the metric model.
+> `torch.cuda.max_memory_allocated()` also cannot see CTranslate2's allocations
+> at all, so the CT2 row is not comparable even in principle. No VRAM claim in
+> this repo is currently supported; measuring it properly needs an isolated
+> process.
+> *`tok_per_sec`* is defined differently per backend — the HF path counts padded
+> tensor elements, the CT2 path counts real hypothesis tokens. Wall-clock is the
+> comparable quantity, so that is what's shown.
+>
+> Also note the quality gap is a **single n=100 run with no confidence
+> intervals**; CT2 loses 0.81 chrF++ and 0.015 XCOMET-XL on en→fr, the largest
+> gap in the table, and "within noise" has not actually been established.
 
 ### XTTS v2, 50 examples per language
 
@@ -54,17 +70,36 @@ VQ-VAE codebook, and speaker perceiver stay FP16.
 | BnB INT8 (GPT) | en / es / fr | .049 / **.042** / **.157** | .129 / .101 / .238 | ~0.31 | ~5.3 GB |
 
 **INT8 on the GPT core is quality-neutral in English and Spanish — and breaks
-French**, tripling CER (0.061 → 0.157) and nearly doubling WER. It also buys
-almost nothing: no RTF gain and ~0.05 GB of VRAM. Two lessons: evaluate per
-language, because an average would have hidden this entirely; and the XTTS GPT
-core is not where the memory budget is won.
+French**, raising CER **2.6×** (0.0610 → 0.1565) and WER 1.5× (0.163 → 0.238).
+It also buys nothing measurable: no RTF gain, and the VRAM column is unreliable
+for the reason given above (English drops 0.08 GB, Spanish *rises* 0.14 GB).
+Two lessons: evaluate per language, because an average would have hidden this
+entirely; and the XTTS GPT core is not where the memory budget is won.
+
+Note the config file disagrees with what ran — `configs/xtts.yaml` claims the
+HiFi-GAN vocoder was "tested at INT8" and the perceiver is "always INT8", but
+only two variants exist (`fp16`, `bnb_int8_gpt`) and no vocoder or perceiver
+quantization was ever run.
 
 ### `mobile-tts/` — Swahili speaker fine-tuning
 
 A separate experiment: fine-tuning `facebook/mms-tts-swh` on a single Swahili
-speaker for on-device TTS. Mean RTF 0.34 on GPU with a ~190 MB footprint.
-Fine-tuning ran to checkpoint-15000; the loss curve is in `outputs/`, and
-`outputs/listen/listen.html` is a curated listening set for the checkpoint.
+speaker (13,146 training clips) for on-device TTS. Training completed — 30/30
+epochs, 15,385 steps, ~48 min on an H200, best eval mel-loss **1.0848 at step
+15000**, after three failed attempts (OOM, a `conv_pre` shape error, and a SLURM
+cancellation). The loss curve is in `outputs/`, and `outputs/listen/listen.html`
+is a curated listening set from checkpoint-15000.
+
+**What is not established:** there is no quality evaluation of the fine-tuned
+model's text→speech path. The training objective is a *posterior-encoder
+reconstruction* loss (waveform → spectrogram → posterior encoder → decode → L1
+log-mel), chosen deliberately to avoid the temporal-misalignment problem of the
+text→audio forward pass — and the eval loss measures that same reconstruction.
+No CER, WER, MOS/UTMOS, or speaker-similarity number exists for the fine-tune;
+the only evidence is subjective listening. The RTF and footprint figures
+sometimes quoted for this work (0.34, ~190 MB) are from a **pre-fine-tune smoke
+test** of the base model on June 22, and that mean is dominated by a cold-start
+outlier — the four warm calls average **0.043**.
 
 Note `mobile-tts/config.py` points at group-scratch paths under
 `/home/vacl2/groups/grp_mtlab/nobackup/autodelete/` — the corpus and checkpoints

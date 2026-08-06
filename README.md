@@ -50,8 +50,10 @@ The headline: *translation is depth-staged — understand the source early,
 process in a language-neutral/pivot space in the middle, emit the target
 language only in the last quarter.* The target language is a late conversion
 step, not the medium the model computes in. This generalizes across lineage,
-normalization, positional encoding, and the decoder-only ↔ encoder-decoder
-divide.
+normalization, positional encoding, and generation, with Gemma-family the lone
+exception. The encoder-decoder half of the claim is weaker than the rest — NLLB
+was measured with a different metric and lacks two of the four methods (see
+[`compression/README.md`](compression/README.md)).
 
 And the load-bearing negative: **component importance is uncorrelated with
 quantization sensitivity** (ρ ≈ 0). Where MT computation concentrates is *not*
