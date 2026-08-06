@@ -205,6 +205,55 @@ or Fisher analysis on NLLB, no mixed precision.
 Docs only, no code. See [`../interlingua/README.md`](../interlingua/README.md).
 Direction: Tier 1 of *Does the Interlingua Grok?* (Ringger, Matrix Lab).
 
+⚠️ **The program's premises were audited 2026-08-06 and the direction is not yet
+committed** — see [`../interlingua/docs/program_critique.md`](../interlingua/docs/program_critique.md).
+Nine independent agents (eight adversarial, one steelman). Verdict: *salvageable, but a much
+smaller project than proposed.* Load-bearing findings, before anyone proposes work here:
+
+- **The Δt statistic manufactures its own result.** PELT changepoints on min-max-normalized
+  curves return a +1.2×–1.8× lag with H1's predicted sign at a **93–100% rate from zero true
+  lag**, because the detector splits early on broad transitions and on time on sharp ones — and
+  H1 stipulates exactly that asymmetry. A parametric sigmoid midpoint is unbiased.
+- **The cross-lingual JSD measure returns the wrong sign** for both Turkish pairs on a real
+  1.7B model; the surviving EN–FR effect is 1.7% of the language-identity pedestal and is
+  carried by the comma and English auxiliaries.
+- **Turkish agreement is never at the next-token position** in mBERT, XLM-R or Qwen3
+  tokenizers, so the JSD target position is undefined in the language carrying H4.
+- **No consumer found.** Nine model families' training reports read in full; zero take a
+  representation measure as input to any in-training decision. Ai2 already adopted
+  bits-per-byte citing Schaeffer — the same metric Tier 1 proposes as its novel control.
+- **Nanda et al. Appendix D.1 contradicts its own numbers** on weight decay and grokking
+  speed; that sentence is H3b's only anchor.
+- **Jian & Manning's construction is verb argument structure, not subject-verb agreement** —
+  so the reason given for dropping Chinese and Japanese does not hold.
+
+Measurement code: [`../interlingua/docs/critique_evidence/`](../interlingua/docs/critique_evidence/)
+(exploratory by this repo's own standard — sufficient to decide whether to commit 15 runs,
+not to publish).
+
+⚠️ **Prior art was adjudicated separately the same day** — see
+[`../interlingua/docs/prior_work_map.md`](../interlingua/docs/prior_work_map.md) (ten agents,
+claim-by-claim, with citations). It reaches a compatible verdict from the prior-art side:
+**the surviving-novelty claim in `tier1_plan.md` §7 does not survive.** Independently of the
+premise audit above:
+
+- **The metric-artifact adjudication is largely occupied.** Körner et al., EACL 2026
+  ([`2026.eacl-long.145`](https://aclanthology.org/2026.eacl-long.145/)) published a *causal*
+  finding that apparent multilingual training gains partly reflect behavioural shifts rather
+  than capability. Du et al. (NeurIPS 2024) already ran the accuracy/CorrectChoiceProb/Brier
+  triple across checkpoints on non-English benchmarks — **emergence survived**.
+- **Both claimed statistical gaps are false as stated.** Structural-break tests date to
+  Chow 1960 (Bai–Perron, sup-Wald, `segmented`, Jewell et al. JRSS-B 2022); and Gröger et al.
+  ([arXiv:2602.14486](https://arxiv.org/abs/2602.14486)) published permutation-null calibration
+  with BH-FDR **for CKA and mutual-kNN specifically** — the exact planned measures.
+- **The proposal PDF miscites arXiv:2601.22851 as "Dumas et al."** It is Körner,
+  Müller-Eberstein, Korhonen & Plank. Verified directly against the Anthology and arXiv.
+- **EN→FR may be saturated at the planned budget.** Deshpande et al. (NAACL 2022) got 97.2
+  zero-shot EN→FR POS at 8L/512d/8h on ~100M tokens/language; the plan budgets 1B.
+- **What is still open** is in that document's §10 — the simultaneity null, causal super-weight
+  formation, objective × dynamics matched from-scratch, and whether the Wang et al.
+  non-monotonic drop is real or a corrupted checkpoint.
+
 ---
 
 # Ruled out — do not redo
@@ -217,7 +266,7 @@ Direction: Tier 1 of *Does the Interlingua Grok?* (Ringger, Matrix Lab).
 3. **Fisher-diagonal mixed precision** as implemented. Negative everywhere.
 4. **MT calibration as a general quantization lever.** True for GPTQ (which
    reconstructs on calibration activations), false for AWQ (which only derives a
-   per-channel scale). Keep the quantizer qualifier — `plans/open_work.md` drops it.
+   per-channel scale). Keep the quantizer qualifier — `archive/open_work_compression.md` drops it.
 5. **Magnitude as a saliency.** Magnitude ≠ importance ≠ sensitivity.
 6. **Sub-2-bit rescue via salient/super-weight preservation.**
 7. **`bitsandbytes` as a deployment path.** 4.3× slower than FP16.
@@ -225,7 +274,7 @@ Direction: Tier 1 of *Does the Interlingua Grok?* (Ringger, Matrix Lab).
 
 # Open and under-credited
 
-**Under-credited** — `plans/open_work.md` lists these as unexplored; they are partly done:
+**Under-credited** — `archive/open_work_compression.md` lists these as unexplored; they are partly done:
 
 - **MT-conditional pruning masks** (ranked #7, "partially-explored"). The core
   experiment is *done*: Wanda 50%, 8 models × 3 pairs, 19/24 positive, median
@@ -233,7 +282,7 @@ Direction: Tier 1 of *Does the Interlingua Grok?* (Ringger, Matrix Lab).
 - **Sensitivity-native signal bake-off** (ranked #1, "novel"). Three of five
   signals already have data — Fisher (failed), Wanda, causal-KL. Missing:
   Shapley, reconstruction-error, and the head-to-head against COMET drop.
-  *`plans/open_work.md` labels this "Novel" in its top-8 table and
+  *`archive/open_work_compression.md` labels this "Novel" in its top-8 table and
   "Partially-explored" in its track list — an internal contradiction.*
 
 **Genuinely unclaimed:**
@@ -297,9 +346,9 @@ Direction: Tier 1 of *Does the Interlingua Grok?* (Ringger, Matrix Lab).
 
 **Process failures worth not repeating**
 
-- **The project's own headline claim was never hardened.** `plans/roadmap.md` phase 1,
+- **The project's own headline claim was never hardened.** `archive/roadmap_compression_program.md` phase 1,
   item 1 was "harden the GPTQ-MT result (proper n + templates + XCOMET-XL +
-  significance)." It never happened; `plans/open_work.md` re-lists it at **rank 8**.
+  significance)." It never happened; `archive/open_work_compression.md` re-lists it at **rank 8**.
   The rigor machinery was built for the replication and never back-applied.
 - **Empty documents:** `docs/ideas.md` is 0 bytes. `docs/learning/learning_log.md` — the
   intended record of dead ends — has no entries. The seven required
@@ -314,7 +363,7 @@ Direction: Tier 1 of *Does the Interlingua Grok?* (Ringger, Matrix Lab).
 **Stale documents:** `docs/archive/session_handoff_2026_06_03.md`,
 `docs/archive/advisor_brief.md` ("3 of 8 models" — it's 6),
 `docs/archive/project_summary.md` ("phase two deliberately deferred"),
-`docs/archive/phase2_hypotheses.md`, `docs/plans/roadmap.md` (self-contradicts on
+`docs/archive/phase2_hypotheses.md`, `docs/archive/roadmap_compression_program.md` (self-contradicts on
 depth/stage), `compression/docs/annotated_bibliography.md` (carries a hypothesis
 the W2 run refuted). *(The index that listed non-existent `q2.md`/`q3.md` was
 replaced 2026-08-06; `phase2_novel_direction.md` now carries a status banner

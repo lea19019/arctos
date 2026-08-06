@@ -9,6 +9,21 @@ this track asks **when and how it forms during training** — and whether the
 
 ## The direction: Tier 1
 
+> ⚠️ **Two 2026-08-06 audits sit above this plan and partly supersede it.**
+> [`docs/prior_work_map.md`](docs/prior_work_map.md) — what is already occupied, claim by
+> claim, with citations. Its verdict: **the surviving-novelty claim in `tier1_plan.md` §7
+> does not survive**, and Tier 1 as written is not worth doing. What *is* open is listed in
+> its §10. [`docs/program_critique.md`](docs/program_critique.md) — an independent audit of
+> the program's *premises* by nine agents (eight adversarial, one steelman), reaching a
+> compatible verdict by a different route: *salvageable, but a much smaller project than
+> proposed*. Two of its findings are measurements, not literature, with code in
+> [`docs/critique_evidence/`](docs/critique_evidence/): the **Δt statistic manufactures a
+> positive lag of H1's predicted sign at 93–100% from zero true lag**, and the cross-lingual
+> JSD contrast on a real model returns the **wrong sign for both Turkish pairs**. Its
+> recommended next action is a few-GPU-hour pilot confirming the behavioral axis moves at all
+> in the chosen architecture, before committing the fifteen runs.
+> **Read both before proposing anything in this track.**
+
 The umbrella program is [`docs/does_the_interlingua_grok_ringger_2026.pdf`](docs/does_the_interlingua_grok_ringger_2026.pdf)
 — *Does the Interlingua Grok? Tracking the Emergence of Cross-Lingual Alignment
 via Mechanistic Interpretability Progress Measures* (PI: Eric Ringger, Matrix
@@ -16,10 +31,20 @@ Lab, 23 pp). **[`docs/tier1_plan.md`](docs/tier1_plan.md) is the working plan fo
 Tier 1 of it, and Tier 1 is what's being pursued.** Tiers 2 and 3 are out of
 scope.
 
-Tier 1 trains small decoder-only models from scratch under controlled
-multilingual conditions and tracks mechanistic and behavioral measures across
-training, to test whether mechanistic progress rises *before* cross-lingual
-transfer accuracy jumps.
+Tier 1 trains small models from scratch under controlled multilingual conditions
+and tracks mechanistic and behavioral measures across training, to test whether
+mechanistic progress rises *before* cross-lingual transfer accuracy jumps.
+
+> **The architecture is an open question, not a decision.** The proposal
+> specifies **three arms** at 6L/512d/8h — encoder-only mBERT-like, encoder-only
+> XLM-R-like, and encoder-decoder NLLB-like — and **H3a is the comparison
+> between two of them**, which makes the architecture a hypothesis under test
+> rather than an implementation detail. `tier1_plan.md` §3.1 argues for
+> narrowing Tier 1 to decoder-only, but on *tooling* grounds (TransformerLens
+> and circuit-tracer are decoder-first; Jian & Manning's JSD measures are
+> defined over next-token distributions), and it says outright that **this is a
+> PI decision**. §8 lists it as open question #1. Until Ringger answers, nothing
+> here should assume a decoder.
 
 ### The move that makes it worth doing
 
@@ -40,16 +65,20 @@ measured continuously?* Same training runs, no extra cost, and no empty outcome:
 | Lag vanishes | "Multilingual emergence is a mirage" — arguably the more interesting result |
 | Lag survives for some constructions/pairs | Local asynchronous grokking — probably the true answer |
 
-That adjudication, plus the statistical protocol around it, is the defensible
-novelty. The descriptive two-stage finding is already scooped; *being right
-about it* is not.
+That adjudication, plus the statistical protocol around it, ~~is the defensible
+novelty~~ — **refuted 2026-08-06, see [`docs/prior_work_map.md`](docs/prior_work_map.md).**
+The adjudication is largely occupied (Körner et al., EACL 2026, causally; and Du et al.,
+NeurIPS 2024, already ran the metric triple across checkpoints on non-English benchmarks,
+where emergence *survived*). Both gaps behind the statistical protocol are false as stated.
+The descriptive two-stage finding is indeed already scooped — but *being right about it* is
+no longer the unclaimed part either. What remains open is in `prior_work_map.md` §10.
 
 ### Shape of the experiment
 
-- **Model:** 6-layer decoder-only, d_model 512, ~36M params. Cheap — 3–6 GPU-hours per run.
+- **Model:** 6 layers, d_model 512, 8 heads, ~36M params. Cheap — 3–6 GPU-hours per run. **Architecture arm unresolved** (see above); the size and shape are fixed by the proposal, the encoder/decoder question is not.
 - **Languages:** English, French, Turkish. EN–FR close, EN–TR distant; all three have overt subject-verb agreement, so the JSD construction is identically operationalized.
 - **Runs:** 3 configs × 5 seeds = 15. A1 (EN/FR, 2B tok) vs A2 (add TR, fixed total) vs A3 (add TR, fixed per-language) — A1↔A3 is what separates "more languages" from "less data each."
-- **Checkpoints:** ~60 **log-spaced**, not uniform — shared concept space forms inside the first 10% of tokens, which uniform spacing would miss entirely. ~130 GB of checkpoints.
+- **Checkpoints:** ~60 **log-spaced**, not uniform — shared concept space forms *early* (Körner et al., EACL 2026; Leino & Tiedemann find PWCCA rising by ~5k steps), which uniform spacing would miss entirely. ~130 GB of checkpoints. *(The "first 10% of tokens" figure previously cited here was attributed to "Dumas et al." — wrong author, and the figure itself is unverified. See `prior_work_map.md` §0.)*
 - **Measures, in gating order:** behavioral (each phenomenon measured twice, continuous *and* discontinuous — the pair *is* the mirage test) → JSD divergence → representation geometry (debiased CKA + mutual-nearest-neighbor) → crosscoders, conditional on signal.
 - **Analysis:** changepoint detection on log(step), bootstrapped over seeds; the claim is that the CI on Δt excludes zero, not that the curves look different. Pre-registered before any trajectory is inspected.
 
