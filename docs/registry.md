@@ -430,8 +430,14 @@ Short version: `logit_lens`, `probing` (with Hewitt–Liang selectivity), `ifr`,
 `dla`, `super_weights`, and `_hooked.py` transfer — about 900 lines, and
 `HookedModel` provably works on a randomly-initialized model. **Missing
 entirely:** CKA/mutual-nearest-neighbor, changepoint detection, bootstrap CIs,
-multi-seed orchestration, any checkpoint iteration. `run_with_cache` **raises on
-batch size > 1.**
+multi-seed orchestration, any checkpoint iteration.
+
+⚠️ **Corrected 2026-08-06:** this section previously stated that `run_with_cache`
+**raises on batch size > 1**. It does not. The `NotImplementedError` is scoped to
+`generate(return_cache=True)`, and issue #1265 closed 2026-04-22. The claim had
+propagated into `CLAUDE.md` and into a build-effort estimate in
+[`../interlingua/docs/program_critique.md`](../interlingua/docs/program_critique.md);
+both are fixed. Found by the 2026-08-06 method survey.
 
 **Test reality:** 70 test functions, **17 are `pytest.skip("TODO")` stubs**.
 `sensitivity.py` and `attribution_patching.py` have **zero tests** and are the
