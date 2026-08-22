@@ -67,10 +67,12 @@ target-version = "py310"
 
 # Pin torch to the CUDA 12.8 wheel index. The BYU RC cluster driver
 # (570.195.x) only supports up to CUDA 12.8; the default cu130 wheel from
-# PyPI fails at runtime with "NVIDIA driver too old".
+# PyPI fails at runtime with "NVIDIA driver too old". The marker keeps that
+# pin Linux-only: the cu128 index ships no macOS wheels, so on a Mac torch
+# resolves from PyPI (CPU/MPS) and the ../notebooks/ tutorials still run.
 [tool.uv.sources]
-torch = [{ index = "pytorch-cu128" }]
-torchvision = [{ index = "pytorch-cu128" }]
+torch = [{ index = "pytorch-cu128", marker = "sys_platform == 'linux'" }]
+torchvision = [{ index = "pytorch-cu128", marker = "sys_platform == 'linux'" }]
 
 [[tool.uv.index]]
 name = "pytorch-cu128"
