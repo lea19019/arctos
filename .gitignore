@@ -74,7 +74,7 @@ venv/
 /interlingua/data/
 
 # ---------------------------------------------------------------------------
-# superweights/ — super-weight formation track (docs only so far).
+# superweights/ — super-weight formation track.
 # Same PDF policy as interlingua/: papers/README.md indexes them, PDFs are
 # recoverable from arXiv / ACL Anthology and stay local.
 # ---------------------------------------------------------------------------
