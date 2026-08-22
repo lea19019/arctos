@@ -13,6 +13,7 @@ interests, cross-lingual structure (`interlingua/`) and compression (`compressio
 |---|---|
 | [`docs/three_axis_program.md`](docs/three_axis_program.md) | The program: Phase 0 (re-verify q6 with a calibrated detector) → three axes, with gating logic and floor deliverables |
 | [`docs/reading_list.md`](docs/reading_list.md) | Background reading, tiered, with verification status per paper |
+| [`docs/prior_experiments_and_ideas.md`](docs/prior_experiments_and_ideas.md) | Where the earlier q6 super-weight work lives (code, results, defects), which program claims rest on it, and tiered ideas for the fresh start |
 | [`papers/README.md`](papers/README.md) | Index of local PDFs (PDFs themselves are gitignored, same policy as `interlingua/papers/`) |
 
 Grounding: `docs/registry.md` (q6 super-weight section + ruled-out list),
