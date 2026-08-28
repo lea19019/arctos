@@ -15,13 +15,9 @@ RQ4: What causes the formation of SW?
 
 In order to answer these questions a series of experiments will be conducted. The first step will be to build on top of Yu's detection method. Since it always returns a candidate coordinate regardless of whether a genuine SW exists, we will develop a calibrated detector: every candidate will be verified by causal ablation (zeroing the weight and measuring the damage), and the detector itself will be tested on cases where the answer is known. This will give us a criterion for concluding "no SW found," something no published method can currently do.
 
-
 RQ1: Detect and verify the SW at the final checkpoint of models with public training checkpoints (OLMo-1B first, then Pythia, PolyPythias), then trace that coordinate across checkpoints and seeds by measuring text-generation quality when pruning it at each checkpoint.
-
 RQ2: Using the calibrated detector, search for SW in LLMs with different architectures (e.g., NLLB, an encoder-decoder model) and in smaller LLMs of 1B parameters or less. Depending on these results we can unlock questions such as "why do SW form only at larger scale?"
-
-RQ3: Measure cross-lingual quality in multilingual models after pruning the SW. Equal damage across languages would indicate shared machinery, unequal damage would provide a mechanistic lead on uneven multilingual quantization degradation.
-
+RQ3: Measure cross-lingual quality in multilingual models after pruning the SW. Equal damage across languages would indicate shared machinery; unequal damage would provide a mechanistic lead on uneven multilingual quantization degradation.
 RQ4: Train models with diverse training targets and architectures to find out whether these affect the formation of SWs. This experiment will be launched only once RQ2 confirms the phenomenon exists at a trainable scale.
 
 Through these experiments we expect to gain experience in model training, model interpretability, and model engineering. Upon successful experimentation we aim to contribute to a deeper understanding of this fascinating phenomenon.

@@ -8,7 +8,11 @@ requires-python = ">=3.11"
 # exactly the ordering this repo avoids. Add dependencies as the spec names
 # them — and when torch lands here, copy the Linux-marker pattern from
 # ../compression/pyproject.toml so the track still installs on macOS.
-dependencies = []
+dependencies = [
+    "matplotlib>=3.11.1",
+    "torch>=2.13.0",
+    "transformers>=5.15.1",
+]
 
 [build-system]
 requires = ["hatchling"]
