@@ -3,14 +3,11 @@ name = "arctos-superweights"
 version = "0.1.0"
 description = "Formation and behavior of super weights: when they form, whether they are shared across languages, and what they cost at quantization"
 requires-python = ">=3.11"
-# Intentionally empty. Phase 0 (the calibrated detector) has not been through
-# /new-experiment yet, and pinning a modeling stack before the spec exists is
-# exactly the ordering this repo avoids. Add dependencies as the spec names
-# them — and when torch lands here, copy the Linux-marker pattern from
-# ../compression/pyproject.toml so the track still installs on macOS.
+# Tier A scratch deps (Yu et al. replication). Phase 0 additions still go
+# through /new-experiment first.
 dependencies = [
     "matplotlib>=3.11.1",
-    "torch>=2.13.0",
+    "torch>=2.4",
     "transformers>=5.15.1",
 ]
 
@@ -24,3 +21,16 @@ packages = ["src"]
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+
+# Pin torch to the CUDA 12.8 wheel index on Linux only (same reasoning as
+# ../compression/pyproject.toml): the BYU RC cluster driver supports up to
+# CUDA 12.8, and the default cu130 wheel fails there at runtime. The cu128
+# index ships no macOS wheels, so the marker lets a Mac resolve torch from
+# PyPI (CPU/MPS) unchanged.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
