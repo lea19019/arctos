@@ -82,3 +82,114 @@ first (fake) candidate.
 also in Table 2), then open the Phase 0 spec (`/new-experiment`) — the
 calibrated null that replaces our made-up thresholds.
 
+## 2026-09-02 (later) — Tier A #1: the detector against all 9 Table 2 models
+
+Ran `detect_sw.py` + `ablate_sw.py` on every model in Yu et al. Table 2
+(9 models, 21 coordinates) on one GPU each: SLURM array `slurm/sweep.sh`,
+~15 min total. Table 2 was completed first — `TABLE2` was missing Llama-30B
+(3 coords) and Phi-3 (6 coords) while both were already in `MODELS`, so those
+two models would have reported "0 of 0 confirmed" and looked fine.
+
+Changes made before the run: `--dtype` defaulting to the checkpoint's own
+`torch_dtype` (Llama/Mistral are fp16, **OLMo-1B and OLMo-7B are fp32**, only
+Mistral/Phi-3 are bf16 — the old hardcoded bf16 was re-rounding every one of
+them); `MAX_ROUNDS` 8 → 15 (Phi-3 has 6 SWs); `git_sha` into every results
+JSON (`src/provenance.py`); per-layer records with per-criterion pass/fail in
+the detection log. Also reclaimed 111 GB of duplicate `pytorch_model*.bin`
+from the HF cache and added `*.bin` to `prefetch_models.py`'s ignore list.
+
+### The paper's coordinates are real — this is the strongest result here
+
+`src/coord_check.py` reads each Table 2 coordinate straight out of the
+safetensors shard and ranks |W[j,k]| within its own `down_proj` matrix.
+**20 of 21 coordinates rank 1–6 out of 16–119 million weights.** The
+transposed reading `W[k,j]` was checked wherever both indices were in bounds
+and always lands in the millions, so the row/column convention is
+unambiguous too.
+
+The 21st is the OLMo-1B entry from the earlier session, and it is now
+explained. **Table 2's second OLMo-1B row has the wrong layer number:**
+
+    L1[1764,8041] = +0.0018   rank 13,035,937 of 16,777,216
+    L2[1764,8041] = -0.5924   rank           1 of 16,777,216
+    L3[1764,8041] = +0.0008   rank 15,109,691
+
+Also ruled out, since it was the standing hypothesis: **we are running the
+weights they ran.** `model-*.safetensors` on `allenai/OLMo-1B-0724-hf` were
+committed 2024-06-21 and never touched; the repo's newest commit of any kind
+is 2024-08-05 (a model-card edit). Yu et al. went up 2024-11-07.
+
+### Detection: the recipe replicates, our hardening does not
+
+11 of 21 coordinates returned. But at round 0 — one forward pass on the
+intact model, the paper's own setting — **20 of 21 coordinates sit at a layer
+whose argmax is either that exact coordinate or a sibling Table 2 coordinate
+in the same layer.** Localization is not the problem. Causes of the 10 misses:
+
+| n | cause |
+|---|---|
+| 5 | **one argmax per layer** — the layer holds ≥2 Table 2 coordinates and a single `argmax` over Y can only return one (Llama-13B, Llama-30B, Phi-3 ×2, OLMo-1B) |
+| 2 | **our dominance band** rejected an exact hit (Llama-13B 0.593, Llama-2-7B 0.758, band is 0.8–1.2) |
+| 2 | **peel order** — passed all three checks but the loop takes only the loudest survivor per round (OLMo-7B L7, L24) |
+| 1 | argmax landed elsewhere in the layer (Llama-30B L10, dominance 0.282) |
+
+All four causes are **ours, not the paper's** — Yu et al. have no acceptance
+criteria at all; they read spikes off a plot. This is the concrete argument
+for Phase 0's calibrated criterion, arrived at from our own data.
+
+**The dominance criterion is invalid by construction when two super weights
+feed one output channel.** Llama-13B L2 has both Table 2 coordinates in row
+2231: 570.5 × (−1.8223) = −1039.6 against an observed y_spike of −1754.0,
+i.e. 0.593. The residual −714.4 is what the second weight (w = +1.8066)
+would contribute from an input of ≈ −395. ⚠️ *That last step is arithmetic
+inference — X[6939] is not logged. Verify before citing.*
+
+**Super activations propagate, and the peel loop sees it.** OLMo-7B L24's
+spike is 277.8 (222× the layer median) at rounds 0–1, then **collapses to
+3.0 at round 2**, right after the L1 super weight is zeroed. L24 does not
+create that spike; it receives it through the skip connections — the paper's
+own Figure 2/4 mechanism, observed from the other side. Consistent with
+ablation: L7 ×2.1, L24 ×1.2, i.e. little to nothing.
+
+### Ablation: super weights exist, and 4 of them are ours
+
+Zeroing one scalar, against the intact model, mean ppl over 4 eval texts:
+
+| model | coordinate | weight | ppl | KL |
+|---|---|---|---|---|
+| Mistral-7B | L1[2070,7310] | −0.2734 | 5.56 → **4081** (×734) | 6.82 |
+| OLMo-1B | L1[1764,1710] | +0.6323 | 8.54 → **709** (×83) | 5.10 |
+| OLMo-7B | L6[269,9562] | −0.7771 | 6.82 → **401** (×59) | 2.36 |
+| Llama-7B | L2[3968,7003] | −1.9268 | 5.39 → **32** (×6) | 1.06 |
+
+Mistral collapses to `"the main. without without.  . . . ."`, OLMo-1B to
+`"We. We. We."` — the Figure 5 mechanism.
+
+**The other 17 coordinates are the control group, and that is what makes this
+convincing.** They are *also* rank 1–6 magnitude outliers in the same
+matrices, and zeroing them moves perplexity ×1.0–×1.4. Same matrices,
+comparably extreme weights, opposite outcomes: `magnitude ≠ importance`,
+reproduced from scratch. Mistral makes it sharpest — its super weight is the
+*smallest* of the four (−0.27) and does the *most* damage.
+
+⚠️ **OLMo-7B L6[269,9562] is not in Table 2.** It is our detector's find and
+the strongest effect in that model, while all four of the paper's OLMo-7B
+coordinates came back inert (×1.2, ×1.0, ×2.1, ×1.2). Unexplained.
+
+### What this does NOT establish
+
+- **Not a refutation of the paper's causal claim.** Our damage metric is
+  perplexity on 4 paragraphs + KL on 3 prompts; theirs is zero-shot accuracy
+  across benchmarks. 3-of-21 catastrophic *under our proxy* is not 3-of-21
+  under theirs. Untested.
+- **n=1 on the measurement** — one revision, one fixed text set, greedy so
+  nothing to average. Coverage is all 9 models / all 21 coordinates.
+- **"No super weight found" is still unstatable.** No null. Phase 0's job.
+- The CATASTROPHIC/damaged/no-effect labels are made-up cutoffs. They happen
+  not to matter here — the gap between the real ones and everything else is
+  ~500× in ppl ratio — but they are not a criterion.
+
+**Next (unstarted, needs a decision):** the four miss causes above are all
+fixable — top-*n* per layer instead of argmax, drop or widen the dominance
+band, peel all survivors per round. Whether to fix them here or fold them
+into the Phase 0 calibrated detector is the open question.

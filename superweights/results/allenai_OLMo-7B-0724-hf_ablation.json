@@ -1,0 +1,212 @@
+{
+  "model": "allenai/OLMo-7B-0724-hf",
+  "revision_requested": null,
+  "revision_resolved": "1ee306df318ee15bfe4a76ebd5c002b0105b1ab6",
+  "date": "2026-09-02T18:20:32",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "08f37fdd7f551474ae971f166d32665d02aec3f9-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float32",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/allenai_OLMo-7B-0724-hf_found.json",
+  "baseline": {
+    "ppl": 6.822913408279419,
+    "ppl_each": [
+      8.189794540405273,
+      5.349191188812256,
+      4.3729567527771,
+      9.379711151123047
+    ],
+    "continuation": "Paris. It is the most populous city in France. The city is"
+  },
+  "results": [
+    {
+      "name": "found-1 (L30)",
+      "layer": 30,
+      "j": 269,
+      "k": 10093,
+      "weight": 0.9898310899734497,
+      "ppl": 6.975843071937561,
+      "ppl_each": [
+        8.364679336547852,
+        5.646611213684082,
+        4.313775539398193,
+        9.578306198120117
+      ],
+      "kl": 0.00013476976891979575,
+      "kl_each": [
+        0.0001836172305047512,
+        2.5136221665889025e-05,
+        0.00019555585458874702
+      ],
+      "continuation": "Paris. It is the most populous city in France. The city is",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-2 (L1)",
+      "layer": 1,
+      "j": 269,
+      "k": 7467,
+      "weight": 1.314408779144287,
+      "ppl": 7.858896017074585,
+      "ppl_each": [
+        10.932762145996094,
+        6.069398403167725,
+        4.4741339683532715,
+        9.95928955078125
+      ],
+      "kl": 0.12631582965453467,
+      "kl_each": [
+        0.11275982111692429,
+        0.1678764671087265,
+        0.09831120073795319
+      ],
+      "continuation": "Paris. It is a beautiful city. The Eiffel Tower is in",
+      "verdict": "damaged"
+    },
+    {
+      "name": "found-3 (L2)",
+      "layer": 2,
+      "j": 269,
+      "k": 8275,
+      "weight": 1.3290296792984009,
+      "ppl": 7.151085138320923,
+      "ppl_each": [
+        8.441716194152832,
+        5.740629196166992,
+        4.295207977294922,
+        10.126787185668945
+      ],
+      "kl": 0.014275435047845045,
+      "kl_each": [
+        0.014156322926282883,
+        0.012974551878869534,
+        0.01569543033838272
+      ],
+      "continuation": "Paris. It is the most populous city in France, with an estimated",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-4 (L6)",
+      "layer": 6,
+      "j": 269,
+      "k": 9562,
+      "weight": -0.7771288156509399,
+      "ppl": 400.9373207092285,
+      "ppl_each": [
+        350.63470458984375,
+        832.094970703125,
+        113.35063171386719,
+        307.6689758300781
+      ],
+      "kl": 2.3632000617217273,
+      "kl_each": [
+        0.0001834058202803135,
+        7.089226722717285,
+        0.00019005662761628628
+      ],
+      "continuation": "Paris.Kat\n\n\n\n\n\n\nThe\n\n\n-",
+      "verdict": "CATASTROPHIC"
+    },
+    {
+      "name": "found-5 (L1)",
+      "layer": 1,
+      "j": 164,
+      "k": 7467,
+      "weight": -0.09874388575553894,
+      "ppl": 6.889385104179382,
+      "ppl_each": [
+        8.17916202545166,
+        5.644285202026367,
+        4.323517322540283,
+        9.410575866699219
+      ],
+      "kl": 0.0029426817782223225,
+      "kl_each": [
+        0.004722319543361664,
+        0.0013748127967119217,
+        0.002730912994593382
+      ],
+      "continuation": "Paris. It is the most populous city in France. The city is",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-6 (L19)",
+      "layer": 19,
+      "j": 269,
+      "k": 999,
+      "weight": -0.44754263758659363,
+      "ppl": 6.835756063461304,
+      "ppl_each": [
+        8.20165729522705,
+        5.357341766357422,
+        4.360363960266113,
+        9.423661231994629
+      ],
+      "kl": 0.0003994061650397877,
+      "kl_each": [
+        2.173171378672123e-05,
+        0.001168910413980484,
+        7.576367352157831e-06
+      ],
+      "continuation": "Paris. It is the most important city in France. The city is in",
+      "verdict": "no effect"
+    },
+    {
+      "name": "table2-3 (L7)",
+      "layer": 7,
+      "j": 269,
+      "k": 453,
+      "weight": -0.9223224520683289,
+      "ppl": 14.478424787521362,
+      "ppl_each": [
+        17.077505111694336,
+        13.266132354736328,
+        10.269556999206543,
+        17.300504684448242
+      ],
+      "kl": 0.4992051289106409,
+      "kl_each": [
+        0.009572312235832214,
+        1.4815436601638794,
+        0.006499414332211018
+      ],
+      "continuation": "Paris....\n\nThe following article is an example of a good answer",
+      "verdict": "damaged"
+    },
+    {
+      "name": "table2-4 (L24)",
+      "layer": 24,
+      "j": 269,
+      "k": 2300,
+      "weight": -1.270713210105896,
+      "ppl": 8.01015818119049,
+      "ppl_each": [
+        10.294428825378418,
+        5.367280960083008,
+        5.49074125289917,
+        10.888181686401367
+      ],
+      "kl": 0.005241327531014879,
+      "kl_each": [
+        9.482319001108408e-06,
+        0.015708277001976967,
+        6.223272066563368e-06
+      ],
+      "continuation": "Paris.\ufffd\n\n## French\n\n### Noun\n\n1",
+      "verdict": "no effect"
+    }
+  ]
+}

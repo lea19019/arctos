@@ -12,6 +12,7 @@ failing (gated, out of memory) does not stop the others.
     uv run src/run_all.py
 """
 
+import argparse
 import json
 import subprocess
 import sys
@@ -32,24 +33,37 @@ def run_script(script, *args):
 
 
 def main():
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--models", nargs="*", default=MODELS,
+                    help="subset of sw_models.MODELS to run")
+    ap.add_argument("--summary-only", action="store_true",
+                    help="skip stage 1 and summarise the JSON already on disk "
+                         "(this is how the SLURM array's collector job runs)")
+    ap.add_argument("--dtype", default="auto",
+                    help="passed through to both runners")
+    args = ap.parse_args()
+    models = args.models
+
     # ---- stage 1: detect + ablate per model ----
     failed = []
-    for m in MODELS:
-        slug = m.replace("/", "_")
-        found_json = RESULTS / f"{slug}_found.json"
-        ok = (run_script("detect_sw.py", "--model", m, "--out", str(found_json))
-              and run_script("ablate_sw.py", "--model", m,
-                             "--candidates", str(found_json)))
-        if not ok:
-            failed.append(m)
-            print(f"!! {m} failed — continuing with the rest")
+    if not args.summary_only:
+        for m in models:
+            slug = m.replace("/", "_")
+            found_json = RESULTS / f"{slug}_found.json"
+            ok = (run_script("detect_sw.py", "--model", m, "--dtype", args.dtype,
+                             "--out", str(found_json))
+                  and run_script("ablate_sw.py", "--model", m, "--dtype", args.dtype,
+                                 "--candidates", str(found_json)))
+            if not ok:
+                failed.append(m)
+                print(f"!! {m} failed — continuing with the rest")
 
     # ---- stage 2: combined summary from the JSON files ----
     print("\n" + "=" * 78)
     print("SUMMARY — every coordinate tested, its source, and what ablation says")
     print("=" * 78)
 
-    for m in MODELS:
+    for m in models:
         slug = m.replace("/", "_")
         ablation_path = RESULTS / f"{slug}_ablation.json"
         print(f"\n### {m}")

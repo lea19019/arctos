@@ -1,0 +1,102 @@
+{
+  "model": "huggyllama/llama-30b",
+  "revision_requested": null,
+  "revision_resolved": "2b1edcdb3c7ced7bce6c1aa75c94545777c3118b",
+  "date": "2026-09-02T18:17:58",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "08f37fdd7f551474ae971f166d32665d02aec3f9-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/huggyllama_llama-30b_found.json",
+  "baseline": {
+    "ppl": 5.014287531375885,
+    "ppl_each": [
+      7.996926307678223,
+      2.9628937244415283,
+      3.3344945907592773,
+      5.762835502624512
+    ],
+    "continuation": "a city of great beauty and charm, with a rich history and a v"
+  },
+  "results": [
+    {
+      "name": "found-1 (L3)",
+      "layer": 3,
+      "j": 5633,
+      "k": 12817,
+      "weight": -2.029296875,
+      "ppl": 12.197542667388916,
+      "ppl_each": [
+        28.549333572387695,
+        5.564844608306885,
+        5.392018795013428,
+        9.283973693847656
+      ],
+      "kl": 0.7500537832578024,
+      "kl_each": [
+        0.6006150841712952,
+        0.7326271533966064,
+        0.9169191122055054
+      ],
+      "continuation": "Paris.\nThe capital of France is Paris, and you have to be",
+      "verdict": "damaged"
+    },
+    {
+      "name": "table2-2 (L3)",
+      "layer": 3,
+      "j": 5633,
+      "k": 17439,
+      "weight": -2.025390625,
+      "ppl": 5.0097121596336365,
+      "ppl_each": [
+        7.9363508224487305,
+        2.9697420597076416,
+        3.363438129425049,
+        5.769317626953125
+      ],
+      "kl": 0.0005109524548364183,
+      "kl_each": [
+        0.00023136695381253958,
+        0.0008214376866817474,
+        0.0004800527240149677
+      ],
+      "continuation": "a city of art, fashion, and food. It is also a city",
+      "verdict": "no effect"
+    },
+    {
+      "name": "table2-3 (L10)",
+      "layer": 10,
+      "j": 5633,
+      "k": 14386,
+      "weight": -1.2470703125,
+      "ppl": 5.045542001724243,
+      "ppl_each": [
+        8.097667694091797,
+        2.9660356044769287,
+        3.3430917263031006,
+        5.7753729820251465
+      ],
+      "kl": 0.00011876958888024092,
+      "kl_each": [
+        8.4108323790133e-05,
+        9.474996477365494e-05,
+        0.00017745047807693481
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    }
+  ]
+}

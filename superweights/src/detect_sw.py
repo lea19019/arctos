@@ -29,14 +29,24 @@ from pathlib import Path
 
 import torch
 import transformers
+from provenance import git_sha
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Made-up verification thresholds (see module docstring).
 DOMINANCE_BAND = (0.8, 1.2)   # X*W must explain Y within +-20%
 TOWERING_FACTOR = 10          # spike must be >10x the median layer max
-MAX_ROUNDS = 8                # safety cap on the peeling loop
+MAX_ROUNDS = 15               # safety cap on the peeling loop; must exceed the
+                              # most super weights any model has (Phi-3: 6)
 
 DEFAULT_PROMPT = "Language modeling is "
+
+# Load in the checkpoint's own precision by default. The Llama and Mistral
+# repos are float16 and OLMo/Phi-3 are bfloat16; forcing everything to bf16
+# rounds small weights differently from the paper, and the OLMo-1B result
+# turned on a weight of 0.0018. CPU gets float32 because fp16 matmul is not
+# supported there.
+DTYPES = {"auto": "auto", "bf16": torch.bfloat16,
+          "fp16": torch.float16, "fp32": torch.float32}
 
 
 def get_layers(model):
@@ -87,11 +97,24 @@ def dominance(r):
     return (r["x_spike"] * r["sw_value"]) / r["y_spike"]
 
 
+def criteria(r, median_max_y):
+    """Our three home-made checks, reported one by one.
+
+    Kept separate (rather than a single bool) because the interesting
+    question when the detector returns nothing is *which* check rejected
+    the paper's coordinate -- the paper itself has no checks at all, so
+    every rejection here is our addition, not a replication failure of
+    Yu et al.
+    """
+    return {
+        "tokens_match": r["token_x"] == r["token_y"],
+        "dominant": DOMINANCE_BAND[0] < dominance(r) < DOMINANCE_BAND[1],
+        "towering": r["max_y"] > TOWERING_FACTOR * median_max_y,
+    }
+
+
 def passes(r, median_max_y):
-    tokens_match = r["token_x"] == r["token_y"]
-    dominant = DOMINANCE_BAND[0] < dominance(r) < DOMINANCE_BAND[1]
-    towering = r["max_y"] > TOWERING_FACTOR * median_max_y
-    return tokens_match and dominant and towering
+    return all(criteria(r, median_max_y).values())
 
 
 def main():
@@ -102,10 +125,14 @@ def main():
     ap.add_argument("--prompt", default=DEFAULT_PROMPT)
     ap.add_argument("--out", default=None,
                     help="output JSON path (default: results/<model>_found.json)")
+    ap.add_argument("--dtype", default="auto", choices=sorted(DTYPES),
+                    help="'auto' = the checkpoint's own torch_dtype")
+    ap.add_argument("--max-rounds", type=int, default=MAX_ROUNDS,
+                    help="cap on the peel-and-repeat loop")
     args = ap.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    dtype = torch.bfloat16 if device == "cuda" else torch.float32
+    dtype = torch.float32 if device == "cpu" else DTYPES[args.dtype]
     model = AutoModelForCausalLM.from_pretrained(
         args.model, revision=args.revision, dtype=dtype).to(device)
     tokenizer = AutoTokenizer.from_pretrained(args.model, revision=args.revision)
@@ -113,18 +140,23 @@ def main():
                     return_token_type_ids=False).to(device)
 
     found, rounds_log = [], []
-    for rnd in range(MAX_ROUNDS):
+    for rnd in range(args.max_rounds):
         records = detection_pass(model, enc)
         median_max_y = statistics.median(r["max_y"] for r in records)
-        survivors = [r for r in records if passes(r, median_max_y)]
+        for r in records:
+            r["criteria"] = criteria(r, median_max_y)
+            r["dominance"] = dominance(r)
+        survivors = [r for r in records if all(r["criteria"].values())]
 
         print(f"Round {rnd}: {len(survivors)} of {len(records)} layers pass "
               f"(median max|Y| = {median_max_y:.2f})")
         for r in survivors:
             print(f"  layer {r['layer']:2d}  W[{r['j']},{r['k']}]  "
                   f"max|Y|={r['max_y']:.1f}  dominance={dominance(r):.3f}")
+        # every layer, not just the survivors: a rejected layer with the
+        # paper's coordinate is the thing we most want to see afterwards
         rounds_log.append({"round": rnd, "median_max_y": median_max_y,
-                           "survivors": survivors})
+                           "survivors": survivors, "records": records})
 
         if not survivors:
             print(f"Round {rnd}: no candidate passes — stopping.")
@@ -152,7 +184,11 @@ def main():
         "date": datetime.datetime.now().isoformat(timespec="seconds"),
         "torch": torch.__version__,
         "transformers": transformers.__version__,
-        "dtype": str(dtype),
+        "git_sha": git_sha(),
+        "device": device,
+        "dtype_requested": args.dtype,
+        "dtype": str(model.dtype),
+        "max_rounds": args.max_rounds,
         "thresholds": {"dominance_band": DOMINANCE_BAND,
                        "towering_factor": TOWERING_FACTOR},
         "found": found,

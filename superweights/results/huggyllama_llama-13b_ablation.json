@@ -1,0 +1,80 @@
+{
+  "model": "huggyllama/llama-13b",
+  "revision_requested": null,
+  "revision_resolved": "bf57045473f207bb1de1ed035ace226f4d9f9bba",
+  "date": "2026-09-02T18:18:30",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "08f37fdd7f551474ae971f166d32665d02aec3f9-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/huggyllama_llama-13b_found.json",
+  "baseline": {
+    "ppl": 5.113399386405945,
+    "ppl_each": [
+      8.311235427856445,
+      2.9770493507385254,
+      3.404008388519287,
+      5.7613043785095215
+    ],
+    "continuation": "a city of contrasts. It is a city of history and modernity"
+  },
+  "results": [
+    {
+      "name": "table2-1 (L2)",
+      "layer": 2,
+      "j": 2231,
+      "k": 2278,
+      "weight": -1.822265625,
+      "ppl": 6.855224132537842,
+      "ppl_each": [
+        11.469680786132812,
+        3.760927200317383,
+        4.030088424682617,
+        8.160200119018555
+      ],
+      "kl": 0.061395334700743355,
+      "kl_each": [
+        0.05221456661820412,
+        0.060042839497327805,
+        0.07192859798669815
+      ],
+      "continuation": "a city of many names. It is called Paris by the French, but",
+      "verdict": "no effect"
+    },
+    {
+      "name": "table2-2 (L2)",
+      "layer": 2,
+      "j": 2231,
+      "k": 6939,
+      "weight": 1.806640625,
+      "ppl": 6.5251699686050415,
+      "ppl_each": [
+        10.483131408691406,
+        3.6602654457092285,
+        4.009479999542236,
+        7.947803020477295
+      ],
+      "kl": 0.00947037215034167,
+      "kl_each": [
+        0.007291387766599655,
+        0.011364337056875229,
+        0.009755391627550125
+      ],
+      "continuation": "a city of many faces. It is a city of history, a city",
+      "verdict": "no effect"
+    }
+  ]
+}

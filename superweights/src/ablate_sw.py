@@ -23,21 +23,30 @@ from pathlib import Path
 import torch
 import torch.nn.functional as F
 import transformers
+from provenance import git_sha
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Yu et al. 2024, Table 2 — the paper's super-weight directory.
 # Every entry: (layer, j, k) for layers[layer].mlp.down_proj.weight[j, k].
-# Transcribed from the paper 2026-09-02; Phi-3 omitted (transcription of its
-# six rows uncertain — re-read Table 2 before adding it).
+# Transcribed from the paper 2026-09-02 (all 9 models, re-read from the PDF
+# text layer on 2026-09-02; row/col ranges checked against each config's
+# hidden_size/intermediate_size).
 TABLE2 = {
     "huggyllama/llama-7b":        [(2, 3968, 7003)],
     "huggyllama/llama-13b":       [(2, 2231, 2278), (2, 2231, 6939)],
+    "huggyllama/llama-30b":       [(3, 5633, 12817), (3, 5633, 17439),
+                                   (10, 5633, 14386)],
     "meta-llama/Llama-2-7b-hf":   [(1, 2533, 7890)],
     "meta-llama/Llama-2-13b-hf":  [(3, 4743, 7678)],
     "mistralai/Mistral-7B-v0.1":  [(1, 2070, 7310)],
     "allenai/OLMo-1B-0724-hf":    [(1, 1764, 1710), (1, 1764, 8041)],
     "allenai/OLMo-7B-0724-hf":    [(1, 269, 7467), (2, 269, 8275),
                                    (7, 269, 453), (24, 269, 2300)],
+    # Phi-3 is the paper's outlier: six coordinates, in two layers, sharing
+    # two columns (808 and 2723) across three rows each.
+    "microsoft/Phi-3-mini-4k-instruct": [(2, 525, 808), (2, 1693, 808),
+                                         (2, 1113, 808), (4, 525, 2723),
+                                         (4, 1113, 2723), (4, 1693, 2723)],
 }
 
 # Several fixed texts/prompts: damage is averaged over them so a conclusion
@@ -62,6 +71,12 @@ PROMPTS = [
     "Summer is hot. Winter is",
     "Two plus two equals",
 ]
+
+# Same reasoning as detect_sw.py: default to the checkpoint's own precision,
+# so a perplexity here is comparable to the paper's rather than to a bf16
+# re-rounding of it.
+DTYPES = {"auto": "auto", "bf16": torch.bfloat16,
+          "fp16": torch.float16, "fp32": torch.float32}
 
 
 def get_layers(model):
@@ -142,6 +157,8 @@ def main():
                     help="skip the paper's published coordinates")
     ap.add_argument("--out", default=None,
                     help="output JSON (default: results/<model>_ablation.json)")
+    ap.add_argument("--dtype", default="auto", choices=sorted(DTYPES),
+                    help="'auto' = the checkpoint's own torch_dtype")
     args = ap.parse_args()
 
     # ---- assemble the candidate list: detector finds + paper's directory,
@@ -166,7 +183,7 @@ def main():
 
     # ---- load model, encode the fixed texts once ----
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    dtype = torch.bfloat16 if device == "cuda" else torch.float32
+    dtype = torch.float32 if device == "cpu" else DTYPES[args.dtype]
     model = AutoModelForCausalLM.from_pretrained(
         args.model, revision=args.revision, dtype=dtype).to(device)
     tokenizer = AutoTokenizer.from_pretrained(args.model, revision=args.revision)
@@ -227,7 +244,10 @@ def main():
         "date": datetime.datetime.now().isoformat(timespec="seconds"),
         "torch": torch.__version__,
         "transformers": transformers.__version__,
-        "dtype": str(dtype),
+        "git_sha": git_sha(),
+        "device": device,
+        "dtype_requested": args.dtype,
+        "dtype": str(model.dtype),
         "eval_texts": EVAL_TEXTS, "prompts": PROMPTS,
         "candidates_file": args.candidates,
         "baseline": {"ppl": base["ppl"], "ppl_each": base["ppl_each"],

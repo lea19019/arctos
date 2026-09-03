@@ -1,0 +1,146 @@
+{
+  "model": "allenai/OLMo-1B-0724-hf",
+  "revision_requested": null,
+  "revision_resolved": "d7cbab742d80589e714b1a2d7f838dcd21cbe143",
+  "date": "2026-09-02T18:18:54",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "08f37fdd7f551474ae971f166d32665d02aec3f9-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float32",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/allenai_OLMo-1B-0724-hf_found.json",
+  "baseline": {
+    "ppl": 8.539129495620728,
+    "ppl_each": [
+      11.758442878723145,
+      6.463328838348389,
+      5.2251362800598145,
+      10.709609985351562
+    ],
+    "continuation": "Paris. The largest city in France is Paris. The official language of France"
+  },
+  "results": [
+    {
+      "name": "found-1 (L1)",
+      "layer": 1,
+      "j": 1764,
+      "k": 1710,
+      "weight": 0.6322910189628601,
+      "ppl": 708.5786285400391,
+      "ppl_each": [
+        1070.4796142578125,
+        729.3297729492188,
+        309.97174072265625,
+        724.5333862304688
+      ],
+      "kl": 5.104110399881999,
+      "kl_each": [
+        6.733047008514404,
+        5.983184814453125,
+        2.596099376678467
+      ],
+      "continuation": "alive and we have a great. We. We. We. We.",
+      "verdict": "CATASTROPHIC"
+    },
+    {
+      "name": "found-2 (L2)",
+      "layer": 2,
+      "j": 1764,
+      "k": 8041,
+      "weight": -0.5923751592636108,
+      "ppl": 8.912708520889282,
+      "ppl_each": [
+        12.10980224609375,
+        6.883045196533203,
+        5.146055221557617,
+        11.511931419372559
+      ],
+      "kl": 0.0014121839000533025,
+      "kl_each": [
+        0.0019423412159085274,
+        0.00030986592173576355,
+        0.0019843445625156164
+      ],
+      "continuation": "Paris. The largest city in France is Paris. The official language of France",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-3 (L1)",
+      "layer": 1,
+      "j": 623,
+      "k": 1710,
+      "weight": 0.05857279151678085,
+      "ppl": 8.763032793998718,
+      "ppl_each": [
+        11.849729537963867,
+        6.643023490905762,
+        5.371974468231201,
+        11.187403678894043
+      ],
+      "kl": 0.005135634758820136,
+      "kl_each": [
+        0.004780160263180733,
+        0.0012597083114087582,
+        0.009367035701870918
+      ],
+      "continuation": "Paris. The city is located in the north central part of the country,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-4 (L15)",
+      "layer": 15,
+      "j": 1764,
+      "k": 6840,
+      "weight": -0.7258309125900269,
+      "ppl": 8.779687762260437,
+      "ppl_each": [
+        12.18865966796875,
+        6.75661563873291,
+        5.294505596160889,
+        10.8789701461792
+      ],
+      "kl": 5.152251105755568e-07,
+      "kl_each": [
+        5.270412657409906e-07,
+        1.720400177873671e-07,
+        8.465940481983125e-07
+      ],
+      "continuation": "Paris. The largest city in France is Paris. The official language of France",
+      "verdict": "no effect"
+    },
+    {
+      "name": "table2-2 (L1)",
+      "layer": 1,
+      "j": 1764,
+      "k": 8041,
+      "weight": 0.0017934212228283286,
+      "ppl": 8.539121508598328,
+      "ppl_each": [
+        11.75846004486084,
+        6.463356971740723,
+        5.225133419036865,
+        10.709535598754883
+      ],
+      "kl": 6.352494589615769e-08,
+      "kl_each": [
+        -1.9742401491384953e-08,
+        5.322817742126063e-10,
+        2.097849574056454e-07
+      ],
+      "continuation": "Paris. The largest city in France is Paris. The official language of France",
+      "verdict": "no effect"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "model": "huggyllama/llama-7b",
+  "revision_requested": null,
+  "revision_resolved": "4782ad278652c7c71b72204d462d6d01eaaf7549",
+  "date": "2026-09-02T18:17:43",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "08f37fdd7f551474ae971f166d32665d02aec3f9-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/huggyllama_llama-7b_found.json",
+  "baseline": {
+    "ppl": 5.39083456993103,
+    "ppl_each": [
+      8.998828887939453,
+      3.388162136077881,
+      3.653470993041992,
+      5.522876262664795
+    ],
+    "continuation": "a city of contrasts. It is a city of history, of culture"
+  },
+  "results": [
+    {
+      "name": "found-1 (L2)",
+      "layer": 2,
+      "j": 3968,
+      "k": 7003,
+      "weight": -1.9267578125,
+      "ppl": 32.26070702075958,
+      "ppl_each": [
+        99.99494934082031,
+        6.561681270599365,
+        12.277348518371582,
+        10.20884895324707
+      ],
+      "kl": 1.056267003218333,
+      "kl_each": [
+        0.2765513062477112,
+        2.133437395095825,
+        0.7588123083114624
+      ],
+      "continuation": "the most visited city in the world. It is the most visited city in",
+      "verdict": "CATASTROPHIC"
+    },
+    {
+      "name": "found-2 (L28)",
+      "layer": 28,
+      "j": 3968,
+      "k": 2212,
+      "weight": -0.7587890625,
+      "ppl": 5.395219206809998,
+      "ppl_each": [
+        9.009135246276855,
+        3.391418218612671,
+        3.6545417308807373,
+        5.525781631469727
+      ],
+      "kl": 2.8486768618070832e-06,
+      "kl_each": [
+        3.1856325222179294e-06,
+        3.847468178719282e-06,
+        1.5129298844840378e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, of culture",
+      "verdict": "no effect"
+    }
+  ]
+}
