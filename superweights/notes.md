@@ -329,3 +329,144 @@ KL is measured on three fixed short prompts that no corpus change touches.
 OLMo-7B L6[269,9562] is still labelled CATASTROPHIC at x4 perplexity purely
 on a KL of 2.36. The verdict function needs the scrutiny the perplexity
 metric just received.
+
+---
+
+## 2026-09-02 (night) — outside Table 2: super activations without super weights
+
+> ⚠️ **SUPERSEDED — the ablation UNIT is wrong, not the corpus this time.**
+> Every ablation in this track zeroes **one scalar at a time**. Subramanian
+> et al. (COLM 2026) Table 8 — a paper already in `papers/` and Tier 1 of our
+> own reading list — zeroes Yu's coordinates **jointly**:
+>
+>     OLMo-1B         2 SWs   13.09 -> 47,951   (x3,663)
+>     OLMo-7B         2 SWs    9.59 -> 42,024   (x4,400)
+>     Phi-3-mini      6 SWs    9.48 ->  3,543   (x374)
+>     Mistral-7B      1 SW     8.08 -> infinity
+>
+> Our Phi-3 numbers are x1.00-x1.02 for each of those same six coordinates
+> individually. Both are right; they answer different questions. So the
+> heading below is wrong: the evidence points to criticality **distributed
+> over a small set**, not to super activations lacking a weight-level cause.
+> Yu et al. say as much in §2.2 ("up to six weights and one activation").
+>
+> The signature is in our own JSON and we did not read it: every "inert"
+> model's candidates share one `down_proj` INPUT COLUMN — Llama-2-7B
+> [2533,7890]+[1415,7890]; Llama-3.1-8B three rows on column 2427; Qwen3-8B
+> two on 5723; Llama-13B row 2231 at shares 0.593+0.407; Phi-3 three rows x
+> two columns. One intermediate neuron fans one massive input into several
+> residual channels; removing one weight removes one channel.
+>
+> **Read "inert" as "individually inert" everywhere below and in the two
+> entries above.** Joint ablation is untested. Until it runs, no claim here
+> about a model lacking super weights is supported.
+>
+> Also struck: "Qwen3-8B's is 28x larger than OLMo-1B's" (raw residual
+> magnitudes are not comparable across models with different norms and
+> dtypes); the `rtn+SW ~= rtn` mechanism sentence (q6 found that no-op on
+> EuroLLM too, which HAS a strong single super weight, so the repo's own
+> data contradicts it); and "three detectors agree" as independent evidence
+> (they share prompt, thresholds and tensor).
+>
+> Two replications here ARE strong and should be foregrounded: our OLMo-1B
+> x3,667 vs Subramanian's independent x3,663 on the same coordinate, and v5
+> recovering q6's TowerBase L1[2533,7890] = 1.5391 vs 1.5390625.
+
+First models with **no published answer key**. Three, chosen to answer
+specific questions rather than to survey (`sw_models.MODERN`):
+
+| model | why |
+|---|---|
+| `meta-llama/Llama-3.1-8B-Instruct` | the lineage: Llama-1-7B ablates ×181, Llama-2-7B only ×1.55 — does it come back? |
+| `Qwen/Qwen3-8B` | a 2025 model from a family the paper never touched |
+| `Unbabel/TowerBase-7B-v0.1` | a Llama-2-7B fine-tune this repo's q6 claims *does* have a super weight |
+
+### No super weight in any of them — and three detectors agree
+
+| detector | Llama-3.1-8B | Qwen3-8B | TowerBase-7B |
+|---|---|---|---|
+| v1 (strictest) | 5 cand → ×1.02 | **0 candidates** | **0 candidates** |
+| v3 (loosest; 124 extras on Table 2) | 15 cand → ×1.02 | 9 cand → ×1.04 | 10 cand → ×1.58 |
+| v5 | 3 cand → ×1.02 | 2 cand → ×1.04 | 2 cand → ×1.58 |
+
+v3 over-generates by 12× on Table 2 models and still finds nothing
+load-bearing here, so this is not detector sensitivity. Best result anywhere
+is TowerBase at ×1.58 / KL 0.464 — "damaged", nowhere near the ×16–×3667 of
+the five confirmed super weights.
+
+### But the phenomenon is present in every one of them
+
+`activation_profile.py`, max |residual activation| by depth:
+
+| model | peak \|h\| | onset | persists | has a super weight? |
+|---|---|---|---|---|
+| OLMo-1B | 427 | L2 | 13/14 | **yes**, ×3667 |
+| Llama-7B | 1,364 | L3 | 27/29 | **yes**, ×181 |
+| Llama-2-7B | 893 | L2 | 28/30 | no (×1.55) |
+| TowerBase-7B | 1,080 | L2 | 28/30 | no (×1.58) |
+| Llama-3.1-8B | 322 | L2 | 29/30 | no (×1.02) |
+| **Qwen3-8B** | **11,968** | L7 | 28/29 | no (×1.04) |
+| Phi-3-mini | 3,776 | L5 | 24/27 | no (×1.0) |
+
+Every model shows Yu et al.'s Figure 4 signature — a massive activation
+appearing at one early layer and holding constant magnitude to the end.
+Qwen3-8B's is **28× larger** than OLMo-1B's, the model with the strongest
+super weight we measured.
+
+**So the finding is not "newer models lack super activations". It is:
+super activations look universal; a single scalar weight responsible for
+one does not.** If that holds up it is a mechanism claim with a direct
+consequence for the compression audience: where the structure producing the
+massive activation is distributed, protecting a handful of scalars during
+quantization cannot work — which is what q6's `rtn+SW ≈ rtn` negative found
+empirically, now with a candidate mechanism.
+
+### TowerBase reproduces this repo's own q6 coordinate exactly
+
+Independent code, independent run: v5 returned `L1[2533,7890] = 1.5391`;
+`docs/prior_experiments_and_ideas.md` §2 records q6 finding that same
+coordinate at value `1.5390625`. It also supplies the base-model datapoint
+q6's "SFT sharpens the super weight" claim never had, both on this harness:
+
+| | weight | ppl | KL |
+|---|---|---|---|
+| Llama-2-7B (base) | +1.5625 | ×1.55 | 0.243 |
+| TowerBase-7B (fine-tune of it) | +1.5391 | ×1.58 | **0.464** |
+
+KL roughly doubles at the same coordinate. Directionally what q6 predicted.
+⚠️ **One pair, no CI, n=1** — a lead, not a result, and q6's own numbers
+(KL 0.957 there) came from a different protocol and are not comparable as
+measured.
+
+### Chronology does not explain it
+
+Llama-1 (2023-02) ×181 · Llama-2 (2023-07) nothing · Mistral-v0.1 (2023-09)
+×1425 · Phi-3 (2024-04) nothing · OLMo-0724 (2024-07) ×3667 · Llama-3.1
+nothing · Qwen3 nothing. Not an era effect. Model- or recipe-specific.
+
+### ⚠️ What would make this wrong — none of it tested
+
+1. **One prompt.** Every detection run used `"Language modeling is "`. The
+   paper claims a single prompt suffices; nobody has checked that outside
+   its own table.
+2. **Instruct variants.** Llama-3.1-8B-Instruct and Qwen3-8B are
+   post-trained; TowerBase is a base model and shows the largest effect of
+   the three.
+3. **No null.** Three detectors agreeing on a negative is reassuring, not
+   calibrated. Every threshold in all three was tuned against Table 2.
+4. **n=3.** Not a result. The other cached models — EuroLLM-9B (q6's
+   strongest, KL 3.284), Aya, BLOOM, Gemma-3 — are the obvious extension,
+   and that is Tier B, which wants a `/new-experiment` spec first.
+
+### Why this is a floor deliverable, not a failure
+
+`three_axis_program.md` §5 already anticipated it: floor deliverable #2 is
+the re-verified table *"including, if it comes to that, the first defensible
+**absence** claims in this literature ('no super weight under a calibrated
+null' is currently unstatable by anyone)."* Subramanian et al. (COLM 2026,
+Tier 1 reading list) already report damage is not universal. And q6's own
+eight-model table spans 3.5 orders of magnitude in ablation KL with five of
+eight below 0.25 — this repo's data said the same thing a year ago.
+
+The blocker is not evidence, it is calibration: **Phase 0 converts "we found
+nothing" into "there is nothing", and nothing else does.**

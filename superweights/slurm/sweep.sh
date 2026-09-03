@@ -40,7 +40,7 @@ CORPUS=${CORPUS:-wikitext2}
 mkdir -p "$OUT_DIR"
 
 MODEL=$(.venv/bin/python -c \
-  "from sw_models import MODELS; print(MODELS[${SLURM_ARRAY_TASK_ID}])")
+  "import sw_models; print(getattr(sw_models, '${MODELS_ATTR:-MODELS}')[${SLURM_ARRAY_TASK_ID}])")
 SLUG=${MODEL//\//_}
 
 echo "=== task ${SLURM_ARRAY_TASK_ID}: ${MODEL} on $(hostname) ==="

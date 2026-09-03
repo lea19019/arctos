@@ -1,0 +1,3595 @@
+{
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "revision_requested": null,
+  "revision_resolved": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T21:35:31",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "5b3b8bdba3347ca8d0e5f60ac590b39cfee4b1a1-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "detector_version": 3,
+  "stop_reason": "exceeded --max-sw (8) at round 2; the paper reports at most six per model, so treat these as over-generated",
+  "max_y_round0": 322.0,
+  "params": {
+    "top_j": 4,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "max_k": 4,
+    "towering_factor": 10,
+    "channel_factor": 50,
+    "suppression": 0.1,
+    "max_sw": 8,
+    "peel": "all",
+    "max_rounds": 15
+  },
+  "found": [
+    {
+      "layer": 1,
+      "j": 788,
+      "k": 2427,
+      "value": -0.60546875,
+      "round": 0,
+      "share": 0.8988014363354038,
+      "max_y": 322.0
+    },
+    {
+      "layer": 1,
+      "j": 1384,
+      "k": 2427,
+      "value": 0.5546875,
+      "round": 0,
+      "share": 0.8957453547297297,
+      "max_y": 322.0
+    },
+    {
+      "layer": 1,
+      "j": 4062,
+      "k": 2427,
+      "value": 0.55078125,
+      "round": 0,
+      "share": 0.8954878826530612,
+      "max_y": 322.0
+    },
+    {
+      "layer": 1,
+      "j": 788,
+      "k": 198,
+      "value": -0.6171875,
+      "round": 1,
+      "share": 0.9672341417910447,
+      "max_y": 37.75
+    },
+    {
+      "layer": 1,
+      "j": 1384,
+      "k": 198,
+      "value": 0.5546875,
+      "round": 1,
+      "share": 0.9626807851239669,
+      "max_y": 37.75
+    },
+    {
+      "layer": 31,
+      "j": 788,
+      "k": 12732,
+      "value": -0.45703125,
+      "round": 2,
+      "share": 0.594140625,
+      "max_y": 440.0
+    },
+    {
+      "layer": 31,
+      "j": 788,
+      "k": 8717,
+      "value": -0.3515625,
+      "round": 2,
+      "share": 0.14861505681818182,
+      "max_y": 440.0
+    },
+    {
+      "layer": 31,
+      "j": 788,
+      "k": 801,
+      "value": 0.46484375,
+      "round": 2,
+      "share": 0.09772283380681818,
+      "max_y": 440.0
+    },
+    {
+      "layer": 31,
+      "j": 1384,
+      "k": 12732,
+      "value": 0.41796875,
+      "round": 2,
+      "share": 0.5888623768472906,
+      "max_y": 440.0
+    },
+    {
+      "layer": 31,
+      "j": 1384,
+      "k": 8717,
+      "value": 0.330078125,
+      "round": 2,
+      "share": 0.15121805726600984,
+      "max_y": 440.0
+    },
+    {
+      "layer": 31,
+      "j": 1384,
+      "k": 801,
+      "value": -0.4296875,
+      "round": 2,
+      "share": 0.09789678263546799,
+      "max_y": 440.0
+    },
+    {
+      "layer": 31,
+      "j": 4062,
+      "k": 12732,
+      "value": 0.41796875,
+      "round": 2,
+      "share": 0.5917775371287128,
+      "max_y": 440.0
+    },
+    {
+      "layer": 31,
+      "j": 4062,
+      "k": 8717,
+      "value": 0.31640625,
+      "round": 2,
+      "share": 0.1456721844059406,
+      "max_y": 440.0
+    },
+    {
+      "layer": 31,
+      "j": 4062,
+      "k": 801,
+      "value": -0.44140625,
+      "round": 2,
+      "share": 0.10106454981435643,
+      "max_y": 440.0
+    },
+    {
+      "layer": 1,
+      "j": 4062,
+      "k": 198,
+      "value": 0.5546875,
+      "round": 2,
+      "share": 0.970703125,
+      "max_y": 37.75
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "median_max_y": 1.71484375,
+      "records": [
+        {
+          "layer": 0,
+          "token": 0,
+          "first_token": true,
+          "max_y": 3.03125,
+          "max_x": 9.1875,
+          "w_cut": 0.1064453125,
+          "x_cut": 0.0250244140625,
+          "y_cut": 0.2227783203125,
+          "candidates": [
+            {
+              "j": 805,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.26171875,
+              "x": -9.1875,
+              "contribution": 2.404541015625,
+              "y_channel": 3.03125,
+              "share": 0.7932506443298969,
+              "explained_by_prefix": 0.7932506443298969,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 805,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.216796875,
+              "x": -2.953125,
+              "contribution": 0.640228271484375,
+              "y_channel": 3.03125,
+              "share": 0.21120932667525774,
+              "explained_by_prefix": 1.0044599710051547,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 717,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.1982421875,
+              "x": -9.1875,
+              "contribution": 1.82135009765625,
+              "y_channel": 2.78125,
+              "share": 0.6548674508426966,
+              "explained_by_prefix": 0.6548674508426966,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 717,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.26953125,
+              "x": -2.953125,
+              "contribution": 0.79595947265625,
+              "y_channel": 2.78125,
+              "share": 0.28618767556179775,
+              "explained_by_prefix": 0.9410551264044944,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 26,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.173828125,
+              "x": -9.1875,
+              "contribution": 1.5970458984375,
+              "y_channel": 2.53125,
+              "share": 0.6309317129629629,
+              "explained_by_prefix": 0.6309317129629629,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 26,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.265625,
+              "x": -2.953125,
+              "contribution": 0.784423828125,
+              "y_channel": 2.53125,
+              "share": 0.3098958333333333,
+              "explained_by_prefix": 0.9408275462962963,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1463,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.1806640625,
+              "x": -9.1875,
+              "contribution": 1.65985107421875,
+              "y_channel": 2.5,
+              "share": 0.6639404296875,
+              "explained_by_prefix": 0.6639404296875,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1463,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.24609375,
+              "x": -2.953125,
+              "contribution": 0.72674560546875,
+              "y_channel": 2.5,
+              "share": 0.2906982421875,
+              "explained_by_prefix": 0.954638671875,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [],
+          "towering": false
+        },
+        {
+          "layer": 1,
+          "token": 0,
+          "first_token": true,
+          "max_y": 322.0,
+          "max_x": 478.0,
+          "w_cut": 0.0888671875,
+          "x_cut": 0.390625,
+          "y_cut": 5.17578125,
+          "candidates": [
+            {
+              "j": 788,
+              "k": 2427,
+              "rank_in_channel": 0,
+              "weight": -0.60546875,
+              "x": -478.0,
+              "contribution": 289.4140625,
+              "y_channel": 322.0,
+              "share": 0.8988014363354038,
+              "explained_by_prefix": 0.8988014363354038,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1384,
+              "k": 2427,
+              "rank_in_channel": 0,
+              "weight": 0.5546875,
+              "x": -478.0,
+              "contribution": -265.140625,
+              "y_channel": -296.0,
+              "share": 0.8957453547297297,
+              "explained_by_prefix": 0.8957453547297297,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 4062,
+              "k": 2427,
+              "rank_in_channel": 0,
+              "weight": 0.55078125,
+              "x": -478.0,
+              "contribution": -263.2734375,
+              "y_channel": -294.0,
+              "share": 0.8954878826530612,
+              "explained_by_prefix": 0.8954878826530612,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 290,
+              "k": 2427,
+              "why": "not both outliers",
+              "w_outlier": false,
+              "x_outlier": true
+            }
+          ],
+          "towering": true
+        },
+        {
+          "layer": 2,
+          "token": 1,
+          "first_token": false,
+          "max_y": 0.2177734375,
+          "max_x": 0.89453125,
+          "w_cut": 0.08740234375,
+          "x_cut": 0.11181640625,
+          "y_cut": 0.811767578125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 607,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 29,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1731,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 3,
+          "token": 0,
+          "first_token": true,
+          "max_y": 0.447265625,
+          "max_x": 0.240234375,
+          "w_cut": 0.07421875,
+          "x_cut": 0.07568359375,
+          "y_cut": 0.4241943359375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.22"
+            },
+            {
+              "j": 1039,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 291,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 559,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 4,
+          "token": 3,
+          "first_token": false,
+          "max_y": 0.84765625,
+          "max_x": 0.66015625,
+          "w_cut": 0.08154296875,
+          "x_cut": 0.2177734375,
+          "y_cut": 0.994873046875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 607,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3620,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 5,
+          "token": 1,
+          "first_token": false,
+          "max_y": 0.55859375,
+          "max_x": 0.404296875,
+          "w_cut": 0.080078125,
+          "x_cut": 0.234375,
+          "y_cut": 1.1962890625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2629,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1731,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 6,
+          "token": 2,
+          "first_token": false,
+          "max_y": 1.0234375,
+          "max_x": 0.74609375,
+          "w_cut": 0.0791015625,
+          "x_cut": 0.279296875,
+          "y_cut": 1.6357421875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1039,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 607,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 113,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 7,
+          "token": 2,
+          "first_token": false,
+          "max_y": 1.7109375,
+          "max_x": 0.65625,
+          "w_cut": 0.0947265625,
+          "x_cut": 0.287109375,
+          "y_cut": 1.5869140625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.19"
+            },
+            {
+              "j": 1039,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 607,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 291,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 8,
+          "token": 2,
+          "first_token": false,
+          "max_y": 1.8046875,
+          "max_x": 0.65234375,
+          "w_cut": 0.0947265625,
+          "x_cut": 0.283203125,
+          "y_cut": 1.5625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.29"
+            },
+            {
+              "j": 291,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2629,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 607,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 9,
+          "token": 3,
+          "first_token": false,
+          "max_y": 1.484375,
+          "max_x": 0.5625,
+          "w_cut": 0.0908203125,
+          "x_cut": 0.298828125,
+          "y_cut": 1.495361328125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 133,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2629,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3749,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 10,
+          "token": 0,
+          "first_token": true,
+          "max_y": 1.640625,
+          "max_x": 7.34375,
+          "w_cut": 0.08251953125,
+          "x_cut": 0.05517578125,
+          "y_cut": 1.59912109375,
+          "candidates": [
+            {
+              "j": 788,
+              "k": 14295,
+              "rank_in_channel": 0,
+              "weight": -0.21875,
+              "x": -7.34375,
+              "contribution": 1.6064453125,
+              "y_channel": 1.640625,
+              "share": 0.9791666666666666,
+              "explained_by_prefix": 0.9791666666666666,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 4062,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1384,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 11,
+          "token": 2,
+          "first_token": false,
+          "max_y": 0.64453125,
+          "max_x": 0.88671875,
+          "w_cut": 0.10009765625,
+          "x_cut": 0.2197265625,
+          "y_cut": 1.37939453125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3266,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1039,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2932,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 12,
+          "token": 3,
+          "first_token": false,
+          "max_y": 1.71875,
+          "max_x": 0.61328125,
+          "w_cut": 0.103515625,
+          "x_cut": 0.33984375,
+          "y_cut": 1.59912109375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.43"
+            },
+            {
+              "j": 2629,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2742,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 13,
+          "token": 3,
+          "first_token": false,
+          "max_y": 1.390625,
+          "max_x": 1.0234375,
+          "w_cut": 0.0869140625,
+          "x_cut": 0.376953125,
+          "y_cut": 1.79443359375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2629,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2943,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1189,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 14,
+          "token": 3,
+          "first_token": false,
+          "max_y": 1.1953125,
+          "max_x": 0.9609375,
+          "w_cut": 0.0810546875,
+          "x_cut": 0.404296875,
+          "y_cut": 1.81884765625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2629,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1426,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1715,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 15,
+          "token": 2,
+          "first_token": false,
+          "max_y": 2.421875,
+          "max_x": 1.40625,
+          "w_cut": 0.0888671875,
+          "x_cut": 0.453125,
+          "y_cut": 1.98974609375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.16"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3381,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2289,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 16,
+          "token": 2,
+          "first_token": false,
+          "max_y": 2.484375,
+          "max_x": 1.4375,
+          "w_cut": 0.08203125,
+          "x_cut": 0.72265625,
+          "y_cut": 2.28271484375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.54"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1039,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2742,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 17,
+          "token": 2,
+          "first_token": false,
+          "max_y": 1.484375,
+          "max_x": 2.3125,
+          "w_cut": 0.08984375,
+          "x_cut": 0.5390625,
+          "y_cut": 2.35595703125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2261,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2485,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 18,
+          "token": 3,
+          "first_token": false,
+          "max_y": 0.953125,
+          "max_x": 3.015625,
+          "w_cut": 0.07080078125,
+          "x_cut": 0.65234375,
+          "y_cut": 3.03955078125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1448,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1137,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 19,
+          "token": 2,
+          "first_token": false,
+          "max_y": 1.953125,
+          "max_x": 1.53125,
+          "w_cut": 0.06640625,
+          "x_cut": 0.58203125,
+          "y_cut": 2.197265625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1743,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1133,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 20,
+          "token": 3,
+          "first_token": false,
+          "max_y": 1.28125,
+          "max_x": 1.6171875,
+          "w_cut": 0.0654296875,
+          "x_cut": 0.765625,
+          "y_cut": 3.1982421875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 484,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3346,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1421,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 21,
+          "token": 4,
+          "first_token": false,
+          "max_y": 2.109375,
+          "max_x": 1.2734375,
+          "w_cut": 0.06982421875,
+          "x_cut": 0.72265625,
+          "y_cut": 2.72216796875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1181,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1989,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 22,
+          "token": 4,
+          "first_token": false,
+          "max_y": 2.046875,
+          "max_x": 2.546875,
+          "w_cut": 0.058349609375,
+          "x_cut": 0.67578125,
+          "y_cut": 2.9296875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 124,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1671,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 853,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 23,
+          "token": 4,
+          "first_token": false,
+          "max_y": 2.234375,
+          "max_x": 1.921875,
+          "w_cut": 0.056640625,
+          "x_cut": 0.66796875,
+          "y_cut": 2.77099609375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2766,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3673,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 24,
+          "token": 3,
+          "first_token": false,
+          "max_y": 1.3671875,
+          "max_x": 1.578125,
+          "w_cut": 0.05615234375,
+          "x_cut": 0.9453125,
+          "y_cut": 3.5400390625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 249,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1873,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1765,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 25,
+          "token": 2,
+          "first_token": false,
+          "max_y": 1.796875,
+          "max_x": 2.296875,
+          "w_cut": 0.056884765625,
+          "x_cut": 0.55859375,
+          "y_cut": 2.8564453125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 675,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1126,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1533,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 26,
+          "token": 3,
+          "first_token": false,
+          "max_y": 2.1875,
+          "max_x": 1.9453125,
+          "w_cut": 0.056396484375,
+          "x_cut": 0.79296875,
+          "y_cut": 3.662109375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2252,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 678,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 27,
+          "token": 3,
+          "first_token": false,
+          "max_y": 2.140625,
+          "max_x": 3.21875,
+          "w_cut": 0.057373046875,
+          "x_cut": 0.9609375,
+          "y_cut": 4.3701171875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2252,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3173,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 28,
+          "token": 3,
+          "first_token": false,
+          "max_y": 1.5390625,
+          "max_x": 3.25,
+          "w_cut": 0.060302734375,
+          "x_cut": 0.98828125,
+          "y_cut": 5.1513671875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2252,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3026,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 29,
+          "token": 3,
+          "first_token": false,
+          "max_y": 3.234375,
+          "max_x": 3.546875,
+          "w_cut": 0.06640625,
+          "x_cut": 1.6015625,
+          "y_cut": 6.0302734375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3139,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2995,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 30,
+          "token": 3,
+          "first_token": false,
+          "max_y": 6.8125,
+          "max_x": 5.9375,
+          "w_cut": 0.08544921875,
+          "x_cut": 2.40625,
+          "y_cut": 9.5703125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2252,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1917,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 184,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 31,
+          "token": 0,
+          "first_token": true,
+          "max_y": 318.0,
+          "max_x": 140.0,
+          "w_cut": 0.10205078125,
+          "x_cut": 12.375,
+          "y_cut": 51.5625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 788,
+              "why": "prefix explains 0.69"
+            },
+            {
+              "j": 1384,
+              "why": "prefix explains 0.70"
+            },
+            {
+              "j": 4062,
+              "why": "prefix explains 0.71"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": true
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "median_max_y": 1.6796875,
+      "records": [
+        {
+          "layer": 0,
+          "token": 0,
+          "first_token": true,
+          "max_y": 3.03125,
+          "max_x": 9.1875,
+          "w_cut": 0.1064453125,
+          "x_cut": 0.0250244140625,
+          "y_cut": 0.2227783203125,
+          "candidates": [
+            {
+              "j": 805,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.26171875,
+              "x": -9.1875,
+              "contribution": 2.404541015625,
+              "y_channel": 3.03125,
+              "share": 0.7932506443298969,
+              "explained_by_prefix": 0.7932506443298969,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 805,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.216796875,
+              "x": -2.953125,
+              "contribution": 0.640228271484375,
+              "y_channel": 3.03125,
+              "share": 0.21120932667525774,
+              "explained_by_prefix": 1.0044599710051547,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 717,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.1982421875,
+              "x": -9.1875,
+              "contribution": 1.82135009765625,
+              "y_channel": 2.78125,
+              "share": 0.6548674508426966,
+              "explained_by_prefix": 0.6548674508426966,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 717,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.26953125,
+              "x": -2.953125,
+              "contribution": 0.79595947265625,
+              "y_channel": 2.78125,
+              "share": 0.28618767556179775,
+              "explained_by_prefix": 0.9410551264044944,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 26,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.173828125,
+              "x": -9.1875,
+              "contribution": 1.5970458984375,
+              "y_channel": 2.53125,
+              "share": 0.6309317129629629,
+              "explained_by_prefix": 0.6309317129629629,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 26,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.265625,
+              "x": -2.953125,
+              "contribution": 0.784423828125,
+              "y_channel": 2.53125,
+              "share": 0.3098958333333333,
+              "explained_by_prefix": 0.9408275462962963,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1463,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.1806640625,
+              "x": -9.1875,
+              "contribution": 1.65985107421875,
+              "y_channel": 2.5,
+              "share": 0.6639404296875,
+              "explained_by_prefix": 0.6639404296875,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1463,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.24609375,
+              "x": -2.953125,
+              "contribution": 0.72674560546875,
+              "y_channel": 2.5,
+              "share": 0.2906982421875,
+              "explained_by_prefix": 0.954638671875,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [],
+          "towering": false
+        },
+        {
+          "layer": 1,
+          "token": 0,
+          "first_token": true,
+          "max_y": 37.75,
+          "max_x": 478.0,
+          "w_cut": 0.0888671875,
+          "x_cut": 0.390625,
+          "y_cut": 5.17578125,
+          "candidates": [
+            {
+              "j": 788,
+              "k": 198,
+              "rank_in_channel": 0,
+              "weight": -0.6171875,
+              "x": -52.5,
+              "contribution": 32.40234375,
+              "y_channel": 33.5,
+              "share": 0.9672341417910447,
+              "explained_by_prefix": 0.9672341417910447,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1384,
+              "k": 198,
+              "rank_in_channel": 0,
+              "weight": 0.5546875,
+              "x": -52.5,
+              "contribution": -29.12109375,
+              "y_channel": -30.25,
+              "share": 0.9626807851239669,
+              "explained_by_prefix": 0.9626807851239669,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 290,
+              "k": 2427,
+              "why": "not both outliers",
+              "w_outlier": false,
+              "x_outlier": true
+            },
+            {
+              "j": 2352,
+              "k": 2427,
+              "why": "not both outliers",
+              "w_outlier": false,
+              "x_outlier": true
+            }
+          ],
+          "towering": true
+        },
+        {
+          "layer": 2,
+          "token": 4,
+          "first_token": false,
+          "max_y": 2.21875,
+          "max_x": 9.75,
+          "w_cut": 0.08740234375,
+          "x_cut": 1.234375,
+          "y_cut": 3.61328125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 162,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3513,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2646,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 3,
+          "token": 4,
+          "first_token": false,
+          "max_y": 1.640625,
+          "max_x": 6.71875,
+          "w_cut": 0.07421875,
+          "x_cut": 0.482421875,
+          "y_cut": 2.6611328125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 162,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 291,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 912,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 4,
+          "token": 0,
+          "first_token": true,
+          "max_y": 1.0625,
+          "max_x": 0.90625,
+          "w_cut": 0.08154296875,
+          "x_cut": 0.298828125,
+          "y_cut": 1.141357421875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1384,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2265,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 5,
+          "token": 0,
+          "first_token": true,
+          "max_y": 4.0625,
+          "max_x": 14.125,
+          "w_cut": 0.080078125,
+          "x_cut": 0.546875,
+          "y_cut": 4.78515625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1059,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2977,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2303,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 6,
+          "token": 0,
+          "first_token": true,
+          "max_y": 5.96875,
+          "max_x": 12.75,
+          "w_cut": 0.0791015625,
+          "x_cut": 0.5234375,
+          "y_cut": 4.5166015625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.60"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1059,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2303,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 7,
+          "token": 0,
+          "first_token": true,
+          "max_y": 3.796875,
+          "max_x": 8.0,
+          "w_cut": 0.0947265625,
+          "x_cut": 0.6484375,
+          "y_cut": 3.0517578125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.33"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2265,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2726,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 8,
+          "token": 0,
+          "first_token": true,
+          "max_y": 2.59375,
+          "max_x": 1.046875,
+          "w_cut": 0.0947265625,
+          "x_cut": 0.546875,
+          "y_cut": 1.85546875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.37"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 290,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 788,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 9,
+          "token": 0,
+          "first_token": true,
+          "max_y": 4.84375,
+          "max_x": 12.875,
+          "w_cut": 0.0908203125,
+          "x_cut": 0.4453125,
+          "y_cut": 4.9560546875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2726,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1295,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 10,
+          "token": 0,
+          "first_token": true,
+          "max_y": 3.0625,
+          "max_x": 5.84375,
+          "w_cut": 0.08251953125,
+          "x_cut": 0.50390625,
+          "y_cut": 2.79541015625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.27"
+            },
+            {
+              "j": 788,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4062,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1384,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 11,
+          "token": 0,
+          "first_token": true,
+          "max_y": 1.71875,
+          "max_x": 6.875,
+          "w_cut": 0.10009765625,
+          "x_cut": 0.3984375,
+          "y_cut": 2.8564453125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 788,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4062,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 12,
+          "token": 2,
+          "first_token": false,
+          "max_y": 1.9296875,
+          "max_x": 1.578125,
+          "w_cut": 0.103515625,
+          "x_cut": 0.1875,
+          "y_cut": 1.23291015625,
+          "candidates": [
+            {
+              "j": 4055,
+              "k": 9795,
+              "rank_in_channel": 0,
+              "weight": -0.9140625,
+              "x": -1.578125,
+              "contribution": 1.4425048828125,
+              "y_channel": 1.9296875,
+              "share": 0.7475328947368421,
+              "explained_by_prefix": 0.7475328947368421,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 4055,
+              "k": 1559,
+              "rank_in_channel": 1,
+              "weight": -0.6640625,
+              "x": -0.39453125,
+              "contribution": 0.261993408203125,
+              "y_channel": 1.9296875,
+              "share": 0.1357698633603239,
+              "explained_by_prefix": 0.883302758097166,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 162,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 291,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3070,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 13,
+          "token": 0,
+          "first_token": true,
+          "max_y": 1.46875,
+          "max_x": 5.34375,
+          "w_cut": 0.0869140625,
+          "x_cut": 0.341796875,
+          "y_cut": 2.40478515625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4062,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1059,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 14,
+          "token": 2,
+          "first_token": false,
+          "max_y": 0.71484375,
+          "max_x": 0.59375,
+          "w_cut": 0.0810546875,
+          "x_cut": 0.1650390625,
+          "y_cut": 1.153564453125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3266,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3282,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1303,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 15,
+          "token": 2,
+          "first_token": false,
+          "max_y": 1.3984375,
+          "max_x": 1.109375,
+          "w_cut": 0.0888671875,
+          "x_cut": 0.140625,
+          "y_cut": 1.2451171875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.43"
+            },
+            {
+              "j": 2354,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3845,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3917,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 16,
+          "token": 2,
+          "first_token": false,
+          "max_y": 0.76953125,
+          "max_x": 1.1875,
+          "w_cut": 0.08203125,
+          "x_cut": 0.2431640625,
+          "y_cut": 1.287841796875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2303,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 162,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3266,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 17,
+          "token": 4,
+          "first_token": false,
+          "max_y": 0.8984375,
+          "max_x": 0.65625,
+          "w_cut": 0.08984375,
+          "x_cut": 0.169921875,
+          "y_cut": 1.324462890625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 725,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 883,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1211,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 18,
+          "token": 0,
+          "first_token": true,
+          "max_y": 0.98828125,
+          "max_x": 2.9375,
+          "w_cut": 0.07080078125,
+          "x_cut": 0.244140625,
+          "y_cut": 1.40380859375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1039,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1298,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2720,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 19,
+          "token": 4,
+          "first_token": false,
+          "max_y": 3.734375,
+          "max_x": 4.5,
+          "w_cut": 0.06640625,
+          "x_cut": 0.201171875,
+          "y_cut": 1.66015625,
+          "candidates": [
+            {
+              "j": 4055,
+              "k": 3651,
+              "rank_in_channel": 0,
+              "weight": 0.8203125,
+              "x": 4.5,
+              "contribution": 3.69140625,
+              "y_channel": 3.734375,
+              "share": 0.9884937238493724,
+              "explained_by_prefix": 0.9884937238493724,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 3516,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1298,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1039,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 20,
+          "token": 4,
+          "first_token": false,
+          "max_y": 0.61328125,
+          "max_x": 1.125,
+          "w_cut": 0.0654296875,
+          "x_cut": 0.23046875,
+          "y_cut": 1.5625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2303,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2528,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 21,
+          "token": 4,
+          "first_token": false,
+          "max_y": 3.171875,
+          "max_x": 3.6875,
+          "w_cut": 0.06982421875,
+          "x_cut": 0.271484375,
+          "y_cut": 1.89208984375,
+          "candidates": [
+            {
+              "j": 2352,
+              "k": 8329,
+              "rank_in_channel": 0,
+              "weight": -0.828125,
+              "x": 3.6875,
+              "contribution": -3.0537109375,
+              "y_channel": -3.171875,
+              "share": 0.9627463054187192,
+              "explained_by_prefix": 0.9627463054187192,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1173,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1405,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 22,
+          "token": 4,
+          "first_token": false,
+          "max_y": 0.5703125,
+          "max_x": 0.66015625,
+          "w_cut": 0.058349609375,
+          "x_cut": 0.353515625,
+          "y_cut": 1.84326171875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3580,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 500,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 23,
+          "token": 4,
+          "first_token": false,
+          "max_y": 0.578125,
+          "max_x": 3.0625,
+          "w_cut": 0.056640625,
+          "x_cut": 0.5078125,
+          "y_cut": 2.5634765625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1039,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3008,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 314,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 24,
+          "token": 4,
+          "first_token": false,
+          "max_y": 1.4296875,
+          "max_x": 2.0,
+          "w_cut": 0.05615234375,
+          "x_cut": 0.474609375,
+          "y_cut": 2.81982421875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3546,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1472,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 25,
+          "token": 3,
+          "first_token": false,
+          "max_y": 0.44140625,
+          "max_x": 1.828125,
+          "w_cut": 0.056884765625,
+          "x_cut": 0.671875,
+          "y_cut": 3.01513671875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2853,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 709,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3266,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 13,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 26,
+          "token": 4,
+          "first_token": false,
+          "max_y": 1.265625,
+          "max_x": 2.171875,
+          "w_cut": 0.056396484375,
+          "x_cut": 0.80078125,
+          "y_cut": 3.6376953125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 103,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2886,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 665,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 27,
+          "token": 4,
+          "first_token": false,
+          "max_y": 0.65625,
+          "max_x": 9.4375,
+          "w_cut": 0.057373046875,
+          "x_cut": 1.1953125,
+          "y_cut": 5.56640625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 3829,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 999,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2121,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3026,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 28,
+          "token": 3,
+          "first_token": false,
+          "max_y": 1.4921875,
+          "max_x": 1.3359375,
+          "w_cut": 0.060302734375,
+          "x_cut": 0.8359375,
+          "y_cut": 5.078125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2116,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3747,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 611,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 29,
+          "token": 4,
+          "first_token": false,
+          "max_y": 4.4375,
+          "max_x": 4.75,
+          "w_cut": 0.06640625,
+          "x_cut": 2.390625,
+          "y_cut": 6.73828125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2252,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4039,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 30,
+          "token": 0,
+          "first_token": true,
+          "max_y": 10.0,
+          "max_x": 58.5,
+          "w_cut": 0.08544921875,
+          "x_cut": 1.40625,
+          "y_cut": 54.6875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 1382,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 782,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3928,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2298,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 31,
+          "token": 0,
+          "first_token": true,
+          "max_y": 80.0,
+          "max_x": 556.0,
+          "w_cut": 0.10205078125,
+          "x_cut": 5.0625,
+          "y_cut": 304.6875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 977,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 184,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3228,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1382,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": true
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "median_max_y": 2.25,
+      "records": [
+        {
+          "layer": 0,
+          "token": 0,
+          "first_token": true,
+          "max_y": 3.03125,
+          "max_x": 9.1875,
+          "w_cut": 0.1064453125,
+          "x_cut": 0.0250244140625,
+          "y_cut": 0.2227783203125,
+          "candidates": [
+            {
+              "j": 805,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.26171875,
+              "x": -9.1875,
+              "contribution": 2.404541015625,
+              "y_channel": 3.03125,
+              "share": 0.7932506443298969,
+              "explained_by_prefix": 0.7932506443298969,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 805,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.216796875,
+              "x": -2.953125,
+              "contribution": 0.640228271484375,
+              "y_channel": 3.03125,
+              "share": 0.21120932667525774,
+              "explained_by_prefix": 1.0044599710051547,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 717,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.1982421875,
+              "x": -9.1875,
+              "contribution": 1.82135009765625,
+              "y_channel": 2.78125,
+              "share": 0.6548674508426966,
+              "explained_by_prefix": 0.6548674508426966,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 717,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.26953125,
+              "x": -2.953125,
+              "contribution": 0.79595947265625,
+              "y_channel": 2.78125,
+              "share": 0.28618767556179775,
+              "explained_by_prefix": 0.9410551264044944,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 26,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.173828125,
+              "x": -9.1875,
+              "contribution": 1.5970458984375,
+              "y_channel": 2.53125,
+              "share": 0.6309317129629629,
+              "explained_by_prefix": 0.6309317129629629,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 26,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.265625,
+              "x": -2.953125,
+              "contribution": 0.784423828125,
+              "y_channel": 2.53125,
+              "share": 0.3098958333333333,
+              "explained_by_prefix": 0.9408275462962963,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1463,
+              "k": 491,
+              "rank_in_channel": 0,
+              "weight": -0.1806640625,
+              "x": -9.1875,
+              "contribution": 1.65985107421875,
+              "y_channel": 2.5,
+              "share": 0.6639404296875,
+              "explained_by_prefix": 0.6639404296875,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1463,
+              "k": 8268,
+              "rank_in_channel": 1,
+              "weight": -0.24609375,
+              "x": -2.953125,
+              "contribution": 0.72674560546875,
+              "y_channel": 2.5,
+              "share": 0.2906982421875,
+              "explained_by_prefix": 0.954638671875,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [],
+          "towering": false
+        },
+        {
+          "layer": 1,
+          "token": 0,
+          "first_token": true,
+          "max_y": 37.75,
+          "max_x": 478.0,
+          "w_cut": 0.0888671875,
+          "x_cut": 0.390625,
+          "y_cut": 5.17578125,
+          "candidates": [
+            {
+              "j": 4062,
+              "k": 198,
+              "rank_in_channel": 0,
+              "weight": 0.5546875,
+              "x": -52.5,
+              "contribution": -29.12109375,
+              "y_channel": -30.0,
+              "share": 0.970703125,
+              "explained_by_prefix": 0.970703125,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 290,
+              "k": 2427,
+              "why": "not both outliers",
+              "w_outlier": false,
+              "x_outlier": true
+            },
+            {
+              "j": 2352,
+              "k": 2427,
+              "why": "not both outliers",
+              "w_outlier": false,
+              "x_outlier": true
+            },
+            {
+              "j": 4055,
+              "k": 2427,
+              "why": "not both outliers",
+              "w_outlier": false,
+              "x_outlier": true
+            }
+          ],
+          "towering": true
+        },
+        {
+          "layer": 2,
+          "token": 4,
+          "first_token": false,
+          "max_y": 2.375,
+          "max_x": 10.0625,
+          "w_cut": 0.08740234375,
+          "x_cut": 1.484375,
+          "y_cut": 3.857421875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 162,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3513,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2646,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 3,
+          "token": 4,
+          "first_token": false,
+          "max_y": 1.859375,
+          "max_x": 6.75,
+          "w_cut": 0.07421875,
+          "x_cut": 0.55859375,
+          "y_cut": 2.69775390625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 291,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 162,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 912,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 4,
+          "token": 0,
+          "first_token": true,
+          "max_y": 2.046875,
+          "max_x": 0.9296875,
+          "w_cut": 0.08154296875,
+          "x_cut": 0.33203125,
+          "y_cut": 1.66015625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.23"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 607,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2629,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 5,
+          "token": 0,
+          "first_token": true,
+          "max_y": 7.75,
+          "max_x": 22.625,
+          "w_cut": 0.080078125,
+          "x_cut": 0.6328125,
+          "y_cut": 7.71484375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.52"
+            },
+            {
+              "j": 2977,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1059,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2303,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 6,
+          "token": 0,
+          "first_token": true,
+          "max_y": 9.3125,
+          "max_x": 14.375,
+          "w_cut": 0.0791015625,
+          "x_cut": 0.55859375,
+          "y_cut": 5.2978515625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.46"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2303,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1059,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 7,
+          "token": 0,
+          "first_token": true,
+          "max_y": 6.59375,
+          "max_x": 7.28125,
+          "w_cut": 0.0947265625,
+          "x_cut": 0.60546875,
+          "y_cut": 3.2470703125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.19"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2265,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2726,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 8,
+          "token": 0,
+          "first_token": true,
+          "max_y": 5.875,
+          "max_x": 1.2890625,
+          "w_cut": 0.0947265625,
+          "x_cut": 0.53125,
+          "y_cut": 2.294921875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.36"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2629,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 290,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 9,
+          "token": 0,
+          "first_token": true,
+          "max_y": 6.96875,
+          "max_x": 14.5,
+          "w_cut": 0.0908203125,
+          "x_cut": 0.484375,
+          "y_cut": 5.712890625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.35"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2726,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1295,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 10,
+          "token": 0,
+          "first_token": true,
+          "max_y": 4.28125,
+          "max_x": 5.25,
+          "w_cut": 0.08251953125,
+          "x_cut": 0.515625,
+          "y_cut": 2.783203125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.18"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4062,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 788,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 11,
+          "token": 0,
+          "first_token": true,
+          "max_y": 3.109375,
+          "max_x": 5.5,
+          "w_cut": 0.10009765625,
+          "x_cut": 0.376953125,
+          "y_cut": 2.62451171875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "prefix explains 0.02"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4062,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2265,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 12,
+          "token": 2,
+          "first_token": false,
+          "max_y": 1.9765625,
+          "max_x": 1.9453125,
+          "w_cut": 0.103515625,
+          "x_cut": 0.181640625,
+          "y_cut": 1.2939453125,
+          "candidates": [
+            {
+              "j": 4055,
+              "k": 9795,
+              "rank_in_channel": 0,
+              "weight": -0.9140625,
+              "x": -1.9453125,
+              "contribution": 1.77813720703125,
+              "y_channel": 1.9765625,
+              "share": 0.899610918972332,
+              "explained_by_prefix": 0.899610918972332,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 291,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 162,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1162,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 13,
+          "token": 0,
+          "first_token": true,
+          "max_y": 2.125,
+          "max_x": 4.40625,
+          "w_cut": 0.0869140625,
+          "x_cut": 0.3828125,
+          "y_cut": 2.28271484375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4062,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1059,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 14,
+          "token": 0,
+          "first_token": true,
+          "max_y": 1.03125,
+          "max_x": 0.828125,
+          "w_cut": 0.0810546875,
+          "x_cut": 0.408203125,
+          "y_cut": 1.324462890625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4062,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2265,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 15,
+          "token": 2,
+          "first_token": false,
+          "max_y": 1.2109375,
+          "max_x": 1.2890625,
+          "w_cut": 0.0888671875,
+          "x_cut": 0.162109375,
+          "y_cut": 1.3916015625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3845,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4062,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2474,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 16,
+          "token": 0,
+          "first_token": true,
+          "max_y": 0.66796875,
+          "max_x": 2.140625,
+          "w_cut": 0.08203125,
+          "x_cut": 0.46875,
+          "y_cut": 1.57470703125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4062,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 290,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 17,
+          "token": 2,
+          "first_token": false,
+          "max_y": 0.77734375,
+          "max_x": 0.73828125,
+          "w_cut": 0.08984375,
+          "x_cut": 0.1904296875,
+          "y_cut": 1.324462890625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 725,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2977,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1211,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 18,
+          "token": 0,
+          "first_token": true,
+          "max_y": 1.3671875,
+          "max_x": 2.296875,
+          "w_cut": 0.07080078125,
+          "x_cut": 0.427734375,
+          "y_cut": 1.66015625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4041,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1211,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 845,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 19,
+          "token": 3,
+          "first_token": false,
+          "max_y": 3.359375,
+          "max_x": 4.15625,
+          "w_cut": 0.06640625,
+          "x_cut": 0.212890625,
+          "y_cut": 1.59912109375,
+          "candidates": [
+            {
+              "j": 4055,
+              "k": 3651,
+              "rank_in_channel": 0,
+              "weight": 0.8203125,
+              "x": 4.15625,
+              "contribution": 3.409423828125,
+              "y_channel": 3.359375,
+              "share": 1.0148982558139534,
+              "explained_by_prefix": 1.0148982558139534,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 3516,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1298,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2209,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 20,
+          "token": 0,
+          "first_token": true,
+          "max_y": 0.515625,
+          "max_x": 1.8828125,
+          "w_cut": 0.0654296875,
+          "x_cut": 0.33203125,
+          "y_cut": 1.72119140625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1211,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1059,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2528,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 21,
+          "token": 4,
+          "first_token": false,
+          "max_y": 2.578125,
+          "max_x": 3.03125,
+          "w_cut": 0.06982421875,
+          "x_cut": 0.25,
+          "y_cut": 1.79443359375,
+          "candidates": [
+            {
+              "j": 2352,
+              "k": 8329,
+              "rank_in_channel": 0,
+              "weight": -0.828125,
+              "x": 3.03125,
+              "contribution": -2.51025390625,
+              "y_channel": -2.578125,
+              "share": 0.9736742424242424,
+              "explained_by_prefix": 0.9736742424242424,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1173,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2319,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 22,
+          "token": 4,
+          "first_token": false,
+          "max_y": 0.54296875,
+          "max_x": 0.61328125,
+          "w_cut": 0.058349609375,
+          "x_cut": 0.328125,
+          "y_cut": 1.81884765625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3580,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3636,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 23,
+          "token": 0,
+          "first_token": true,
+          "max_y": 0.53125,
+          "max_x": 2.1875,
+          "w_cut": 0.056640625,
+          "x_cut": 0.34765625,
+          "y_cut": 1.904296875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2977,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2943,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3516,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 24,
+          "token": 3,
+          "first_token": false,
+          "max_y": 0.984375,
+          "max_x": 1.125,
+          "w_cut": 0.05615234375,
+          "x_cut": 0.4140625,
+          "y_cut": 2.62451171875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3546,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1074,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 25,
+          "token": 0,
+          "first_token": true,
+          "max_y": 0.37109375,
+          "max_x": 0.55859375,
+          "w_cut": 0.056884765625,
+          "x_cut": 0.318359375,
+          "y_cut": 1.806640625,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1423,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3862,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 26,
+          "token": 4,
+          "first_token": false,
+          "max_y": 1.828125,
+          "max_x": 2.125,
+          "w_cut": 0.056396484375,
+          "x_cut": 0.671875,
+          "y_cut": 3.5888671875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 420,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4036,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 27,
+          "token": 4,
+          "first_token": false,
+          "max_y": 0.5859375,
+          "max_x": 5.96875,
+          "w_cut": 0.057373046875,
+          "x_cut": 0.95703125,
+          "y_cut": 4.98046875,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 354,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3026,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 847,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 28,
+          "token": 4,
+          "first_token": false,
+          "max_y": 7.5625,
+          "max_x": 18.5,
+          "w_cut": 0.060302734375,
+          "x_cut": 1.1640625,
+          "y_cut": 5.9814453125,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "prefix explains 1.36"
+            },
+            {
+              "j": 2252,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 3434,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2612,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 29,
+          "token": 4,
+          "first_token": false,
+          "max_y": 7.09375,
+          "max_x": 7.53125,
+          "w_cut": 0.06640625,
+          "x_cut": 2.53125,
+          "y_cut": 8.349609375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 4055,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2252,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1404,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 30,
+          "token": 4,
+          "first_token": false,
+          "max_y": 10.75,
+          "max_x": 10.4375,
+          "w_cut": 0.08544921875,
+          "x_cut": 4.15625,
+          "y_cut": 13.96484375,
+          "candidates": [],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 2943,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 1917,
+              "why": "channel does not tower"
+            },
+            {
+              "j": 184,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": false
+        },
+        {
+          "layer": 31,
+          "token": 0,
+          "first_token": true,
+          "max_y": 440.0,
+          "max_x": 572.0,
+          "w_cut": 0.10205078125,
+          "x_cut": 4.4375,
+          "y_cut": 139.0625,
+          "candidates": [
+            {
+              "j": 788,
+              "k": 12732,
+              "rank_in_channel": 0,
+              "weight": -0.45703125,
+              "x": 572.0,
+              "contribution": -261.421875,
+              "y_channel": -440.0,
+              "share": 0.594140625,
+              "explained_by_prefix": 0.594140625,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 788,
+              "k": 8717,
+              "rank_in_channel": 1,
+              "weight": -0.3515625,
+              "x": 186.0,
+              "contribution": -65.390625,
+              "y_channel": -440.0,
+              "share": 0.14861505681818182,
+              "explained_by_prefix": 0.7427556818181819,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 788,
+              "k": 801,
+              "rank_in_channel": 2,
+              "weight": 0.46484375,
+              "x": -92.5,
+              "contribution": -42.998046875,
+              "y_channel": -440.0,
+              "share": 0.09772283380681818,
+              "explained_by_prefix": 0.840478515625,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1384,
+              "k": 12732,
+              "rank_in_channel": 0,
+              "weight": 0.41796875,
+              "x": 572.0,
+              "contribution": 239.078125,
+              "y_channel": 406.0,
+              "share": 0.5888623768472906,
+              "explained_by_prefix": 0.5888623768472906,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1384,
+              "k": 8717,
+              "rank_in_channel": 1,
+              "weight": 0.330078125,
+              "x": 186.0,
+              "contribution": 61.39453125,
+              "y_channel": 406.0,
+              "share": 0.15121805726600984,
+              "explained_by_prefix": 0.7400804341133005,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1384,
+              "k": 801,
+              "rank_in_channel": 2,
+              "weight": -0.4296875,
+              "x": -92.5,
+              "contribution": 39.74609375,
+              "y_channel": 406.0,
+              "share": 0.09789678263546799,
+              "explained_by_prefix": 0.8379772167487685,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 4062,
+              "k": 12732,
+              "rank_in_channel": 0,
+              "weight": 0.41796875,
+              "x": 572.0,
+              "contribution": 239.078125,
+              "y_channel": 404.0,
+              "share": 0.5917775371287128,
+              "explained_by_prefix": 0.5917775371287128,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 4062,
+              "k": 8717,
+              "rank_in_channel": 1,
+              "weight": 0.31640625,
+              "x": 186.0,
+              "contribution": 58.8515625,
+              "y_channel": 404.0,
+              "share": 0.1456721844059406,
+              "explained_by_prefix": 0.7374497215346535,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 4062,
+              "k": 801,
+              "rank_in_channel": 2,
+              "weight": -0.44140625,
+              "x": -92.5,
+              "contribution": 40.830078125,
+              "y_channel": 404.0,
+              "share": 0.10106454981435643,
+              "explained_by_prefix": 0.8385142713490099,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": [
+            {
+              "j": 2352,
+              "why": "channel does not tower"
+            }
+          ],
+          "towering": true
+        }
+      ]
+    }
+  ]
+}
