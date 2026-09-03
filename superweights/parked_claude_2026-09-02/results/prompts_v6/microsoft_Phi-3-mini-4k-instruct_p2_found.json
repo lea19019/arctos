@@ -1,0 +1,265 @@
+{
+  "model": "microsoft/Phi-3-mini-4k-instruct",
+  "revision_requested": null,
+  "revision_resolved": "f39ac1d28e925b323eae81227eaba4464caced4e",
+  "prompt": "def fibonacci(n):\n    if n < 2:",
+  "date": "2026-09-02T22:47:24",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "microsoft/Phi-3-mini-4k-instruct",
+    "revision": null,
+    "prompt": "def fibonacci(n):\n    if n < 2:",
+    "out": "results/prompts_v6/microsoft_Phi-3-mini-4k-instruct_p2_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 4,
+      "j": 525,
+      "k": 2723,
+      "value": -2.578125,
+      "round": 0,
+      "share": 0.980224609375,
+      "peak": 3808.0,
+      "persist_frac": 0.9259259259259259
+    },
+    {
+      "layer": 2,
+      "j": 1693,
+      "k": 808,
+      "value": 1.71875,
+      "round": 0,
+      "share": 0.6396484375,
+      "peak": 2624.0,
+      "persist_frac": 0.9310344827586207
+    },
+    {
+      "layer": 2,
+      "j": 1693,
+      "k": 340,
+      "value": 3.125,
+      "round": 0,
+      "share": 0.3506747159090909,
+      "peak": 2624.0,
+      "persist_frac": 0.9310344827586207
+    },
+    {
+      "layer": 2,
+      "j": 1113,
+      "k": 808,
+      "value": -1.734375,
+      "round": 0,
+      "share": 0.7329133064516129,
+      "peak": 2448.0,
+      "persist_frac": 0.9310344827586207
+    },
+    {
+      "layer": 2,
+      "j": 1051,
+      "k": 808,
+      "value": -0.80078125,
+      "round": 0,
+      "share": 1.1720932262569832,
+      "peak": 474.0,
+      "persist_frac": 0.9310344827586207
+    },
+    {
+      "layer": 2,
+      "j": 525,
+      "k": 808,
+      "value": -2.921875,
+      "round": 1,
+      "share": 0.8738941210045662,
+      "peak": 2352.0,
+      "persist_frac": 0.9310344827586207
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 525,
+          "peak": 3808.0,
+          "bar": 1904.0,
+          "onset": 5,
+          "layer": 4,
+          "persist": 25,
+          "window": 27,
+          "persist_frac": 0.9259259259259259,
+          "median_residual": 0.60546875,
+          "candidates": [
+            {
+              "j": 525,
+              "k": 2723,
+              "rank_in_channel": 0,
+              "weight": -2.578125,
+              "x": 584.0,
+              "contribution": -1505.625,
+              "y_channel": -1536.0,
+              "share": 0.980224609375,
+              "explained_by_prefix": 0.980224609375,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1693,
+          "peak": 2624.0,
+          "bar": 1312.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.60546875,
+          "candidates": [
+            {
+              "j": 1693,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": 1.71875,
+              "x": 524.0,
+              "contribution": 900.625,
+              "y_channel": 1408.0,
+              "share": 0.6396484375,
+              "explained_by_prefix": 0.6396484375,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1693,
+              "k": 340,
+              "rank_in_channel": 1,
+              "weight": 3.125,
+              "x": 158.0,
+              "contribution": 493.75,
+              "y_channel": 1408.0,
+              "share": 0.3506747159090909,
+              "explained_by_prefix": 0.9903231534090909,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1113,
+          "peak": 2448.0,
+          "bar": 1224.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.60546875,
+          "candidates": [
+            {
+              "j": 1113,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": -1.734375,
+              "x": 524.0,
+              "contribution": -908.8125,
+              "y_channel": -1240.0,
+              "share": 0.7329133064516129,
+              "explained_by_prefix": 0.7329133064516129,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1051,
+          "peak": 474.0,
+          "bar": 237.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.60546875,
+          "candidates": [
+            {
+              "j": 1051,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": -0.80078125,
+              "x": 524.0,
+              "contribution": -419.609375,
+              "y_channel": -358.0,
+              "share": 1.1720932262569832,
+              "explained_by_prefix": 1.1720932262569832,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 525,
+          "peak": 2352.0,
+          "bar": 1176.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.63671875,
+          "candidates": [
+            {
+              "j": 525,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": -2.921875,
+              "x": 524.0,
+              "contribution": -1531.0625,
+              "y_channel": -1752.0,
+              "share": 0.8738941210045662,
+              "explained_by_prefix": 0.8738941210045662,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "super_activations": []
+    }
+  ]
+}

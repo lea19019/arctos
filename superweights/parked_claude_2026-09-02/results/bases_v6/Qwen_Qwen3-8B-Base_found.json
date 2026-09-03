@@ -1,0 +1,151 @@
+{
+  "model": "Qwen/Qwen3-8B-Base",
+  "revision_requested": null,
+  "revision_resolved": "49e3418fbbbca6ecbdf9608b4d22e5a407081db4",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T22:41:44",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "Qwen/Qwen3-8B-Base",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/bases_v6/Qwen_Qwen3-8B-Base_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 6,
+      "j": 2276,
+      "k": 5723,
+      "value": 1.4609375,
+      "round": 0,
+      "share": 0.711738782051282,
+      "peak": 10432.0,
+      "persist_frac": 1.0
+    },
+    {
+      "layer": 6,
+      "j": 233,
+      "k": 5723,
+      "value": -0.291015625,
+      "round": 0,
+      "share": 0.7105923694779116,
+      "peak": 2000.0,
+      "persist_frac": 1.0
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 2276,
+          "peak": 10432.0,
+          "bar": 5216.0,
+          "onset": 7,
+          "layer": 6,
+          "persist": 29,
+          "window": 29,
+          "persist_frac": 1.0,
+          "median_residual": 0.78515625,
+          "candidates": [
+            {
+              "j": 2276,
+              "k": 5723,
+              "rank_in_channel": 0,
+              "weight": 1.4609375,
+              "x": 4864.0,
+              "contribution": 7106.0,
+              "y_channel": 9984.0,
+              "share": 0.711738782051282,
+              "explained_by_prefix": 0.711738782051282,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 233,
+          "peak": 2000.0,
+          "bar": 1000.0,
+          "onset": 7,
+          "layer": 6,
+          "persist": 29,
+          "window": 29,
+          "persist_frac": 1.0,
+          "median_residual": 0.78515625,
+          "candidates": [
+            {
+              "j": 233,
+              "k": 5723,
+              "rank_in_channel": 0,
+              "weight": -0.291015625,
+              "x": 4864.0,
+              "contribution": -1415.5,
+              "y_channel": -1992.0,
+              "share": 0.7105923694779116,
+              "explained_by_prefix": 0.7105923694779116,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 1,
+          "channel": 2276,
+          "peak": 1056.0,
+          "bar": 528.0,
+          "onset": 34,
+          "layer": 33,
+          "persist": 2,
+          "window": 2,
+          "persist_frac": 1.0,
+          "median_residual": 0.78515625,
+          "candidates": [],
+          "rejected": "prefix explains 0.22 of Y[t,j]"
+        },
+        {
+          "token": 2,
+          "channel": 2276,
+          "peak": 1056.0,
+          "bar": 528.0,
+          "onset": 34,
+          "layer": 33,
+          "persist": 2,
+          "window": 2,
+          "persist_frac": 1.0,
+          "median_residual": 0.78515625,
+          "candidates": [],
+          "rejected": "prefix explains 0.23 of Y[t,j]"
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": []
+    }
+  ]
+}

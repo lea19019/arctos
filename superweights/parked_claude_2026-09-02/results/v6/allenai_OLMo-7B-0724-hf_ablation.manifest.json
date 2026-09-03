@@ -1,0 +1,28 @@
+{
+  "model": "allenai/OLMo-7B-0724-hf",
+  "args": {
+    "model": "allenai/OLMo-7B-0724-hf",
+    "revision": null,
+    "candidates": "results/v5/allenai_OLMo-7B-0724-hf_found.json",
+    "no_table2": false,
+    "out": "results/v6/allenai_OLMo-7B-0724-hf_ablation.json",
+    "dtype": "auto",
+    "eval_corpus": "wikitext2",
+    "ppl_segments": 32,
+    "seq_len": 2048,
+    "joint": true,
+    "null_n": 50,
+    "null_pool": 100,
+    "sa_remove": true,
+    "sa_frac": 0.5,
+    "sa_null_n": 10,
+    "seed": 0,
+    "bootstrap_B": 2000
+  },
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "slurm_job_id": "13568387",
+  "slurm_array_task_id": "7",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "started": "2026-09-02T22:33:51"
+}

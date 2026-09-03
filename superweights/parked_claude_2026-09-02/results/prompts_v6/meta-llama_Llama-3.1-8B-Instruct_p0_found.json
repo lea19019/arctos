@@ -1,0 +1,189 @@
+{
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "revision_requested": null,
+  "revision_resolved": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "prompt": "The quick brown fox jumps over the lazy dog.",
+  "date": "2026-09-02T22:47:46",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "revision": null,
+    "prompt": "The quick brown fox jumps over the lazy dog.",
+    "out": "results/prompts_v6/meta-llama_Llama-3.1-8B-Instruct_p0_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 1,
+      "j": 788,
+      "k": 2427,
+      "value": -0.60546875,
+      "round": 0,
+      "share": 0.8988014363354038,
+      "peak": 324.0,
+      "persist_frac": 1.0
+    },
+    {
+      "layer": 1,
+      "j": 1384,
+      "k": 2427,
+      "value": 0.5546875,
+      "round": 0,
+      "share": 0.8957453547297297,
+      "peak": 298.0,
+      "persist_frac": 1.0
+    },
+    {
+      "layer": 1,
+      "j": 4062,
+      "k": 2427,
+      "value": 0.55078125,
+      "round": 0,
+      "share": 0.8954878826530612,
+      "peak": 296.0,
+      "persist_frac": 1.0
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 788,
+          "peak": 324.0,
+          "bar": 162.0,
+          "onset": 2,
+          "layer": 1,
+          "persist": 30,
+          "window": 30,
+          "persist_frac": 1.0,
+          "median_residual": 0.0859375,
+          "candidates": [
+            {
+              "j": 788,
+              "k": 2427,
+              "rank_in_channel": 0,
+              "weight": -0.60546875,
+              "x": -478.0,
+              "contribution": 289.4140625,
+              "y_channel": 322.0,
+              "share": 0.8988014363354038,
+              "explained_by_prefix": 0.8988014363354038,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1384,
+          "peak": 298.0,
+          "bar": 149.0,
+          "onset": 2,
+          "layer": 1,
+          "persist": 30,
+          "window": 30,
+          "persist_frac": 1.0,
+          "median_residual": 0.0859375,
+          "candidates": [
+            {
+              "j": 1384,
+              "k": 2427,
+              "rank_in_channel": 0,
+              "weight": 0.5546875,
+              "x": -478.0,
+              "contribution": -265.140625,
+              "y_channel": -296.0,
+              "share": 0.8957453547297297,
+              "explained_by_prefix": 0.8957453547297297,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 4062,
+          "peak": 296.0,
+          "bar": 148.0,
+          "onset": 2,
+          "layer": 1,
+          "persist": 30,
+          "window": 30,
+          "persist_frac": 1.0,
+          "median_residual": 0.0859375,
+          "candidates": [
+            {
+              "j": 4062,
+              "k": 2427,
+              "rank_in_channel": 0,
+              "weight": 0.55078125,
+              "x": -478.0,
+              "contribution": -263.2734375,
+              "y_channel": -294.0,
+              "share": 0.8954878826530612,
+              "explained_by_prefix": 0.8954878826530612,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 2352,
+          "peak": 50.75,
+          "bar": 25.375,
+          "onset": 2,
+          "layer": 1,
+          "persist": 30,
+          "window": 30,
+          "persist_frac": 1.0,
+          "median_residual": 0.0859375,
+          "candidates": [],
+          "rejected": "no contributor both dominates (share >= 0.35) and has X and W as outliers"
+        },
+        {
+          "token": 0,
+          "channel": 290,
+          "peak": 39.25,
+          "bar": 19.625,
+          "onset": 2,
+          "layer": 1,
+          "persist": 30,
+          "window": 30,
+          "persist_frac": 1.0,
+          "median_residual": 0.0859375,
+          "candidates": [],
+          "rejected": "no contributor both dominates (share >= 0.35) and has X and W as outliers"
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": []
+    }
+  ]
+}

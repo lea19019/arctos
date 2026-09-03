@@ -1,0 +1,137 @@
+{
+  "model": "huggyllama/llama-13b",
+  "revision_requested": null,
+  "revision_resolved": "bf57045473f207bb1de1ed035ace226f4d9f9bba",
+  "prompt": "The quick brown fox jumps over the lazy dog.",
+  "date": "2026-09-02T22:44:09",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "huggyllama/llama-13b",
+    "revision": null,
+    "prompt": "The quick brown fox jumps over the lazy dog.",
+    "out": "results/prompts_v6/huggyllama_llama-13b_p0_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 2,
+      "j": 2231,
+      "k": 2278,
+      "value": -1.822265625,
+      "round": 0,
+      "share": 0.5927038421108894,
+      "peak": 1940.0,
+      "persist_frac": 0.9459459459459459
+    },
+    {
+      "layer": 2,
+      "j": 2202,
+      "k": 2278,
+      "value": -0.2283935546875,
+      "round": 0,
+      "share": 0.6032339025426794,
+      "peak": 213.125,
+      "persist_frac": 0.8918918918918919
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 2231,
+          "peak": 1940.0,
+          "bar": 970.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 35,
+          "window": 37,
+          "persist_frac": 0.9459459459459459,
+          "median_residual": 0.537109375,
+          "candidates": [
+            {
+              "j": 2231,
+              "k": 2278,
+              "rank_in_channel": 0,
+              "weight": -1.822265625,
+              "x": 570.5,
+              "contribution": -1039.6025390625,
+              "y_channel": -1754.0,
+              "share": 0.5927038421108894,
+              "explained_by_prefix": 0.5927038421108894,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 1,
+          "channel": 2202,
+          "peak": 231.625,
+          "bar": 115.8125,
+          "onset": 26,
+          "layer": 25,
+          "persist": 14,
+          "window": 14,
+          "persist_frac": 1.0,
+          "median_residual": 0.537109375,
+          "candidates": [],
+          "rejected": "prefix explains 0.75 of Y[t,j]"
+        },
+        {
+          "token": 0,
+          "channel": 2202,
+          "peak": 213.125,
+          "bar": 106.5625,
+          "onset": 3,
+          "layer": 2,
+          "persist": 33,
+          "window": 37,
+          "persist_frac": 0.8918918918918919,
+          "median_residual": 0.537109375,
+          "candidates": [
+            {
+              "j": 2202,
+              "k": 2278,
+              "rank_in_channel": 0,
+              "weight": -0.2283935546875,
+              "x": 570.5,
+              "contribution": -130.29852294921875,
+              "y_channel": -216.0,
+              "share": 0.6032339025426794,
+              "explained_by_prefix": 0.6032339025426794,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": []
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "model": "EleutherAI/pythia-1b",
+  "args": {
+    "model": "EleutherAI/pythia-1b",
+    "revision": null,
+    "candidates": "results/small_v6/EleutherAI_pythia-1b_found.json",
+    "no_table2": false,
+    "out": "results/small_v6/EleutherAI_pythia-1b_ablation.json",
+    "dtype": "auto",
+    "eval_corpus": "wikitext2",
+    "ppl_segments": 32,
+    "seq_len": 2048,
+    "joint": true,
+    "null_n": 50,
+    "null_pool": 100,
+    "sa_remove": true,
+    "sa_frac": 0.5,
+    "sa_null_n": 10,
+    "seed": 0,
+    "bootstrap_B": 2000
+  },
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "slurm_job_id": "13568402",
+  "slurm_array_task_id": "1",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "started": "2026-09-02T22:42:25"
+}

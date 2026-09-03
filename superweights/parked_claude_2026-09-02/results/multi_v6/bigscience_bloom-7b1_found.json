@@ -1,0 +1,56 @@
+{
+  "model": "bigscience/bloom-7b1",
+  "revision_requested": null,
+  "revision_resolved": "6232703e399354503377bf59dfbb8397fd569e4a",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T22:42:19",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "detector_version": 5,
+  "stop_reason": "no new candidate passed",
+  "params": {
+    "model": "bigscience/bloom-7b1",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/multi_v6/bigscience_bloom-7b1_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 1947,
+          "peak": 3866.0,
+          "bar": 1933.0,
+          "onset": 8,
+          "layer": 7,
+          "persist": 19,
+          "window": 22,
+          "persist_frac": 0.8636363636363636,
+          "median_residual": 0.7724609375,
+          "candidates": [],
+          "rejected": "prefix explains 0.41 of Y[t,j]"
+        }
+      ]
+    }
+  ]
+}

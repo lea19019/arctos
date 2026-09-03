@@ -1,0 +1,166 @@
+{
+  "model": "allenai/OLMo-1B-0724-hf",
+  "revision_requested": null,
+  "revision_resolved": "d7cbab742d80589e714b1a2d7f838dcd21cbe143",
+  "prompt": "def fibonacci(n):\n    if n < 2:",
+  "date": "2026-09-02T22:47:04",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float32",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "allenai/OLMo-1B-0724-hf",
+    "revision": null,
+    "prompt": "def fibonacci(n):\n    if n < 2:",
+    "out": "results/prompts_v6/allenai_OLMo-1B-0724-hf_p2_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 1,
+      "j": 1764,
+      "k": 1710,
+      "value": 0.6322910189628601,
+      "round": 0,
+      "share": 0.9738355320248346,
+      "peak": 482.1935729980469,
+      "persist_frac": 1.0
+    },
+    {
+      "layer": 1,
+      "j": 1764,
+      "k": 1710,
+      "value": 0.6322910189628601,
+      "round": 0,
+      "share": 0.97838891397368,
+      "peak": 404.36761474609375,
+      "persist_frac": 1.0
+    },
+    {
+      "layer": 2,
+      "j": 1764,
+      "k": 8041,
+      "value": -0.5923751592636108,
+      "round": 1,
+      "share": 0.8980493823779552,
+      "peak": 248.4223175048828,
+      "persist_frac": 1.0
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 7,
+          "channel": 1764,
+          "peak": 482.1935729980469,
+          "bar": 241.09678649902344,
+          "onset": 2,
+          "layer": 1,
+          "persist": 14,
+          "window": 14,
+          "persist_frac": 1.0,
+          "median_residual": 0.0524175688624382,
+          "candidates": [
+            {
+              "j": 1764,
+              "k": 1710,
+              "rank_in_channel": 0,
+              "weight": 0.6322910189628601,
+              "x": -500.7471923828125,
+              "contribution": -316.6179504394531,
+              "y_channel": -325.1246643066406,
+              "share": 0.9738355320248346,
+              "explained_by_prefix": 0.9738355320248346,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1764,
+          "peak": 404.36761474609375,
+          "bar": 202.18380737304688,
+          "onset": 2,
+          "layer": 1,
+          "persist": 14,
+          "window": 14,
+          "persist_frac": 1.0,
+          "median_residual": 0.0524175688624382,
+          "candidates": [
+            {
+              "j": 1764,
+              "k": 1710,
+              "rank_in_channel": 0,
+              "weight": 0.6322910189628601,
+              "x": -376.34234619140625,
+              "contribution": -237.9578857421875,
+              "y_channel": -243.21400451660156,
+              "share": 0.97838891397368,
+              "explained_by_prefix": 0.97838891397368,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 1764,
+          "peak": 248.4223175048828,
+          "bar": 124.2111587524414,
+          "onset": 3,
+          "layer": 2,
+          "persist": 13,
+          "window": 13,
+          "persist_frac": 1.0,
+          "median_residual": 0.05838775634765625,
+          "candidates": [
+            {
+              "j": 1764,
+              "k": 8041,
+              "rank_in_channel": 0,
+              "weight": -0.5923751592636108,
+              "x": 334.49981689453125,
+              "contribution": -198.14938354492188,
+              "y_channel": -220.64419555664062,
+              "share": 0.8980493823779552,
+              "explained_by_prefix": 0.8980493823779552,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "super_activations": []
+    }
+  ]
+}

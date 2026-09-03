@@ -1,0 +1,31 @@
+{
+  "model": "Unbabel/TowerInstruct-7B-v0.2",
+  "args": {
+    "model": "Unbabel/TowerInstruct-7B-v0.2",
+    "revision": null,
+    "candidates": "results/multi_v6/Unbabel_TowerInstruct-7B-v0.2_found.json",
+    "no_table2": true,
+    "out": "results/conc_v6/Unbabel_TowerInstruct-7B-v0.2_ablation.json",
+    "dtype": "auto",
+    "eval_corpus": "wikitext2",
+    "ppl_segments": 32,
+    "seq_len": 2048,
+    "joint": false,
+    "null_n": 0,
+    "null_pool": 100,
+    "sa_remove": true,
+    "sa_frac": 0.5,
+    "sa_null_n": 5,
+    "concentration": true,
+    "conc_ks": "1,2,4,8,16,32,64,128,256",
+    "conc_top_sa": 2,
+    "seed": 0,
+    "bootstrap_B": 2000
+  },
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "slurm_job_id": "13568459",
+  "slurm_array_task_id": "1",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "started": "2026-09-02T22:49:27"
+}

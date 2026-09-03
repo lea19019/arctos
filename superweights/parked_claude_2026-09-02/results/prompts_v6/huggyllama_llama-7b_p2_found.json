@@ -1,0 +1,85 @@
+{
+  "model": "huggyllama/llama-7b",
+  "revision_requested": null,
+  "revision_resolved": "4782ad278652c7c71b72204d462d6d01eaaf7549",
+  "prompt": "def fibonacci(n):\n    if n < 2:",
+  "date": "2026-09-02T22:44:13",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "huggyllama/llama-7b",
+    "revision": null,
+    "prompt": "def fibonacci(n):\n    if n < 2:",
+    "out": "results/prompts_v6/huggyllama_llama-7b_p2_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 2,
+      "j": 3968,
+      "k": 7003,
+      "value": -1.9267578125,
+      "round": 0,
+      "share": 0.8225040014518279,
+      "peak": 1364.0,
+      "persist_frac": 0.9655172413793104
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 3968,
+          "peak": 1364.0,
+          "bar": 682.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 28,
+          "window": 29,
+          "persist_frac": 0.9655172413793104,
+          "median_residual": 0.33984375,
+          "candidates": [
+            {
+              "j": 3968,
+              "k": 7003,
+              "rank_in_channel": 0,
+              "weight": -1.9267578125,
+              "x": -560.5,
+              "contribution": 1079.94775390625,
+              "y_channel": 1313.0,
+              "share": 0.8225040014518279,
+              "explained_by_prefix": 0.8225040014518279,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": []
+    }
+  ]
+}

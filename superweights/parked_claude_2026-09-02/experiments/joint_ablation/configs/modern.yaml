@@ -1,0 +1,15 @@
+# Joint ablation on the three modern models (no answer key). Candidates = v5 detector
+# finds (results/modern).
+models_attr: MODERN
+cand_dir: results/modern
+out_dir: results/modern_v6
+eval_corpus: wikitext2
+ppl_segments: 32
+seq_len: 2048
+joint: true
+null_n: 50
+null_pool: 100
+sa_remove: true
+sa_null_n: 10
+seed: 0
+bootstrap_B: 2000

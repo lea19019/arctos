@@ -1,0 +1,207 @@
+{
+  "model": "Qwen/Qwen3-1.7B",
+  "revision_requested": null,
+  "revision_resolved": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T22:42:07",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "Qwen/Qwen3-1.7B",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/small_v6/Qwen_Qwen3-1.7B_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 2,
+      "j": 1793,
+      "k": 1821,
+      "value": -0.8203125,
+      "round": 0,
+      "share": 0.998114224137931,
+      "peak": 13248.0,
+      "persist_frac": 1.0
+    },
+    {
+      "layer": 2,
+      "j": 1999,
+      "k": 1821,
+      "value": -0.515625,
+      "round": 0,
+      "share": 0.9988970588235294,
+      "peak": 8256.0,
+      "persist_frac": 1.0
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 1793,
+          "peak": 13248.0,
+          "bar": 6624.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 25,
+          "window": 25,
+          "persist_frac": 1.0,
+          "median_residual": 1.796875,
+          "candidates": [
+            {
+              "j": 1793,
+              "k": 1821,
+              "rank_in_channel": 0,
+              "weight": -0.8203125,
+              "x": -15808.0,
+              "contribution": 12967.5,
+              "y_channel": 12992.0,
+              "share": 0.998114224137931,
+              "explained_by_prefix": 0.998114224137931,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1999,
+          "peak": 8256.0,
+          "bar": 4128.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 25,
+          "window": 25,
+          "persist_frac": 1.0,
+          "median_residual": 1.796875,
+          "candidates": [
+            {
+              "j": 1999,
+              "k": 1821,
+              "rank_in_channel": 0,
+              "weight": -0.515625,
+              "x": -15808.0,
+              "contribution": 8151.0,
+              "y_channel": 8160.0,
+              "share": 0.9988970588235294,
+              "explained_by_prefix": 0.9988970588235294,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 3,
+          "channel": 1999,
+          "peak": 1720.0,
+          "bar": 860.0,
+          "onset": 24,
+          "layer": 23,
+          "persist": 4,
+          "window": 4,
+          "persist_frac": 1.0,
+          "median_residual": 1.796875,
+          "candidates": [],
+          "rejected": "prefix explains 0.38 of Y[t,j]"
+        },
+        {
+          "token": 3,
+          "channel": 1793,
+          "peak": 1680.0,
+          "bar": 840.0,
+          "onset": 25,
+          "layer": 24,
+          "persist": 3,
+          "window": 3,
+          "persist_frac": 1.0,
+          "median_residual": 1.796875,
+          "candidates": [],
+          "rejected": "prefix explains 0.51 of Y[t,j]"
+        },
+        {
+          "token": 2,
+          "channel": 1999,
+          "peak": 1584.0,
+          "bar": 792.0,
+          "onset": 24,
+          "layer": 23,
+          "persist": 4,
+          "window": 4,
+          "persist_frac": 1.0,
+          "median_residual": 1.796875,
+          "candidates": [],
+          "rejected": "prefix explains 0.29 of Y[t,j]"
+        },
+        {
+          "token": 2,
+          "channel": 1793,
+          "peak": 1488.0,
+          "bar": 744.0,
+          "onset": 25,
+          "layer": 24,
+          "persist": 3,
+          "window": 3,
+          "persist_frac": 1.0,
+          "median_residual": 1.796875,
+          "candidates": [],
+          "rejected": "prefix explains 0.47 of Y[t,j]"
+        },
+        {
+          "token": 3,
+          "channel": 1683,
+          "peak": 1408.0,
+          "bar": 704.0,
+          "onset": 25,
+          "layer": 24,
+          "persist": 3,
+          "window": 3,
+          "persist_frac": 1.0,
+          "median_residual": 1.796875,
+          "candidates": [],
+          "rejected": "prefix explains 0.59 of Y[t,j]"
+        },
+        {
+          "token": 1,
+          "channel": 1999,
+          "peak": 1376.0,
+          "bar": 688.0,
+          "onset": 24,
+          "layer": 23,
+          "persist": 4,
+          "window": 4,
+          "persist_frac": 1.0,
+          "median_residual": 1.796875,
+          "candidates": [],
+          "rejected": "prefix explains 0.24 of Y[t,j]"
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": []
+    }
+  ]
+}

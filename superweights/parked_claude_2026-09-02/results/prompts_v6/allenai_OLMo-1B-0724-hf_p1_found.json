@@ -1,0 +1,128 @@
+{
+  "model": "allenai/OLMo-1B-0724-hf",
+  "revision_requested": null,
+  "revision_resolved": "d7cbab742d80589e714b1a2d7f838dcd21cbe143",
+  "prompt": "In 1969, astronauts landed on the Moon for the first time",
+  "date": "2026-09-02T22:46:38",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float32",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "allenai/OLMo-1B-0724-hf",
+    "revision": null,
+    "prompt": "In 1969, astronauts landed on the Moon for the first time",
+    "out": "results/prompts_v6/allenai_OLMo-1B-0724-hf_p1_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 1,
+      "j": 1764,
+      "k": 1710,
+      "value": 0.6322910189628601,
+      "round": 0,
+      "share": 0.9787992453133518,
+      "peak": 429.8655700683594,
+      "persist_frac": 1.0
+    },
+    {
+      "layer": 2,
+      "j": 1764,
+      "k": 8041,
+      "value": -0.5923751592636108,
+      "round": 1,
+      "share": 0.9014856597289886,
+      "peak": 263.1055908203125,
+      "persist_frac": 1.0
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 1764,
+          "peak": 429.8655700683594,
+          "bar": 214.9327850341797,
+          "onset": 2,
+          "layer": 1,
+          "persist": 14,
+          "window": 14,
+          "persist_frac": 1.0,
+          "median_residual": 0.04583751782774925,
+          "candidates": [
+            {
+              "j": 1764,
+              "k": 1710,
+              "rank_in_channel": 0,
+              "weight": 0.6322910189628601,
+              "x": -416.10101318359375,
+              "contribution": -263.096923828125,
+              "y_channel": -268.79559326171875,
+              "share": 0.9787992453133518,
+              "explained_by_prefix": 0.9787992453133518,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 1764,
+          "peak": 263.1055908203125,
+          "bar": 131.55279541015625,
+          "onset": 3,
+          "layer": 2,
+          "persist": 13,
+          "window": 13,
+          "persist_frac": 1.0,
+          "median_residual": 0.05145248398184776,
+          "candidates": [
+            {
+              "j": 1764,
+              "k": 8041,
+              "rank_in_channel": 0,
+              "weight": -0.5923751592636108,
+              "x": 351.4013671875,
+              "contribution": -208.16143798828125,
+              "y_channel": -230.90931701660156,
+              "share": 0.9014856597289886,
+              "explained_by_prefix": 0.9014856597289886,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "super_activations": []
+    }
+  ]
+}

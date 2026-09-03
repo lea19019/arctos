@@ -1,0 +1,21 @@
+{
+  "model": "facebook/nllb-200-3.3B",
+  "args": {
+    "model": "facebook/nllb-200-3.3B",
+    "revision": null,
+    "src_lang": "eng_Latn",
+    "tgt_langs": "fra_Latn,deu_Latn,spa_Latn,ces_Latn,cmn_Hans,arz_Arab",
+    "n_sent": 200,
+    "batch": 16,
+    "prompt": "Language modeling is ",
+    "null_n": 50,
+    "null_pool": 100,
+    "sa_null_n": 10,
+    "sa_frac": 0.5,
+    "seed": 0,
+    "out": "results/encdec_v6/facebook_nllb-200-3.3B_encdec.json"
+  },
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "slurm_job_id": "13568408",
+  "started": "2026-09-02T22:42:47"
+}

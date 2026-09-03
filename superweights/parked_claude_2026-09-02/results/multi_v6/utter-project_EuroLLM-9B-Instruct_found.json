@@ -1,0 +1,193 @@
+{
+  "model": "utter-project/EuroLLM-9B-Instruct",
+  "revision_requested": null,
+  "revision_resolved": "f7ae2bc3bcbb538c0b93fa6cfbf388d9898b1ace",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T22:42:32",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "utter-project/EuroLLM-9B-Instruct",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/multi_v6/utter-project_EuroLLM-9B-Instruct_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 9,
+      "j": 1448,
+      "k": 3575,
+      "value": -3.140625,
+      "round": 0,
+      "share": 0.9992897727272727,
+      "peak": 7040.0,
+      "persist_frac": 0.96875
+    },
+    {
+      "layer": 9,
+      "j": 750,
+      "k": 3575,
+      "value": 0.30078125,
+      "round": 0,
+      "share": 0.7834302325581395,
+      "peak": 1024.0,
+      "persist_frac": 1.0
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 1448,
+          "peak": 7040.0,
+          "bar": 3520.0,
+          "onset": 10,
+          "layer": 9,
+          "persist": 31,
+          "window": 32,
+          "persist_frac": 0.96875,
+          "median_residual": 0.65234375,
+          "candidates": [
+            {
+              "j": 1448,
+              "k": 3575,
+              "rank_in_channel": 0,
+              "weight": -3.140625,
+              "x": -2240.0,
+              "contribution": 7035.0,
+              "y_channel": 7040.0,
+              "share": 0.9992897727272727,
+              "explained_by_prefix": 0.9992897727272727,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 4,
+          "channel": 794,
+          "peak": 1256.0,
+          "bar": 628.0,
+          "onset": 37,
+          "layer": 36,
+          "persist": 5,
+          "window": 5,
+          "persist_frac": 1.0,
+          "median_residual": 0.65234375,
+          "candidates": [],
+          "rejected": "prefix explains 0.76 of Y[t,j]"
+        },
+        {
+          "token": 5,
+          "channel": 794,
+          "peak": 1184.0,
+          "bar": 592.0,
+          "onset": 37,
+          "layer": 36,
+          "persist": 5,
+          "window": 5,
+          "persist_frac": 1.0,
+          "median_residual": 0.65234375,
+          "candidates": [],
+          "rejected": "prefix explains 0.16 of Y[t,j]"
+        },
+        {
+          "token": 3,
+          "channel": 794,
+          "peak": 1168.0,
+          "bar": 584.0,
+          "onset": 37,
+          "layer": 36,
+          "persist": 5,
+          "window": 5,
+          "persist_frac": 1.0,
+          "median_residual": 0.65234375,
+          "candidates": [],
+          "rejected": "prefix explains 0.54 of Y[t,j]"
+        },
+        {
+          "token": 0,
+          "channel": 750,
+          "peak": 1024.0,
+          "bar": 512.0,
+          "onset": 10,
+          "layer": 9,
+          "persist": 32,
+          "window": 32,
+          "persist_frac": 1.0,
+          "median_residual": 0.65234375,
+          "candidates": [
+            {
+              "j": 750,
+              "k": 3575,
+              "rank_in_channel": 0,
+              "weight": 0.30078125,
+              "x": -2240.0,
+              "contribution": -673.75,
+              "y_channel": -860.0,
+              "share": 0.7834302325581395,
+              "explained_by_prefix": 0.7834302325581395,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 1,
+          "channel": 794,
+          "peak": 976.0,
+          "bar": 488.0,
+          "onset": 37,
+          "layer": 36,
+          "persist": 5,
+          "window": 5,
+          "persist_frac": 1.0,
+          "median_residual": 0.65234375,
+          "candidates": [],
+          "rejected": "prefix explains 0.62 of Y[t,j]"
+        },
+        {
+          "token": 2,
+          "channel": 794,
+          "peak": 836.0,
+          "bar": 418.0,
+          "onset": 37,
+          "layer": 36,
+          "persist": 5,
+          "window": 5,
+          "persist_frac": 1.0,
+          "median_residual": 0.65234375,
+          "candidates": [],
+          "rejected": "prefix explains 0.35 of Y[t,j]"
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": []
+    }
+  ]
+}

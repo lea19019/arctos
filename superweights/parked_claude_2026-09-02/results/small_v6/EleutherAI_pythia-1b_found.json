@@ -1,0 +1,112 @@
+{
+  "model": "EleutherAI/pythia-1b",
+  "revision_requested": null,
+  "revision_resolved": "f73d7dcc545c8bd326d8559c8ef84ffe92fea6b2",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T22:42:03",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "detector_version": 5,
+  "stop_reason": "no new candidate passed",
+  "params": {
+    "model": "EleutherAI/pythia-1b",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/small_v6/EleutherAI_pythia-1b_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 371,
+          "peak": 1375.0,
+          "bar": 687.5,
+          "onset": 4,
+          "layer": 3,
+          "persist": 12,
+          "window": 12,
+          "persist_frac": 1.0,
+          "median_residual": 0.5615234375,
+          "candidates": [],
+          "rejected": "prefix explains 0.13 of Y[t,j]"
+        },
+        {
+          "token": 0,
+          "channel": 95,
+          "peak": 1082.0,
+          "bar": 541.0,
+          "onset": 4,
+          "layer": 3,
+          "persist": 12,
+          "window": 12,
+          "persist_frac": 1.0,
+          "median_residual": 0.5615234375,
+          "candidates": [],
+          "rejected": "prefix explains 0.14 of Y[t,j]"
+        },
+        {
+          "token": 0,
+          "channel": 386,
+          "peak": 662.5,
+          "bar": 331.25,
+          "onset": 4,
+          "layer": 3,
+          "persist": 12,
+          "window": 12,
+          "persist_frac": 1.0,
+          "median_residual": 0.5615234375,
+          "candidates": [],
+          "rejected": "prefix explains 0.15 of Y[t,j]"
+        },
+        {
+          "token": 0,
+          "channel": 1950,
+          "peak": 624.0,
+          "bar": 312.0,
+          "onset": 4,
+          "layer": 3,
+          "persist": 12,
+          "window": 12,
+          "persist_frac": 1.0,
+          "median_residual": 0.5615234375,
+          "candidates": [],
+          "rejected": "prefix explains 0.16 of Y[t,j]"
+        },
+        {
+          "token": 0,
+          "channel": 1467,
+          "peak": 173.125,
+          "bar": 86.5625,
+          "onset": 4,
+          "layer": 3,
+          "persist": 12,
+          "window": 12,
+          "persist_frac": 1.0,
+          "median_residual": 0.5615234375,
+          "candidates": [],
+          "rejected": "prefix explains 0.17 of Y[t,j]"
+        }
+      ]
+    }
+  ]
+}

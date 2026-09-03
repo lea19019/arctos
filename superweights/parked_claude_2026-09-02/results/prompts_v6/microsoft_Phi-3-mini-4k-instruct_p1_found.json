@@ -1,0 +1,307 @@
+{
+  "model": "microsoft/Phi-3-mini-4k-instruct",
+  "revision_requested": null,
+  "revision_resolved": "f39ac1d28e925b323eae81227eaba4464caced4e",
+  "prompt": "In 1969, astronauts landed on the Moon for the first time",
+  "date": "2026-09-02T22:47:06",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "microsoft/Phi-3-mini-4k-instruct",
+    "revision": null,
+    "prompt": "In 1969, astronauts landed on the Moon for the first time",
+    "out": "results/prompts_v6/microsoft_Phi-3-mini-4k-instruct_p1_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 4,
+      "j": 525,
+      "k": 2723,
+      "value": -2.578125,
+      "round": 0,
+      "share": 0.9783653846153846,
+      "peak": 3872.0,
+      "persist_frac": 0.9259259259259259
+    },
+    {
+      "layer": 2,
+      "j": 1693,
+      "k": 808,
+      "value": 1.71875,
+      "round": 0,
+      "share": 0.6409703038674033,
+      "peak": 2656.0,
+      "persist_frac": 0.9310344827586207
+    },
+    {
+      "layer": 2,
+      "j": 1693,
+      "k": 340,
+      "value": 3.125,
+      "round": 0,
+      "share": 0.3517783149171271,
+      "peak": 2656.0,
+      "persist_frac": 0.9310344827586207
+    },
+    {
+      "layer": 2,
+      "j": 1113,
+      "k": 808,
+      "value": -1.734375,
+      "round": 0,
+      "share": 0.7362912735849056,
+      "peak": 2496.0,
+      "persist_frac": 0.9310344827586207
+    },
+    {
+      "layer": 2,
+      "j": 1051,
+      "k": 808,
+      "value": -0.80078125,
+      "round": 0,
+      "share": 1.1687077702702702,
+      "peak": 488.0,
+      "persist_frac": 0.9310344827586207
+    },
+    {
+      "layer": 2,
+      "j": 525,
+      "k": 808,
+      "value": -2.921875,
+      "round": 1,
+      "share": 0.8726839048672567,
+      "peak": 2400.0,
+      "persist_frac": 0.9310344827586207
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 525,
+          "peak": 3872.0,
+          "bar": 1936.0,
+          "onset": 5,
+          "layer": 4,
+          "persist": 25,
+          "window": 27,
+          "persist_frac": 0.9259259259259259,
+          "median_residual": 0.578125,
+          "candidates": [
+            {
+              "j": 525,
+              "k": 2723,
+              "rank_in_channel": 0,
+              "weight": -2.578125,
+              "x": 592.0,
+              "contribution": -1526.25,
+              "y_channel": -1560.0,
+              "share": 0.9783653846153846,
+              "explained_by_prefix": 0.9783653846153846,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1693,
+          "peak": 2656.0,
+          "bar": 1328.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.578125,
+          "candidates": [
+            {
+              "j": 1693,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": 1.71875,
+              "x": 540.0,
+              "contribution": 928.125,
+              "y_channel": 1448.0,
+              "share": 0.6409703038674033,
+              "explained_by_prefix": 0.6409703038674033,
+              "w_outlier": true,
+              "x_outlier": true
+            },
+            {
+              "j": 1693,
+              "k": 340,
+              "rank_in_channel": 1,
+              "weight": 3.125,
+              "x": 163.0,
+              "contribution": 509.375,
+              "y_channel": 1448.0,
+              "share": 0.3517783149171271,
+              "explained_by_prefix": 0.9927486187845304,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1113,
+          "peak": 2496.0,
+          "bar": 1248.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.578125,
+          "candidates": [
+            {
+              "j": 1113,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": -1.734375,
+              "x": 540.0,
+              "contribution": -936.5625,
+              "y_channel": -1272.0,
+              "share": 0.7362912735849056,
+              "explained_by_prefix": 0.7362912735849056,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1051,
+          "peak": 488.0,
+          "bar": 244.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.578125,
+          "candidates": [
+            {
+              "j": 1051,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": -0.80078125,
+              "x": 540.0,
+              "contribution": -432.421875,
+              "y_channel": -370.0,
+              "share": 1.1687077702702702,
+              "explained_by_prefix": 1.1687077702702702,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 6,
+          "channel": 2812,
+          "peak": 448.0,
+          "bar": 224.0,
+          "onset": 26,
+          "layer": 25,
+          "persist": 6,
+          "window": 6,
+          "persist_frac": 1.0,
+          "median_residual": 0.578125,
+          "candidates": [],
+          "rejected": "prefix explains 0.64 of Y[t,j]"
+        },
+        {
+          "token": 14,
+          "channel": 2812,
+          "peak": 396.0,
+          "bar": 198.0,
+          "onset": 26,
+          "layer": 25,
+          "persist": 6,
+          "window": 6,
+          "persist_frac": 1.0,
+          "median_residual": 0.578125,
+          "candidates": [],
+          "rejected": "prefix explains 0.45 of Y[t,j]"
+        },
+        {
+          "token": 6,
+          "channel": 2024,
+          "peak": 388.0,
+          "bar": 194.0,
+          "onset": 26,
+          "layer": 25,
+          "persist": 6,
+          "window": 6,
+          "persist_frac": 1.0,
+          "median_residual": 0.578125,
+          "candidates": [],
+          "rejected": "prefix explains 0.71 of Y[t,j]"
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 525,
+          "peak": 2400.0,
+          "bar": 1200.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.59375,
+          "candidates": [
+            {
+              "j": 525,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": -2.921875,
+              "x": 540.0,
+              "contribution": -1577.8125,
+              "y_channel": -1808.0,
+              "share": 0.8726839048672567,
+              "explained_by_prefix": 0.8726839048672567,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "super_activations": []
+    }
+  ]
+}

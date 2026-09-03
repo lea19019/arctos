@@ -1,0 +1,156 @@
+{
+  "model": "google/gemma-3-12b-it",
+  "revision_requested": null,
+  "revision_resolved": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T22:43:48",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "7e7471cae1fc260c5dedaffd22f00a1e0471a119-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "detector_version": 5,
+  "stop_reason": "no new candidate passed",
+  "params": {
+    "model": "google/gemma-3-12b-it",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/multi_v6/google_gemma-3-12b-it_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 16,
+      "j": 2339,
+      "k": 863,
+      "value": 0.2353515625,
+      "round": 0,
+      "share": 0.8195772058823529,
+      "peak": 815104.0,
+      "persist_frac": 1.0
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 2339,
+          "peak": 815104.0,
+          "bar": 407552.0,
+          "onset": 17,
+          "layer": 16,
+          "persist": 31,
+          "window": 31,
+          "persist_frac": 1.0,
+          "median_residual": 17.5,
+          "candidates": [
+            {
+              "j": 2339,
+              "k": 863,
+              "rank_in_channel": 0,
+              "weight": 0.2353515625,
+              "x": 0.43359375,
+              "contribution": 0.10204696655273438,
+              "y_channel": 0.12451171875,
+              "share": 0.8195772058823529,
+              "explained_by_prefix": 0.8195772058823529,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 3,
+          "channel": 2339,
+          "peak": 168960.0,
+          "bar": 84480.0,
+          "onset": 27,
+          "layer": 26,
+          "persist": 20,
+          "window": 21,
+          "persist_frac": 0.9523809523809523,
+          "median_residual": 17.5,
+          "candidates": [],
+          "rejected": "prefix explains 0.21 of Y[t,j]"
+        },
+        {
+          "token": 2,
+          "channel": 2339,
+          "peak": 157696.0,
+          "bar": 78848.0,
+          "onset": 38,
+          "layer": 37,
+          "persist": 10,
+          "window": 10,
+          "persist_frac": 1.0,
+          "median_residual": 17.5,
+          "candidates": [],
+          "rejected": "prefix explains 5.14 of Y[t,j]"
+        },
+        {
+          "token": 4,
+          "channel": 2339,
+          "peak": 154624.0,
+          "bar": 77312.0,
+          "onset": 41,
+          "layer": 40,
+          "persist": 6,
+          "window": 7,
+          "persist_frac": 0.8571428571428571,
+          "median_residual": 17.5,
+          "candidates": [],
+          "rejected": "prefix explains 0.65 of Y[t,j]"
+        },
+        {
+          "token": 1,
+          "channel": 2339,
+          "peak": 123904.0,
+          "bar": 61952.0,
+          "onset": 46,
+          "layer": 45,
+          "persist": 2,
+          "window": 2,
+          "persist_frac": 1.0,
+          "median_residual": 17.5,
+          "candidates": [],
+          "rejected": "prefix explains 0.59 of Y[t,j]"
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 2339,
+          "peak": 806912.0,
+          "bar": 403456.0,
+          "onset": 18,
+          "layer": 17,
+          "persist": 30,
+          "window": 30,
+          "persist_frac": 1.0,
+          "median_residual": 17.5,
+          "candidates": [],
+          "rejected": "prefix explains 0.50 of Y[t,j]"
+        }
+      ]
+    }
+  ]
+}
