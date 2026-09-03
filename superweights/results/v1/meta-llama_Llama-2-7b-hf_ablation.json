@@ -1,0 +1,58 @@
+{
+  "model": "meta-llama/Llama-2-7b-hf",
+  "revision_requested": null,
+  "revision_resolved": "01c7f73d771dfac7d292323805ebc428287df4f9",
+  "date": "2026-09-02T18:17:42",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "08f37fdd7f551474ae971f166d32665d02aec3f9-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/meta-llama_Llama-2-7b-hf_found.json",
+  "baseline": {
+    "ppl": 5.406224608421326,
+    "ppl_each": [
+      9.687333106994629,
+      3.2379355430603027,
+      3.654310703277588,
+      5.045319080352783
+    ],
+    "continuation": "a city of contrasts. The city is home to the Eiffel"
+  },
+  "results": [
+    {
+      "name": "table2-1 (L1)",
+      "layer": 1,
+      "j": 2533,
+      "k": 7890,
+      "weight": 1.5625,
+      "ppl": 7.616980195045471,
+      "ppl_each": [
+        15.589744567871094,
+        4.211352825164795,
+        4.62861442565918,
+        6.038208961486816
+      ],
+      "kl": 0.24270725871125856,
+      "kl_each": [
+        0.048822659999132156,
+        0.312298059463501,
+        0.3670010566711426
+      ],
+      "continuation": "a city of many faces.\u042a200.\nThe capital of",
+      "verdict": "damaged"
+    }
+  ]
+}

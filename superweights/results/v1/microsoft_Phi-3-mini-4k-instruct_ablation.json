@@ -1,0 +1,168 @@
+{
+  "model": "microsoft/Phi-3-mini-4k-instruct",
+  "revision_requested": null,
+  "revision_resolved": "f39ac1d28e925b323eae81227eaba4464caced4e",
+  "date": "2026-09-02T18:19:46",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "08f37fdd7f551474ae971f166d32665d02aec3f9-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/microsoft_Phi-3-mini-4k-instruct_found.json",
+  "baseline": {
+    "ppl": 4.253921449184418,
+    "ppl_each": [
+      6.6687397956848145,
+      2.9200799465179443,
+      2.919731616973877,
+      4.507134437561035
+    ],
+    "continuation": "Paris.\n\n\n### Response:The capital of France is Paris"
+  },
+  "results": [
+    {
+      "name": "found-1 (L2)",
+      "layer": 2,
+      "j": 525,
+      "k": 808,
+      "weight": -2.921875,
+      "ppl": 5.621814787387848,
+      "ppl_each": [
+        8.232083320617676,
+        4.13030481338501,
+        3.9140594005584717,
+        6.210811614990234
+      ],
+      "kl": 0.03099453014632066,
+      "kl_each": [
+        0.021924912929534912,
+        0.059245314449071884,
+        0.011813363060355186
+      ],
+      "continuation": "Paris.",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-2 (L4)",
+      "layer": 4,
+      "j": 525,
+      "k": 2723,
+      "weight": -2.578125,
+      "ppl": 5.6045496463775635,
+      "ppl_each": [
+        8.376270294189453,
+        4.0700178146362305,
+        3.7963995933532715,
+        6.175510883331299
+      ],
+      "kl": 0.01371653207267324,
+      "kl_each": [
+        0.014163585379719734,
+        0.021956292912364006,
+        0.005029717925935984
+      ],
+      "continuation": "Paris.\n\n\n\nThe capital of France is Paris.",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-3 (L4)",
+      "layer": 4,
+      "j": 1113,
+      "k": 2723,
+      "weight": -1.671875,
+      "ppl": 4.58907687664032,
+      "ppl_each": [
+        7.132612228393555,
+        3.05470609664917,
+        3.2133164405822754,
+        4.955672740936279
+      ],
+      "kl": 0.0022206256786982217,
+      "kl_each": [
+        0.0024226438254117966,
+        0.0031845616176724434,
+        0.0010546715930104256
+      ],
+      "continuation": "Paris.\n\n\n### Response:The capital of France is Paris",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-4 (L4)",
+      "layer": 4,
+      "j": 1693,
+      "k": 2723,
+      "weight": 1.609375,
+      "ppl": 5.237839460372925,
+      "ppl_each": [
+        7.888026714324951,
+        3.519727945327759,
+        3.8119003772735596,
+        5.73170280456543
+      ],
+      "kl": 0.00796948466449976,
+      "kl_each": [
+        0.00354085024446249,
+        0.015933958813548088,
+        0.004433644935488701
+      ],
+      "continuation": "Paris.\n\n\nThe Eiffel Tower is a wrought-",
+      "verdict": "no effect"
+    },
+    {
+      "name": "table2-2 (L2)",
+      "layer": 2,
+      "j": 1693,
+      "k": 808,
+      "weight": 1.71875,
+      "ppl": 5.192164778709412,
+      "ppl_each": [
+        8.134048461914062,
+        3.485797643661499,
+        3.6128714084625244,
+        5.5359416007995605
+      ],
+      "kl": 0.012097090482711792,
+      "kl_each": [
+        0.010562037117779255,
+        0.012453015893697739,
+        0.013276218436658382
+      ],
+      "continuation": "Paris.\n\n\n### Response:The capital of France is Paris",
+      "verdict": "no effect"
+    },
+    {
+      "name": "table2-3 (L2)",
+      "layer": 2,
+      "j": 1113,
+      "k": 808,
+      "weight": -1.734375,
+      "ppl": 4.594228744506836,
+      "ppl_each": [
+        7.0624518394470215,
+        3.0417733192443848,
+        3.2059335708618164,
+        5.066756248474121
+      ],
+      "kl": 0.001504795237754782,
+      "kl_each": [
+        0.002097703516483307,
+        0.0015093525871634483,
+        0.0009073296096175909
+      ],
+      "continuation": "Paris.\n\n- [Query]:What is the capital of Germany?",
+      "verdict": "no effect"
+    }
+  ]
+}

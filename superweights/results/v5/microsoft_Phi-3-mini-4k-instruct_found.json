@@ -1,0 +1,270 @@
+{
+  "model": "microsoft/Phi-3-mini-4k-instruct",
+  "revision_requested": null,
+  "revision_resolved": "f39ac1d28e925b323eae81227eaba4464caced4e",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T21:13:27",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "354ba2234dcf0e5f6ce2efc4e430f19a9198923b-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "microsoft/Phi-3-mini-4k-instruct",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/v5/microsoft_Phi-3-mini-4k-instruct_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 4,
+      "j": 525,
+      "k": 2723,
+      "value": -2.578125,
+      "round": 0,
+      "share": 0.9781328517587939,
+      "peak": 3776.0,
+      "persist_frac": 0.9259259259259259
+    },
+    {
+      "layer": 2,
+      "j": 1693,
+      "k": 808,
+      "value": 1.71875,
+      "round": 0,
+      "share": 0.6509636976047904,
+      "peak": 2592.0,
+      "persist_frac": 0.9310344827586207
+    },
+    {
+      "layer": 4,
+      "j": 1113,
+      "k": 2723,
+      "value": -1.671875,
+      "round": 0,
+      "share": 0.978500484496124,
+      "peak": 2416.0,
+      "persist_frac": 0.9259259259259259
+    },
+    {
+      "layer": 2,
+      "j": 1051,
+      "k": 808,
+      "value": -0.80078125,
+      "round": 0,
+      "share": 1.1577008928571428,
+      "peak": 470.0,
+      "persist_frac": 0.9310344827586207
+    },
+    {
+      "layer": 2,
+      "j": 525,
+      "k": 808,
+      "value": -2.921875,
+      "round": 1,
+      "share": 0.8800409226190476,
+      "peak": 2224.0,
+      "persist_frac": 0.9310344827586207
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 525,
+          "peak": 3776.0,
+          "bar": 1888.0,
+          "onset": 5,
+          "layer": 4,
+          "persist": 25,
+          "window": 27,
+          "persist_frac": 0.9259259259259259,
+          "median_residual": 0.60546875,
+          "candidates": [
+            {
+              "j": 525,
+              "k": 2723,
+              "rank_in_channel": 0,
+              "weight": -2.578125,
+              "x": 604.0,
+              "contribution": -1557.1875,
+              "y_channel": -1592.0,
+              "share": 0.9781328517587939,
+              "explained_by_prefix": 0.9781328517587939,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1693,
+          "peak": 2592.0,
+          "bar": 1296.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.60546875,
+          "candidates": [
+            {
+              "j": 1693,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": 1.71875,
+              "x": 506.0,
+              "contribution": 869.6875,
+              "y_channel": 1336.0,
+              "share": 0.6509636976047904,
+              "explained_by_prefix": 0.6509636976047904,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1113,
+          "peak": 2416.0,
+          "bar": 1208.0,
+          "onset": 5,
+          "layer": 4,
+          "persist": 25,
+          "window": 27,
+          "persist_frac": 0.9259259259259259,
+          "median_residual": 0.60546875,
+          "candidates": [
+            {
+              "j": 1113,
+              "k": 2723,
+              "rank_in_channel": 0,
+              "weight": -1.671875,
+              "x": 604.0,
+              "contribution": -1009.8125,
+              "y_channel": -1032.0,
+              "share": 0.978500484496124,
+              "explained_by_prefix": 0.978500484496124,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 1051,
+          "peak": 470.0,
+          "bar": 235.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.60546875,
+          "candidates": [
+            {
+              "j": 1051,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": -0.80078125,
+              "x": 506.0,
+              "contribution": -405.1953125,
+              "y_channel": -350.0,
+              "share": 1.1577008928571428,
+              "explained_by_prefix": 1.1577008928571428,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 2,
+          "channel": 2812,
+          "peak": 384.0,
+          "bar": 192.0,
+          "onset": 25,
+          "layer": 24,
+          "persist": 7,
+          "window": 7,
+          "persist_frac": 1.0,
+          "median_residual": 0.60546875,
+          "candidates": [],
+          "rejected": "prefix explains 0.42 of Y[t,j]"
+        },
+        {
+          "token": 3,
+          "channel": 2812,
+          "peak": 380.0,
+          "bar": 190.0,
+          "onset": 26,
+          "layer": 25,
+          "persist": 6,
+          "window": 6,
+          "persist_frac": 1.0,
+          "median_residual": 0.60546875,
+          "candidates": [],
+          "rejected": "prefix explains 0.53 of Y[t,j]"
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 525,
+          "peak": 2224.0,
+          "bar": 1112.0,
+          "onset": 3,
+          "layer": 2,
+          "persist": 27,
+          "window": 29,
+          "persist_frac": 0.9310344827586207,
+          "median_residual": 0.58984375,
+          "candidates": [
+            {
+              "j": 525,
+              "k": 808,
+              "rank_in_channel": 0,
+              "weight": -2.921875,
+              "x": 506.0,
+              "contribution": -1478.46875,
+              "y_channel": -1680.0,
+              "share": 0.8800409226190476,
+              "explained_by_prefix": 0.8800409226190476,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "super_activations": []
+    }
+  ]
+}

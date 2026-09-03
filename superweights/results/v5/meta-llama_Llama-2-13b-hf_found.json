@@ -1,0 +1,123 @@
+{
+  "model": "meta-llama/Llama-2-13b-hf",
+  "revision_requested": null,
+  "revision_resolved": "5c31dfb671ce7cfe2d7bb7c04375e44c55e815b1",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T21:12:09",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "354ba2234dcf0e5f6ce2efc4e430f19a9198923b-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "meta-llama/Llama-2-13b-hf",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/v5/meta-llama_Llama-2-13b-hf_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 3,
+      "j": 4743,
+      "k": 7678,
+      "value": -1.578125,
+      "round": 0,
+      "share": 0.8770257018992568,
+      "peak": 1275.0,
+      "persist_frac": 1.0
+    },
+    {
+      "layer": 3,
+      "j": 2100,
+      "k": 7678,
+      "value": -0.91015625,
+      "round": 0,
+      "share": 0.8651626500706214,
+      "peak": 790.0,
+      "persist_frac": 1.0
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 4743,
+          "peak": 1275.0,
+          "bar": 637.5,
+          "onset": 4,
+          "layer": 3,
+          "persist": 36,
+          "window": 36,
+          "persist_frac": 1.0,
+          "median_residual": 0.288330078125,
+          "candidates": [
+            {
+              "j": 4743,
+              "k": 7678,
+              "rank_in_channel": 0,
+              "weight": -1.578125,
+              "x": 673.0,
+              "contribution": -1062.078125,
+              "y_channel": -1211.0,
+              "share": 0.8770257018992568,
+              "explained_by_prefix": 0.8770257018992568,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 0,
+          "channel": 2100,
+          "peak": 790.0,
+          "bar": 395.0,
+          "onset": 4,
+          "layer": 3,
+          "persist": 36,
+          "window": 36,
+          "persist_frac": 1.0,
+          "median_residual": 0.288330078125,
+          "candidates": [
+            {
+              "j": 2100,
+              "k": 7678,
+              "rank_in_channel": 0,
+              "weight": -0.91015625,
+              "x": 673.0,
+              "contribution": -612.53515625,
+              "y_channel": -708.0,
+              "share": 0.8651626500706214,
+              "explained_by_prefix": 0.8651626500706214,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": []
+    }
+  ]
+}

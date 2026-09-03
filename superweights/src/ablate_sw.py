@@ -18,30 +18,49 @@ Usage:
 import argparse
 import datetime
 import json
+import math
 from pathlib import Path
 
 import torch
 import torch.nn.functional as F
 import transformers
+from provenance import git_sha
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Yu et al. 2024, Table 2 — the paper's super-weight directory.
 # Every entry: (layer, j, k) for layers[layer].mlp.down_proj.weight[j, k].
-# Transcribed from the paper 2026-09-02; Phi-3 omitted (transcription of its
-# six rows uncertain — re-read Table 2 before adding it).
+# Transcribed from the paper 2026-09-02 (all 9 models, re-read from the PDF
+# text layer on 2026-09-02; row/col ranges checked against each config's
+# hidden_size/intermediate_size).
 TABLE2 = {
     "huggyllama/llama-7b":        [(2, 3968, 7003)],
     "huggyllama/llama-13b":       [(2, 2231, 2278), (2, 2231, 6939)],
+    "huggyllama/llama-30b":       [(3, 5633, 12817), (3, 5633, 17439),
+                                   (10, 5633, 14386)],
     "meta-llama/Llama-2-7b-hf":   [(1, 2533, 7890)],
     "meta-llama/Llama-2-13b-hf":  [(3, 4743, 7678)],
     "mistralai/Mistral-7B-v0.1":  [(1, 2070, 7310)],
     "allenai/OLMo-1B-0724-hf":    [(1, 1764, 1710), (1, 1764, 8041)],
     "allenai/OLMo-7B-0724-hf":    [(1, 269, 7467), (2, 269, 8275),
                                    (7, 269, 453), (24, 269, 2300)],
+    # Phi-3 is the paper's outlier: six coordinates, in two layers, sharing
+    # two columns (808 and 2723) across three rows each.
+    "microsoft/Phi-3-mini-4k-instruct": [(2, 525, 808), (2, 1693, 808),
+                                         (2, 1113, 808), (4, 525, 2723),
+                                         (4, 1113, 2723), (4, 1693, 2723)],
 }
 
-# Several fixed texts/prompts: damage is averaged over them so a conclusion
-# does not hang on one paragraph's quirks. Same texts for every condition.
+# Yu et al. Table 1 reports Llama-7B perplexity going 7.08 -> 763.65 (C4) and
+# 5.67 -> 1211.11 (Wiki-2) when the super weight is pruned. Our four
+# hand-written paragraphs gave x6 on the same model and coordinate -- roughly
+# 20-30x under-powered, enough to make a real super weight look like nothing.
+# So the default corpus is now wikitext-2-raw-v1 test, their Wiki-2. The
+# paragraphs remain available via --eval-corpus paragraphs, since every
+# result before 2026-09-02 was measured on them.
+WIKITEXT = ("Salesforce/wikitext", "wikitext-2-raw-v1", "test")
+PPL_SEGMENTS = 32     # non-overlapping windows scored; 32 x 2048 = 65k tokens
+SEQ_LEN = 2048
+
 EVAL_TEXTS = [
     "The quick brown fox jumps over the lazy dog. Language models predict "
     "the next token given the tokens that came before. The city of Paris "
@@ -62,6 +81,12 @@ PROMPTS = [
     "Summer is hot. Winter is",
     "Two plus two equals",
 ]
+
+# Same reasoning as detect_sw.py: default to the checkpoint's own precision,
+# so a perplexity here is comparable to the paper's rather than to a bf16
+# re-rounding of it.
+DTYPES = {"auto": "auto", "bf16": torch.bfloat16,
+          "fp16": torch.float16, "fp32": torch.float32}
 
 
 def get_layers(model):
@@ -85,10 +110,25 @@ def set_weight(model, layer, j, k, value):
         get_layers(model)[layer].mlp.down_proj.weight[j, k] = value
 
 
-def perplexity(model, enc):
+def cross_entropy(model, enc):
+    """Mean token cross-entropy in nats for one window."""
     with torch.no_grad():
         out = model(**enc, labels=enc["input_ids"])
-    return out.loss.exp().item()
+    return out.loss.item()
+
+
+def wikitext_windows(tokenizer, device, n_segments, seq_len):
+    """The standard protocol: concatenate the test split, cut it into
+    non-overlapping windows of seq_len, score each one."""
+    from datasets import load_dataset
+    path, config, split = WIKITEXT
+    ds = load_dataset(path, config, split=split)
+    ids = tokenizer("\n\n".join(ds["text"]), return_tensors="pt").input_ids[0]
+    n = min(n_segments, ids.numel() // seq_len)
+    if n == 0:
+        raise SystemExit(f"corpus too short for seq_len={seq_len}")
+    return [{"input_ids": ids[i * seq_len:(i + 1) * seq_len].unsqueeze(0).to(device)}
+            for i in range(n)]
 
 
 def next_token_logprobs(model, enc):
@@ -112,13 +152,17 @@ def greedy_continuation(model, tokenizer, enc, prompt, n_tokens=15):
 def measure(model, tokenizer, eval_encs, prompt_encs, base_logps=None):
     """Mean perplexity over EVAL_TEXTS, mean KL over PROMPTS, one sample
     continuation (first prompt). base_logps=None means 'this IS baseline'."""
-    ppls = [perplexity(model, e) for e in eval_encs]
+    # exp(mean loss), not mean of exp -- the standard corpus-perplexity
+    # definition, and the one the paper's numbers are on
+    losses = [cross_entropy(model, e) for e in eval_encs]
+    ppl = math.exp(sum(losses) / len(losses))
+    ppls = [math.exp(l) for l in losses]
     logps = [next_token_logprobs(model, p) for p in prompt_encs]
     kls = ([kl_nats(b, a) for b, a in zip(base_logps, logps)]
            if base_logps is not None else [0.0])
     gen = greedy_continuation(model, tokenizer, prompt_encs[0], PROMPTS[0])
     mean = lambda xs: sum(xs) / len(xs)
-    return {"ppl": mean(ppls), "ppl_each": ppls,
+    return {"ppl": ppl, "ppl_each": ppls,
             "kl": mean(kls), "kl_each": kls,
             "logps": logps, "continuation": gen}
 
@@ -142,6 +186,15 @@ def main():
                     help="skip the paper's published coordinates")
     ap.add_argument("--out", default=None,
                     help="output JSON (default: results/<model>_ablation.json)")
+    ap.add_argument("--dtype", default="auto", choices=sorted(DTYPES),
+                    help="'auto' = the checkpoint's own torch_dtype")
+    ap.add_argument("--eval-corpus", default="wikitext2",
+                    choices=["wikitext2", "paragraphs"],
+                    help="wikitext2 = the paper's Wiki-2; paragraphs = the "
+                         "four hand-written texts every pre-2026-09-02 "
+                         "result was measured on")
+    ap.add_argument("--ppl-segments", type=int, default=PPL_SEGMENTS)
+    ap.add_argument("--seq-len", type=int, default=SEQ_LEN)
     args = ap.parse_args()
 
     # ---- assemble the candidate list: detector finds + paper's directory,
@@ -166,13 +219,19 @@ def main():
 
     # ---- load model, encode the fixed texts once ----
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    dtype = torch.bfloat16 if device == "cuda" else torch.float32
+    dtype = torch.float32 if device == "cpu" else DTYPES[args.dtype]
     model = AutoModelForCausalLM.from_pretrained(
         args.model, revision=args.revision, dtype=dtype).to(device)
     tokenizer = AutoTokenizer.from_pretrained(args.model, revision=args.revision)
-    eval_encs = [tokenizer(t, return_tensors="pt",
-                           return_token_type_ids=False).to(device)
-                 for t in EVAL_TEXTS]
+    # never ask for a window longer than the model's context
+    seq_len = min(args.seq_len,
+                  getattr(model.config, "max_position_embeddings", args.seq_len))
+    if args.eval_corpus == "wikitext2":
+        eval_encs = wikitext_windows(tokenizer, device, args.ppl_segments, seq_len)
+    else:
+        eval_encs = [tokenizer(t, return_tensors="pt",
+                               return_token_type_ids=False).to(device)
+                     for t in EVAL_TEXTS]
     prompt_encs = [tokenizer(p, return_tensors="pt",
                              return_token_type_ids=False).to(device)
                    for p in PROMPTS]
@@ -196,8 +255,8 @@ def main():
     # ---- report ----
     print(f"\nmodel: {args.model}  "
           f"revision: {getattr(model.config, '_commit_hash', None)}")
-    print(f"means over {len(EVAL_TEXTS)} eval texts (ppl) "
-          f"and {len(PROMPTS)} prompts (KL)\n")
+    print(f"perplexity over {len(eval_encs)} x {seq_len}-token windows of "
+          f"{args.eval_corpus}; KL over {len(PROMPTS)} prompts\n")
     print(f"{'candidate':<22} {'coordinate':<18} {'weight':>9} "
           f"{'ppl':>9} {'ppl x':>7} {'KL':>7}  verdict")
     print("-" * 88)
@@ -227,8 +286,15 @@ def main():
         "date": datetime.datetime.now().isoformat(timespec="seconds"),
         "torch": torch.__version__,
         "transformers": transformers.__version__,
-        "dtype": str(dtype),
-        "eval_texts": EVAL_TEXTS, "prompts": PROMPTS,
+        "git_sha": git_sha(),
+        "device": device,
+        "dtype_requested": args.dtype,
+        "dtype": str(model.dtype),
+        "eval_corpus": args.eval_corpus,
+        "eval_corpus_spec": (list(WIKITEXT) if args.eval_corpus == "wikitext2"
+                             else EVAL_TEXTS),
+        "ppl_segments": len(eval_encs), "seq_len": seq_len,
+        "prompts": PROMPTS,
         "candidates_file": args.candidates,
         "baseline": {"ppl": base["ppl"], "ppl_each": base["ppl_each"],
                      "continuation": base["continuation"]},

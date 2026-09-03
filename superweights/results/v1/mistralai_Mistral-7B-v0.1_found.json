@@ -1,0 +1,1860 @@
+{
+  "model": "mistralai/Mistral-7B-v0.1",
+  "revision_requested": null,
+  "revision_resolved": "27d67f1b5f57dc0953326b2601d68371d40ea8da",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T18:18:47",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "08f37fdd7f551474ae971f166d32665d02aec3f9-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "max_rounds": 15,
+  "thresholds": {
+    "dominance_band": [
+      0.8,
+      1.2
+    ],
+    "towering_factor": 10
+  },
+  "found": [
+    {
+      "layer": 1,
+      "j": 2070,
+      "k": 7310,
+      "value": -0.2734375
+    },
+    {
+      "layer": 19,
+      "j": 2070,
+      "k": 1816,
+      "value": 0.0654296875
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "median_max_y": 0.80078125,
+      "survivors": [
+        {
+          "layer": 1,
+          "max_x": 948.0,
+          "token_x": 0,
+          "k": 7310,
+          "max_y": 262.0,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.2734375,
+          "x_spike": 948.0,
+          "y_spike": -262.0,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": true
+          },
+          "dominance": 0.9893845419847328
+        },
+        {
+          "layer": 31,
+          "max_x": 892.0,
+          "token_x": 0,
+          "k": 2187,
+          "max_y": 83.0,
+          "token_y": 0,
+          "j": 53,
+          "sw_value": 0.0849609375,
+          "x_spike": -892.0,
+          "y_spike": -83.0,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": true
+          },
+          "dominance": 0.913074171686747
+        }
+      ],
+      "records": [
+        {
+          "layer": 0,
+          "max_x": 14.9375,
+          "token_x": 0,
+          "k": 2354,
+          "max_y": 0.84375,
+          "token_y": 0,
+          "j": 3878,
+          "sw_value": -0.05029296875,
+          "x_spike": 14.9375,
+          "y_spike": -0.84375,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": false
+          },
+          "dominance": 0.8903718171296297
+        },
+        {
+          "layer": 1,
+          "max_x": 948.0,
+          "token_x": 0,
+          "k": 7310,
+          "max_y": 262.0,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.2734375,
+          "x_spike": 948.0,
+          "y_spike": -262.0,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": true
+          },
+          "dominance": 0.9893845419847328
+        },
+        {
+          "layer": 2,
+          "max_x": 1.0078125,
+          "token_x": 1,
+          "k": 7620,
+          "max_y": 0.275390625,
+          "token_y": 1,
+          "j": 2070,
+          "sw_value": 0.0009613037109375,
+          "x_spike": -1.0078125,
+          "y_spike": -0.275390625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.0035179625166223403
+        },
+        {
+          "layer": 3,
+          "max_x": 1.328125,
+          "token_x": 1,
+          "k": 8802,
+          "max_y": 0.11376953125,
+          "token_y": 2,
+          "j": 2070,
+          "sw_value": 0.0289306640625,
+          "x_spike": -1.328125,
+          "y_spike": -0.11376953125,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.33773135729613735
+        },
+        {
+          "layer": 4,
+          "max_x": 1.2890625,
+          "token_x": 4,
+          "k": 9565,
+          "max_y": 0.10498046875,
+          "token_y": 2,
+          "j": 2070,
+          "sw_value": 0.0020751953125,
+          "x_spike": 1.2890625,
+          "y_spike": -0.10498046875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.025481468023255814
+        },
+        {
+          "layer": 5,
+          "max_x": 2.078125,
+          "token_x": 2,
+          "k": 14200,
+          "max_y": 0.0810546875,
+          "token_y": 1,
+          "j": 3701,
+          "sw_value": -0.00055694580078125,
+          "x_spike": 2.078125,
+          "y_spike": -0.0810546875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.014279285109186747
+        },
+        {
+          "layer": 6,
+          "max_x": 5.84375,
+          "token_x": 1,
+          "k": 4540,
+          "max_y": 0.439453125,
+          "token_y": 1,
+          "j": 2070,
+          "sw_value": 0.040771484375,
+          "x_spike": -5.84375,
+          "y_spike": -0.439453125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.5421701388888889
+        },
+        {
+          "layer": 7,
+          "max_x": 1.203125,
+          "token_x": 2,
+          "k": 13194,
+          "max_y": 0.33203125,
+          "token_y": 1,
+          "j": 2070,
+          "sw_value": 0.0027618408203125,
+          "x_spike": -1.203125,
+          "y_spike": -0.33203125,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.010007611443014706
+        },
+        {
+          "layer": 8,
+          "max_x": 2.5,
+          "token_x": 1,
+          "k": 12616,
+          "max_y": 0.6171875,
+          "token_y": 1,
+          "j": 2070,
+          "sw_value": 0.048095703125,
+          "x_spike": -2.5,
+          "y_spike": -0.6171875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.19481803797468356
+        },
+        {
+          "layer": 9,
+          "max_x": 3.234375,
+          "token_x": 1,
+          "k": 775,
+          "max_y": 0.2109375,
+          "token_y": 1,
+          "j": 2070,
+          "sw_value": 0.0079345703125,
+          "x_spike": 3.234375,
+          "y_spike": -0.2109375,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.12166341145833333
+        },
+        {
+          "layer": 10,
+          "max_x": 1.390625,
+          "token_x": 1,
+          "k": 10677,
+          "max_y": 0.5546875,
+          "token_y": 2,
+          "j": 2070,
+          "sw_value": 0.003570556640625,
+          "x_spike": -1.390625,
+          "y_spike": -0.5546875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.008951536366637324
+        },
+        {
+          "layer": 11,
+          "max_x": 1.6875,
+          "token_x": 4,
+          "k": 12322,
+          "max_y": 0.259765625,
+          "token_y": 4,
+          "j": 2070,
+          "sw_value": -0.0007781982421875,
+          "x_spike": 1.6875,
+          "y_spike": -0.259765625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.005055363016917293
+        },
+        {
+          "layer": 12,
+          "max_x": 2.46875,
+          "token_x": 3,
+          "k": 4166,
+          "max_y": 0.2041015625,
+          "token_y": 3,
+          "j": 2070,
+          "sw_value": 0.002349853515625,
+          "x_spike": 2.46875,
+          "y_spike": -0.2041015625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.02842310855263158
+        },
+        {
+          "layer": 13,
+          "max_x": 4.4375,
+          "token_x": 1,
+          "k": 1864,
+          "max_y": 0.61328125,
+          "token_y": 2,
+          "j": 2070,
+          "sw_value": -0.006378173828125,
+          "x_spike": 4.4375,
+          "y_spike": -0.61328125,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.04615035330414013
+        },
+        {
+          "layer": 14,
+          "max_x": 2.921875,
+          "token_x": 4,
+          "k": 3616,
+          "max_y": 0.8984375,
+          "token_y": 2,
+          "j": 2070,
+          "sw_value": 0.019287109375,
+          "x_spike": 2.921875,
+          "y_spike": -0.8984375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.0627250339673913
+        },
+        {
+          "layer": 15,
+          "max_x": 3.1875,
+          "token_x": 1,
+          "k": 16,
+          "max_y": 0.3671875,
+          "token_y": 3,
+          "j": 2070,
+          "sw_value": -0.003570556640625,
+          "x_spike": -3.1875,
+          "y_spike": -0.3671875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.030995470412234043
+        },
+        {
+          "layer": 16,
+          "max_x": 6.0625,
+          "token_x": 4,
+          "k": 8297,
+          "max_y": 0.9375,
+          "token_y": 1,
+          "j": 2070,
+          "sw_value": -0.0027313232421875,
+          "x_spike": -6.0625,
+          "y_spike": -0.9375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.017662556966145833
+        },
+        {
+          "layer": 17,
+          "max_x": 12.75,
+          "token_x": 1,
+          "k": 8343,
+          "max_y": 1.109375,
+          "token_y": 3,
+          "j": 2070,
+          "sw_value": 0.004425048828125,
+          "x_spike": 12.75,
+          "y_spike": -1.109375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.05085689920774648
+        },
+        {
+          "layer": 18,
+          "max_x": 9.9375,
+          "token_x": 2,
+          "k": 1873,
+          "max_y": 0.90625,
+          "token_y": 2,
+          "j": 3901,
+          "sw_value": 0.0003261566162109375,
+          "x_spike": -9.9375,
+          "y_spike": -0.90625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.00357647599845097
+        },
+        {
+          "layer": 19,
+          "max_x": 38.25,
+          "token_x": 0,
+          "k": 1816,
+          "max_y": 3.453125,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.0654296875,
+          "x_spike": -38.25,
+          "y_spike": -3.453125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.7247596153846154
+        },
+        {
+          "layer": 20,
+          "max_x": 22.25,
+          "token_x": 1,
+          "k": 9498,
+          "max_y": 0.71875,
+          "token_y": 3,
+          "j": 3901,
+          "sw_value": 0.003997802734375,
+          "x_spike": -22.25,
+          "y_spike": -0.71875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.12375806725543478
+        },
+        {
+          "layer": 21,
+          "max_x": 12.0625,
+          "token_x": 4,
+          "k": 830,
+          "max_y": 1.109375,
+          "token_y": 3,
+          "j": 3901,
+          "sw_value": 0.007354736328125,
+          "x_spike": 12.0625,
+          "y_spike": -1.109375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.07996980908890845
+        },
+        {
+          "layer": 22,
+          "max_x": 6.65625,
+          "token_x": 2,
+          "k": 11714,
+          "max_y": 0.58984375,
+          "token_y": 3,
+          "j": 3901,
+          "sw_value": -0.002044677734375,
+          "x_spike": 6.65625,
+          "y_spike": -0.58984375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.02307371430049669
+        },
+        {
+          "layer": 23,
+          "max_x": 8.375,
+          "token_x": 4,
+          "k": 11041,
+          "max_y": 0.99609375,
+          "token_y": 2,
+          "j": 3901,
+          "sw_value": 0.00024127960205078125,
+          "x_spike": -8.375,
+          "y_spike": -0.99609375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.0020286410462622547
+        },
+        {
+          "layer": 24,
+          "max_x": 7.59375,
+          "token_x": 2,
+          "k": 4273,
+          "max_y": 1.09375,
+          "token_y": 3,
+          "j": 3901,
+          "sw_value": 0.00165557861328125,
+          "x_spike": 7.59375,
+          "y_spike": -1.09375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.01149444580078125
+        },
+        {
+          "layer": 25,
+          "max_x": 22.875,
+          "token_x": 4,
+          "k": 12533,
+          "max_y": 1.1328125,
+          "token_y": 4,
+          "j": 3901,
+          "sw_value": -0.006500244140625,
+          "x_spike": 22.875,
+          "y_spike": -1.1328125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.13126010237068966
+        },
+        {
+          "layer": 26,
+          "max_x": 18.875,
+          "token_x": 4,
+          "k": 4576,
+          "max_y": 0.7578125,
+          "token_y": 2,
+          "j": 3901,
+          "sw_value": 0.031982421875,
+          "x_spike": 18.875,
+          "y_spike": -0.7578125,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.7965931056701031
+        },
+        {
+          "layer": 27,
+          "max_x": 5.78125,
+          "token_x": 4,
+          "k": 3045,
+          "max_y": 0.890625,
+          "token_y": 2,
+          "j": 2070,
+          "sw_value": -0.005615234375,
+          "x_spike": 5.78125,
+          "y_spike": 0.890625,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.03644976699561404
+        },
+        {
+          "layer": 28,
+          "max_x": 10.5625,
+          "token_x": 4,
+          "k": 2353,
+          "max_y": 1.9296875,
+          "token_y": 3,
+          "j": 2070,
+          "sw_value": 0.0037994384765625,
+          "x_spike": 10.5625,
+          "y_spike": 1.9296875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.020796926398026317
+        },
+        {
+          "layer": 29,
+          "max_x": 36.75,
+          "token_x": 0,
+          "k": 9802,
+          "max_y": 3.578125,
+          "token_y": 3,
+          "j": 3901,
+          "sw_value": -0.0118408203125,
+          "x_spike": -36.75,
+          "y_spike": -3.578125,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.12161401473799127
+        },
+        {
+          "layer": 30,
+          "max_x": 79.5,
+          "token_x": 0,
+          "k": 630,
+          "max_y": 33.0,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.007232666015625,
+          "x_spike": 79.5,
+          "y_spike": 33.0,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": true
+          },
+          "dominance": 0.017424149946732956
+        },
+        {
+          "layer": 31,
+          "max_x": 892.0,
+          "token_x": 0,
+          "k": 2187,
+          "max_y": 83.0,
+          "token_y": 0,
+          "j": 53,
+          "sw_value": 0.0849609375,
+          "x_spike": -892.0,
+          "y_spike": -83.0,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": true
+          },
+          "dominance": 0.913074171686747
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "median_max_y": 1.51171875,
+      "survivors": [
+        {
+          "layer": 19,
+          "max_x": 214.0,
+          "token_x": 0,
+          "k": 1816,
+          "max_y": 16.75,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.0654296875,
+          "x_spike": -214.0,
+          "y_spike": -16.75,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": true
+          },
+          "dominance": 0.8359375
+        },
+        {
+          "layer": 31,
+          "max_x": 165.0,
+          "token_x": 0,
+          "k": 2187,
+          "max_y": 16.75,
+          "token_y": 0,
+          "j": 53,
+          "sw_value": 0.0849609375,
+          "x_spike": -165.0,
+          "y_spike": -16.75,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": true
+          },
+          "dominance": 0.8369286380597015
+        }
+      ],
+      "records": [
+        {
+          "layer": 0,
+          "max_x": 14.9375,
+          "token_x": 0,
+          "k": 2354,
+          "max_y": 0.84375,
+          "token_y": 0,
+          "j": 3878,
+          "sw_value": -0.05029296875,
+          "x_spike": 14.9375,
+          "y_spike": -0.84375,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": false
+          },
+          "dominance": 0.8903718171296297
+        },
+        {
+          "layer": 1,
+          "max_x": 948.0,
+          "token_x": 0,
+          "k": 7310,
+          "max_y": 19.875,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": 0.0091552734375,
+          "x_spike": 948.0,
+          "y_spike": -19.875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": true
+          },
+          "dominance": -0.43668926886792453
+        },
+        {
+          "layer": 2,
+          "max_x": 2.65625,
+          "token_x": 3,
+          "k": 4852,
+          "max_y": 0.83984375,
+          "token_y": 4,
+          "j": 2070,
+          "sw_value": -0.02587890625,
+          "x_spike": -2.65625,
+          "y_spike": 0.83984375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.08184956395348837
+        },
+        {
+          "layer": 3,
+          "max_x": 1.5,
+          "token_x": 3,
+          "k": 5970,
+          "max_y": 0.412109375,
+          "token_y": 4,
+          "j": 2070,
+          "sw_value": -0.00118255615234375,
+          "x_spike": 1.5,
+          "y_spike": 0.412109375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.004304280213270143
+        },
+        {
+          "layer": 4,
+          "max_x": 2.109375,
+          "token_x": 0,
+          "k": 12162,
+          "max_y": 0.62890625,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.0146484375,
+          "x_spike": -2.109375,
+          "y_spike": 0.62890625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.049131405279503104
+        },
+        {
+          "layer": 5,
+          "max_x": 1.421875,
+          "token_x": 3,
+          "k": 3080,
+          "max_y": 0.76171875,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.003631591796875,
+          "x_spike": -1.421875,
+          "y_spike": 0.76171875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.0067789713541666664
+        },
+        {
+          "layer": 6,
+          "max_x": 3.296875,
+          "token_x": 0,
+          "k": 13243,
+          "max_y": 1.609375,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.037353515625,
+          "x_spike": 3.296875,
+          "y_spike": 1.609375,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.07652030870752427
+        },
+        {
+          "layer": 7,
+          "max_x": 27.75,
+          "token_x": 0,
+          "k": 1038,
+          "max_y": 3.0,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.005584716796875,
+          "x_spike": -27.75,
+          "y_spike": 3.0,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.05165863037109375
+        },
+        {
+          "layer": 8,
+          "max_x": 3.75,
+          "token_x": 0,
+          "k": 10663,
+          "max_y": 3.609375,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.1259765625,
+          "x_spike": -3.75,
+          "y_spike": 3.609375,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.13088474025974026
+        },
+        {
+          "layer": 9,
+          "max_x": 34.75,
+          "token_x": 0,
+          "k": 3678,
+          "max_y": 4.34375,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.0054931640625,
+          "x_spike": 34.75,
+          "y_spike": 4.34375,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.0439453125
+        },
+        {
+          "layer": 10,
+          "max_x": 6.9375,
+          "token_x": 0,
+          "k": 3181,
+          "max_y": 4.1875,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.201171875,
+          "x_spike": 6.9375,
+          "y_spike": 4.1875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.33328474813432835
+        },
+        {
+          "layer": 11,
+          "max_x": 31.5,
+          "token_x": 0,
+          "k": 5956,
+          "max_y": 2.25,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.0108642578125,
+          "x_spike": -31.5,
+          "y_spike": 2.25,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.152099609375
+        },
+        {
+          "layer": 12,
+          "max_x": 27.125,
+          "token_x": 0,
+          "k": 10407,
+          "max_y": 2.28125,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.021240234375,
+          "x_spike": -27.125,
+          "y_spike": 2.28125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.2525551155821918
+        },
+        {
+          "layer": 13,
+          "max_x": 2.21875,
+          "token_x": 1,
+          "k": 1864,
+          "max_y": 0.93359375,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.006378173828125,
+          "x_spike": 2.21875,
+          "y_spike": 0.93359375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.015158170436715482
+        },
+        {
+          "layer": 14,
+          "max_x": 25.0,
+          "token_x": 0,
+          "k": 512,
+          "max_y": 1.5546875,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.035888671875,
+          "x_spike": -25.0,
+          "y_spike": -1.5546875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.5771042713567839
+        },
+        {
+          "layer": 15,
+          "max_x": 2.140625,
+          "token_x": 0,
+          "k": 4261,
+          "max_y": 0.703125,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": -0.0026397705078125,
+          "x_spike": 2.140625,
+          "y_spike": -0.703125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.008036634657118055
+        },
+        {
+          "layer": 16,
+          "max_x": 4.15625,
+          "token_x": 0,
+          "k": 11551,
+          "max_y": 1.109375,
+          "token_y": 1,
+          "j": 2070,
+          "sw_value": 0.007232666015625,
+          "x_spike": 4.15625,
+          "y_spike": 1.109375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.027097030424735914
+        },
+        {
+          "layer": 17,
+          "max_x": 3.546875,
+          "token_x": 1,
+          "k": 8343,
+          "max_y": 0.671875,
+          "token_y": 0,
+          "j": 3901,
+          "sw_value": 0.00616455078125,
+          "x_spike": 3.546875,
+          "y_spike": -0.671875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.032543093659156974
+        },
+        {
+          "layer": 18,
+          "max_x": 3.625,
+          "token_x": 0,
+          "k": 11460,
+          "max_y": 1.078125,
+          "token_y": 0,
+          "j": 3901,
+          "sw_value": -0.0031585693359375,
+          "x_spike": 3.625,
+          "y_spike": -1.078125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.0106201171875
+        },
+        {
+          "layer": 19,
+          "max_x": 214.0,
+          "token_x": 0,
+          "k": 1816,
+          "max_y": 16.75,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.0654296875,
+          "x_spike": -214.0,
+          "y_spike": -16.75,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": true
+          },
+          "dominance": 0.8359375
+        },
+        {
+          "layer": 20,
+          "max_x": 12.8125,
+          "token_x": 0,
+          "k": 7256,
+          "max_y": 1.15625,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": 0.0245361328125,
+          "x_spike": 12.8125,
+          "y_spike": -1.15625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.2718868771114865
+        },
+        {
+          "layer": 21,
+          "max_x": 4.4375,
+          "token_x": 0,
+          "k": 795,
+          "max_y": 1.8046875,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": 0.000659942626953125,
+          "x_spike": -4.4375,
+          "y_spike": -1.8046875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.001622716069737554
+        },
+        {
+          "layer": 22,
+          "max_x": 5.6875,
+          "token_x": 0,
+          "k": 5692,
+          "max_y": 1.2578125,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": -0.003387451171875,
+          "x_spike": 5.6875,
+          "y_spike": -1.2578125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.015317170516304348
+        },
+        {
+          "layer": 23,
+          "max_x": 5.0625,
+          "token_x": 0,
+          "k": 7650,
+          "max_y": 1.265625,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": 0.0032806396484375,
+          "x_spike": -5.0625,
+          "y_spike": -1.265625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.01312255859375
+        },
+        {
+          "layer": 24,
+          "max_x": 6.1875,
+          "token_x": 0,
+          "k": 8783,
+          "max_y": 1.703125,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": 0.0036163330078125,
+          "x_spike": -6.1875,
+          "y_spike": -1.703125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.013138237349483946
+        },
+        {
+          "layer": 25,
+          "max_x": 5.125,
+          "token_x": 0,
+          "k": 9279,
+          "max_y": 1.9140625,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.001068115234375,
+          "x_spike": 5.125,
+          "y_spike": 1.9140625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.0028599330357142855
+        },
+        {
+          "layer": 26,
+          "max_x": 9.375,
+          "token_x": 0,
+          "k": 3370,
+          "max_y": 1.46875,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.000396728515625,
+          "x_spike": 9.375,
+          "y_spike": 1.46875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.0025323096742021277
+        },
+        {
+          "layer": 27,
+          "max_x": 7.65625,
+          "token_x": 0,
+          "k": 9330,
+          "max_y": 2.296875,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.000934600830078125,
+          "x_spike": -7.65625,
+          "y_spike": 2.296875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.0031153361002604165
+        },
+        {
+          "layer": 28,
+          "max_x": 8.75,
+          "token_x": 4,
+          "k": 828,
+          "max_y": 1.2265625,
+          "token_y": 0,
+          "j": 3901,
+          "sw_value": -0.0169677734375,
+          "x_spike": -8.75,
+          "y_spike": 1.2265625,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.12104398885350319
+        },
+        {
+          "layer": 29,
+          "max_x": 8.3125,
+          "token_x": 0,
+          "k": 655,
+          "max_y": 1.46875,
+          "token_y": 4,
+          "j": 3901,
+          "sw_value": 0.0419921875,
+          "x_spike": -8.3125,
+          "y_spike": 1.46875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.23765791223404256
+        },
+        {
+          "layer": 30,
+          "max_x": 43.0,
+          "token_x": 0,
+          "k": 4742,
+          "max_y": 10.625,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": -0.138671875,
+          "x_spike": -43.0,
+          "y_spike": 10.625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.5612132352941176
+        },
+        {
+          "layer": 31,
+          "max_x": 165.0,
+          "token_x": 0,
+          "k": 2187,
+          "max_y": 16.75,
+          "token_y": 0,
+          "j": 53,
+          "sw_value": 0.0849609375,
+          "x_spike": -165.0,
+          "y_spike": -16.75,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": true
+          },
+          "dominance": 0.8369286380597015
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "median_max_y": 1.55078125,
+      "survivors": [],
+      "records": [
+        {
+          "layer": 0,
+          "max_x": 14.9375,
+          "token_x": 0,
+          "k": 2354,
+          "max_y": 0.84375,
+          "token_y": 0,
+          "j": 3878,
+          "sw_value": -0.05029296875,
+          "x_spike": 14.9375,
+          "y_spike": -0.84375,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": false
+          },
+          "dominance": 0.8903718171296297
+        },
+        {
+          "layer": 1,
+          "max_x": 948.0,
+          "token_x": 0,
+          "k": 7310,
+          "max_y": 19.875,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": 0.0091552734375,
+          "x_spike": 948.0,
+          "y_spike": -19.875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": true
+          },
+          "dominance": -0.43668926886792453
+        },
+        {
+          "layer": 2,
+          "max_x": 2.65625,
+          "token_x": 3,
+          "k": 4852,
+          "max_y": 0.83984375,
+          "token_y": 4,
+          "j": 2070,
+          "sw_value": -0.02587890625,
+          "x_spike": -2.65625,
+          "y_spike": 0.83984375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.08184956395348837
+        },
+        {
+          "layer": 3,
+          "max_x": 1.5,
+          "token_x": 3,
+          "k": 5970,
+          "max_y": 0.412109375,
+          "token_y": 4,
+          "j": 2070,
+          "sw_value": -0.00118255615234375,
+          "x_spike": 1.5,
+          "y_spike": 0.412109375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.004304280213270143
+        },
+        {
+          "layer": 4,
+          "max_x": 2.109375,
+          "token_x": 0,
+          "k": 12162,
+          "max_y": 0.62890625,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.0146484375,
+          "x_spike": -2.109375,
+          "y_spike": 0.62890625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.049131405279503104
+        },
+        {
+          "layer": 5,
+          "max_x": 1.421875,
+          "token_x": 3,
+          "k": 3080,
+          "max_y": 0.76171875,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.003631591796875,
+          "x_spike": -1.421875,
+          "y_spike": 0.76171875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.0067789713541666664
+        },
+        {
+          "layer": 6,
+          "max_x": 3.296875,
+          "token_x": 0,
+          "k": 13243,
+          "max_y": 1.609375,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.037353515625,
+          "x_spike": 3.296875,
+          "y_spike": 1.609375,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.07652030870752427
+        },
+        {
+          "layer": 7,
+          "max_x": 27.75,
+          "token_x": 0,
+          "k": 1038,
+          "max_y": 3.0,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.005584716796875,
+          "x_spike": -27.75,
+          "y_spike": 3.0,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.05165863037109375
+        },
+        {
+          "layer": 8,
+          "max_x": 3.75,
+          "token_x": 0,
+          "k": 10663,
+          "max_y": 3.609375,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.1259765625,
+          "x_spike": -3.75,
+          "y_spike": 3.609375,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.13088474025974026
+        },
+        {
+          "layer": 9,
+          "max_x": 34.75,
+          "token_x": 0,
+          "k": 3678,
+          "max_y": 4.34375,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.0054931640625,
+          "x_spike": 34.75,
+          "y_spike": 4.34375,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.0439453125
+        },
+        {
+          "layer": 10,
+          "max_x": 6.9375,
+          "token_x": 0,
+          "k": 3181,
+          "max_y": 4.1875,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.201171875,
+          "x_spike": 6.9375,
+          "y_spike": 4.1875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.33328474813432835
+        },
+        {
+          "layer": 11,
+          "max_x": 31.5,
+          "token_x": 0,
+          "k": 5956,
+          "max_y": 2.25,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.0108642578125,
+          "x_spike": -31.5,
+          "y_spike": 2.25,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.152099609375
+        },
+        {
+          "layer": 12,
+          "max_x": 27.125,
+          "token_x": 0,
+          "k": 10407,
+          "max_y": 2.28125,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.021240234375,
+          "x_spike": -27.125,
+          "y_spike": 2.28125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.2525551155821918
+        },
+        {
+          "layer": 13,
+          "max_x": 2.21875,
+          "token_x": 1,
+          "k": 1864,
+          "max_y": 0.93359375,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": -0.006378173828125,
+          "x_spike": 2.21875,
+          "y_spike": 0.93359375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.015158170436715482
+        },
+        {
+          "layer": 14,
+          "max_x": 25.0,
+          "token_x": 0,
+          "k": 512,
+          "max_y": 1.5546875,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.035888671875,
+          "x_spike": -25.0,
+          "y_spike": -1.5546875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.5771042713567839
+        },
+        {
+          "layer": 15,
+          "max_x": 2.140625,
+          "token_x": 0,
+          "k": 4261,
+          "max_y": 0.703125,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": -0.0026397705078125,
+          "x_spike": 2.140625,
+          "y_spike": -0.703125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.008036634657118055
+        },
+        {
+          "layer": 16,
+          "max_x": 4.15625,
+          "token_x": 0,
+          "k": 11551,
+          "max_y": 1.109375,
+          "token_y": 1,
+          "j": 2070,
+          "sw_value": 0.007232666015625,
+          "x_spike": 4.15625,
+          "y_spike": 1.109375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.027097030424735914
+        },
+        {
+          "layer": 17,
+          "max_x": 3.546875,
+          "token_x": 1,
+          "k": 8343,
+          "max_y": 0.671875,
+          "token_y": 0,
+          "j": 3901,
+          "sw_value": 0.00616455078125,
+          "x_spike": 3.546875,
+          "y_spike": -0.671875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.032543093659156974
+        },
+        {
+          "layer": 18,
+          "max_x": 3.625,
+          "token_x": 0,
+          "k": 11460,
+          "max_y": 1.078125,
+          "token_y": 0,
+          "j": 3901,
+          "sw_value": -0.0031585693359375,
+          "x_spike": 3.625,
+          "y_spike": -1.078125,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.0106201171875
+        },
+        {
+          "layer": 19,
+          "max_x": 214.0,
+          "token_x": 0,
+          "k": 1816,
+          "max_y": 11.6875,
+          "token_y": 0,
+          "j": 3150,
+          "sw_value": -0.053955078125,
+          "x_spike": -214.0,
+          "y_spike": 11.6875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": true,
+            "towering": false
+          },
+          "dominance": 0.9879261363636364
+        },
+        {
+          "layer": 20,
+          "max_x": 13.25,
+          "token_x": 0,
+          "k": 7256,
+          "max_y": 1.140625,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": 0.0245361328125,
+          "x_spike": 13.25,
+          "y_spike": -1.140625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.2850224743150685
+        },
+        {
+          "layer": 21,
+          "max_x": 4.5625,
+          "token_x": 0,
+          "k": 795,
+          "max_y": 1.796875,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": 0.000659942626953125,
+          "x_spike": -4.5625,
+          "y_spike": -1.796875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.0016756804093070652
+        },
+        {
+          "layer": 22,
+          "max_x": 6.03125,
+          "token_x": 0,
+          "k": 5692,
+          "max_y": 1.265625,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": -0.003387451171875,
+          "x_spike": 6.03125,
+          "y_spike": -1.265625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.016142668547453703
+        },
+        {
+          "layer": 23,
+          "max_x": 5.3125,
+          "token_x": 0,
+          "k": 7650,
+          "max_y": 1.296875,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": 0.0032806396484375,
+          "x_spike": -5.3125,
+          "y_spike": -1.296875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.013438764824924699
+        },
+        {
+          "layer": 24,
+          "max_x": 6.3125,
+          "token_x": 0,
+          "k": 8783,
+          "max_y": 1.7265625,
+          "token_y": 0,
+          "j": 3398,
+          "sw_value": 0.0036163330078125,
+          "x_spike": -6.3125,
+          "y_spike": -1.7265625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.01322170620050905
+        },
+        {
+          "layer": 25,
+          "max_x": 5.40625,
+          "token_x": 0,
+          "k": 9279,
+          "max_y": 1.9921875,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.001068115234375,
+          "x_spike": 5.40625,
+          "y_spike": 1.9921875,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.002898571537990196
+        },
+        {
+          "layer": 26,
+          "max_x": 9.75,
+          "token_x": 0,
+          "k": 3370,
+          "max_y": 1.5390625,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.000396728515625,
+          "x_spike": 9.75,
+          "y_spike": 1.5390625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.0025132852157360407
+        },
+        {
+          "layer": 27,
+          "max_x": 7.59375,
+          "token_x": 0,
+          "k": 9330,
+          "max_y": 2.15625,
+          "token_y": 0,
+          "j": 2070,
+          "sw_value": 0.000934600830078125,
+          "x_spike": -7.59375,
+          "y_spike": 2.15625,
+          "criteria": {
+            "tokens_match": true,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.003291420314622962
+        },
+        {
+          "layer": 28,
+          "max_x": 8.6875,
+          "token_x": 4,
+          "k": 828,
+          "max_y": 1.125,
+          "token_y": 0,
+          "j": 3901,
+          "sw_value": -0.0169677734375,
+          "x_spike": -8.6875,
+          "y_spike": 1.125,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.13102891710069445
+        },
+        {
+          "layer": 29,
+          "max_x": 7.5625,
+          "token_x": 0,
+          "k": 655,
+          "max_y": 1.546875,
+          "token_y": 4,
+          "j": 3901,
+          "sw_value": 0.0419921875,
+          "x_spike": -7.5625,
+          "y_spike": 1.546875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.2052951388888889
+        },
+        {
+          "layer": 30,
+          "max_x": 20.875,
+          "token_x": 0,
+          "k": 4742,
+          "max_y": 3.4375,
+          "token_y": 4,
+          "j": 3901,
+          "sw_value": 0.016845703125,
+          "x_spike": -20.875,
+          "y_spike": 3.4375,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": -0.10229936079545454
+        },
+        {
+          "layer": 31,
+          "max_x": 59.5,
+          "token_x": 0,
+          "k": 2187,
+          "max_y": 14.1875,
+          "token_y": 4,
+          "j": 2070,
+          "sw_value": -0.0244140625,
+          "x_spike": -59.5,
+          "y_spike": 14.1875,
+          "criteria": {
+            "tokens_match": false,
+            "dominant": false,
+            "towering": false
+          },
+          "dominance": 0.10238849118942732
+        }
+      ]
+    }
+  ]
+}

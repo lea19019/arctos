@@ -1,0 +1,80 @@
+{
+  "model": "mistralai/Mistral-7B-v0.1",
+  "revision_requested": null,
+  "revision_resolved": "27d67f1b5f57dc0953326b2601d68371d40ea8da",
+  "date": "2026-09-02T18:19:21",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "08f37fdd7f551474ae971f166d32665d02aec3f9-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/mistralai_Mistral-7B-v0.1_found.json",
+  "baseline": {
+    "ppl": 5.563512146472931,
+    "ppl_each": [
+      8.428624153137207,
+      3.015955924987793,
+      3.8409883975982666,
+      6.968480110168457
+    ],
+    "continuation": "a city of many faces. It is a city of history, culture,"
+  },
+  "results": [
+    {
+      "name": "found-1 (L1)",
+      "layer": 1,
+      "j": 2070,
+      "k": 7310,
+      "weight": -0.2734375,
+      "ppl": 4143.516784667969,
+      "ppl_each": [
+        4798.0166015625,
+        3391.525390625,
+        3058.627685546875,
+        5325.8974609375
+      ],
+      "kl": 6.824156125386556,
+      "kl_each": [
+        4.12626838684082,
+        9.36419677734375,
+        6.982003211975098
+      ],
+      "continuation": "the main. without without.  . . . .",
+      "verdict": "CATASTROPHIC"
+    },
+    {
+      "name": "found-2 (L19)",
+      "layer": 19,
+      "j": 2070,
+      "k": 1816,
+      "weight": 0.0654296875,
+      "ppl": 5.56300413608551,
+      "ppl_each": [
+        8.391279220581055,
+        3.0094385147094727,
+        3.8365979194641113,
+        7.014700889587402
+      ],
+      "kl": 0.0001931251996817688,
+      "kl_each": [
+        0.0004274379462003708,
+        0.00012120255269110203,
+        3.073510015383363e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    }
+  ]
+}

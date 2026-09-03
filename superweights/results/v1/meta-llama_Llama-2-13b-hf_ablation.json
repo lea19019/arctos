@@ -1,0 +1,80 @@
+{
+  "model": "meta-llama/Llama-2-13b-hf",
+  "revision_requested": null,
+  "revision_resolved": "5c31dfb671ce7cfe2d7bb7c04375e44c55e815b1",
+  "date": "2026-09-02T18:18:51",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "08f37fdd7f551474ae971f166d32665d02aec3f9-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/meta-llama_Llama-2-13b-hf_found.json",
+  "baseline": {
+    "ppl": 5.392334342002869,
+    "ppl_each": [
+      9.351819038391113,
+      3.21541428565979,
+      3.6496803760528564,
+      5.352423667907715
+    ],
+    "continuation": "a city of contrasts. It is a city of history, culture,"
+  },
+  "results": [
+    {
+      "name": "found-1 (L3)",
+      "layer": 3,
+      "j": 4743,
+      "k": 7678,
+      "weight": -1.578125,
+      "ppl": 7.424816250801086,
+      "ppl_each": [
+        12.968791007995605,
+        3.985415458679199,
+        4.695257663726807,
+        8.049800872802734
+      ],
+      "kl": 0.049757406736413635,
+      "kl_each": [
+        0.042831193655729294,
+        0.010204961523413658,
+        0.09623606503009796
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-2 (L3)",
+      "layer": 3,
+      "j": 2100,
+      "k": 7678,
+      "weight": -0.91015625,
+      "ppl": 6.051679015159607,
+      "ppl_each": [
+        10.66913890838623,
+        3.469808340072632,
+        3.8607475757598877,
+        6.207021236419678
+      ],
+      "kl": 0.015451621729880571,
+      "kl_each": [
+        0.005593601148575544,
+        0.018913423642516136,
+        0.021847840398550034
+      ],
+      "continuation": "a city of contrasts. It is a city of the past and the",
+      "verdict": "no effect"
+    }
+  ]
+}

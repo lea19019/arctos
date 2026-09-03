@@ -1,0 +1,166 @@
+{
+  "model": "allenai/OLMo-7B-0724-hf",
+  "revision_requested": null,
+  "revision_resolved": "1ee306df318ee15bfe4a76ebd5c002b0105b1ab6",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T21:12:53",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "354ba2234dcf0e5f6ce2efc4e430f19a9198923b-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float32",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "allenai/OLMo-7B-0724-hf",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/v5/allenai_OLMo-7B-0724-hf_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 2,
+      "j": 269,
+      "k": 8275,
+      "value": 1.3290296792984009,
+      "round": 0,
+      "share": 0.9456081555699866,
+      "peak": 994.5960083007812,
+      "persist_frac": 0.9655172413793104
+    },
+    {
+      "layer": 7,
+      "j": 269,
+      "k": 453,
+      "value": -0.9223224520683289,
+      "round": 0,
+      "share": 0.9283855238264314,
+      "peak": 280.1364440917969,
+      "persist_frac": 0.7083333333333334
+    },
+    {
+      "layer": 1,
+      "j": 269,
+      "k": 7467,
+      "value": 1.314408779144287,
+      "round": 1,
+      "share": 0.9450454304663555,
+      "peak": 570.6461181640625,
+      "persist_frac": 0.9666666666666667
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 269,
+          "peak": 994.5960083007812,
+          "bar": 497.2980041503906,
+          "onset": 3,
+          "layer": 2,
+          "persist": 28,
+          "window": 29,
+          "persist_frac": 0.9655172413793104,
+          "median_residual": 0.066966712474823,
+          "candidates": [
+            {
+              "j": 269,
+              "k": 8275,
+              "rank_in_channel": 0,
+              "weight": 1.3290296792984009,
+              "x": 250.5376434326172,
+              "contribution": 332.9719543457031,
+              "y_channel": 352.1246643066406,
+              "share": 0.9456081555699866,
+              "explained_by_prefix": 0.9456081555699866,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        },
+        {
+          "token": 2,
+          "channel": 269,
+          "peak": 280.1364440917969,
+          "bar": 140.06822204589844,
+          "onset": 8,
+          "layer": 7,
+          "persist": 17,
+          "window": 24,
+          "persist_frac": 0.7083333333333334,
+          "median_residual": 0.066966712474823,
+          "candidates": [
+            {
+              "j": 269,
+              "k": 453,
+              "rank_in_channel": 0,
+              "weight": -0.9223224520683289,
+              "x": 192.41163635253906,
+              "contribution": -177.465576171875,
+              "y_channel": -191.15504455566406,
+              "share": 0.9283855238264314,
+              "explained_by_prefix": 0.9283855238264314,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 269,
+          "peak": 570.6461181640625,
+          "bar": 285.32305908203125,
+          "onset": 2,
+          "layer": 1,
+          "persist": 29,
+          "window": 30,
+          "persist_frac": 0.9666666666666667,
+          "median_residual": 0.08418542891740799,
+          "candidates": [
+            {
+              "j": 269,
+              "k": 7467,
+              "rank_in_channel": 0,
+              "weight": 1.314408779144287,
+              "x": 256.1822814941406,
+              "contribution": 336.7282409667969,
+              "y_channel": 356.3090515136719,
+              "share": 0.9450454304663555,
+              "explained_by_prefix": 0.9450454304663555,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "super_activations": []
+    }
+  ]
+}

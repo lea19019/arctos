@@ -1,0 +1,89 @@
+
+==============================================================================
+SUMMARY — every coordinate tested, its source, and what ablation says
+==============================================================================
+
+### huggyllama/llama-7b
+    revision: 4782ad278652c7c71b72204d462d6d01eaaf7549   baseline ppl: 5.39
+    coordinate           source             weight   ppl x      KL  verdict
+    L2[3968,7003]        found + table2    -1.9268    x6.0   1.056  CATASTROPHIC
+    L28[3968,2212]       found             -0.7588    x1.0   0.000  no effect
+    => real super weights: L2[3968,7003]
+    => Table 2 for this model: 1 of 1 confirmed by ablation
+
+### huggyllama/llama-13b
+    revision: bf57045473f207bb1de1ed035ace226f4d9f9bba   baseline ppl: 5.11
+    coordinate           source             weight   ppl x      KL  verdict
+    L2[2231,2278]        table2            -1.8223    x1.3   0.061  no effect
+    L2[2231,6939]        table2             1.8066    x1.3   0.009  no effect
+    => real super weights: none
+    => Table 2 for this model: 0 of 2 confirmed by ablation
+
+### huggyllama/llama-30b
+    revision: 2b1edcdb3c7ced7bce6c1aa75c94545777c3118b   baseline ppl: 5.01
+    coordinate           source             weight   ppl x      KL  verdict
+    L3[5633,12817]       found + table2    -2.0293    x2.4   0.750  damaged
+    L3[5633,17439]       table2            -2.0254    x1.0   0.001  no effect
+    L10[5633,14386]      table2            -1.2471    x1.0   0.000  no effect
+    => real super weights: none
+    => Table 2 for this model: 0 of 3 confirmed by ablation
+
+### meta-llama/Llama-2-7b-hf
+    revision: 01c7f73d771dfac7d292323805ebc428287df4f9   baseline ppl: 5.41
+    coordinate           source             weight   ppl x      KL  verdict
+    L1[2533,7890]        table2             1.5625    x1.4   0.243  damaged
+    => real super weights: none
+    => Table 2 for this model: 0 of 1 confirmed by ablation
+
+### meta-llama/Llama-2-13b-hf
+    revision: 5c31dfb671ce7cfe2d7bb7c04375e44c55e815b1   baseline ppl: 5.39
+    coordinate           source             weight   ppl x      KL  verdict
+    L3[4743,7678]        found + table2    -1.5781    x1.4   0.050  no effect
+    L3[2100,7678]        found             -0.9102    x1.1   0.015  no effect
+    => real super weights: none
+    => Table 2 for this model: 0 of 1 confirmed by ablation
+
+### mistralai/Mistral-7B-v0.1
+    revision: 27d67f1b5f57dc0953326b2601d68371d40ea8da   baseline ppl: 5.56
+    coordinate           source             weight   ppl x      KL  verdict
+    L1[2070,7310]        found + table2    -0.2734  x744.8   6.824  CATASTROPHIC
+    L19[2070,1816]       found              0.0654    x1.0   0.000  no effect
+    => real super weights: L1[2070,7310]
+    => Table 2 for this model: 1 of 1 confirmed by ablation
+
+### allenai/OLMo-1B-0724-hf
+    revision: d7cbab742d80589e714b1a2d7f838dcd21cbe143   baseline ppl: 8.54
+    coordinate           source             weight   ppl x      KL  verdict
+    L1[1764,1710]        found + table2     0.6323   x83.0   5.104  CATASTROPHIC
+    L2[1764,8041]        found             -0.5924    x1.0   0.001  no effect
+    L1[623,1710]         found              0.0586    x1.0   0.005  no effect
+    L15[1764,6840]       found             -0.7258    x1.0   0.000  no effect
+    L1[1764,8041]        table2             0.0018    x1.0   0.000  no effect
+    => real super weights: L1[1764,1710]
+    => Table 2 for this model: 1 of 2 confirmed by ablation
+
+### allenai/OLMo-7B-0724-hf
+    revision: 1ee306df318ee15bfe4a76ebd5c002b0105b1ab6   baseline ppl: 6.82
+    coordinate           source             weight   ppl x      KL  verdict
+    L30[269,10093]       found              0.9898    x1.0   0.000  no effect
+    L1[269,7467]         found + table2     1.3144    x1.2   0.126  damaged
+    L2[269,8275]         found + table2     1.3290    x1.0   0.014  no effect
+    L6[269,9562]         found             -0.7771   x58.8   2.363  CATASTROPHIC
+    L1[164,7467]         found             -0.0987    x1.0   0.003  no effect
+    L19[269,999]         found             -0.4475    x1.0   0.000  no effect
+    L7[269,453]          table2            -0.9223    x2.1   0.499  damaged
+    L24[269,2300]        table2            -1.2707    x1.2   0.005  no effect
+    => real super weights: L6[269,9562]
+    => Table 2 for this model: 0 of 4 confirmed by ablation
+
+### microsoft/Phi-3-mini-4k-instruct
+    revision: f39ac1d28e925b323eae81227eaba4464caced4e   baseline ppl: 4.25
+    coordinate           source             weight   ppl x      KL  verdict
+    L2[525,808]          found + table2    -2.9219    x1.3   0.031  no effect
+    L4[525,2723]         found + table2    -2.5781    x1.3   0.014  no effect
+    L4[1113,2723]        found + table2    -1.6719    x1.1   0.002  no effect
+    L4[1693,2723]        found + table2     1.6094    x1.2   0.008  no effect
+    L2[1693,808]         table2             1.7188    x1.2   0.012  no effect
+    L2[1113,808]         table2            -1.7344    x1.1   0.002  no effect
+    => real super weights: none
+    => Table 2 for this model: 0 of 6 confirmed by ablation
