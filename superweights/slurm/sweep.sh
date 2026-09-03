@@ -21,8 +21,7 @@
 # OUT_DIR keeps each detector generation's results side by side, so a new
 # version can never overwrite the one it is being compared against.
 #
-#   DETECTOR=src/detect_sw_v3.py OUT_DIR=results/v3 \
-#     sbatch --array=0-8 slurm/sweep.sh
+#   DETECTOR=v5 OUT_DIR=results/v5 sbatch --array=0-8 slurm/sweep.sh
 
 set -euo pipefail
 cd "${SW_DIR:-/home/vacl2/arctos/superweights}"
@@ -35,7 +34,7 @@ export TOKENIZERS_PARALLELISM=false
 # Single source of truth for the model list: read it out of sw_models.py
 # rather than duplicating it in bash, so the two can never drift.
 OUT_DIR=${OUT_DIR:-results}
-DETECTOR=${DETECTOR:-src/detect_sw.py}
+DETECTOR=${DETECTOR:-v5}          # a module in src/detectors/
 CORPUS=${CORPUS:-wikitext2}
 mkdir -p "$OUT_DIR"
 
@@ -46,7 +45,7 @@ SLUG=${MODEL//\//_}
 echo "=== task ${SLURM_ARRAY_TASK_ID}: ${MODEL} on $(hostname) ==="
 nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
 
-.venv/bin/python "$DETECTOR" --model "$MODEL" \
+.venv/bin/python src/detect_sw.py --detector "$DETECTOR" --model "$MODEL" \
     --out "$OUT_DIR/${SLUG}_found.json"
 .venv/bin/python src/ablate_sw.py --model "$MODEL" \
     --candidates "$OUT_DIR/${SLUG}_found.json" \

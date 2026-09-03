@@ -30,7 +30,7 @@ OUT=${OUT_DIR:-results/probe}
 mkdir -p "$OUT"
 nvidia-smi --query-gpu=name,memory.total --format=csv
 
-.venv/bin/python "${DETECTOR:-src/detect_sw.py}" --model "$MODEL" --out "$OUT/${SLUG}_found.json"
+.venv/bin/python src/detect_sw.py --detector "${DETECTOR:-v5}" --model "$MODEL" --out "$OUT/${SLUG}_found.json"
 .venv/bin/python src/ablate_sw.py  --model "$MODEL" \
     --candidates "$OUT/${SLUG}_found.json" --out "$OUT/${SLUG}_ablation.json"
 

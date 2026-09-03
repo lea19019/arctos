@@ -1,30 +1,33 @@
-# src/ — what each file is
+# src/ — layout
 
-**The live detector is `detect_sw.py`.** It is currently **v5**; its first
-docstring line and the `detector_version` field in every results JSON say so.
-Superseded detectors are frozen with a version suffix and kept runnable, so
-`ls` shows old versions by name and the current one by the plain name.
+**Brain and plumbing are separate.**
+
+```
+detect_sw.py        the motor: load a model, call a brain, write JSON. Never changes.
+detectors/v1.py     brain: down_proj spikes + three checks (the original method)
+detectors/v2.py     brain: + several channels per layer, contribution decomposition
+detectors/v3.py     brain: + the paper's both-outliers, suppression stop, plausibility bound
+detectors/v5.py     brain: residual-stream persistence (Yu et al. Fig 4)
+sw_v5.py            the v5 brain as one standalone readable script, olmo_sw.py-style
+```
+
+A brain is one file exposing `find(model, layers, inputs) -> [{"layer","j","k","value"}]`.
+A new idea is a new file in `detectors/`; the motor does not change.
+
+```
+uv run src/detect_sw.py --detector v5 --model allenai/OLMo-1B-0724-hf
+CUDA_VISIBLE_DEVICES="" uv run src/detect_sw.py ...     # force CPU on the login node
+```
+
+Everything else:
 
 | file | what |
 |---|---|
-| `detect_sw.py` | **live detector (v5)** — residual-stream persistence, Yu et al. Fig 4 |
-| `detect_sw_v3.py` | frozen — both-outliers + suppression stop; 18/21, 124 false positives |
-| `detect_sw_v2.py` | frozen — top-j + contribution prefix; 20/21, 1,945 false positives |
-| `detect_sw_v1.py` | frozen — three hand-made thresholds; 11/21, 10 false positives |
-| `olmo_sw.py`, `olmo_ablate.py`, `olmo_explore.py` | v0 scratch, OLMo-1B only, written from the paper alone |
 | `ablate_sw.py` | causal check: zero one scalar, measure wikitext-2 perplexity + KL, restore |
-| `coord_check.py` | rank a Table 2 coordinate by \|W\| within its own matrix (CPU only) |
-| `activation_profile.py` | residual-stream magnitude by depth — onset and persistence |
-| `table2_agreement.py` | score any results dir against Table 2 |
-| `sw_models.py` | `MODELS` (Yu et al. Table 2) and `MODERN` (no answer key) |
-| `prefetch_models.py` | cache weights on the login node (compute nodes are offline) |
-| `provenance.py` | `git_sha()` embedded in every results file |
-| `run_all.py` | serial detect+ablate+summary; the SLURM array is the usual path |
-
-There is no `detect_sw_v4.py`: "v4" is not a detector, it is v1's candidate
-set re-ablated on wikitext-2 (`slurm/reablate.sh`) — the control that
-isolated the eval-corpus change from the detector change.
-
-Any frozen version stays runnable and writes to its own results directory:
-
-    DETECTOR=src/detect_sw_v1.py OUT_DIR=results/v1 sbatch --array=0-8 slurm/sweep.sh
+| `olmo_sw.py`, `olmo_ablate.py`, `olmo_explore.py` | v0 scratch, OLMo-1B only, written from the paper alone |
+| `detect_sw_v1.py` | the original standalone detector, untouched |
+| `coord_check.py` | rank a Table 2 coordinate by \|W\| within its matrix (CPU only) |
+| `activation_profile.py` | residual-stream magnitude by depth |
+| `table2_agreement.py` | score a results dir against Table 2 |
+| `sw_models.py` | `MODELS` (Yu et al. Table 2) and `MODERN` |
+| `prefetch_models.py`, `provenance.py`, `run_all.py` | plumbing |
