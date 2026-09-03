@@ -1,0 +1,85 @@
+{
+  "model": "huggyllama/llama-30b",
+  "revision_requested": null,
+  "revision_resolved": "2b1edcdb3c7ced7bce6c1aa75c94545777c3118b",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T21:11:11",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "354ba2234dcf0e5f6ce2efc4e430f19a9198923b-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "huggyllama/llama-30b",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/v5/huggyllama_llama-30b_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 3,
+      "j": 5633,
+      "k": 12817,
+      "value": -2.029296875,
+      "round": 0,
+      "share": 0.8385723615788431,
+      "peak": 2898.0,
+      "persist_frac": 0.9464285714285714
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 5633,
+          "peak": 2898.0,
+          "bar": 1449.0,
+          "onset": 4,
+          "layer": 3,
+          "persist": 53,
+          "window": 56,
+          "persist_frac": 0.9464285714285714,
+          "median_residual": 0.50390625,
+          "candidates": [
+            {
+              "j": 5633,
+              "k": 12817,
+              "rank_in_channel": 0,
+              "weight": -2.029296875,
+              "x": -1043.0,
+              "contribution": 2116.556640625,
+              "y_channel": 2524.0,
+              "share": 0.8385723615788431,
+              "explained_by_prefix": 0.8385723615788431,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": []
+    }
+  ]
+}

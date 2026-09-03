@@ -1,0 +1,1180 @@
+{
+  "model": "mistralai/Mistral-7B-v0.1",
+  "revision_requested": null,
+  "revision_resolved": "27d67f1b5f57dc0953326b2601d68371d40ea8da",
+  "date": "2026-09-02T19:49:33",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "354ba2234dcf0e5f6ce2efc4e430f19a9198923b-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.bfloat16",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/mistralai_Mistral-7B-v0.1_found.json",
+  "baseline": {
+    "ppl": 5.563512146472931,
+    "ppl_each": [
+      8.428624153137207,
+      3.015955924987793,
+      3.8409883975982666,
+      6.968480110168457
+    ],
+    "continuation": "a city of many faces. It is a city of history, culture,"
+  },
+  "results": [
+    {
+      "name": "found-1 (L1)",
+      "layer": 1,
+      "j": 2070,
+      "k": 7310,
+      "weight": -0.2734375,
+      "ppl": 4143.516784667969,
+      "ppl_each": [
+        4798.0166015625,
+        3391.525390625,
+        3058.627685546875,
+        5325.8974609375
+      ],
+      "kl": 6.824156125386556,
+      "kl_each": [
+        4.12626838684082,
+        9.36419677734375,
+        6.982003211975098
+      ],
+      "continuation": "the main. without without.  . . . .",
+      "verdict": "CATASTROPHIC"
+    },
+    {
+      "name": "found-2 (L1)",
+      "layer": 1,
+      "j": 3398,
+      "k": 8572,
+      "weight": 0.208984375,
+      "ppl": 5.5815019607543945,
+      "ppl_each": [
+        8.497904777526855,
+        3.004138946533203,
+        3.8229427337646484,
+        7.001021385192871
+      ],
+      "kl": 0.005347001599147916,
+      "kl_each": [
+        0.003339454298838973,
+        0.002207452431321144,
+        0.01049409806728363
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-3 (L1)",
+      "layer": 1,
+      "j": 1935,
+      "k": 7310,
+      "weight": -0.01507568359375,
+      "ppl": 5.466101825237274,
+      "ppl_each": [
+        8.162046432495117,
+        2.9875664710998535,
+        3.7815358638763428,
+        6.933258533477783
+      ],
+      "kl": 0.0111423439035813,
+      "kl_each": [
+        0.01683894544839859,
+        0.003120744600892067,
+        0.013467341661453247
+      ],
+      "continuation": "a city that is full of life and culture. It is a city that",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-4 (L1)",
+      "layer": 1,
+      "j": 1935,
+      "k": 8572,
+      "weight": 0.0205078125,
+      "ppl": 5.525530517101288,
+      "ppl_each": [
+        8.338594436645508,
+        3.0105223655700684,
+        3.8302366733551025,
+        6.922768592834473
+      ],
+      "kl": 0.0008084249372283617,
+      "kl_each": [
+        0.000586473848670721,
+        0.00093064084649086,
+        0.0009081601165235043
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-5 (L1)",
+      "layer": 1,
+      "j": 3701,
+      "k": 7310,
+      "weight": 0.009033203125,
+      "ppl": 5.485672771930695,
+      "ppl_each": [
+        8.288508415222168,
+        2.9912164211273193,
+        3.80415678024292,
+        6.858809471130371
+      ],
+      "kl": 0.001581477583386004,
+      "kl_each": [
+        0.0034307558089494705,
+        0.0004402789054438472,
+        0.0008733980357646942
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-6 (L1)",
+      "layer": 1,
+      "j": 3701,
+      "k": 8572,
+      "weight": -0.045654296875,
+      "ppl": 5.518772900104523,
+      "ppl_each": [
+        8.34383487701416,
+        3.0089333057403564,
+        3.8214826583862305,
+        6.900840759277344
+      ],
+      "kl": 0.0005825787229696289,
+      "kl_each": [
+        0.001270962180569768,
+        0.00012270307342987508,
+        0.0003540709149092436
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-7 (L31)",
+      "layer": 31,
+      "j": 53,
+      "k": 2187,
+      "weight": 0.0849609375,
+      "ppl": 5.634127557277679,
+      "ppl_each": [
+        8.519954681396484,
+        3.059256076812744,
+        3.8813164234161377,
+        7.075983047485352
+      ],
+      "kl": 1.8514770393570263e-05,
+      "kl_each": [
+        0.0,
+        5.554431118071079e-05,
+        0.0
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-8 (L31)",
+      "layer": 31,
+      "j": 3719,
+      "k": 2187,
+      "weight": 0.07275390625,
+      "ppl": 5.596165895462036,
+      "ppl_each": [
+        8.473074913024902,
+        3.034013509750366,
+        3.8570311069488525,
+        7.020544052124023
+      ],
+      "kl": 4.422491050111906e-06,
+      "kl_each": [
+        6.30371505394578e-06,
+        6.963758096389938e-06,
+        0.0
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-9 (L31)",
+      "layer": 31,
+      "j": 1068,
+      "k": 2187,
+      "weight": 0.0478515625,
+      "ppl": 5.5787928104400635,
+      "ppl_each": [
+        8.446807861328125,
+        3.0287859439849854,
+        3.8496158123016357,
+        6.989961624145508
+      ],
+      "kl": 1.7374537492287345e-05,
+      "kl_each": [
+        1.0405692592030391e-06,
+        5.1083043217658997e-05,
+        0.0
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-10 (L31)",
+      "layer": 31,
+      "j": 2070,
+      "k": 2187,
+      "weight": -0.0244140625,
+      "ppl": 5.567493736743927,
+      "ppl_each": [
+        8.437820434570312,
+        3.0186960697174072,
+        3.834987163543701,
+        6.978471279144287
+      ],
+      "kl": 1.6283055022843957e-06,
+      "kl_each": [
+        1.4330198609968647e-06,
+        3.4518966458563227e-06,
+        0.0
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-11 (L31)",
+      "layer": 31,
+      "j": 2070,
+      "k": 9943,
+      "weight": 0.271484375,
+      "ppl": 5.557696044445038,
+      "ppl_each": [
+        8.401690483093262,
+        3.0098774433135986,
+        3.829120635986328,
+        6.990095615386963
+      ],
+      "kl": 0.00013674038276197584,
+      "kl_each": [
+        0.00039204943459481,
+        1.6335179680027068e-05,
+        1.8365340110904071e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-12 (L30)",
+      "layer": 30,
+      "j": 2070,
+      "k": 11118,
+      "weight": -0.1865234375,
+      "ppl": 5.560362815856934,
+      "ppl_each": [
+        8.433534622192383,
+        3.005844831466675,
+        3.8312156200408936,
+        6.970856189727783
+      ],
+      "kl": 6.698839327630897e-05,
+      "kl_each": [
+        5.777933984063566e-05,
+        6.527209188789129e-05,
+        7.791374810039997e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-13 (L30)",
+      "layer": 30,
+      "j": 2070,
+      "k": 4382,
+      "weight": 0.1708984375,
+      "ppl": 5.55248498916626,
+      "ppl_each": [
+        8.425950050354004,
+        3.013899564743042,
+        3.8468687534332275,
+        6.923221588134766
+      ],
+      "kl": 3.826454243001839e-05,
+      "kl_each": [
+        3.9302598452195525e-05,
+        6.6629727371037e-05,
+        8.861301466822624e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-14 (L30)",
+      "layer": 30,
+      "j": 2070,
+      "k": 4742,
+      "weight": 0.10400390625,
+      "ppl": 5.553851425647736,
+      "ppl_each": [
+        8.411778450012207,
+        3.0107758045196533,
+        3.8464760780334473,
+        6.946375370025635
+      ],
+      "kl": 8.717637683730572e-05,
+      "kl_each": [
+        0.00015824590809643269,
+        8.182844612747431e-05,
+        2.145477628801018e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-15 (L30)",
+      "layer": 30,
+      "j": 2070,
+      "k": 2211,
+      "weight": -0.2001953125,
+      "ppl": 5.563583850860596,
+      "ppl_each": [
+        8.421820640563965,
+        3.0172548294067383,
+        3.849989891052246,
+        6.965270042419434
+      ],
+      "kl": 8.815666660666466e-05,
+      "kl_each": [
+        4.959211219102144e-05,
+        7.59040703997016e-05,
+        0.00013897381722927094
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-16 (L30)",
+      "layer": 30,
+      "j": 3398,
+      "k": 630,
+      "weight": 0.1396484375,
+      "ppl": 5.579863905906677,
+      "ppl_each": [
+        8.42086410522461,
+        3.017825126647949,
+        3.8519225120544434,
+        7.028843879699707
+      ],
+      "kl": 0.00023755793032857278,
+      "kl_each": [
+        0.0003988639800809324,
+        0.00014077010564506054,
+        0.00017303970525972545
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-17 (L30)",
+      "layer": 30,
+      "j": 3398,
+      "k": 4742,
+      "weight": -0.138671875,
+      "ppl": 5.554993152618408,
+      "ppl_each": [
+        8.410170555114746,
+        3.0140669345855713,
+        3.8417675495147705,
+        6.953967571258545
+      ],
+      "kl": 0.0001389355347782839,
+      "kl_each": [
+        0.0003209864953532815,
+        8.353742305189371e-05,
+        1.2282685929676518e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-18 (L30)",
+      "layer": 30,
+      "j": 3901,
+      "k": 11118,
+      "weight": 0.068359375,
+      "ppl": 5.573288679122925,
+      "ppl_each": [
+        8.446253776550293,
+        3.016665458679199,
+        3.8520302772521973,
+        6.97820520401001
+      ],
+      "kl": 0.00017073162598535419,
+      "kl_each": [
+        0.00040904368506744504,
+        7.897638715803623e-05,
+        2.4174805730581284e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-19 (L30)",
+      "layer": 30,
+      "j": 3901,
+      "k": 630,
+      "weight": -0.01129150390625,
+      "ppl": 5.563856899738312,
+      "ppl_each": [
+        8.426095008850098,
+        3.0151543617248535,
+        3.84462571144104,
+        6.969552516937256
+      ],
+      "kl": 2.63914431949767e-05,
+      "kl_each": [
+        5.921981937717646e-06,
+        6.952555850148201e-05,
+        3.726789145730436e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-20 (L30)",
+      "layer": 30,
+      "j": 3901,
+      "k": 12265,
+      "weight": -0.0830078125,
+      "ppl": 5.56375390291214,
+      "ppl_each": [
+        8.42297077178955,
+        3.0160512924194336,
+        3.850757360458374,
+        6.965236186981201
+      ],
+      "kl": 4.0700667038133055e-05,
+      "kl_each": [
+        5.394304753281176e-05,
+        6.471259985119104e-05,
+        3.4463537303963676e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-21 (L30)",
+      "layer": 30,
+      "j": 3901,
+      "k": 1303,
+      "weight": -0.09912109375,
+      "ppl": 5.570153772830963,
+      "ppl_each": [
+        8.432897567749023,
+        3.0132665634155273,
+        3.8532116413116455,
+        6.981239318847656
+      ],
+      "kl": 2.8864858904853463e-05,
+      "kl_each": [
+        4.762528988067061e-06,
+        7.832166738808155e-05,
+        3.510380338411778e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-22 (L30)",
+      "layer": 30,
+      "j": 3701,
+      "k": 630,
+      "weight": -0.033935546875,
+      "ppl": 5.563507437705994,
+      "ppl_each": [
+        8.422213554382324,
+        3.0130858421325684,
+        3.849658489227295,
+        6.969071865081787
+      ],
+      "kl": 3.2321396550590485e-05,
+      "kl_each": [
+        7.262051803991199e-05,
+        1.9414181224419735e-05,
+        4.929490387439728e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-23 (L30)",
+      "layer": 30,
+      "j": 3701,
+      "k": 68,
+      "weight": 0.029296875,
+      "ppl": 5.561794996261597,
+      "ppl_each": [
+        8.420663833618164,
+        3.0200002193450928,
+        3.847644567489624,
+        6.958871364593506
+      ],
+      "kl": 9.845341992331669e-06,
+      "kl_each": [
+        1.963705290108919e-05,
+        6.62573438603431e-06,
+        3.273238689871505e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-24 (L30)",
+      "layer": 30,
+      "j": 3701,
+      "k": 4382,
+      "weight": -0.0201416015625,
+      "ppl": 5.567225873470306,
+      "ppl_each": [
+        8.4320068359375,
+        3.0134973526000977,
+        3.8499715328216553,
+        6.973427772521973
+      ],
+      "kl": 1.0279174603056163e-05,
+      "kl_each": [
+        8.32529622130096e-06,
+        1.727768176351674e-05,
+        5.234545824350789e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-25 (L19)",
+      "layer": 19,
+      "j": 2070,
+      "k": 1816,
+      "weight": 0.0654296875,
+      "ppl": 5.56300413608551,
+      "ppl_each": [
+        8.391279220581055,
+        3.0094385147094727,
+        3.8365979194641113,
+        7.014700889587402
+      ],
+      "kl": 0.0001931251996817688,
+      "kl_each": [
+        0.0004274379462003708,
+        0.00012120255269110203,
+        3.073510015383363e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-26 (L19)",
+      "layer": 19,
+      "j": 3701,
+      "k": 1816,
+      "weight": 0.05419921875,
+      "ppl": 5.566794753074646,
+      "ppl_each": [
+        8.427535057067871,
+        3.026195526123047,
+        3.8500308990478516,
+        6.9634175300598145
+      ],
+      "kl": 0.0001841010234784335,
+      "kl_each": [
+        0.0002673749113455415,
+        8.792709559202194e-05,
+        0.00019700106349773705
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-27 (L19)",
+      "layer": 19,
+      "j": 3150,
+      "k": 1816,
+      "weight": -0.053955078125,
+      "ppl": 5.564184069633484,
+      "ppl_each": [
+        8.423820495605469,
+        3.0125999450683594,
+        3.828047275543213,
+        6.9922685623168945
+      ],
+      "kl": 0.00018521869787946343,
+      "kl_each": [
+        0.00041553121991455555,
+        9.14969714358449e-05,
+        4.8627902287989855e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-28 (L19)",
+      "layer": 19,
+      "j": 2388,
+      "k": 1816,
+      "weight": -0.0478515625,
+      "ppl": 5.555291771888733,
+      "ppl_each": [
+        8.4067964553833,
+        3.0162012577056885,
+        3.827892541885376,
+        6.970276832580566
+      ],
+      "kl": 0.0001816555547217528,
+      "kl_each": [
+        0.0003946427023038268,
+        3.939575981348753e-05,
+        0.00011092820204794407
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-29 (L31)",
+      "layer": 31,
+      "j": 3901,
+      "k": 8035,
+      "weight": 0.1513671875,
+      "ppl": 5.575099349021912,
+      "ppl_each": [
+        8.440374374389648,
+        3.0146546363830566,
+        3.8519535064697266,
+        6.993414878845215
+      ],
+      "kl": 0.00027233137128253776,
+      "kl_each": [
+        0.00047148019075393677,
+        7.613119669258595e-05,
+        0.0002693827264010906
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-30 (L31)",
+      "layer": 31,
+      "j": 3901,
+      "k": 5286,
+      "weight": 0.126953125,
+      "ppl": 5.563437819480896,
+      "ppl_each": [
+        8.4332914352417,
+        3.018630266189575,
+        3.8371880054473877,
+        6.964641571044922
+      ],
+      "kl": 5.109223517744492e-06,
+      "kl_each": [
+        0.0,
+        1.5327670553233474e-05,
+        0.0
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-31 (L31)",
+      "layer": 31,
+      "j": 3901,
+      "k": 8824,
+      "weight": -0.12890625,
+      "ppl": 5.563607394695282,
+      "ppl_each": [
+        8.430228233337402,
+        3.020256996154785,
+        3.8419764041900635,
+        6.961967945098877
+      ],
+      "kl": 0.00010453624418005347,
+      "kl_each": [
+        0.00011957320384681225,
+        5.564989987760782e-05,
+        0.00013838562881574035
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-32 (L31)",
+      "layer": 31,
+      "j": 3901,
+      "k": 2928,
+      "weight": 0.10498046875,
+      "ppl": 5.559395372867584,
+      "ppl_each": [
+        8.412422180175781,
+        3.013538360595703,
+        3.836806535720825,
+        6.974814414978027
+      ],
+      "kl": 1.0792388517681198e-05,
+      "kl_each": [
+        3.929568265448324e-06,
+        0.0,
+        2.8447597287595272e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-33 (L31)",
+      "layer": 31,
+      "j": 2070,
+      "k": 8824,
+      "weight": 0.10693359375,
+      "ppl": 5.562194585800171,
+      "ppl_each": [
+        8.426948547363281,
+        3.0155229568481445,
+        3.8400635719299316,
+        6.966243267059326
+      ],
+      "kl": 1.897784386528656e-05,
+      "kl_each": [
+        3.677920176414773e-06,
+        5.105859600007534e-05,
+        2.1970154193695635e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-34 (L31)",
+      "layer": 31,
+      "j": 2070,
+      "k": 5286,
+      "weight": -0.09228515625,
+      "ppl": 5.564189195632935,
+      "ppl_each": [
+        8.428549766540527,
+        3.020115613937378,
+        3.8417422771453857,
+        6.966349124908447
+      ],
+      "kl": 3.5260354707133956e-06,
+      "kl_each": [
+        1.4330198609968647e-06,
+        9.145086551143322e-06,
+        0.0
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-35 (L31)",
+      "layer": 31,
+      "j": 2070,
+      "k": 11185,
+      "weight": -0.064453125,
+      "ppl": 5.562966227531433,
+      "ppl_each": [
+        8.420727729797363,
+        3.0114641189575195,
+        3.8448638916015625,
+        6.974809169769287
+      ],
+      "kl": 2.5923840439645573e-05,
+      "kl_each": [
+        4.654913936974481e-06,
+        5.602382589131594e-05,
+        1.7092781490646303e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-36 (L31)",
+      "layer": 31,
+      "j": 2070,
+      "k": 7878,
+      "weight": 0.0859375,
+      "ppl": 5.5643420815467834,
+      "ppl_each": [
+        8.430268287658691,
+        3.0146844387054443,
+        3.842471122741699,
+        6.969944477081299
+      ],
+      "kl": 4.380762220534962e-06,
+      "kl_each": [
+        1.4330198609968647e-06,
+        9.193654477712698e-06,
+        2.515612322895322e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-37 (L31)",
+      "layer": 31,
+      "j": 722,
+      "k": 7853,
+      "weight": 0.052734375,
+      "ppl": 5.562807977199554,
+      "ppl_each": [
+        8.425638198852539,
+        3.013681173324585,
+        3.84421968460083,
+        6.967692852020264
+      ],
+      "kl": 1.0781710291970132e-06,
+      "kl_each": [
+        2.2259810066316277e-06,
+        0.0,
+        1.0085320809594123e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-38 (L31)",
+      "layer": 31,
+      "j": 722,
+      "k": 830,
+      "weight": 0.0263671875,
+      "ppl": 5.563041865825653,
+      "ppl_each": [
+        8.428909301757812,
+        3.0138702392578125,
+        3.841102361679077,
+        6.96828556060791
+      ],
+      "kl": 3.795218314432229e-07,
+      "kl_each": [
+        0.0,
+        0.0,
+        1.1385654943296686e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-39 (L31)",
+      "layer": 31,
+      "j": 722,
+      "k": 2623,
+      "weight": -0.07373046875,
+      "ppl": 5.564140975475311,
+      "ppl_each": [
+        8.42845344543457,
+        3.0138957500457764,
+        3.846646308898926,
+        6.967568397521973
+      ],
+      "kl": 9.911145752994344e-07,
+      "kl_each": [
+        1.8347782315686345e-06,
+        0.0,
+        1.1385654943296686e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-40 (L31)",
+      "layer": 31,
+      "j": 722,
+      "k": 7413,
+      "weight": -0.017822265625,
+      "ppl": 5.561478674411774,
+      "ppl_each": [
+        8.421107292175293,
+        3.0146567821502686,
+        3.843255043029785,
+        6.966895580291748
+      ],
+      "kl": 1.7345829595190782e-05,
+      "kl_each": [
+        1.8347782315686345e-06,
+        5.0202710554003716e-05,
+        0.0
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-41 (L31)",
+      "layer": 31,
+      "j": 3350,
+      "k": 12973,
+      "weight": 0.028564453125,
+      "ppl": 5.565368056297302,
+      "ppl_each": [
+        8.432159423828125,
+        3.0135819911956787,
+        3.844968557357788,
+        6.970762252807617
+      ],
+      "kl": 6.503451004391536e-06,
+      "kl_each": [
+        2.326893081772141e-06,
+        1.5957950381562114e-05,
+        1.2255095498403534e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-42 (L31)",
+      "layer": 31,
+      "j": 3350,
+      "k": 7770,
+      "weight": -0.03466796875,
+      "ppl": 5.556588411331177,
+      "ppl_each": [
+        8.410120010375977,
+        3.0239269733428955,
+        3.8324363231658936,
+        6.959870338439941
+      ],
+      "kl": 0.00019375156747022024,
+      "kl_each": [
+        0.00045145838521420956,
+        2.3295680875889957e-05,
+        0.00010650063632056117
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-43 (L31)",
+      "layer": 31,
+      "j": 3350,
+      "k": 7853,
+      "weight": 0.0498046875,
+      "ppl": 5.564352095127106,
+      "ppl_each": [
+        8.424098014831543,
+        3.0169122219085693,
+        3.8500046730041504,
+        6.96639347076416
+      ],
+      "kl": 1.6218843181074287e-06,
+      "kl_each": [
+        2.5056360755115747e-06,
+        0.0,
+        2.360016878810711e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-44 (L31)",
+      "layer": 31,
+      "j": 3350,
+      "k": 2928,
+      "weight": 0.01446533203125,
+      "ppl": 5.564658284187317,
+      "ppl_each": [
+        8.42976188659668,
+        3.0113441944122314,
+        3.8477842807769775,
+        6.969742774963379
+      ],
+      "kl": 1.6218843181074287e-06,
+      "kl_each": [
+        2.5056360755115747e-06,
+        0.0,
+        2.360016878810711e-06
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-45 (L19)",
+      "layer": 19,
+      "j": 1437,
+      "k": 1816,
+      "weight": -0.04248046875,
+      "ppl": 5.563512682914734,
+      "ppl_each": [
+        8.398223876953125,
+        3.0130136013031006,
+        3.85680890083313,
+        6.98600435256958
+      ],
+      "kl": 0.00015871265592674413,
+      "kl_each": [
+        0.00019584305118769407,
+        0.00011170725338160992,
+        0.00016858766321092844
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-46 (L19)",
+      "layer": 19,
+      "j": 1504,
+      "k": 1816,
+      "weight": 0.041259765625,
+      "ppl": 5.543943762779236,
+      "ppl_each": [
+        8.37682056427002,
+        3.011686325073242,
+        3.829012393951416,
+        6.958255767822266
+      ],
+      "kl": 0.0002839352625111739,
+      "kl_each": [
+        0.0007043302175588906,
+        8.337676990777254e-05,
+        6.409880006685853e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-47 (L19)",
+      "layer": 19,
+      "j": 104,
+      "k": 1816,
+      "weight": -0.03369140625,
+      "ppl": 5.559923946857452,
+      "ppl_each": [
+        8.419384956359863,
+        3.022071361541748,
+        3.8317887783050537,
+        6.9664506912231445
+      ],
+      "kl": 0.00024102473010619482,
+      "kl_each": [
+        0.0004193028435111046,
+        0.00015404238365590572,
+        0.00014972896315157413
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-48 (L19)",
+      "layer": 19,
+      "j": 3830,
+      "k": 1816,
+      "weight": 0.0322265625,
+      "ppl": 5.564791738986969,
+      "ppl_each": [
+        8.413804054260254,
+        3.030240058898926,
+        3.8471953868865967,
+        6.9679274559021
+      ],
+      "kl": 0.0001490349144053956,
+      "kl_each": [
+        0.00013817212311550975,
+        0.00012540421448647976,
+        0.00018352840561419725
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-49 (L19)",
+      "layer": 19,
+      "j": 2661,
+      "k": 1816,
+      "weight": -0.029052734375,
+      "ppl": 5.557605862617493,
+      "ppl_each": [
+        8.428067207336426,
+        3.0163822174072266,
+        3.836752414703369,
+        6.949221611022949
+      ],
+      "kl": 0.00015053052144745985,
+      "kl_each": [
+        0.0003676259657368064,
+        4.513078602030873e-05,
+        3.8834812585264444e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-50 (L19)",
+      "layer": 19,
+      "j": 213,
+      "k": 1816,
+      "weight": 0.0286865234375,
+      "ppl": 5.554362535476685,
+      "ppl_each": [
+        8.412585258483887,
+        3.0138049125671387,
+        3.8312830924987793,
+        6.959776878356934
+      ],
+      "kl": 0.0001534145728025275,
+      "kl_each": [
+        0.0003861777950078249,
+        3.9103142626117915e-05,
+        3.496278077363968e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-51 (L19)",
+      "layer": 19,
+      "j": 3240,
+      "k": 1816,
+      "weight": -0.0269775390625,
+      "ppl": 5.547536373138428,
+      "ppl_each": [
+        8.400879859924316,
+        3.0134029388427734,
+        3.834967613220215,
+        6.940895080566406
+      ],
+      "kl": 0.00010840377459923427,
+      "kl_each": [
+        0.00016264838632196188,
+        8.931988850235939e-05,
+        7.324304897338152e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-52 (L19)",
+      "layer": 19,
+      "j": 3901,
+      "k": 1816,
+      "weight": -0.0263671875,
+      "ppl": 5.562420010566711,
+      "ppl_each": [
+        8.413579940795898,
+        3.0211760997772217,
+        3.8415606021881104,
+        6.973363399505615
+      ],
+      "kl": 0.00010021398581253986,
+      "kl_each": [
+        0.00014682146138511598,
+        8.857971988618374e-05,
+        6.524077616631985e-05
+      ],
+      "continuation": "a city of many faces. It is a city of history, culture,",
+      "verdict": "no effect"
+    }
+  ]
+}

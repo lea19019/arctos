@@ -1,0 +1,128 @@
+{
+  "model": "allenai/OLMo-1B-0724-hf",
+  "revision_requested": null,
+  "revision_resolved": "d7cbab742d80589e714b1a2d7f838dcd21cbe143",
+  "prompt": "Language modeling is ",
+  "date": "2026-09-02T21:09:09",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "354ba2234dcf0e5f6ce2efc4e430f19a9198923b-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float32",
+  "detector_version": 5,
+  "stop_reason": "no super activation survives",
+  "params": {
+    "model": "allenai/OLMo-1B-0724-hf",
+    "revision": null,
+    "prompt": "Language modeling is ",
+    "out": "results/probe_v5/allenai_OLMo-1B-0724-hf_found.json",
+    "dtype": "auto",
+    "massive_factor": 50,
+    "massive_frac": 0.1,
+    "plateau_frac": 0.5,
+    "min_persist": 0.5,
+    "top_w": 1000,
+    "top_x": 10,
+    "explain_frac": 0.8,
+    "overshoot": 1.25,
+    "min_share": 0.35,
+    "max_k": 4,
+    "max_rounds": 10,
+    "max_sw": 6
+  },
+  "found": [
+    {
+      "layer": 1,
+      "j": 1764,
+      "k": 1710,
+      "value": 0.6322910189628601,
+      "round": 0,
+      "share": 0.9829721714428727,
+      "peak": 426.9966735839844,
+      "persist_frac": 1.0
+    },
+    {
+      "layer": 2,
+      "j": 1764,
+      "k": 8041,
+      "value": -0.5923751592636108,
+      "round": 1,
+      "share": 0.8989380200548007,
+      "peak": 244.88925170898438,
+      "persist_frac": 1.0
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 1764,
+          "peak": 426.9966735839844,
+          "bar": 213.4983367919922,
+          "onset": 2,
+          "layer": 1,
+          "persist": 14,
+          "window": 14,
+          "persist_frac": 1.0,
+          "median_residual": 0.06271012127399445,
+          "candidates": [
+            {
+              "j": 1764,
+              "k": 1710,
+              "rank_in_channel": 0,
+              "weight": 0.6322910189628601,
+              "x": -414.959716796875,
+              "contribution": -262.37530517578125,
+              "y_channel": -266.9203796386719,
+              "share": 0.9829721714428727,
+              "explained_by_prefix": 0.9829721714428727,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "super_activations": [
+        {
+          "token": 0,
+          "channel": 1764,
+          "peak": 244.88925170898438,
+          "bar": 122.44462585449219,
+          "onset": 3,
+          "layer": 2,
+          "persist": 13,
+          "window": 13,
+          "persist_frac": 1.0,
+          "median_residual": 0.07239782810211182,
+          "candidates": [
+            {
+              "j": 1764,
+              "k": 8041,
+              "rank_in_channel": 0,
+              "weight": -0.5923751592636108,
+              "x": 330.9153137207031,
+              "contribution": -196.02601623535156,
+              "y_channel": -218.06399536132812,
+              "share": 0.8989380200548007,
+              "explained_by_prefix": 0.8989380200548007,
+              "w_outlier": true,
+              "x_outlier": true
+            }
+          ],
+          "rejected": null
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "super_activations": []
+    }
+  ]
+}

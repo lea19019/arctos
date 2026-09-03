@@ -1,0 +1,6658 @@
+{
+  "model": "meta-llama/Llama-2-13b-hf",
+  "revision_requested": null,
+  "revision_resolved": "5c31dfb671ce7cfe2d7bb7c04375e44c55e815b1",
+  "date": "2026-09-02T19:51:10",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "354ba2234dcf0e5f6ce2efc4e430f19a9198923b-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/meta-llama_Llama-2-13b-hf_found.json",
+  "baseline": {
+    "ppl": 5.3960683941841125,
+    "ppl_each": [
+      9.35915756225586,
+      3.21722149848938,
+      3.6528210639953613,
+      5.35507345199585
+    ],
+    "continuation": "a city of contrasts. It is a city of history, culture,"
+  },
+  "results": [
+    {
+      "name": "found-1 (L3)",
+      "layer": 3,
+      "j": 4743,
+      "k": 7678,
+      "weight": -1.578125,
+      "ppl": 7.426059663295746,
+      "ppl_each": [
+        12.97237777709961,
+        3.987973928451538,
+        4.692435264587402,
+        8.051451683044434
+      ],
+      "kl": 0.0493261128043135,
+      "kl_each": [
+        0.043110042810440063,
+        0.010221797041594982,
+        0.09464649856090546
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-2 (L3)",
+      "layer": 3,
+      "j": 2100,
+      "k": 7678,
+      "weight": -0.91015625,
+      "ppl": 6.050350189208984,
+      "ppl_each": [
+        10.663488388061523,
+        3.470261812210083,
+        3.8604443073272705,
+        6.2072062492370605
+      ],
+      "kl": 0.015609495186557373,
+      "kl_each": [
+        0.005581298377364874,
+        0.020122673362493515,
+        0.02112451381981373
+      ],
+      "continuation": "a city of contrasts. It is a city of the past and the",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-3 (L3)",
+      "layer": 3,
+      "j": 2772,
+      "k": 7678,
+      "weight": -0.08349609375,
+      "ppl": 5.344810128211975,
+      "ppl_each": [
+        9.230830192565918,
+        3.216449022293091,
+        3.6470258235931396,
+        5.284935474395752
+      ],
+      "kl": 0.0007842213769132892,
+      "kl_each": [
+        0.0002595077967271209,
+        0.0001062578521668911,
+        0.0019868984818458557
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-4 (L3)",
+      "layer": 3,
+      "j": 4776,
+      "k": 7678,
+      "weight": -0.0908203125,
+      "ppl": 5.454336047172546,
+      "ppl_each": [
+        9.51142692565918,
+        3.2052576541900635,
+        3.641530752182007,
+        5.4591288566589355
+      ],
+      "kl": 0.002350895704391102,
+      "kl_each": [
+        0.0014043432893231511,
+        0.0012242263182997704,
+        0.0044241175055503845
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-5 (L38)",
+      "layer": 38,
+      "j": 4743,
+      "k": 3161,
+      "weight": -1.03125,
+      "ppl": 6.128684878349304,
+      "ppl_each": [
+        10.754617691040039,
+        3.523623466491699,
+        3.9336776733398438,
+        6.302820682525635
+      ],
+      "kl": 6.617850158363581e-05,
+      "kl_each": [
+        6.24670647084713e-05,
+        4.437682218849659e-05,
+        9.169161785393953e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-6 (L38)",
+      "layer": 38,
+      "j": 4743,
+      "k": 11702,
+      "weight": 0.8828125,
+      "ppl": 5.380595147609711,
+      "ppl_each": [
+        9.331171035766602,
+        3.212278127670288,
+        3.6485137939453125,
+        5.330417633056641
+      ],
+      "kl": 3.3196811273228377e-06,
+      "kl_each": [
+        6.2836334109306335e-06,
+        1.5330442693084478e-06,
+        2.1423657017294317e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-7 (L38)",
+      "layer": 38,
+      "j": 2100,
+      "k": 3161,
+      "weight": -0.73828125,
+      "ppl": 6.5482593178749084,
+      "ppl_each": [
+        11.416895866394043,
+        3.7451493740081787,
+        4.237195014953613,
+        6.793797016143799
+      ],
+      "kl": 2.3930440268789727e-05,
+      "kl_each": [
+        8.620176231488585e-06,
+        1.9748404156416655e-05,
+        4.3422740418463945e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-8 (L38)",
+      "layer": 38,
+      "j": 2100,
+      "k": 11702,
+      "weight": 0.6484375,
+      "ppl": 5.390683650970459,
+      "ppl_each": [
+        9.352750778198242,
+        3.211082935333252,
+        3.6461853981018066,
+        5.352715492248535
+      ],
+      "kl": 1.4656624974425843e-06,
+      "kl_each": [
+        3.089226083829999e-06,
+        4.1139981021842686e-07,
+        8.963615982793272e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-9 (L38)",
+      "layer": 38,
+      "j": 2404,
+      "k": 3161,
+      "weight": 0.294921875,
+      "ppl": 5.543092489242554,
+      "ppl_each": [
+        9.659500122070312,
+        3.222536563873291,
+        3.731334686279297,
+        5.5589985847473145
+      ],
+      "kl": 1.5482354986791808e-05,
+      "kl_each": [
+        1.3598561054095626e-05,
+        2.2375257685780525e-05,
+        1.0473246220499277e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-10 (L38)",
+      "layer": 38,
+      "j": 21,
+      "k": 3161,
+      "weight": 0.1416015625,
+      "ppl": 5.408454954624176,
+      "ppl_each": [
+        9.401973724365234,
+        3.1930088996887207,
+        3.660062551498413,
+        5.378774642944336
+      ],
+      "kl": 2.3033372902621824e-05,
+      "kl_each": [
+        1.955206971615553e-05,
+        2.0707142539322376e-05,
+        2.884090645238757e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-11 (L38)",
+      "layer": 38,
+      "j": 21,
+      "k": 11702,
+      "weight": -0.12060546875,
+      "ppl": 5.393270134925842,
+      "ppl_each": [
+        9.357136726379395,
+        3.2147061824798584,
+        3.6503794193267822,
+        5.350858211517334
+      ],
+      "kl": 3.3114120014943182e-06,
+      "kl_each": [
+        1.5907571651041508e-06,
+        7.582057151012123e-07,
+        7.585273124277592e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-12 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 10686,
+      "weight": -0.337890625,
+      "ppl": 5.388597071170807,
+      "ppl_each": [
+        9.342111587524414,
+        3.215179443359375,
+        3.6534602642059326,
+        5.343636989593506
+      ],
+      "kl": 2.330974287663897e-07,
+      "kl_each": [
+        6.992922862991691e-07,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-13 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 4330,
+      "weight": -0.54296875,
+      "ppl": 5.390577733516693,
+      "ppl_each": [
+        9.348584175109863,
+        3.216383457183838,
+        3.652348756790161,
+        5.34499454498291
+      ],
+      "kl": 2.4051793540517488e-06,
+      "kl_each": [
+        0.0,
+        0.0,
+        7.215538062155247e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-14 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 9151,
+      "weight": 0.1943359375,
+      "ppl": 5.393464922904968,
+      "ppl_each": [
+        9.352396011352539,
+        3.21682071685791,
+        3.653200626373291,
+        5.351442337036133
+      ],
+      "kl": 5.314437051614125e-06,
+      "kl_each": [
+        0.0,
+        1.5943311154842377e-05,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-15 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 2696,
+      "weight": -0.1875,
+      "ppl": 5.395100951194763,
+      "ppl_each": [
+        9.356350898742676,
+        3.217179298400879,
+        3.653965950012207,
+        5.352907657623291
+      ],
+      "kl": 0.0,
+      "kl_each": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-16 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 10686,
+      "weight": 0.294921875,
+      "ppl": 5.393965244293213,
+      "ppl_each": [
+        9.35283374786377,
+        3.2189877033233643,
+        3.6536147594451904,
+        5.350424766540527
+      ],
+      "kl": -3.944315096759965e-08,
+      "kl_each": [
+        -8.350912139576394e-08,
+        -3.482033150703501e-08,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-17 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 4330,
+      "weight": 0.408203125,
+      "ppl": 5.393953025341034,
+      "ppl_each": [
+        9.354668617248535,
+        3.2176244258880615,
+        3.6526618003845215,
+        5.350857257843018
+      ],
+      "kl": 2.4656953172552676e-06,
+      "kl_each": [
+        0.0,
+        1.0646000703218306e-07,
+        7.29062594473362e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-18 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 9151,
+      "weight": -0.2001953125,
+      "ppl": 5.394619643688202,
+      "ppl_each": [
+        9.355504035949707,
+        3.2175164222717285,
+        3.652794599533081,
+        5.352663516998291
+      ],
+      "kl": 9.937237640163706e-08,
+      "kl_each": [
+        3.110767465841491e-08,
+        8.153483577189036e-08,
+        1.8547461877460591e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-19 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 8002,
+      "weight": 0.2294921875,
+      "ppl": 5.396547794342041,
+      "ppl_each": [
+        9.360353469848633,
+        3.2169039249420166,
+        3.65307879447937,
+        5.3558549880981445
+      ],
+      "kl": 2.434703886204185e-06,
+      "kl_each": [
+        0.0,
+        1.3485713878935712e-08,
+        7.29062594473362e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-20 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 10686,
+      "weight": -0.30078125,
+      "ppl": 5.40051931142807,
+      "ppl_each": [
+        9.365056991577148,
+        3.2231266498565674,
+        3.6561050415039062,
+        5.357788562774658
+      ],
+      "kl": 1.6166025792093328e-07,
+      "kl_each": [
+        0.0,
+        4.849807737627998e-07,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-21 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 4330,
+      "weight": -0.10546875,
+      "ppl": 5.396187782287598,
+      "ppl_each": [
+        9.358621597290039,
+        3.2183334827423096,
+        3.6528313159942627,
+        5.354964733123779
+      ],
+      "kl": 1.6166025792093328e-07,
+      "kl_each": [
+        0.0,
+        4.849807737627998e-07,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-22 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 9151,
+      "weight": 0.0556640625,
+      "ppl": 5.3971633315086365,
+      "ppl_each": [
+        9.361824989318848,
+        3.2178397178649902,
+        3.6538054943084717,
+        5.355183124542236
+      ],
+      "kl": 0.0,
+      "kl_each": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-23 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 1353,
+      "weight": -0.3828125,
+      "ppl": 5.394914090633392,
+      "ppl_each": [
+        9.356948852539062,
+        3.2147762775421143,
+        3.650115966796875,
+        5.357815265655518
+      ],
+      "kl": 2.5423864523569744e-05,
+      "kl_each": [
+        8.09674384072423e-06,
+        8.327828254550695e-06,
+        5.98470214754343e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-24 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 10686,
+      "weight": -0.1455078125,
+      "ppl": 5.399025499820709,
+      "ppl_each": [
+        9.363645553588867,
+        3.220945358276367,
+        3.654442071914673,
+        5.35706901550293
+      ],
+      "kl": 2.815213520079851e-07,
+      "kl_each": [
+        8.445640560239553e-07,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-25 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 4330,
+      "weight": -0.2333984375,
+      "ppl": 5.398400127887726,
+      "ppl_each": [
+        9.362371444702148,
+        3.220288038253784,
+        3.655167579650879,
+        5.355773448944092
+      ],
+      "kl": 0.0,
+      "kl_each": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-26 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 1353,
+      "weight": -0.388671875,
+      "ppl": 5.394531428813934,
+      "ppl_each": [
+        9.356438636779785,
+        3.2124404907226562,
+        3.651414632797241,
+        5.357831954956055
+      ],
+      "kl": 3.077646639818946e-05,
+      "kl_each": [
+        8.328293915838003e-06,
+        8.238479495048523e-06,
+        7.576262578368187e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-27 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 4705,
+      "weight": -0.1435546875,
+      "ppl": 5.396198809146881,
+      "ppl_each": [
+        9.36032485961914,
+        3.218003511428833,
+        3.6517558097839355,
+        5.354711055755615
+      ],
+      "kl": 2.815213520079851e-07,
+      "kl_each": [
+        8.445640560239553e-07,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-28 (L7)",
+      "layer": 7,
+      "j": 2100,
+      "k": 7558,
+      "weight": 0.95703125,
+      "ppl": 5.396552920341492,
+      "ppl_each": [
+        9.363107681274414,
+        3.217083215713501,
+        3.647585153579712,
+        5.35843563079834
+      ],
+      "kl": 6.180018923866252e-06,
+      "kl_each": [
+        9.782525012269616e-06,
+        1.6853591660037637e-06,
+        7.0721725933253765e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-29 (L7)",
+      "layer": 7,
+      "j": 2100,
+      "k": 7693,
+      "weight": -0.91796875,
+      "ppl": 5.397523760795593,
+      "ppl_each": [
+        9.362992286682129,
+        3.218657970428467,
+        3.647888660430908,
+        5.360556125640869
+      ],
+      "kl": 1.5431219556679327e-05,
+      "kl_each": [
+        8.886476280167699e-06,
+        2.8523849323391914e-05,
+        8.883333066478372e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-30 (L7)",
+      "layer": 7,
+      "j": 2100,
+      "k": 4490,
+      "weight": -0.93359375,
+      "ppl": 5.393878281116486,
+      "ppl_each": [
+        9.351447105407715,
+        3.218425989151001,
+        3.653158187866211,
+        5.352481842041016
+      ],
+      "kl": 7.042362994980067e-06,
+      "kl_each": [
+        1.042938674800098e-05,
+        2.086053427774459e-06,
+        8.611648809164762e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-31 (L7)",
+      "layer": 7,
+      "j": 2100,
+      "k": 10754,
+      "weight": 0.99609375,
+      "ppl": 5.396312773227692,
+      "ppl_each": [
+        9.36042308807373,
+        3.2182650566101074,
+        3.6501824855804443,
+        5.356380462646484
+      ],
+      "kl": 6.194097901849697e-06,
+      "kl_each": [
+        6.326677976176143e-06,
+        2.455424692016095e-06,
+        9.800191037356853e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-32 (L7)",
+      "layer": 7,
+      "j": 4743,
+      "k": 7558,
+      "weight": 0.75390625,
+      "ppl": 5.401801109313965,
+      "ppl_each": [
+        9.374481201171875,
+        3.2127685546875,
+        3.653057098388672,
+        5.3668975830078125
+      ],
+      "kl": 4.036570317111909e-06,
+      "kl_each": [
+        6.652873707935214e-06,
+        1.537773641757667e-06,
+        3.919063601642847e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-33 (L7)",
+      "layer": 7,
+      "j": 4743,
+      "k": 7693,
+      "weight": -0.7265625,
+      "ppl": 5.395823180675507,
+      "ppl_each": [
+        9.363903045654297,
+        3.2141366004943848,
+        3.648082971572876,
+        5.357170104980469
+      ],
+      "kl": 4.658356677585592e-06,
+      "kl_each": [
+        6.988993845880032e-06,
+        2.33504397328943e-06,
+        4.651032213587314e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-34 (L7)",
+      "layer": 7,
+      "j": 4743,
+      "k": 4490,
+      "weight": -0.765625,
+      "ppl": 5.4029112458229065,
+      "ppl_each": [
+        9.379526138305664,
+        3.2134993076324463,
+        3.650765895843506,
+        5.36785364151001
+      ],
+      "kl": 4.580438447495301e-06,
+      "kl_each": [
+        5.771260475739837e-06,
+        2.4232722353190184e-06,
+        5.54678263142705e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-35 (L7)",
+      "layer": 7,
+      "j": 4743,
+      "k": 10754,
+      "weight": 0.75390625,
+      "ppl": 5.3999398946762085,
+      "ppl_each": [
+        9.371562957763672,
+        3.213174343109131,
+        3.6539134979248047,
+        5.361108779907227
+      ],
+      "kl": 7.459491219681998e-06,
+      "kl_each": [
+        4.488072590902448e-06,
+        1.4656572602689266e-05,
+        3.2338284654542804e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-36 (L7)",
+      "layer": 7,
+      "j": 4776,
+      "k": 7693,
+      "weight": 0.2734375,
+      "ppl": 5.407796084880829,
+      "ppl_each": [
+        9.383220672607422,
+        3.225003957748413,
+        3.6553120613098145,
+        5.367647647857666
+      ],
+      "kl": 6.058831180174214e-06,
+      "kl_each": [
+        8.73615499585867e-06,
+        1.7589645722182468e-06,
+        7.681373972445726e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-37 (L7)",
+      "layer": 7,
+      "j": 4776,
+      "k": 4490,
+      "weight": 0.2734375,
+      "ppl": 5.404229700565338,
+      "ppl_each": [
+        9.370475769042969,
+        3.2226970195770264,
+        3.6571216583251953,
+        5.366624355316162
+      ],
+      "kl": 6.535051700969537e-06,
+      "kl_each": [
+        5.909678293392062e-06,
+        2.666056388989091e-06,
+        1.1029420420527458e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-38 (L7)",
+      "layer": 7,
+      "j": 4776,
+      "k": 2390,
+      "weight": -0.291015625,
+      "ppl": 5.399737060070038,
+      "ppl_each": [
+        9.363960266113281,
+        3.2201712131500244,
+        3.65402889251709,
+        5.360787868499756
+      ],
+      "kl": 5.3250793522844715e-06,
+      "kl_each": [
+        5.348658305592835e-06,
+        1.2425152817741036e-06,
+        9.384064469486475e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-39 (L7)",
+      "layer": 7,
+      "j": 4776,
+      "k": 10754,
+      "weight": -0.2001953125,
+      "ppl": 5.402184545993805,
+      "ppl_each": [
+        9.370149612426758,
+        3.2203369140625,
+        3.653132677078247,
+        5.365118980407715
+      ],
+      "kl": 4.3290419853292406e-06,
+      "kl_each": [
+        7.0135865826159716e-06,
+        1.7041529645211995e-06,
+        4.269386408850551e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-40 (L7)",
+      "layer": 7,
+      "j": 46,
+      "k": 7558,
+      "weight": -0.1767578125,
+      "ppl": 5.389484763145447,
+      "ppl_each": [
+        9.347947120666504,
+        3.2126312255859375,
+        3.6502060890197754,
+        5.34715461730957
+      ],
+      "kl": 8.133904581579069e-06,
+      "kl_each": [
+        8.42125155031681e-06,
+        2.6185152819380164e-06,
+        1.3361946912482381e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-41 (L7)",
+      "layer": 7,
+      "j": 46,
+      "k": 10754,
+      "weight": -0.1484375,
+      "ppl": 5.3920575976371765,
+      "ppl_each": [
+        9.352791786193848,
+        3.2138328552246094,
+        3.6505210399627686,
+        5.3510847091674805
+      ],
+      "kl": 5.475287859250481e-06,
+      "kl_each": [
+        7.056572940200567e-06,
+        6.487643986474723e-07,
+        8.720526238903403e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-42 (L7)",
+      "layer": 7,
+      "j": 46,
+      "k": 6926,
+      "weight": 0.21875,
+      "ppl": 5.395758807659149,
+      "ppl_each": [
+        9.363545417785645,
+        3.2132787704467773,
+        3.652074098587036,
+        5.354136943817139
+      ],
+      "kl": 4.8608126235194504e-06,
+      "kl_each": [
+        6.298127118498087e-06,
+        5.022375262342393e-07,
+        7.782073225826025e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-43 (L7)",
+      "layer": 7,
+      "j": 46,
+      "k": 4490,
+      "weight": 0.08349609375,
+      "ppl": 5.396365702152252,
+      "ppl_each": [
+        9.362462997436523,
+        3.216325283050537,
+        3.652360200881958,
+        5.35431432723999
+      ],
+      "kl": 4.6787827159278095e-06,
+      "kl_each": [
+        5.33426646143198e-06,
+        1.2693999451585114e-06,
+        7.432681741192937e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-44 (L3)",
+      "layer": 3,
+      "j": 4743,
+      "k": 8811,
+      "weight": 1.5546875,
+      "ppl": 5.434787273406982,
+      "ppl_each": [
+        9.5003080368042,
+        3.1713833808898926,
+        3.634429931640625,
+        5.433027744293213
+      ],
+      "kl": 0.00015086268346446255,
+      "kl_each": [
+        0.00012880726717412472,
+        9.879912249743938e-05,
+        0.00022498166072182357
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-45 (L3)",
+      "layer": 3,
+      "j": 4743,
+      "k": 11371,
+      "weight": -1.5546875,
+      "ppl": 5.379469573497772,
+      "ppl_each": [
+        9.35757064819336,
+        3.179577112197876,
+        3.637716770172119,
+        5.343013763427734
+      ],
+      "kl": 5.118658979578564e-05,
+      "kl_each": [
+        4.9926849897019565e-05,
+        2.4882203433662653e-05,
+        7.875071605667472e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-46 (L3)",
+      "layer": 3,
+      "j": 2100,
+      "k": 8811,
+      "weight": 0.91796875,
+      "ppl": 5.920061469078064,
+      "ppl_each": [
+        10.327434539794922,
+        3.4622185230255127,
+        3.862344980239868,
+        6.028247833251953
+      ],
+      "kl": 4.395810537971556e-05,
+      "kl_each": [
+        1.8222577637061477e-05,
+        5.9987069107592106e-05,
+        5.36646693944931e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-47 (L3)",
+      "layer": 3,
+      "j": 2100,
+      "k": 11371,
+      "weight": -0.91015625,
+      "ppl": 5.772076606750488,
+      "ppl_each": [
+        10.073530197143555,
+        3.383514404296875,
+        3.7840023040771484,
+        5.847259521484375
+      ],
+      "kl": 2.47379745511959e-05,
+      "kl_each": [
+        1.4085759175941348e-05,
+        4.1765859350562096e-05,
+        1.8362305127084255e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-48 (L3)",
+      "layer": 3,
+      "j": 110,
+      "k": 7678,
+      "weight": 0.05908203125,
+      "ppl": 5.34839791059494,
+      "ppl_each": [
+        9.395922660827637,
+        3.175431489944458,
+        3.608377456665039,
+        5.213860034942627
+      ],
+      "kl": 0.0016540550471593936,
+      "kl_each": [
+        0.001727093942463398,
+        0.0004180797841399908,
+        0.002816991414874792
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-49 (L3)",
+      "layer": 3,
+      "j": 1554,
+      "k": 7678,
+      "weight": 0.05322265625,
+      "ppl": 5.398657202720642,
+      "ppl_each": [
+        9.356964111328125,
+        3.189568519592285,
+        3.6358799934387207,
+        5.4122161865234375
+      ],
+      "kl": 0.00043040845775976777,
+      "kl_each": [
+        0.000489147612825036,
+        0.0001832554116845131,
+        0.0006188223487697542
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-50 (L7)",
+      "layer": 7,
+      "j": 2100,
+      "k": 2390,
+      "weight": 0.9453125,
+      "ppl": 5.392836689949036,
+      "ppl_each": [
+        9.349230766296387,
+        3.2188518047332764,
+        3.6514804363250732,
+        5.351783752441406
+      ],
+      "kl": 1.4631388088067373e-05,
+      "kl_each": [
+        1.5216530300676823e-05,
+        1.9227620214223862e-05,
+        9.450013749301434e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-51 (L7)",
+      "layer": 7,
+      "j": 2100,
+      "k": 11854,
+      "weight": 0.87109375,
+      "ppl": 5.391864776611328,
+      "ppl_each": [
+        9.35283374786377,
+        3.2145581245422363,
+        3.65250301361084,
+        5.347564220428467
+      ],
+      "kl": 2.722493566883107e-06,
+      "kl_each": [
+        4.993198672309518e-06,
+        6.181362550705671e-07,
+        2.556145773269236e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-52 (L7)",
+      "layer": 7,
+      "j": 4743,
+      "k": 2390,
+      "weight": 0.69921875,
+      "ppl": 5.398771405220032,
+      "ppl_each": [
+        9.368797302246094,
+        3.215148687362671,
+        3.6489593982696533,
+        5.362180233001709
+      ],
+      "kl": 7.4427686437654e-06,
+      "kl_each": [
+        5.470879841595888e-06,
+        1.3190554454922676e-05,
+        3.6668716347776353e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-53 (L7)",
+      "layer": 7,
+      "j": 4743,
+      "k": 11854,
+      "weight": 0.34375,
+      "ppl": 5.396511912345886,
+      "ppl_each": [
+        9.361518859863281,
+        3.2166051864624023,
+        3.652543544769287,
+        5.355380058288574
+      ],
+      "kl": 2.3088068701326847e-06,
+      "kl_each": [
+        4.209519829601049e-06,
+        1.2043965398333967e-06,
+        1.512504240963608e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-54 (L7)",
+      "layer": 7,
+      "j": 2772,
+      "k": 2390,
+      "weight": 0.09814453125,
+      "ppl": 5.396321773529053,
+      "ppl_each": [
+        9.364532470703125,
+        3.2142903804779053,
+        3.6519386768341064,
+        5.354525566101074
+      ],
+      "kl": 2.2900652159781507e-06,
+      "kl_each": [
+        4.057132173329592e-06,
+        1.0888688848353922e-06,
+        1.7241945897694677e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-55 (L7)",
+      "layer": 7,
+      "j": 2772,
+      "k": 4490,
+      "weight": -0.1005859375,
+      "ppl": 5.394790768623352,
+      "ppl_each": [
+        9.359094619750977,
+        3.2157676219940186,
+        3.6515390872955322,
+        5.352761745452881
+      ],
+      "kl": 5.011340059960882e-06,
+      "kl_each": [
+        4.684407031163573e-06,
+        2.145709004253149e-06,
+        8.203904144465923e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-56 (L7)",
+      "layer": 7,
+      "j": 2772,
+      "k": 7558,
+      "weight": 0.146484375,
+      "ppl": 5.394041538238525,
+      "ppl_each": [
+        9.358349800109863,
+        3.2123076915740967,
+        3.653010606765747,
+        5.3524980545043945
+      ],
+      "kl": 4.119346461569269e-06,
+      "kl_each": [
+        2.9218499548733234e-06,
+        1.0665098670870066e-06,
+        8.369679562747478e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-57 (L7)",
+      "layer": 7,
+      "j": 2772,
+      "k": 7693,
+      "weight": -0.08154296875,
+      "ppl": 5.394503891468048,
+      "ppl_each": [
+        9.357386589050293,
+        3.215343952178955,
+        3.6521828174591064,
+        5.353102207183838
+      ],
+      "kl": 4.5474880607798696e-06,
+      "kl_each": [
+        4.878733307123184e-06,
+        6.260670488700271e-07,
+        8.137663826346397e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-58 (L7)",
+      "layer": 7,
+      "j": 1554,
+      "k": 2390,
+      "weight": 0.11865234375,
+      "ppl": 5.394983232021332,
+      "ppl_each": [
+        9.356056213378906,
+        3.2166450023651123,
+        3.654562473297119,
+        5.3526692390441895
+      ],
+      "kl": 3.3056943114691726e-06,
+      "kl_each": [
+        7.4955751188099384e-06,
+        1.2368909665383399e-06,
+        1.184616849059239e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-59 (L7)",
+      "layer": 7,
+      "j": 1554,
+      "k": 4490,
+      "weight": -0.1171875,
+      "ppl": 5.394598662853241,
+      "ppl_each": [
+        9.357345581054688,
+        3.2158970832824707,
+        3.653076410293579,
+        5.352075576782227
+      ],
+      "kl": 3.783559805015102e-06,
+      "kl_each": [
+        8.195231202989817e-06,
+        6.551636033691466e-07,
+        2.500284608686343e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-60 (L7)",
+      "layer": 7,
+      "j": 1554,
+      "k": 11854,
+      "weight": 0.181640625,
+      "ppl": 5.394832193851471,
+      "ppl_each": [
+        9.355244636535645,
+        3.2150280475616455,
+        3.652116298675537,
+        5.356939792633057
+      ],
+      "kl": 2.2471861787683642e-06,
+      "kl_each": [
+        3.7427234929054976e-06,
+        8.761653589317575e-07,
+        2.1226696844678372e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-61 (L38)",
+      "layer": 38,
+      "j": 4743,
+      "k": 10204,
+      "weight": 0.81640625,
+      "ppl": 5.3895527720451355,
+      "ppl_each": [
+        9.34782886505127,
+        3.2147018909454346,
+        3.6499862670898438,
+        5.345694065093994
+      ],
+      "kl": 4.112162666084866e-06,
+      "kl_each": [
+        4.171684850007296e-06,
+        1.1299998732283711e-06,
+        7.0348032750189304e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-62 (L38)",
+      "layer": 38,
+      "j": 4743,
+      "k": 2742,
+      "weight": 0.5625,
+      "ppl": 5.393744587898254,
+      "ppl_each": [
+        9.354783058166504,
+        3.2157371044158936,
+        3.65189528465271,
+        5.35256290435791
+      ],
+      "kl": 3.4884800849492117e-06,
+      "kl_each": [
+        2.7956702979281545e-06,
+        5.085280463390518e-08,
+        7.618917152285576e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-63 (L38)",
+      "layer": 38,
+      "j": 4743,
+      "k": 2117,
+      "weight": -0.66015625,
+      "ppl": 5.3917699456214905,
+      "ppl_each": [
+        9.35501766204834,
+        3.2147367000579834,
+        3.648054599761963,
+        5.349270820617676
+      ],
+      "kl": 5.7622479895750684e-06,
+      "kl_each": [
+        5.464644345920533e-06,
+        1.0209405445493758e-06,
+        1.0801159078255296e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-64 (L38)",
+      "layer": 38,
+      "j": 4743,
+      "k": 11853,
+      "weight": 0.56640625,
+      "ppl": 5.393835723400116,
+      "ppl_each": [
+        9.35712718963623,
+        3.2155096530914307,
+        3.650872230529785,
+        5.351833820343018
+      ],
+      "kl": 4.023701308142336e-06,
+      "kl_each": [
+        4.837085725739598e-06,
+        1.323343212789041e-07,
+        7.1016838774085045e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-65 (L38)",
+      "layer": 38,
+      "j": 2100,
+      "k": 10204,
+      "weight": 0.55859375,
+      "ppl": 5.394918203353882,
+      "ppl_each": [
+        9.358187675476074,
+        3.2149131298065186,
+        3.6514227390289307,
+        5.355149269104004
+      ],
+      "kl": 1.969500469082656e-06,
+      "kl_each": [
+        4.10339271184057e-06,
+        1.3532553566619754e-06,
+        4.5185333874542266e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-66 (L38)",
+      "layer": 38,
+      "j": 2100,
+      "k": 2742,
+      "weight": 0.396484375,
+      "ppl": 5.3939860463142395,
+      "ppl_each": [
+        9.353128433227539,
+        3.215477228164673,
+        3.653074264526367,
+        5.354264259338379
+      ],
+      "kl": 3.1406208715149355e-06,
+      "kl_each": [
+        2.5793269742280245e-06,
+        -3.7039171729702502e-09,
+        6.846239557489753e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-67 (L38)",
+      "layer": 38,
+      "j": 2100,
+      "k": 2117,
+      "weight": -0.4375,
+      "ppl": 5.394158124923706,
+      "ppl_each": [
+        9.356372833251953,
+        3.214679002761841,
+        3.651768445968628,
+        5.353812217712402
+      ],
+      "kl": 4.25588950747624e-06,
+      "kl_each": [
+        3.1978997867554426e-06,
+        9.539289749227464e-07,
+        8.615839760750532e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-68 (L38)",
+      "layer": 38,
+      "j": 2100,
+      "k": 11853,
+      "weight": 0.38671875,
+      "ppl": 5.393757343292236,
+      "ppl_each": [
+        9.354098320007324,
+        3.215524911880493,
+        3.651463747024536,
+        5.353942394256592
+      ],
+      "kl": 8.549106951249996e-07,
+      "kl_each": [
+        2.5769404601305723e-06,
+        -7.642779564775992e-08,
+        6.421942089218646e-08
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-69 (L38)",
+      "layer": 38,
+      "j": 2404,
+      "k": 2742,
+      "weight": -0.140625,
+      "ppl": 5.395523011684418,
+      "ppl_each": [
+        9.359864234924316,
+        3.216571092605591,
+        3.652397632598877,
+        5.353259086608887
+      ],
+      "kl": 2.712687840282039e-06,
+      "kl_each": [
+        6.520640454255044e-07,
+        2.473342419762048e-09,
+        7.483526133000851e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-70 (L38)",
+      "layer": 38,
+      "j": 2404,
+      "k": 10204,
+      "weight": -0.15234375,
+      "ppl": 5.392058849334717,
+      "ppl_each": [
+        9.35266399383545,
+        3.2144505977630615,
+        3.651104211807251,
+        5.3500165939331055
+      ],
+      "kl": 6.512795304540001e-07,
+      "kl_each": [
+        1.5633268048986793e-06,
+        1.9284038899058942e-07,
+        1.9767139747273177e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-71 (L38)",
+      "layer": 38,
+      "j": 2404,
+      "k": 2117,
+      "weight": 0.1259765625,
+      "ppl": 5.3925082087516785,
+      "ppl_each": [
+        9.352818489074707,
+        3.2151806354522705,
+        3.649512767791748,
+        5.352520942687988
+      ],
+      "kl": 4.490747717985262e-06,
+      "kl_each": [
+        5.3340045269578695e-06,
+        1.5758996596559882e-07,
+        7.980648661032319e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-72 (L38)",
+      "layer": 38,
+      "j": 2404,
+      "k": 11853,
+      "weight": -0.1298828125,
+      "ppl": 5.394593596458435,
+      "ppl_each": [
+        9.356449127197266,
+        3.2160284519195557,
+        3.6516330242156982,
+        5.354263782501221
+      ],
+      "kl": 3.3199785320903175e-07,
+      "kl_each": [
+        7.58691385271959e-07,
+        1.8627474673849065e-08,
+        2.1867469968128717e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-73 (L38)",
+      "layer": 38,
+      "j": 21,
+      "k": 2742,
+      "weight": -0.10400390625,
+      "ppl": 5.394469678401947,
+      "ppl_each": [
+        9.355179786682129,
+        3.2164487838745117,
+        3.6528398990631104,
+        5.353410243988037
+      ],
+      "kl": 2.3914079368599534e-07,
+      "kl_each": [
+        4.997928044758737e-07,
+        1.263886133529013e-07,
+        9.124096322921105e-08
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-74 (L38)",
+      "layer": 38,
+      "j": 21,
+      "k": 10204,
+      "weight": -0.095703125,
+      "ppl": 5.394424498081207,
+      "ppl_each": [
+        9.35645580291748,
+        3.2148759365081787,
+        3.6520657539367676,
+        5.354300498962402
+      ],
+      "kl": 5.805341061204672e-07,
+      "kl_each": [
+        6.463815225288272e-07,
+        8.587594493292272e-07,
+        2.3646134650334716e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-75 (L38)",
+      "layer": 38,
+      "j": 21,
+      "k": 2117,
+      "weight": 0.0908203125,
+      "ppl": 5.395181655883789,
+      "ppl_each": [
+        9.358604431152344,
+        3.2166907787323,
+        3.6522581577301025,
+        5.35317325592041
+      ],
+      "kl": 3.954600591290121e-06,
+      "kl_each": [
+        4.204906872473657e-06,
+        7.337548595387489e-07,
+        6.925140041857958e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-76 (L38)",
+      "layer": 38,
+      "j": 21,
+      "k": 3841,
+      "weight": 0.083984375,
+      "ppl": 5.39578515291214,
+      "ppl_each": [
+        9.359889030456543,
+        3.216717481613159,
+        3.6516876220703125,
+        5.354846477508545
+      ],
+      "kl": 1.434647174392012e-07,
+      "kl_each": [
+        5.460624379338697e-07,
+        8.916458682506345e-08,
+        -2.0483287244132953e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-77 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 5925,
+      "weight": 0.44140625,
+      "ppl": 5.3946075439453125,
+      "ppl_each": [
+        9.357220649719238,
+        3.216249942779541,
+        3.649960517883301,
+        5.35499906539917
+      ],
+      "kl": 3.3702284175281726e-05,
+      "kl_each": [
+        6.479647709056735e-06,
+        4.263536538928747e-06,
+        9.036366827785969e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-78 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 2331,
+      "weight": 0.8125,
+      "ppl": 5.395282864570618,
+      "ppl_each": [
+        9.356902122497559,
+        3.21756649017334,
+        3.651515007019043,
+        5.355147838592529
+      ],
+      "kl": 3.5291886888444424e-06,
+      "kl_each": [
+        0.0,
+        3.3720280043780804e-06,
+        7.215538062155247e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-79 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 12189,
+      "weight": -0.70703125,
+      "ppl": 5.395076155662537,
+      "ppl_each": [
+        9.358716011047363,
+        3.217557907104492,
+        3.650158405303955,
+        5.353872299194336
+      ],
+      "kl": 2.2479546411583822e-05,
+      "kl_each": [
+        6.391201168298721e-06,
+        6.887305062264204e-06,
+        5.416013300418854e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-80 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 8191,
+      "weight": 0.65234375,
+      "ppl": 5.396882951259613,
+      "ppl_each": [
+        9.36042308807373,
+        3.217759847640991,
+        3.651890277862549,
+        5.357458591461182
+      ],
+      "kl": 4.1148450691252947e-07,
+      "kl_each": [
+        0.0,
+        1.2344535207375884e-06,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-81 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 5925,
+      "weight": -0.35546875,
+      "ppl": 5.39398318529129,
+      "ppl_each": [
+        9.355545043945312,
+        3.21663236618042,
+        3.6502420902252197,
+        5.353513240814209
+      ],
+      "kl": 6.4453524828422815e-06,
+      "kl_each": [
+        3.423228918109089e-07,
+        1.0153089533559978e-06,
+        1.7978425603359938e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-82 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 2331,
+      "weight": -0.59765625,
+      "ppl": 5.3945794105529785,
+      "ppl_each": [
+        9.358253479003906,
+        3.215505838394165,
+        3.6512343883514404,
+        5.353323936462402
+      ],
+      "kl": 2.68954254215951e-06,
+      "kl_each": [
+        -8.380179217226669e-09,
+        7.863818609621376e-07,
+        7.29062594473362e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-83 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 8191,
+      "weight": -0.50390625,
+      "ppl": 5.395143926143646,
+      "ppl_each": [
+        9.358494758605957,
+        3.215500593185425,
+        3.6524715423583984,
+        5.354108810424805
+      ],
+      "kl": 1.3303057736872384e-07,
+      "kl_each": [
+        0.0,
+        3.9909173210617155e-07,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-84 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 12219,
+      "weight": -0.1640625,
+      "ppl": 5.396064758300781,
+      "ppl_each": [
+        9.359825134277344,
+        3.217346668243408,
+        3.651787281036377,
+        5.355299949645996
+      ],
+      "kl": 2.452352726815358e-06,
+      "kl_each": [
+        -8.112237992463633e-08,
+        1.0646000703218306e-07,
+        7.331720553338528e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-85 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 1361,
+      "weight": -0.224609375,
+      "ppl": 5.395047307014465,
+      "ppl_each": [
+        9.357741355895996,
+        3.216728687286377,
+        3.650350570678711,
+        5.355368614196777
+      ],
+      "kl": 8.083765123956255e-08,
+      "kl_each": [
+        -1.189539489132585e-07,
+        7.258773848661804e-08,
+        2.888791641453281e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-86 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 13511,
+      "weight": 0.298828125,
+      "ppl": 5.3970460295677185,
+      "ppl_each": [
+        9.362053871154785,
+        3.2180638313293457,
+        3.6533195972442627,
+        5.3547468185424805
+      ],
+      "kl": 1.7242406708343576e-06,
+      "kl_each": [
+        2.9541843105107546e-06,
+        3.099667083006352e-07,
+        1.908570993691683e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-87 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 10848,
+      "weight": 0.162109375,
+      "ppl": 5.39665424823761,
+      "ppl_each": [
+        9.36147403717041,
+        3.217249631881714,
+        3.6527974605560303,
+        5.355095863342285
+      ],
+      "kl": 9.419863999937661e-09,
+      "kl_each": [
+        -1.189539489132585e-07,
+        0.0,
+        1.4721354091307148e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-88 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 9625,
+      "weight": -0.14453125,
+      "ppl": 5.3971633315086365,
+      "ppl_each": [
+        9.363058090209961,
+        3.2173163890838623,
+        3.6533470153808594,
+        5.354931831359863
+      ],
+      "kl": 4.068212244116391e-07,
+      "kl_each": [
+        7.220569386845455e-07,
+        2.7044734451919794e-07,
+        2.2795939003117383e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-89 (L39)",
+      "layer": 39,
+      "j": 3364,
+      "k": 10848,
+      "weight": -0.11474609375,
+      "ppl": 5.3963982462883,
+      "ppl_each": [
+        9.359152793884277,
+        3.2185065746307373,
+        3.6528444290161133,
+        5.35508918762207
+      ],
+      "kl": 0.0,
+      "kl_each": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-90 (L39)",
+      "layer": 39,
+      "j": 3364,
+      "k": 1361,
+      "weight": 0.115234375,
+      "ppl": 5.395491898059845,
+      "ppl_each": [
+        9.356230735778809,
+        3.216892719268799,
+        3.653717279434204,
+        5.355126857757568
+      ],
+      "kl": 4.8297958225399874e-08,
+      "kl_each": [
+        0.0,
+        1.4489387467619963e-07,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-91 (L39)",
+      "layer": 39,
+      "j": 3364,
+      "k": 13512,
+      "weight": -0.111328125,
+      "ppl": 5.396030962467194,
+      "ppl_each": [
+        9.358424186706543,
+        3.2168328762054443,
+        3.6537880897521973,
+        5.35507869720459
+      ],
+      "kl": 3.994538625799275e-07,
+      "kl_each": [
+        1.0899748303927481e-07,
+        1.4489387467619963e-07,
+        9.44470230024308e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-92 (L39)",
+      "layer": 39,
+      "j": 3364,
+      "k": 5925,
+      "weight": 0.11865234375,
+      "ppl": 5.397170722484589,
+      "ppl_each": [
+        9.362627983093262,
+        3.216296911239624,
+        3.652721881866455,
+        5.357036113739014
+      ],
+      "kl": 5.549067888447705e-06,
+      "kl_each": [
+        3.0073279049247503e-06,
+        4.195189831079915e-07,
+        1.3220356777310371e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-93 (L3)",
+      "layer": 3,
+      "j": 4923,
+      "k": 7678,
+      "weight": -0.04296875,
+      "ppl": 5.500442087650299,
+      "ppl_each": [
+        9.555906295776367,
+        3.261345148086548,
+        3.700714588165283,
+        5.483802318572998
+      ],
+      "kl": 0.0011074520298279822,
+      "kl_each": [
+        0.0009729522280395031,
+        0.0002028869348578155,
+        0.002146516926586628
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-94 (L3)",
+      "layer": 3,
+      "j": 1160,
+      "k": 7678,
+      "weight": 0.038330078125,
+      "ppl": 5.339540481567383,
+      "ppl_each": [
+        9.112351417541504,
+        3.2221505641937256,
+        3.6567327976226807,
+        5.366927146911621
+      ],
+      "kl": 0.0007223465169469515,
+      "kl_each": [
+        0.0006947340443730354,
+        0.00013685040175914764,
+        0.0013354551047086716
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-95 (L3)",
+      "layer": 3,
+      "j": 3837,
+      "k": 7678,
+      "weight": -0.038818359375,
+      "ppl": 5.451858818531036,
+      "ppl_each": [
+        9.563608169555664,
+        3.173170566558838,
+        3.6508452892303467,
+        5.419811248779297
+      ],
+      "kl": 0.000559531074638168,
+      "kl_each": [
+        0.0005907644517719746,
+        0.00030707381665706635,
+        0.0007807549554854631
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-96 (L3)",
+      "layer": 3,
+      "j": 2285,
+      "k": 7678,
+      "weight": -0.03564453125,
+      "ppl": 5.4097453355789185,
+      "ppl_each": [
+        9.4097900390625,
+        3.220747709274292,
+        3.660715341567993,
+        5.347728252410889
+      ],
+      "kl": 0.00015255262163312486,
+      "kl_each": [
+        8.545757737010717e-05,
+        5.046372825745493e-05,
+        0.00032173655927181244
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-97 (L7)",
+      "layer": 7,
+      "j": 2772,
+      "k": 7575,
+      "weight": 0.6953125,
+      "ppl": 5.395508408546448,
+      "ppl_each": [
+        9.358084678649902,
+        3.216083526611328,
+        3.6515088081359863,
+        5.356356620788574
+      ],
+      "kl": 3.500356494138638e-06,
+      "kl_each": [
+        8.462899131700397e-06,
+        9.129216778092086e-07,
+        1.1252486729063094e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-98 (L7)",
+      "layer": 7,
+      "j": 2772,
+      "k": 9418,
+      "weight": -0.5234375,
+      "ppl": 5.394848942756653,
+      "ppl_each": [
+        9.359387397766113,
+        3.2145345211029053,
+        3.6529624462127686,
+        5.352511405944824
+      ],
+      "kl": 2.346290784771554e-06,
+      "kl_each": [
+        4.571789759211242e-06,
+        5.50042386748828e-07,
+        1.9170402083545923e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-99 (L7)",
+      "layer": 7,
+      "j": 2772,
+      "k": 8106,
+      "weight": -0.41015625,
+      "ppl": 5.395350813865662,
+      "ppl_each": [
+        9.359617233276367,
+        3.2160098552703857,
+        3.650676965713501,
+        5.355099201202393
+      ],
+      "kl": 2.1096094163416033e-06,
+      "kl_each": [
+        4.362314939498901e-06,
+        6.095617663959274e-07,
+        1.3569515431299806e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-100 (L7)",
+      "layer": 7,
+      "j": 2772,
+      "k": 11854,
+      "weight": -0.0252685546875,
+      "ppl": 5.395371794700623,
+      "ppl_each": [
+        9.359838485717773,
+        3.21524977684021,
+        3.6507203578948975,
+        5.355678558349609
+      ],
+      "kl": 7.91768979979679e-06,
+      "kl_each": [
+        4.387315129861236e-06,
+        1.840852200984955e-05,
+        9.572322596795857e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-101 (L7)",
+      "layer": 7,
+      "j": 2285,
+      "k": 2390,
+      "weight": -0.08251953125,
+      "ppl": 5.393791913986206,
+      "ppl_each": [
+        9.354438781738281,
+        3.2164647579193115,
+        3.650423765182495,
+        5.353840351104736
+      ],
+      "kl": 4.00446272882012e-06,
+      "kl_each": [
+        3.80462734028697e-06,
+        9.261966624762863e-07,
+        7.2825641836971045e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-102 (L7)",
+      "layer": 7,
+      "j": 2285,
+      "k": 4490,
+      "weight": 0.060546875,
+      "ppl": 5.392023384571075,
+      "ppl_each": [
+        9.352978706359863,
+        3.213258743286133,
+        3.6513102054595947,
+        5.350545883178711
+      ],
+      "kl": 4.786573602662732e-06,
+      "kl_each": [
+        5.058209353592247e-06,
+        9.53717972151935e-07,
+        8.347793482244015e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-103 (L7)",
+      "layer": 7,
+      "j": 1277,
+      "k": 10380,
+      "weight": -0.54296875,
+      "ppl": 5.395869314670563,
+      "ppl_each": [
+        9.360922813415527,
+        3.215684652328491,
+        3.654188632965088,
+        5.3526811599731445
+      ],
+      "kl": 3.5114887092883387e-06,
+      "kl_each": [
+        6.406393367797136e-06,
+        2.5604822440072894e-06,
+        1.5675905160605907e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-104 (L7)",
+      "layer": 7,
+      "j": 1277,
+      "k": 2401,
+      "weight": 0.08984375,
+      "ppl": 5.395189106464386,
+      "ppl_each": [
+        9.360837936401367,
+        3.215822219848633,
+        3.650259256362915,
+        5.353837013244629
+      ],
+      "kl": 5.189744115341455e-06,
+      "kl_each": [
+        6.911897799000144e-06,
+        1.1790471035055816e-06,
+        7.478287443518639e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-105 (L7)",
+      "layer": 7,
+      "j": 1277,
+      "k": 7693,
+      "weight": 0.052734375,
+      "ppl": 5.395170032978058,
+      "ppl_each": [
+        9.363788604736328,
+        3.214583396911621,
+        3.6502315998077393,
+        5.352076530456543
+      ],
+      "kl": 5.720212357118726e-06,
+      "kl_each": [
+        7.025941158644855e-06,
+        1.3917888281866908e-06,
+        8.742907084524632e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-106 (L7)",
+      "layer": 7,
+      "j": 1277,
+      "k": 11854,
+      "weight": 0.04833984375,
+      "ppl": 5.396814942359924,
+      "ppl_each": [
+        9.364690780639648,
+        3.2143726348876953,
+        3.6513047218322754,
+        5.356891632080078
+      ],
+      "kl": 2.279450806478659e-06,
+      "kl_each": [
+        4.2896135710179806e-06,
+        1.3296594261191785e-06,
+        1.2190794222988188e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-107 (L7)",
+      "layer": 7,
+      "j": 1244,
+      "k": 7693,
+      "weight": -0.11474609375,
+      "ppl": 5.390329599380493,
+      "ppl_each": [
+        9.348013877868652,
+        3.2167961597442627,
+        3.6494219303131104,
+        5.347086429595947
+      ],
+      "kl": 6.788047661151116e-06,
+      "kl_each": [
+        7.361115422099829e-06,
+        1.6967424016911536e-06,
+        1.1306285159662366e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-108 (L7)",
+      "layer": 7,
+      "j": 1244,
+      "k": 2390,
+      "weight": -0.028076171875,
+      "ppl": 5.3954548835754395,
+      "ppl_each": [
+        9.359557151794434,
+        3.2158825397491455,
+        3.6502625942230225,
+        5.356117248535156
+      ],
+      "kl": 7.3526007327018306e-06,
+      "kl_each": [
+        1.9070303096668795e-06,
+        1.877988688647747e-05,
+        1.3708850019611418e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-109 (L7)",
+      "layer": 7,
+      "j": 1244,
+      "k": 11854,
+      "weight": -0.12158203125,
+      "ppl": 5.394998908042908,
+      "ppl_each": [
+        9.357810020446777,
+        3.216583490371704,
+        3.6513936519622803,
+        5.354208469390869
+      ],
+      "kl": 1.1229392233265875e-05,
+      "kl_each": [
+        1.5773093764437363e-06,
+        2.200179733335972e-05,
+        1.0109069989994168e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-110 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 1071,
+      "weight": 1.171875,
+      "ppl": 5.397649824619293,
+      "ppl_each": [
+        9.361210823059082,
+        3.2169482707977295,
+        3.6537575721740723,
+        5.358682632446289
+      ],
+      "kl": 1.1499117438991865e-05,
+      "kl_each": [
+        2.0268664229661226e-05,
+        9.272887837141752e-06,
+        4.955800250172615e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-111 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 11035,
+      "weight": -0.89453125,
+      "ppl": 5.395546615123749,
+      "ppl_each": [
+        9.359675407409668,
+        3.2152113914489746,
+        3.6514127254486084,
+        5.355886936187744
+      ],
+      "kl": 2.5169141129784598e-06,
+      "kl_each": [
+        -8.940514817368239e-08,
+        2.851438694051467e-07,
+        7.355003617703915e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-112 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 55,
+      "weight": 0.55078125,
+      "ppl": 5.395027577877045,
+      "ppl_each": [
+        9.355712890625,
+        3.216730833053589,
+        3.6524171829223633,
+        5.355249404907227
+      ],
+      "kl": 5.280972648809741e-06,
+      "kl_each": [
+        -6.383879735949449e-08,
+        1.590675674378872e-05,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-113 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 10954,
+      "weight": -0.55859375,
+      "ppl": 5.397341310977936,
+      "ppl_each": [
+        9.364500999450684,
+        3.217057228088379,
+        3.6540377140045166,
+        5.353769302368164
+      ],
+      "kl": 3.2637738816750548e-06,
+      "kl_each": [
+        1.8847640603780746e-06,
+        5.515539669431746e-07,
+        7.355003617703915e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-114 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 11035,
+      "weight": 1.03125,
+      "ppl": 5.3959649205207825,
+      "ppl_each": [
+        9.360604286193848,
+        3.215855836868286,
+        3.651484489440918,
+        5.355915069580078
+      ],
+      "kl": 4.067527091441055e-06,
+      "kl_each": [
+        4.6678760554641485e-06,
+        1.4414399629458785e-06,
+        6.093265255913138e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-115 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 55,
+      "weight": -0.69921875,
+      "ppl": 5.395710349082947,
+      "ppl_each": [
+        9.358691215515137,
+        3.2156455516815186,
+        3.6530601978302,
+        5.355444431304932
+      ],
+      "kl": 4.5067475487788515e-06,
+      "kl_each": [
+        2.289772965013981e-06,
+        1.1230469681322575e-05,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-116 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 10954,
+      "weight": 0.7734375,
+      "ppl": 5.394891440868378,
+      "ppl_each": [
+        9.356230735778809,
+        3.216758966445923,
+        3.6516361236572266,
+        5.354939937591553
+      ],
+      "kl": 4.8115083094065385e-06,
+      "kl_each": [
+        5.309135303832591e-06,
+        3.0321243684738874e-06,
+        6.093265255913138e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-117 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 1071,
+      "weight": -0.765625,
+      "ppl": 5.395736038684845,
+      "ppl_each": [
+        9.360188484191895,
+        3.214264392852783,
+        3.6532680988311768,
+        5.355223178863525
+      ],
+      "kl": 1.16964317082117e-05,
+      "kl_each": [
+        1.0831194231286645e-05,
+        1.4666817151010036e-05,
+        9.591283742338419e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-118 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 5925,
+      "weight": 0.1474609375,
+      "ppl": 5.395608961582184,
+      "ppl_each": [
+        9.359650611877441,
+        3.216325283050537,
+        3.6497609615325928,
+        5.356698989868164
+      ],
+      "kl": 1.0498270664053658e-05,
+      "kl_each": [
+        3.3559626899659634e-06,
+        1.4152465155348182e-06,
+        2.6723602786660194e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-119 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 914,
+      "weight": -0.46875,
+      "ppl": 5.395422458648682,
+      "ppl_each": [
+        9.359646797180176,
+        3.2154223918914795,
+        3.649204969406128,
+        5.357415676116943
+      ],
+      "kl": 1.5639210081038375e-05,
+      "kl_each": [
+        8.668852387927473e-06,
+        9.498093277215958e-06,
+        2.8750684577971697e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-120 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 6420,
+      "weight": -0.30859375,
+      "ppl": 5.394964098930359,
+      "ppl_each": [
+        9.360416412353516,
+        3.2151458263397217,
+        3.651931047439575,
+        5.352363109588623
+      ],
+      "kl": 4.5666480824972195e-06,
+      "kl_each": [
+        4.870555130764842e-06,
+        1.3108219718560576e-06,
+        7.518567144870758e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-121 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 11582,
+      "weight": 0.310546875,
+      "ppl": 5.395476162433624,
+      "ppl_each": [
+        9.362956047058105,
+        3.2147529125213623,
+        3.6528491973876953,
+        5.351346492767334
+      ],
+      "kl": 5.171993204082052e-06,
+      "kl_each": [
+        6.66039704810828e-06,
+        1.447406248189509e-06,
+        7.408176315948367e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-122 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 5925,
+      "weight": -0.13671875,
+      "ppl": 5.393352627754211,
+      "ppl_each": [
+        9.352995872497559,
+        3.2170581817626953,
+        3.651510238647461,
+        5.351846218109131
+      ],
+      "kl": 1.7020247014443157e-05,
+      "kl_each": [
+        1.130180407926673e-06,
+        7.821072358638048e-07,
+        4.9148453399538994e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-123 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 4801,
+      "weight": 0.220703125,
+      "ppl": 5.395951330661774,
+      "ppl_each": [
+        9.358497619628906,
+        3.2176923751831055,
+        3.652815103530884,
+        5.354800224304199
+      ],
+      "kl": 3.2100831930392815e-06,
+      "kl_each": [
+        -1.6788362700026482e-07,
+        4.765151118135691e-08,
+        9.750481694936752e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-124 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 11458,
+      "weight": -0.10009765625,
+      "ppl": 5.396307706832886,
+      "ppl_each": [
+        9.357475280761719,
+        3.2184104919433594,
+        3.6536612510681152,
+        5.35568380355835
+      ],
+      "kl": 3.4955852849331373e-06,
+      "kl_each": [
+        6.194568413775414e-08,
+        6.743284757249057e-07,
+        9.750481694936752e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-125 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 9056,
+      "weight": 0.1279296875,
+      "ppl": 5.396012723445892,
+      "ppl_each": [
+        9.358238220214844,
+        3.216513156890869,
+        3.652038335800171,
+        5.3572611808776855
+      ],
+      "kl": 2.607594069559127e-06,
+      "kl_each": [
+        5.265930667519569e-06,
+        5.554538802243769e-07,
+        2.001397660933435e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-126 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 230,
+      "weight": 0.7890625,
+      "ppl": 5.39540559053421,
+      "ppl_each": [
+        9.358126640319824,
+        3.2171273231506348,
+        3.6518242359161377,
+        5.354544162750244
+      ],
+      "kl": 2.2788885871705133e-06,
+      "kl_each": [
+        -1.5315663404180668e-07,
+        2.0435163605725393e-07,
+        6.785470759496093e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-127 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 6420,
+      "weight": -0.458984375,
+      "ppl": 5.396886944770813,
+      "ppl_each": [
+        9.361766815185547,
+        3.2175259590148926,
+        3.653069496154785,
+        5.355185508728027
+      ],
+      "kl": 5.605272842027868e-06,
+      "kl_each": [
+        6.169939297251403e-07,
+        1.5960540622472763e-05,
+        2.382839738857001e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-128 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 6060,
+      "weight": -0.41796875,
+      "ppl": 5.397767126560211,
+      "ppl_each": [
+        9.365318298339844,
+        3.2167177200317383,
+        3.6522414684295654,
+        5.356791019439697
+      ],
+      "kl": 9.213855567698678e-06,
+      "kl_each": [
+        4.968780558556318e-06,
+        1.5203608199954033e-05,
+        7.469177944585681e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-129 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 11582,
+      "weight": -0.65625,
+      "ppl": 5.395649075508118,
+      "ppl_each": [
+        9.359905242919922,
+        3.2159361839294434,
+        3.6538801193237305,
+        5.352874755859375
+      ],
+      "kl": 2.785658580251038e-06,
+      "kl_each": [
+        1.0226503945887089e-06,
+        9.915238479152322e-07,
+        6.342801498249173e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-130 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 6060,
+      "weight": 0.5703125,
+      "ppl": 5.396136522293091,
+      "ppl_each": [
+        9.362434387207031,
+        3.2172083854675293,
+        3.651841163635254,
+        5.353062152862549
+      ],
+      "kl": 1.3258043812432637e-05,
+      "kl_each": [
+        2.636304998304695e-06,
+        9.207811672240496e-06,
+        2.793001476675272e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-131 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 230,
+      "weight": -0.78515625,
+      "ppl": 5.395780801773071,
+      "ppl_each": [
+        9.356560707092285,
+        3.2170538902282715,
+        3.6524453163146973,
+        5.357063293457031
+      ],
+      "kl": 3.819378131690125e-06,
+      "kl_each": [
+        4.3057953007519245e-06,
+        1.2344535207375884e-06,
+        5.917885573580861e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-132 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 11458,
+      "weight": 0.498046875,
+      "ppl": 5.394712865352631,
+      "ppl_each": [
+        9.357870101928711,
+        3.2162349224090576,
+        3.6511383056640625,
+        5.353608131408691
+      ],
+      "kl": 8.446503973876437e-06,
+      "kl_each": [
+        3.354594809934497e-06,
+        3.3720280043780804e-06,
+        1.8612889107316732e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-133 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 7928,
+      "weight": -0.7890625,
+      "ppl": 5.3962021470069885,
+      "ppl_each": [
+        9.360311508178711,
+        3.215167999267578,
+        3.6518619060516357,
+        5.357467174530029
+      ],
+      "kl": 1.4482411643257365e-06,
+      "kl_each": [
+        4.152156179770827e-06,
+        0.0,
+        1.925673132063821e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-134 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 1071,
+      "weight": 0.173828125,
+      "ppl": 5.396161258220673,
+      "ppl_each": [
+        9.364374160766602,
+        3.214740514755249,
+        3.6520538330078125,
+        5.353476524353027
+      ],
+      "kl": 5.879390907163422e-06,
+      "kl_each": [
+        6.646296242251992e-06,
+        1.6415724530816078e-06,
+        9.350304026156664e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-135 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 1517,
+      "weight": -0.208984375,
+      "ppl": 5.3963799476623535,
+      "ppl_each": [
+        9.36172866821289,
+        3.2171638011932373,
+        3.6521499156951904,
+        5.354477405548096
+      ],
+      "kl": 4.095264254525925e-06,
+      "kl_each": [
+        3.960274625569582e-06,
+        8.069509931374341e-07,
+        7.518567144870758e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-136 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 10028,
+      "weight": 0.322265625,
+      "ppl": 5.395445227622986,
+      "ppl_each": [
+        9.361076354980469,
+        3.215691089630127,
+        3.653125762939453,
+        5.3518877029418945
+      ],
+      "kl": 4.917164915241301e-06,
+      "kl_each": [
+        6.66039704810828e-06,
+        1.4223624020814896e-06,
+        6.668735295534134e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-137 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 55,
+      "weight": -0.10009765625,
+      "ppl": 5.396260499954224,
+      "ppl_each": [
+        9.359333992004395,
+        3.216707468032837,
+        3.652642011642456,
+        5.356358528137207
+      ],
+      "kl": 0.0,
+      "kl_each": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-138 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 5925,
+      "weight": 0.1484375,
+      "ppl": 5.39604389667511,
+      "ppl_each": [
+        9.360929489135742,
+        3.2160377502441406,
+        3.652787208557129,
+        5.354421138763428
+      ],
+      "kl": 1.4258448572945781e-05,
+      "kl_each": [
+        5.031670298194513e-07,
+        1.4261167962104082e-06,
+        4.0846061892807484e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-139 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 6420,
+      "weight": -0.37109375,
+      "ppl": 5.394081950187683,
+      "ppl_each": [
+        9.358271598815918,
+        3.214041233062744,
+        3.652127265930176,
+        5.3518877029418945
+      ],
+      "kl": 3.7275143161726496e-06,
+      "kl_each": [
+        2.7771820896305144e-06,
+        1.4261167962104082e-06,
+        6.979244062677026e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-140 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 914,
+      "weight": -0.46875,
+      "ppl": 5.393607139587402,
+      "ppl_each": [
+        9.355422973632812,
+        3.2146966457366943,
+        3.6502888202667236,
+        5.354020118713379
+      ],
+      "kl": 1.1969396534065405e-05,
+      "kl_each": [
+        9.37332515604794e-06,
+        4.231551429256797e-06,
+        2.230331301689148e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-141 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 2331,
+      "weight": 0.1728515625,
+      "ppl": 5.3953874707221985,
+      "ppl_each": [
+        9.359344482421875,
+        3.2162396907806396,
+        3.652834415435791,
+        5.353131294250488
+      ],
+      "kl": 2.9909521496544283e-07,
+      "kl_each": [
+        0.0,
+        8.972856448963284e-07,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-142 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 11458,
+      "weight": -0.33203125,
+      "ppl": 5.396723449230194,
+      "ppl_each": [
+        9.3599214553833,
+        3.21640944480896,
+        3.6529312133789062,
+        5.357631683349609
+      ],
+      "kl": 2.1930136426817626e-06,
+      "kl_each": [
+        6.184527592267841e-07,
+        5.515539669431746e-07,
+        5.409034201875329e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-143 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 7928,
+      "weight": 0.58984375,
+      "ppl": 5.395224332809448,
+      "ppl_each": [
+        9.359628677368164,
+        3.215576410293579,
+        3.6513898372650146,
+        5.354302406311035
+      ],
+      "kl": -6.902698146404873e-08,
+      "kl_each": [
+        -1.9024719222215936e-07,
+        -1.8444012539475807e-08,
+        1.6102603694889694e-09
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-144 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 1309,
+      "weight": 0.62890625,
+      "ppl": 5.396501004695892,
+      "ppl_each": [
+        9.361395835876465,
+        3.2163877487182617,
+        3.6525285243988037,
+        5.355691909790039
+      ],
+      "kl": 1.5173259271250572e-07,
+      "kl_each": [
+        4.83225448988378e-07,
+        -2.9637931220349856e-08,
+        1.6102603694889694e-09
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-145 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 9932,
+      "weight": -0.46875,
+      "ppl": 5.395069360733032,
+      "ppl_each": [
+        9.361532211303711,
+        3.214569330215454,
+        3.650853395462036,
+        5.353322505950928
+      ],
+      "kl": 2.5123945306404494e-06,
+      "kl_each": [
+        -1.459566192352213e-07,
+        3.5141965781804174e-07,
+        7.331720553338528e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-146 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 1309,
+      "weight": -0.765625,
+      "ppl": 5.397418320178986,
+      "ppl_each": [
+        9.362709999084473,
+        3.2177000045776367,
+        3.6536571979522705,
+        5.3556060791015625
+      ],
+      "kl": 5.988715201965533e-06,
+      "kl_each": [
+        3.927721991203725e-06,
+        1.3845856301486492e-05,
+        1.925673132063821e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-147 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 1517,
+      "weight": -0.46875,
+      "ppl": 5.395273327827454,
+      "ppl_each": [
+        9.360076904296875,
+        3.217198610305786,
+        3.6509997844696045,
+        5.352818012237549
+      ],
+      "kl": 4.103470322055121e-06,
+      "kl_each": [
+        4.982692189514637e-06,
+        1.2344535207375884e-06,
+        6.093265255913138e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-148 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 7800,
+      "weight": 0.73046875,
+      "ppl": 5.3952959179878235,
+      "ppl_each": [
+        9.36091136932373,
+        3.217848062515259,
+        3.6485595703125,
+        5.353864669799805
+      ],
+      "kl": 6.5537266588459415e-06,
+      "kl_each": [
+        5.061534466221929e-06,
+        3.3720280043780804e-06,
+        1.1227617505937815e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-149 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 212,
+      "weight": 0.373046875,
+      "ppl": 5.394662141799927,
+      "ppl_each": [
+        9.353975296020508,
+        3.2187857627868652,
+        3.6539206504821777,
+        5.351966857910156
+      ],
+      "kl": 2.0431049051694572e-05,
+      "kl_each": [
+        5.467692972160876e-06,
+        2.7823960408568382e-05,
+        2.8001493774354458e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-150 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 5390,
+      "weight": 0.11865234375,
+      "ppl": 5.395198702812195,
+      "ppl_each": [
+        9.360849380493164,
+        3.21529221534729,
+        3.6518118381500244,
+        5.352841377258301
+      ],
+      "kl": 7.352209649980068e-06,
+      "kl_each": [
+        3.3559626899659634e-06,
+        9.350362233817577e-06,
+        9.350304026156664e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-151 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 212,
+      "weight": 0.1640625,
+      "ppl": 5.396151781082153,
+      "ppl_each": [
+        9.361104011535645,
+        3.2181782722473145,
+        3.651007652282715,
+        5.3543171882629395
+      ],
+      "kl": 1.4028376123557488e-05,
+      "kl_each": [
+        3.3559626899659634e-06,
+        1.5289639122784138e-05,
+        2.3439526557922363e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-152 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 9698,
+      "weight": -0.240234375,
+      "ppl": 5.394858777523041,
+      "ppl_each": [
+        9.359209060668945,
+        3.213508367538452,
+        3.6510682106018066,
+        5.355649471282959
+      ],
+      "kl": 1.4549679084060093e-05,
+      "kl_each": [
+        6.66039704810828e-06,
+        9.403564035892487e-06,
+        2.7585076168179512e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-153 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 1751,
+      "weight": 0.294921875,
+      "ppl": 5.395519137382507,
+      "ppl_each": [
+        9.358689308166504,
+        3.2160983085632324,
+        3.6529674530029297,
+        5.354321479797363
+      ],
+      "kl": 4.947183091038217e-06,
+      "kl_each": [
+        4.014211299363524e-06,
+        1.447406248189509e-06,
+        9.379931725561619e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-154 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 9932,
+      "weight": 0.4140625,
+      "ppl": 5.394686818122864,
+      "ppl_each": [
+        9.360118865966797,
+        3.2141945362091064,
+        3.6514790058135986,
+        5.352954864501953
+      ],
+      "kl": 3.5195286424520114e-06,
+      "kl_each": [
+        1.8151113181374967e-06,
+        1.2112868716940284e-06,
+        7.5321877375245094e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-155 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 55,
+      "weight": -0.1669921875,
+      "ppl": 5.396289110183716,
+      "ppl_each": [
+        9.359525680541992,
+        3.2167086601257324,
+        3.653127670288086,
+        5.355794429779053
+      ],
+      "kl": 5.3605375190575915e-06,
+      "kl_each": [
+        0.0,
+        1.6081612557172775e-05,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-156 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 11582,
+      "weight": 0.3359375,
+      "ppl": 5.394591748714447,
+      "ppl_each": [
+        9.361993789672852,
+        3.2132813930511475,
+        3.6516733169555664,
+        5.351418495178223
+      ],
+      "kl": 5.0070326930532856e-06,
+      "kl_each": [
+        6.098649464547634e-06,
+        1.6206176951527596e-06,
+        7.301830919459462e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-157 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 212,
+      "weight": 0.255859375,
+      "ppl": 5.3946757316589355,
+      "ppl_each": [
+        9.356056213378906,
+        3.218275547027588,
+        3.655275821685791,
+        5.349095344543457
+      ],
+      "kl": 1.243683558035021e-05,
+      "kl_each": [
+        2.7771820896305144e-06,
+        1.2230011634528637e-05,
+        2.230331301689148e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-158 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 212,
+      "weight": -0.384765625,
+      "ppl": 5.397042870521545,
+      "ppl_each": [
+        9.362308502197266,
+        3.2180042266845703,
+        3.6527929306030273,
+        5.355065822601318
+      ],
+      "kl": 8.854165268227613e-06,
+      "kl_each": [
+        2.05484866455663e-07,
+        1.5241210348904133e-05,
+        1.1115800589323044e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-159 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 1517,
+      "weight": 0.375,
+      "ppl": 5.395467102527618,
+      "ppl_each": [
+        9.359107971191406,
+        3.216430187225342,
+        3.6518547534942627,
+        5.354475498199463
+      ],
+      "kl": 2.4029789832032597e-06,
+      "kl_each": [
+        -8.940514817368239e-08,
+        2.955821400973946e-07,
+        7.002759957686067e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-160 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 6207,
+      "weight": -0.58203125,
+      "ppl": 5.395057022571564,
+      "ppl_each": [
+        9.358988761901855,
+        3.214984893798828,
+        3.6512649059295654,
+        5.354989528656006
+      ],
+      "kl": 2.3580707117313673e-06,
+      "kl_each": [
+        -2.2228414309211075e-07,
+        5.870333552593365e-09,
+        7.29062594473362e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-161 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 914,
+      "weight": 0.361328125,
+      "ppl": 5.395929157733917,
+      "ppl_each": [
+        9.36063003540039,
+        3.2174792289733887,
+        3.6516053676605225,
+        5.354001998901367
+      ],
+      "kl": 1.8397574118959408e-06,
+      "kl_each": [
+        4.933899617753923e-07,
+        9.73028363659978e-07,
+        4.052853910252452e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-162 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 10221,
+      "weight": 0.578125,
+      "ppl": 5.394822299480438,
+      "ppl_each": [
+        9.358604431152344,
+        3.216095209121704,
+        3.6517810821533203,
+        5.352808475494385
+      ],
+      "kl": 8.71832889970392e-06,
+      "kl_each": [
+        6.469752406701446e-06,
+        1.0723451850935817e-06,
+        1.8612889107316732e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-163 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 10017,
+      "weight": 0.82421875,
+      "ppl": 5.394159972667694,
+      "ppl_each": [
+        9.360856056213379,
+        3.214914560317993,
+        3.6494898796081543,
+        5.35137939453125
+      ],
+      "kl": 1.0488632445534071e-05,
+      "kl_each": [
+        6.327958544716239e-06,
+        1.592794433236122e-05,
+        9.20999445952475e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-164 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 7042,
+      "weight": 0.234375,
+      "ppl": 5.395612478256226,
+      "ppl_each": [
+        9.359115600585938,
+        3.2157435417175293,
+        3.651512622833252,
+        5.356078147888184
+      ],
+      "kl": 2.511568406286339e-06,
+      "kl_each": [
+        0.0,
+        1.4414399629458785e-06,
+        6.093265255913138e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-165 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 1751,
+      "weight": 0.54296875,
+      "ppl": 5.397402882575989,
+      "ppl_each": [
+        9.362646102905273,
+        3.2176992893218994,
+        3.6533782482147217,
+        5.3558878898620605
+      ],
+      "kl": 6.95390432762603e-06,
+      "kl_each": [
+        7.033871952444315e-06,
+        3.0321243684738874e-06,
+        1.0795716661959887e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-166 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 6060,
+      "weight": 0.193359375,
+      "ppl": 5.395847499370575,
+      "ppl_each": [
+        9.352927207946777,
+        3.218125104904175,
+        3.6541433334350586,
+        5.358194351196289
+      ],
+      "kl": 8.908381763224801e-06,
+      "kl_each": [
+        5.516980309039354e-06,
+        1.3936194591224194e-05,
+        7.271970389410853e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-167 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 12189,
+      "weight": -0.314453125,
+      "ppl": 5.396504580974579,
+      "ppl_each": [
+        9.359528541564941,
+        3.215178966522217,
+        3.656221628189087,
+        5.35508918762207
+      ],
+      "kl": 1.609823569500198e-05,
+      "kl_each": [
+        5.828027497045696e-06,
+        1.6206176951527596e-06,
+        4.0846061892807484e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-168 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 10221,
+      "weight": 0.31640625,
+      "ppl": 5.395826101303101,
+      "ppl_each": [
+        9.362001419067383,
+        3.213862895965576,
+        3.6537699699401855,
+        5.353670120239258
+      ],
+      "kl": 9.29357580995808e-06,
+      "kl_each": [
+        5.516980309039354e-06,
+        1.9128347048535943e-06,
+        2.0450912415981293e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-169 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 1517,
+      "weight": -0.19140625,
+      "ppl": 5.395660221576691,
+      "ppl_each": [
+        9.359467506408691,
+        3.2171151638031006,
+        3.652772903442383,
+        5.353285312652588
+      ],
+      "kl": 2.7996678303073472e-06,
+      "kl_each": [
+        -3.046989149879664e-08,
+        8.972856448963284e-07,
+        7.5321877375245094e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-170 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 12189,
+      "weight": -0.177734375,
+      "ppl": 5.393519282341003,
+      "ppl_each": [
+        9.35464859008789,
+        3.214203119277954,
+        3.6517436504364014,
+        5.353481769561768
+      ],
+      "kl": 4.752565776774039e-06,
+      "kl_each": [
+        4.014211299363524e-06,
+        1.3108219718560576e-06,
+        8.932664059102535e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-171 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 10221,
+      "weight": 0.2119140625,
+      "ppl": 5.394677937030792,
+      "ppl_each": [
+        9.360148429870605,
+        3.2148633003234863,
+        3.650526762008667,
+        5.35317325592041
+      ],
+      "kl": 5.041079324049254e-06,
+      "kl_each": [
+        3.486566129140556e-06,
+        2.286367816850543e-06,
+        9.350304026156664e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-172 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 3502,
+      "weight": 0.2294921875,
+      "ppl": 5.395202457904816,
+      "ppl_each": [
+        9.358338356018066,
+        3.2163548469543457,
+        3.6518681049346924,
+        5.354248523712158
+      ],
+      "kl": 4.4812768464908e-06,
+      "kl_each": [
+        4.870555130764842e-06,
+        1.3108219718560576e-06,
+        7.2624534368515015e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-173 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 6530,
+      "weight": 0.1328125,
+      "ppl": 5.394514381885529,
+      "ppl_each": [
+        9.355429649353027,
+        3.217435836791992,
+        3.651660203933716,
+        5.353531837463379
+      ],
+      "kl": 2.2138604739060006e-06,
+      "kl_each": [
+        5.0000089686363935e-06,
+        1.6415724530816078e-06,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-174 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 6487,
+      "weight": -0.5859375,
+      "ppl": 5.3945746421813965,
+      "ppl_each": [
+        9.357711791992188,
+        3.215346097946167,
+        3.651695489883423,
+        5.353545188903809
+      ],
+      "kl": 2.5890046041846895e-06,
+      "kl_each": [
+        6.184527592267841e-07,
+        3.9909173210617155e-07,
+        6.749469321221113e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-175 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 11242,
+      "weight": 0.8203125,
+      "ppl": 5.398768246173859,
+      "ppl_each": [
+        9.364096641540527,
+        3.2176802158355713,
+        3.656485080718994,
+        5.356811046600342
+      ],
+      "kl": 7.021209664041332e-06,
+      "kl_each": [
+        5.079928087070584e-06,
+        1.576659269630909e-05,
+        2.1710820874432102e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-176 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 7800,
+      "weight": -0.41015625,
+      "ppl": 5.396299064159393,
+      "ppl_each": [
+        9.361250877380371,
+        3.2173385620117188,
+        3.651468515396118,
+        5.355138301849365
+      ],
+      "kl": 2.4579452049996084e-06,
+      "kl_each": [
+        2.689466782612726e-07,
+        6.331865733955055e-07,
+        6.471702363342047e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-177 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 13677,
+      "weight": 0.6171875,
+      "ppl": 5.395138442516327,
+      "ppl_each": [
+        9.357988357543945,
+        3.215792655944824,
+        3.65114426612854,
+        5.355628490447998
+      ],
+      "kl": 7.509006536565721e-06,
+      "kl_each": [
+        1.821827027015388e-06,
+        1.603888813406229e-05,
+        4.666304448619485e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-178 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 13677,
+      "weight": -0.82421875,
+      "ppl": 5.394205152988434,
+      "ppl_each": [
+        9.359299659729004,
+        3.2163851261138916,
+        3.6482105255126953,
+        5.3529253005981445
+      ],
+      "kl": 7.038121111690998e-06,
+      "kl_each": [
+        5.309135303832591e-06,
+        1.1938100215047598e-05,
+        3.867127816192806e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-179 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 6207,
+      "weight": 0.5234375,
+      "ppl": 5.394985258579254,
+      "ppl_each": [
+        9.359875679016113,
+        3.2151618003845215,
+        3.6508519649505615,
+        5.35405158996582
+      ],
+      "kl": 8.07885044196155e-06,
+      "kl_each": [
+        1.0930689313681796e-06,
+        1.592794433236122e-05,
+        7.215538062155247e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-180 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 13630,
+      "weight": -0.66796875,
+      "ppl": 5.393884122371674,
+      "ppl_each": [
+        9.357693672180176,
+        3.2144088745117188,
+        3.650893449783325,
+        5.352540493011475
+      ],
+      "kl": 3.988404447833697e-05,
+      "kl_each": [
+        8.119066478684545e-06,
+        5.320733180269599e-06,
+        0.00010621233377605677
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-181 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 861,
+      "weight": 0.30859375,
+      "ppl": 5.395581007003784,
+      "ppl_each": [
+        9.359810829162598,
+        3.216301679611206,
+        3.6532232761383057,
+        5.352988243103027
+      ],
+      "kl": 2.2458346696415297e-06,
+      "kl_each": [
+        0.0,
+        6.442387530114502e-07,
+        6.093265255913138e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-182 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 7626,
+      "weight": -0.31640625,
+      "ppl": 5.395506918430328,
+      "ppl_each": [
+        9.359951972961426,
+        3.2157676219940186,
+        3.6523399353027344,
+        5.353968143463135
+      ],
+      "kl": 4.095264254525925e-06,
+      "kl_each": [
+        3.960274625569582e-06,
+        8.069509931374341e-07,
+        7.518567144870758e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-183 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 11458,
+      "weight": 0.0859375,
+      "ppl": 5.395673453807831,
+      "ppl_each": [
+        9.359492301940918,
+        3.216681957244873,
+        3.6513888835906982,
+        5.355130672454834
+      ],
+      "kl": 2.738375769695267e-06,
+      "kl_each": [
+        0.0,
+        8.069509931374341e-07,
+        7.408176315948367e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-184 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 230,
+      "weight": -0.1328125,
+      "ppl": 5.396165132522583,
+      "ppl_each": [
+        9.361878395080566,
+        3.216421127319336,
+        3.65224552154541,
+        5.3541154861450195
+      ],
+      "kl": 3.6731344152940437e-06,
+      "kl_each": [
+        3.0158553272485733e-06,
+        4.849807737627998e-07,
+        7.518567144870758e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-185 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 2331,
+      "weight": 0.050048828125,
+      "ppl": 5.39635843038559,
+      "ppl_each": [
+        9.361369132995605,
+        3.2162210941314697,
+        3.6527419090270996,
+        5.355101585388184
+      ],
+      "kl": 2.689836643791447e-07,
+      "kl_each": [
+        0.0,
+        8.069509931374341e-07,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-186 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 1751,
+      "weight": 0.2890625,
+      "ppl": 5.395864963531494,
+      "ppl_each": [
+        9.359420776367188,
+        3.2155251502990723,
+        3.6536765098571777,
+        5.354837417602539
+      ],
+      "kl": 4.168459175465007e-06,
+      "kl_each": [
+        3.904700861312449e-06,
+        1.4261167962104082e-06,
+        7.174559868872166e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-187 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 5390,
+      "weight": 0.109375,
+      "ppl": 5.3958253264427185,
+      "ppl_each": [
+        9.362442970275879,
+        3.2149829864501953,
+        3.650670289993286,
+        5.355205059051514
+      ],
+      "kl": 3.2600382837699726e-06,
+      "kl_each": [
+        5.031670298194513e-07,
+        2.102387952618301e-06,
+        7.174559868872166e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-188 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 11458,
+      "weight": 0.11376953125,
+      "ppl": 5.396519482135773,
+      "ppl_each": [
+        9.36037540435791,
+        3.2173116207122803,
+        3.6534810066223145,
+        5.354909896850586
+      ],
+      "kl": 2.9402144718915224e-06,
+      "kl_each": [
+        8.451606845483184e-07,
+        8.972856448963284e-07,
+        7.07819708622992e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-189 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 9625,
+      "weight": -0.25,
+      "ppl": 5.395151615142822,
+      "ppl_each": [
+        9.360014915466309,
+        3.215841054916382,
+        3.6499717235565186,
+        5.35477876663208
+      ],
+      "kl": 4.1586705871547265e-06,
+      "kl_each": [
+        4.046538379043341e-06,
+        8.972856448963284e-07,
+        7.5321877375245094e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-190 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 10017,
+      "weight": -0.51171875,
+      "ppl": 5.395905315876007,
+      "ppl_each": [
+        9.358916282653809,
+        3.2155227661132812,
+        3.6521952152252197,
+        5.356986999511719
+      ],
+      "kl": 1.9618427321195972e-06,
+      "kl_each": [
+        5.507376954483334e-08,
+        -1.6400332469856949e-07,
+        5.9944577515125275e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-191 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 1751,
+      "weight": -0.390625,
+      "ppl": 5.396231770515442,
+      "ppl_each": [
+        9.361525535583496,
+        3.2165184020996094,
+        3.653815746307373,
+        5.353067398071289
+      ],
+      "kl": 2.5612947259408734e-06,
+      "kl_each": [
+        7.538765203207731e-07,
+        6.007394404150546e-07,
+        6.329268217086792e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-192 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 13630,
+      "weight": 0.4921875,
+      "ppl": 5.396026611328125,
+      "ppl_each": [
+        9.358583450317383,
+        3.2156660556793213,
+        3.6530826091766357,
+        5.35677433013916
+      ],
+      "kl": 1.3052199695569774e-05,
+      "kl_each": [
+        1.0970543371513486e-06,
+        1.933774910867214e-06,
+        3.612576983869076e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-193 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 12189,
+      "weight": 0.271484375,
+      "ppl": 5.395801424980164,
+      "ppl_each": [
+        9.359298706054688,
+        3.2174415588378906,
+        3.6525020599365234,
+        5.353963375091553
+      ],
+      "kl": 4.800773846606414e-06,
+      "kl_each": [
+        7.888884283602238e-07,
+        7.006456144154072e-07,
+        1.291278749704361e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-194 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 11242,
+      "weight": -0.91015625,
+      "ppl": 5.395958602428436,
+      "ppl_each": [
+        9.36206340789795,
+        3.215592622756958,
+        3.6514968872070312,
+        5.354681491851807
+      ],
+      "kl": 3.6589074928391105e-06,
+      "kl_each": [
+        2.636304998304695e-06,
+        8.147850167006254e-06,
+        1.925673132063821e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-195 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 6487,
+      "weight": 0.62109375,
+      "ppl": 5.394453644752502,
+      "ppl_each": [
+        9.359554290771484,
+        3.214803695678711,
+        3.648399829864502,
+        5.3550567626953125
+      ],
+      "kl": 3.3352334867231548e-06,
+      "kl_each": [
+        2.90267780655995e-06,
+        1.1851370800286531e-06,
+        5.917885573580861e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-196 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 5715,
+      "weight": -0.703125,
+      "ppl": 5.394775867462158,
+      "ppl_each": [
+        9.358424186706543,
+        3.2162349224090576,
+        3.6508190631866455,
+        5.353625297546387
+      ],
+      "kl": 7.0267124101519585e-06,
+      "kl_each": [
+        7.124064723029733e-06,
+        3.0321243684738874e-06,
+        1.0923948138952255e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-197 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 914,
+      "weight": -0.271484375,
+      "ppl": 5.394568741321564,
+      "ppl_each": [
+        9.358461380004883,
+        3.217625617980957,
+        3.648418664932251,
+        5.353769302368164
+      ],
+      "kl": 6.938770335788528e-06,
+      "kl_each": [
+        6.327958544716239e-06,
+        3.2607349567115307e-06,
+        1.1227617505937815e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-198 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 6060,
+      "weight": 0.08544921875,
+      "ppl": 5.395874440670013,
+      "ppl_each": [
+        9.360551834106445,
+        3.2173991203308105,
+        3.650968313217163,
+        5.354578495025635
+      ],
+      "kl": 6.758777696328859e-06,
+      "kl_each": [
+        2.4217224563471973e-06,
+        1.595262438058853e-05,
+        1.9019862520508468e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-199 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 9056,
+      "weight": 0.115234375,
+      "ppl": 5.395573794841766,
+      "ppl_each": [
+        9.360564231872559,
+        3.2155261039733887,
+        3.651414155960083,
+        5.354790687561035
+      ],
+      "kl": 4.529851139523089e-06,
+      "kl_each": [
+        4.870555130764842e-06,
+        1.3108219718560576e-06,
+        7.408176315948367e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-200 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 13470,
+      "weight": 0.1591796875,
+      "ppl": 5.396858990192413,
+      "ppl_each": [
+        9.366861343383789,
+        3.215492010116577,
+        3.65169095993042,
+        5.353391647338867
+      ],
+      "kl": 4.92056036212792e-06,
+      "kl_each": [
+        3.960274625569582e-06,
+        1.3108219718560576e-06,
+        9.49058448895812e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-201 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 528,
+      "weight": -0.0869140625,
+      "ppl": 5.395933508872986,
+      "ppl_each": [
+        9.365012168884277,
+        3.2137577533721924,
+        3.652874231338501,
+        5.352089881896973
+      ],
+      "kl": 7.559831525819997e-06,
+      "kl_each": [
+        6.66039704810828e-06,
+        9.350362233817577e-06,
+        6.668735295534134e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-202 (L39)",
+      "layer": 39,
+      "j": 4612,
+      "k": 5925,
+      "weight": 0.07958984375,
+      "ppl": 5.394842147827148,
+      "ppl_each": [
+        9.354020118713379,
+        3.2184488773345947,
+        3.652628183364868,
+        5.354271411895752
+      ],
+      "kl": 3.818915502051823e-06,
+      "kl_each": [
+        1.3733661035075784e-06,
+        4.7678804548922926e-07,
+        9.606592357158661e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-203 (L39)",
+      "layer": 39,
+      "j": 4612,
+      "k": 4801,
+      "weight": -0.1357421875,
+      "ppl": 5.396198928356171,
+      "ppl_each": [
+        9.35942268371582,
+        3.217940092086792,
+        3.6522574424743652,
+        5.355175495147705
+      ],
+      "kl": 3.662826107605118e-07,
+      "kl_each": [
+        -1.3397254861047259e-07,
+        7.164302928686084e-08,
+        1.1611773516051471e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-204 (L39)",
+      "layer": 39,
+      "j": 4612,
+      "k": 11458,
+      "weight": 0.061279296875,
+      "ppl": 5.396137237548828,
+      "ppl_each": [
+        9.360130310058594,
+        3.217195987701416,
+        3.651512622833252,
+        5.355710029602051
+      ],
+      "kl": 4.867713793525278e-07,
+      "kl_each": [
+        1.55157977133058e-07,
+        1.4397880931937834e-07,
+        1.1611773516051471e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-205 (L39)",
+      "layer": 39,
+      "j": 4612,
+      "k": 6530,
+      "weight": 0.08740234375,
+      "ppl": 5.395993590354919,
+      "ppl_each": [
+        9.359726905822754,
+        3.217832565307617,
+        3.652052402496338,
+        5.354362487792969
+      ],
+      "kl": 7.401123487701018e-06,
+      "kl_each": [
+        4.478555638343096e-06,
+        1.772481482475996e-05,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-206 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 10221,
+      "weight": -0.326171875,
+      "ppl": 5.395344018936157,
+      "ppl_each": [
+        9.360105514526367,
+        3.2167701721191406,
+        3.650667667388916,
+        5.353832721710205
+      ],
+      "kl": 2.5286547800836465e-06,
+      "kl_each": [
+        1.0049407137557864e-06,
+        9.590949048288167e-07,
+        5.621928721666336e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-207 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 2739,
+      "weight": -0.2578125,
+      "ppl": 5.3950143456459045,
+      "ppl_each": [
+        9.360125541687012,
+        3.2162418365478516,
+        3.650740385055542,
+        5.352949619293213
+      ],
+      "kl": 2.4567548884135704e-06,
+      "kl_each": [
+        6.073096301406622e-07,
+        1.3485713878935712e-08,
+        6.749469321221113e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-208 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 10482,
+      "weight": 0.35546875,
+      "ppl": 5.3960437178611755,
+      "ppl_each": [
+        9.359536170959473,
+        3.2167115211486816,
+        3.652768850326538,
+        5.35515832901001
+      ],
+      "kl": 1.6177641744737532e-08,
+      "kl_each": [
+        -5.792708179797046e-08,
+        1.0646000703218306e-07,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-209 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 6530,
+      "weight": -0.19140625,
+      "ppl": 5.395357012748718,
+      "ppl_each": [
+        9.357131958007812,
+        3.2175328731536865,
+        3.6528303623199463,
+        5.353932857513428
+      ],
+      "kl": 4.5620375506890315e-07,
+      "kl_each": [
+        2.657143340911716e-07,
+        1.1028969311155379e-06,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-210 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 10191,
+      "weight": 0.859375,
+      "ppl": 5.3944976925849915,
+      "ppl_each": [
+        9.356205940246582,
+        3.2162630558013916,
+        3.649880886077881,
+        5.355640888214111
+      ],
+      "kl": 3.356680584450563e-06,
+      "kl_each": [
+        4.152156179770827e-06,
+        0.0,
+        5.917885573580861e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-211 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 10421,
+      "weight": -0.46484375,
+      "ppl": 5.394520699977875,
+      "ppl_each": [
+        9.356141090393066,
+        3.21565318107605,
+        3.652005672454834,
+        5.354282855987549
+      ],
+      "kl": 7.632576550046603e-07,
+      "kl_each": [
+        2.289772965013981e-06,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-212 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 8796,
+      "weight": -0.5546875,
+      "ppl": 5.393843352794647,
+      "ppl_each": [
+        9.355549812316895,
+        3.2175490856170654,
+        3.6508426666259766,
+        5.351431846618652
+      ],
+      "kl": 1.3274194013016919e-05,
+      "kl_each": [
+        5.600857548415661e-06,
+        2.9605580493807793e-05,
+        4.616143996827304e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-213 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 4426,
+      "weight": 0.81640625,
+      "ppl": 5.395133674144745,
+      "ppl_each": [
+        9.356361389160156,
+        3.21455717086792,
+        3.6534054279327393,
+        5.356210708618164
+      ],
+      "kl": 8.939134810740748e-06,
+      "kl_each": [
+        4.170811735093594e-06,
+        1.592794433236122e-05,
+        6.718648364767432e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-214 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 13223,
+      "weight": -0.1474609375,
+      "ppl": 5.396426796913147,
+      "ppl_each": [
+        9.36300277709961,
+        3.2166550159454346,
+        3.6519739627838135,
+        5.3540754318237305
+      ],
+      "kl": 4.058467311551794e-06,
+      "kl_each": [
+        3.960274625569582e-06,
+        8.069509931374341e-07,
+        7.408176315948367e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-215 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 5715,
+      "weight": -0.259765625,
+      "ppl": 5.394694089889526,
+      "ppl_each": [
+        9.358095169067383,
+        3.2153067588806152,
+        3.650193691253662,
+        5.355180740356445
+      ],
+      "kl": 4.024986992590129e-06,
+      "kl_each": [
+        3.3559626899659634e-06,
+        1.3108219718560576e-06,
+        7.408176315948367e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-216 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 3704,
+      "weight": 0.2470703125,
+      "ppl": 5.39551317691803,
+      "ppl_each": [
+        9.358283042907715,
+        3.2173759937286377,
+        3.6515138149261475,
+        5.354879856109619
+      ],
+      "kl": 7.122090513197084e-06,
+      "kl_each": [
+        4.014211299363524e-06,
+        1.595262438058853e-05,
+        1.3994358596391976e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-217 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 13001,
+      "weight": -0.08642578125,
+      "ppl": 5.3969292640686035,
+      "ppl_each": [
+        9.365286827087402,
+        3.2156033515930176,
+        3.652653694152832,
+        5.354173183441162
+      ],
+      "kl": 8.07258766144514e-06,
+      "kl_each": [
+        5.276000592857599e-06,
+        9.59145836532116e-06,
+        9.350304026156664e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-218 (L39)",
+      "layer": 39,
+      "j": 1237,
+      "k": 6420,
+      "weight": -0.34375,
+      "ppl": 5.394684612751007,
+      "ppl_each": [
+        9.358220100402832,
+        3.2168121337890625,
+        3.6510612964630127,
+        5.352644920349121
+      ],
+      "kl": 2.73937742652682e-06,
+      "kl_each": [
+        1.7716592992655933e-07,
+        7.704802555963397e-07,
+        7.27048609405756e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-219 (L39)",
+      "layer": 39,
+      "j": 1237,
+      "k": 9932,
+      "weight": -0.5078125,
+      "ppl": 5.3972132205963135,
+      "ppl_each": [
+        9.36390495300293,
+        3.215442657470703,
+        3.6527767181396484,
+        5.356728553771973
+      ],
+      "kl": 6.760585165466182e-06,
+      "kl_each": [
+        2.7277128538116813e-06,
+        1.755461562424898e-05,
+        -5.729816621169448e-10
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-220 (L39)",
+      "layer": 39,
+      "j": 1237,
+      "k": 10954,
+      "weight": 0.232421875,
+      "ppl": 5.395537912845612,
+      "ppl_each": [
+        9.361309051513672,
+        3.215256690979004,
+        3.652068853378296,
+        5.353517055511475
+      ],
+      "kl": 3.6282678289959827e-06,
+      "kl_each": [
+        2.7277128538116813e-06,
+        7.710041245445609e-07,
+        7.386086508631706e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-221 (L39)",
+      "layer": 39,
+      "j": 1237,
+      "k": 11035,
+      "weight": -0.267578125,
+      "ppl": 5.395809650421143,
+      "ppl_each": [
+        9.358494758605957,
+        3.217194080352783,
+        3.652787208557129,
+        5.354762554168701
+      ],
+      "kl": 1.7350426873008473e-07,
+      "kl_each": [
+        5.858400982106104e-07,
+        -4.3447350606129476e-08,
+        -2.1879941414226778e-08
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-222 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 8796,
+      "weight": 0.47265625,
+      "ppl": 5.395926535129547,
+      "ppl_each": [
+        9.362934112548828,
+        3.2168450355529785,
+        3.6513478755950928,
+        5.352579116821289
+      ],
+      "kl": 5.620774269724886e-06,
+      "kl_each": [
+        7.535199983976781e-07,
+        1.5392666682600975e-05,
+        7.161361281760037e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-223 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 8785,
+      "weight": 1.078125,
+      "ppl": 5.394573867321014,
+      "ppl_each": [
+        9.355804443359375,
+        3.216494083404541,
+        3.6537811756134033,
+        5.352215766906738
+      ],
+      "kl": 8.816224484083554e-06,
+      "kl_each": [
+        6.402726285159588e-06,
+        1.5594065189361572e-05,
+        4.451881977729499e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-224 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 10784,
+      "weight": 0.265625,
+      "ppl": 5.394958317279816,
+      "ppl_each": [
+        9.358922958374023,
+        3.2168781757354736,
+        3.6513872146606445,
+        5.352644920349121
+      ],
+      "kl": 2.532510734454263e-06,
+      "kl_each": [
+        -4.451339918887243e-08,
+        3.5141965781804174e-07,
+        7.29062594473362e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-225 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 13788,
+      "weight": -0.54296875,
+      "ppl": 5.39508193731308,
+      "ppl_each": [
+        9.358016967773438,
+        3.2164700031280518,
+        3.651021957397461,
+        5.354818820953369
+      ],
+      "kl": 2.0137758838245645e-06,
+      "kl_each": [
+        4.193989298073575e-07,
+        0.0,
+        5.621928721666336e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-226 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 10482,
+      "weight": -0.36328125,
+      "ppl": 5.395917475223541,
+      "ppl_each": [
+        9.359009742736816,
+        3.2178561687469482,
+        3.6528148651123047,
+        5.353989124298096
+      ],
+      "kl": 1.3902705783645313e-06,
+      "kl_each": [
+        4.170811735093594e-06,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-227 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 2739,
+      "weight": 0.25,
+      "ppl": 5.396008372306824,
+      "ppl_each": [
+        9.360706329345703,
+        3.2167351245880127,
+        3.651169538497925,
+        5.355422496795654
+      ],
+      "kl": 2.6795508650441966e-06,
+      "kl_each": [
+        2.1207670215517282e-06,
+        0.0,
+        5.917885573580861e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-228 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 10784,
+      "weight": -0.298828125,
+      "ppl": 5.395410656929016,
+      "ppl_each": [
+        9.360281944274902,
+        3.217031478881836,
+        3.65147066116333,
+        5.352858543395996
+      ],
+      "kl": 4.269711401623984e-06,
+      "kl_each": [
+        4.152156179770827e-06,
+        1.4414399629458785e-06,
+        7.215538062155247e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-229 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 13788,
+      "weight": 0.59375,
+      "ppl": 5.396640956401825,
+      "ppl_each": [
+        9.360777854919434,
+        3.2169203758239746,
+        3.6521780490875244,
+        5.356687545776367
+      ],
+      "kl": 5.995971150696278e-06,
+      "kl_each": [
+        7.192196790128946e-06,
+        0.0,
+        1.0795716661959887e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-230 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 13223,
+      "weight": 0.203125,
+      "ppl": 5.396942675113678,
+      "ppl_each": [
+        9.361701965332031,
+        3.2178544998168945,
+        3.652432680130005,
+        5.355781555175781
+      ],
+      "kl": 6.298067698177571e-06,
+      "kl_each": [
+        1.8936116248369217e-06,
+        1.6081612557172775e-05,
+        9.189789125230163e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-231 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 9698,
+      "weight": -0.193359375,
+      "ppl": 5.39614063501358,
+      "ppl_each": [
+        9.36253833770752,
+        3.214740514755249,
+        3.652127265930176,
+        5.355156421661377
+      ],
+      "kl": 1.0077846430552503e-05,
+      "kl_each": [
+        5.983049049973488e-06,
+        1.9128347048535943e-06,
+        2.2337655536830425e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-232 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 7800,
+      "weight": 0.2294921875,
+      "ppl": 5.395813465118408,
+      "ppl_each": [
+        9.359981536865234,
+        3.2149131298065186,
+        3.654554605484009,
+        5.353804588317871
+      ],
+      "kl": 4.75143800334384e-06,
+      "kl_each": [
+        5.741196218878031e-06,
+        1.2112868716940284e-06,
+        7.301830919459462e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-233 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 6207,
+      "weight": 0.2216796875,
+      "ppl": 5.395403444766998,
+      "ppl_each": [
+        9.359585762023926,
+        3.2158100605010986,
+        3.6516385078430176,
+        5.354579448699951
+      ],
+      "kl": 5.571200745180249e-06,
+      "kl_each": [
+        8.445640560239553e-07,
+        1.5869038179516792e-05,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-234 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 3502,
+      "weight": 0.18359375,
+      "ppl": 5.396252512931824,
+      "ppl_each": [
+        9.360773086547852,
+        3.217782974243164,
+        3.653207778930664,
+        5.353246212005615
+      ],
+      "kl": 2.0959414541721344e-06,
+      "kl_each": [
+        3.833774826489389e-06,
+        6.788468454033136e-07,
+        1.7752026906237006e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-235 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 6060,
+      "weight": -0.072265625,
+      "ppl": 5.398428678512573,
+      "ppl_each": [
+        9.365797996520996,
+        3.2186951637268066,
+        3.6529526710510254,
+        5.356268882751465
+      ],
+      "kl": 7.832080276178507e-06,
+      "kl_each": [
+        7.689723133808002e-07,
+        1.7809448763728142e-05,
+        4.9178197514265776e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-236 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 13451,
+      "weight": 0.1025390625,
+      "ppl": 5.3967708349227905,
+      "ppl_each": [
+        9.361384391784668,
+        3.218233108520508,
+        3.6528425216674805,
+        5.354623317718506
+      ],
+      "kl": 1.365073482399263e-07,
+      "kl_each": [
+        3.0251067073550075e-07,
+        -5.873243935639039e-08,
+        1.6574381334066857e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-237 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 7011,
+      "weight": 0.107421875,
+      "ppl": 5.396038889884949,
+      "ppl_each": [
+        9.360197067260742,
+        3.2167866230010986,
+        3.6531240940093994,
+        5.354047775268555
+      ],
+      "kl": 5.325503783145299e-07,
+      "kl_each": [
+        1.8379068933427334e-08,
+        3.099667083006352e-07,
+        1.269305357709527e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-238 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 5289,
+      "weight": -0.2021484375,
+      "ppl": 5.396070599555969,
+      "ppl_each": [
+        9.359115600585938,
+        3.2172186374664307,
+        3.652858018875122,
+        5.355090141296387
+      ],
+      "kl": 2.4158084780031195e-06,
+      "kl_each": [
+        -8.380179217226669e-09,
+        -3.482033150703501e-08,
+        7.29062594473362e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-239 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 10028,
+      "weight": 0.2373046875,
+      "ppl": 5.395422875881195,
+      "ppl_each": [
+        9.356810569763184,
+        3.216203212738037,
+        3.652333974838257,
+        5.356343746185303
+      ],
+      "kl": 5.813366442453116e-06,
+      "kl_each": [
+        7.538765203207731e-07,
+        1.5970086678862572e-05,
+        7.161361281760037e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-240 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 7067,
+      "weight": 0.146484375,
+      "ppl": 5.396040439605713,
+      "ppl_each": [
+        9.359047889709473,
+        3.2171950340270996,
+        3.6528491973876953,
+        5.355069637298584
+      ],
+      "kl": 6.46699997256898e-08,
+      "kl_each": [
+        3.110767465841491e-08,
+        -2.257229425595142e-08,
+        1.8547461877460591e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-241 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 5149,
+      "weight": -0.5078125,
+      "ppl": 5.395682156085968,
+      "ppl_each": [
+        9.356964111328125,
+        3.2174105644226074,
+        3.653549909591675,
+        5.354804039001465
+      ],
+      "kl": 2.178277706358737e-07,
+      "kl_each": [
+        2.877231963793747e-08,
+        -9.142513590632007e-08,
+        7.161361281760037e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-242 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 5289,
+      "weight": 0.2158203125,
+      "ppl": 5.396076202392578,
+      "ppl_each": [
+        9.359132766723633,
+        3.2172727584838867,
+        3.652883529663086,
+        5.355015754699707
+      ],
+      "kl": 2.4051793540517488e-06,
+      "kl_each": [
+        0.0,
+        0.0,
+        7.215538062155247e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-243 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 6530,
+      "weight": 0.169921875,
+      "ppl": 5.395037889480591,
+      "ppl_each": [
+        9.358604431152344,
+        3.2163920402526855,
+        3.6527256965637207,
+        5.352429389953613
+      ],
+      "kl": 3.4986975758026042e-06,
+      "kl_each": [
+        7.124064723029733e-06,
+        3.3720280043780804e-06,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-244 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 9932,
+      "weight": 0.177734375,
+      "ppl": 5.396177232265472,
+      "ppl_each": [
+        9.361786842346191,
+        3.215089797973633,
+        3.651629686355591,
+        5.356202602386475
+      ],
+      "kl": 4.003977664979175e-06,
+      "kl_each": [
+        4.152156179770827e-06,
+        6.442387530114502e-07,
+        7.215538062155247e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-245 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 6420,
+      "weight": -0.11181640625,
+      "ppl": 5.394979894161224,
+      "ppl_each": [
+        9.359447479248047,
+        3.215538740158081,
+        3.6515846252441406,
+        5.353348731994629
+      ],
+      "kl": 3.401985547194878e-06,
+      "kl_each": [
+        2.990418579429388e-06,
+        0.0,
+        7.215538062155247e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-246 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 2569,
+      "weight": -0.2333984375,
+      "ppl": 5.394670724868774,
+      "ppl_each": [
+        9.35848331451416,
+        3.2160496711730957,
+        3.650801181793213,
+        5.353348731994629
+      ],
+      "kl": 4.2126581926519675e-06,
+      "kl_each": [
+        3.960274625569582e-06,
+        1.4152465155348182e-06,
+        7.2624534368515015e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-247 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 4469,
+      "weight": -0.421875,
+      "ppl": 5.395555734634399,
+      "ppl_each": [
+        9.36131763458252,
+        3.2125606536865234,
+        3.651984214782715,
+        5.35636043548584
+      ],
+      "kl": 1.5215497114695609e-05,
+      "kl_each": [
+        8.668852387927473e-06,
+        8.327828254550695e-06,
+        2.8649810701608658e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-248 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 7042,
+      "weight": 0.05517578125,
+      "ppl": 5.395809710025787,
+      "ppl_each": [
+        9.359097480773926,
+        3.2166569232940674,
+        3.6526527404785156,
+        5.354831695556641
+      ],
+      "kl": 2.7751727126693973e-06,
+      "kl_each": [
+        0.0,
+        8.069509931374341e-07,
+        7.518567144870758e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-249 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 11627,
+      "weight": -0.1533203125,
+      "ppl": 5.394757866859436,
+      "ppl_each": [
+        9.358514785766602,
+        3.214203119277954,
+        3.651585340499878,
+        5.3547282218933105
+      ],
+      "kl": 3.808455706651633e-06,
+      "kl_each": [
+        3.3559626899659634e-06,
+        8.069509931374341e-07,
+        7.2624534368515015e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-250 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 7042,
+      "weight": 0.0927734375,
+      "ppl": 5.395972371101379,
+      "ppl_each": [
+        9.359745025634766,
+        3.217224359512329,
+        3.651812791824341,
+        5.355107307434082
+      ],
+      "kl": 2.9909521496544283e-07,
+      "kl_each": [
+        0.0,
+        8.972856448963284e-07,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-251 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 1309,
+      "weight": -0.18359375,
+      "ppl": 5.396640777587891,
+      "ppl_each": [
+        9.358139991760254,
+        3.2168943881988525,
+        3.6543514728546143,
+        5.357177257537842
+      ],
+      "kl": 5.571399621355037e-06,
+      "kl_each": [
+        8.451606845483184e-07,
+        1.5869038179516792e-05,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-252 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 2739,
+      "weight": 0.162109375,
+      "ppl": 5.395076334476471,
+      "ppl_each": [
+        9.359445571899414,
+        3.213813543319702,
+        3.6522865295410156,
+        5.354759693145752
+      ],
+      "kl": 2.7203265441736826e-06,
+      "kl_each": [
+        1.1817355698440224e-06,
+        0.0,
+        6.979244062677026e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-253 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 861,
+      "weight": 0.12451171875,
+      "ppl": 5.396080315113068,
+      "ppl_each": [
+        9.35971736907959,
+        3.217235565185547,
+        3.65230393409729,
+        5.355064392089844
+      ],
+      "kl": 0.0,
+      "kl_each": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-254 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 4426,
+      "weight": -0.58203125,
+      "ppl": 5.395378291606903,
+      "ppl_each": [
+        9.357606887817383,
+        3.2149910926818848,
+        3.6528618335723877,
+        5.356053352355957
+      ],
+      "kl": 2.5213006059251106e-06,
+      "kl_each": [
+        1.0896974345087074e-07,
+        8.153483577189036e-08,
+        7.37339723855257e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-255 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 1643,
+      "weight": 0.1640625,
+      "ppl": 5.396066784858704,
+      "ppl_each": [
+        9.359155654907227,
+        3.217217206954956,
+        3.652815580368042,
+        5.35507869720459
+      ],
+      "kl": 2.4446897830543435e-06,
+      "kl_each": [
+        -8.380179217226669e-09,
+        5.1823583646637417e-08,
+        7.29062594473362e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-256 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 5715,
+      "weight": 0.328125,
+      "ppl": 5.39542680978775,
+      "ppl_each": [
+        9.359318733215332,
+        3.2160565853118896,
+        3.6510043144226074,
+        5.355327606201172
+      ],
+      "kl": 2.4210450343768266e-06,
+      "kl_each": [
+        1.7662659956840798e-07,
+        3.1160243452177383e-07,
+        6.7749060690402985e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-257 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 13470,
+      "weight": -0.19140625,
+      "ppl": 5.394311368465424,
+      "ppl_each": [
+        9.356789588928223,
+        3.217247724533081,
+        3.650941848754883,
+        5.352266311645508
+      ],
+      "kl": 2.1931347570595485e-06,
+      "kl_each": [
+        -1.8039645510725677e-07,
+        3.6886149246129207e-07,
+        6.390939233824611e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-258 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 1353,
+      "weight": -0.2314453125,
+      "ppl": 5.392932951450348,
+      "ppl_each": [
+        9.354076385498047,
+        3.2165775299072266,
+        3.6499922275543213,
+        5.351085662841797
+      ],
+      "kl": 9.135449848448237e-06,
+      "kl_each": [
+        6.479647709056735e-06,
+        3.958528395742178e-06,
+        1.6968173440545797e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-259 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 2403,
+      "weight": 0.47265625,
+      "ppl": 5.396669626235962,
+      "ppl_each": [
+        9.36148452758789,
+        3.2172372341156006,
+        3.651771306991577,
+        5.356185436248779
+      ],
+      "kl": 3.2363556480656066e-06,
+      "kl_each": [
+        2.990418579429388e-06,
+        0.0,
+        6.718648364767432e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-260 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 1643,
+      "weight": -0.16796875,
+      "ppl": 5.396355152130127,
+      "ppl_each": [
+        9.359476089477539,
+        3.2173092365264893,
+        3.6534926891326904,
+        5.355142593383789
+      ],
+      "kl": 2.4051793540517488e-06,
+      "kl_each": [
+        0.0,
+        0.0,
+        7.215538062155247e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-261 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 5149,
+      "weight": 0.466796875,
+      "ppl": 5.395860075950623,
+      "ppl_each": [
+        9.357196807861328,
+        3.2172489166259766,
+        3.653308868408203,
+        5.355685710906982
+      ],
+      "kl": 6.455855933988157e-06,
+      "kl_each": [
+        1.0930689313681796e-06,
+        1.3845856301486492e-05,
+        4.4286425691097975e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-262 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 8785,
+      "weight": 0.46484375,
+      "ppl": 5.395861446857452,
+      "ppl_each": [
+        9.362576484680176,
+        3.216808795928955,
+        3.6511542797088623,
+        5.352906227111816
+      ],
+      "kl": 5.11507096234709e-06,
+      "kl_each": [
+        6.66039704810828e-06,
+        1.4223624020814896e-06,
+        7.2624534368515015e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-263 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 6207,
+      "weight": 0.12158203125,
+      "ppl": 5.395703673362732,
+      "ppl_each": [
+        9.359039306640625,
+        3.215761661529541,
+        3.6529898643493652,
+        5.3550238609313965
+      ],
+      "kl": 0.0,
+      "kl_each": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-264 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 3691,
+      "weight": 0.1953125,
+      "ppl": 5.395940005779266,
+      "ppl_each": [
+        9.360760688781738,
+        3.2162108421325684,
+        3.653096914291382,
+        5.353691577911377
+      ],
+      "kl": 2.3897155188024044e-06,
+      "kl_each": [
+        0.0,
+        0.0,
+        7.169146556407213e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-265 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 2646,
+      "weight": 0.09033203125,
+      "ppl": 5.396113276481628,
+      "ppl_each": [
+        9.358583450317383,
+        3.217848062515259,
+        3.6521031856536865,
+        5.3559184074401855
+      ],
+      "kl": 5.619152943836525e-06,
+      "kl_each": [
+        5.915790097787976e-07,
+        1.6016769222915173e-05,
+        2.4911059881560504e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-266 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 8551,
+      "weight": -0.2177734375,
+      "ppl": 5.3938475251197815,
+      "ppl_each": [
+        9.361237525939941,
+        3.214139223098755,
+        3.6508264541625977,
+        5.349186897277832
+      ],
+      "kl": 1.6034930013120174e-05,
+      "kl_each": [
+        7.90401827543974e-06,
+        1.6206176951527596e-06,
+        3.8580154068768024e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-267 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 11627,
+      "weight": -0.2412109375,
+      "ppl": 5.39491194486618,
+      "ppl_each": [
+        9.360193252563477,
+        3.213291883468628,
+        3.6528501510620117,
+        5.3533124923706055
+      ],
+      "kl": 3.4913706864851215e-06,
+      "kl_each": [
+        2.7771820896305144e-06,
+        8.972856448963284e-07,
+        6.799644324928522e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-268 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 13470,
+      "weight": 0.1708984375,
+      "ppl": 5.397146821022034,
+      "ppl_each": [
+        9.362527847290039,
+        3.215686321258545,
+        3.6534218788146973,
+        5.3569512367248535
+      ],
+      "kl": 3.714119278204938e-06,
+      "kl_each": [
+        2.8528738766908646e-06,
+        1.2112868716940284e-06,
+        7.07819708622992e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-269 (L39)",
+      "layer": 39,
+      "j": 1683,
+      "k": 5715,
+      "weight": -0.27734375,
+      "ppl": 5.396014988422394,
+      "ppl_each": [
+        9.358644485473633,
+        3.215395212173462,
+        3.6539106369018555,
+        5.356109619140625
+      ],
+      "kl": 3.0024936374199265e-06,
+      "kl_each": [
+        5.031670298194513e-07,
+        1.4261167962104082e-06,
+        7.07819708622992e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-270 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 861,
+      "weight": -0.123046875,
+      "ppl": 5.396063804626465,
+      "ppl_each": [
+        9.359155654907227,
+        3.2172353267669678,
+        3.652756929397583,
+        5.355107307434082
+      ],
+      "kl": 2.4494222306733113e-06,
+      "kl_each": [
+        0.0,
+        -2.51305465326368e-08,
+        7.37339723855257e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-271 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 3502,
+      "weight": 0.203125,
+      "ppl": 5.395411908626556,
+      "ppl_each": [
+        9.358717918395996,
+        3.2174932956695557,
+        3.652099132537842,
+        5.353337287902832
+      ],
+      "kl": 3.2204093258769717e-07,
+      "kl_each": [
+        6.141344783827662e-07,
+        -8.534038897778373e-08,
+        4.37328708358109e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-272 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 4121,
+      "weight": -0.1259765625,
+      "ppl": 5.396087646484375,
+      "ppl_each": [
+        9.359221458435059,
+        3.217209815979004,
+        3.6528186798095703,
+        5.355100631713867
+      ],
+      "kl": -6.148004179825269e-09,
+      "kl_each": [
+        0.0,
+        -1.8444012539475807e-08,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-273 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 7042,
+      "weight": -0.08251953125,
+      "ppl": 5.396049976348877,
+      "ppl_each": [
+        9.359106063842773,
+        3.217195987701416,
+        3.6528286933898926,
+        5.355069160461426
+      ],
+      "kl": 2.5501257899425886e-06,
+      "kl_each": [
+        0.0,
+        2.7698013127519516e-07,
+        7.37339723855257e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-274 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 8551,
+      "weight": 0.2333984375,
+      "ppl": 5.39496248960495,
+      "ppl_each": [
+        9.358187675476074,
+        3.21781587600708,
+        3.650620222091675,
+        5.353226184844971
+      ],
+      "kl": 6.937982107046992e-06,
+      "kl_each": [
+        5.309135303832591e-06,
+        1.1230469681322575e-05,
+        4.2743413359858096e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-275 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 3984,
+      "weight": -0.1640625,
+      "ppl": 5.395702302455902,
+      "ppl_each": [
+        9.359195709228516,
+        3.2166428565979004,
+        3.6523211002349854,
+        5.354649543762207
+      ],
+      "kl": 0.0,
+      "kl_each": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-276 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 2646,
+      "weight": 0.1669921875,
+      "ppl": 5.39549446105957,
+      "ppl_each": [
+        9.356429100036621,
+        3.2173595428466797,
+        3.650773525238037,
+        5.357415676116943
+      ],
+      "kl": 6.388410838553682e-06,
+      "kl_each": [
+        2.8786889743059874e-06,
+        1.5516183339059353e-05,
+        7.703602022957057e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-277 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 7067,
+      "weight": -0.1123046875,
+      "ppl": 5.396194219589233,
+      "ppl_each": [
+        9.359004020690918,
+        3.2171895503997803,
+        3.6539127826690674,
+        5.354670524597168
+      ],
+      "kl": 5.314437051614125e-06,
+      "kl_each": [
+        0.0,
+        1.5943311154842377e-05,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-278 (L39)",
+      "layer": 39,
+      "j": 1718,
+      "k": 5925,
+      "weight": 0.150390625,
+      "ppl": 5.3952009081840515,
+      "ppl_each": [
+        9.358824729919434,
+        3.2162420749664307,
+        3.65224552154541,
+        5.353491306304932
+      ],
+      "kl": 6.235767311106126e-06,
+      "kl_each": [
+        3.617635229602456e-06,
+        1.181993866339326e-06,
+        1.3907672837376595e-05
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-279 (L39)",
+      "layer": 39,
+      "j": 1718,
+      "k": 345,
+      "weight": 0.1357421875,
+      "ppl": 5.395584881305695,
+      "ppl_each": [
+        9.35861587524414,
+        3.2184336185455322,
+        3.6507792472839355,
+        5.35451078414917
+      ],
+      "kl": 2.4184316771425074e-07,
+      "kl_each": [
+        5.0172957344329916e-08,
+        1.4842441942164442e-07,
+        5.269321263767779e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-280 (L39)",
+      "layer": 39,
+      "j": 1718,
+      "k": 11458,
+      "weight": 0.07177734375,
+      "ppl": 5.395957291126251,
+      "ppl_each": [
+        9.360601425170898,
+        3.2178869247436523,
+        3.650984048843384,
+        5.35435676574707
+      ],
+      "kl": 3.2624954352892627e-07,
+      "kl_each": [
+        8.270035323221236e-08,
+        2.546985342632979e-07,
+        6.413497430912685e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-281 (L39)",
+      "layer": 39,
+      "j": 1718,
+      "k": 13451,
+      "weight": -0.10986328125,
+      "ppl": 5.395925760269165,
+      "ppl_each": [
+        9.360264778137207,
+        3.21701717376709,
+        3.651392936706543,
+        5.35502815246582
+      ],
+      "kl": 7.75392550167453e-08,
+      "kl_each": [
+        1.9539675122359768e-07,
+        -1.578285946379765e-08,
+        5.300387329043588e-08
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-282 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 7633,
+      "weight": -0.3125,
+      "ppl": 5.394821226596832,
+      "ppl_each": [
+        9.35527515411377,
+        3.217400074005127,
+        3.6531407833099365,
+        5.353468894958496
+      ],
+      "kl": 3.520205306510131e-07,
+      "kl_each": [
+        0.0,
+        8.069509931374341e-07,
+        2.4911059881560504e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-283 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 2739,
+      "weight": 0.0849609375,
+      "ppl": 5.395744442939758,
+      "ppl_each": [
+        9.36193561553955,
+        3.2154617309570312,
+        3.65128755569458,
+        5.354292869567871
+      ],
+      "kl": 2.5061890482902527e-06,
+      "kl_each": [
+        0.0,
+        0.0,
+        7.518567144870758e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-284 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 7011,
+      "weight": 0.0791015625,
+      "ppl": 5.395989418029785,
+      "ppl_each": [
+        9.360967636108398,
+        3.216484308242798,
+        3.651663064956665,
+        5.354842662811279
+      ],
+      "kl": 3.7804578217522553e-06,
+      "kl_each": [
+        3.0158553272485733e-06,
+        8.069509931374341e-07,
+        7.518567144870758e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-285 (L39)",
+      "layer": 39,
+      "j": 423,
+      "k": 7883,
+      "weight": -0.1630859375,
+      "ppl": 5.395796418190002,
+      "ppl_each": [
+        9.35841178894043,
+        3.217451572418213,
+        3.6528148651123047,
+        5.3545074462890625
+      ],
+      "kl": 2.5061890482902527e-06,
+      "kl_each": [
+        0.0,
+        0.0,
+        7.518567144870758e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-286 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 2403,
+      "weight": -0.373046875,
+      "ppl": 5.395706832408905,
+      "ppl_each": [
+        9.359210968017578,
+        3.2170448303222656,
+        3.6514737606048584,
+        5.355097770690918
+      ],
+      "kl": 2.4510849148858447e-06,
+      "kl_each": [
+        -6.440836841647979e-08,
+        8.59425597354857e-08,
+        7.331720553338528e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-287 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 2525,
+      "weight": 0.1494140625,
+      "ppl": 5.396244764328003,
+      "ppl_each": [
+        9.359349250793457,
+        3.21722412109375,
+        3.653332233428955,
+        5.35507345199585
+      ],
+      "kl": 6.282004361146676e-08,
+      "kl_each": [
+        7.407654489810511e-10,
+        2.2447466108133085e-09,
+        1.8547461877460591e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-288 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 11195,
+      "weight": -0.6171875,
+      "ppl": 5.394954323768616,
+      "ppl_each": [
+        9.356754302978516,
+        3.2165002822875977,
+        3.6521058082580566,
+        5.354456901550293
+      ],
+      "kl": 2.6227608032058924e-06,
+      "kl_each": [
+        5.2787072490900755e-09,
+        9.846335160546005e-07,
+        6.878370186313987e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-289 (L39)",
+      "layer": 39,
+      "j": 2772,
+      "k": 5390,
+      "weight": -0.0673828125,
+      "ppl": 5.3948655128479,
+      "ppl_each": [
+        9.35836124420166,
+        3.21578311920166,
+        3.6509299278259277,
+        5.3543877601623535
+      ],
+      "kl": 2.498500937993716e-06,
+      "kl_each": [
+        -1.4142960935714655e-07,
+        8.514616638422012e-07,
+        6.785470759496093e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-290 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 1478,
+      "weight": 0.458984375,
+      "ppl": 5.396370887756348,
+      "ppl_each": [
+        9.358586311340332,
+        3.216397762298584,
+        3.6527767181396484,
+        5.357722759246826
+      ],
+      "kl": 4.040003356446202e-06,
+      "kl_each": [
+        6.756454240530729e-06,
+        3.1717936508357525e-06,
+        2.191762177972123e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-291 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 11195,
+      "weight": 0.64453125,
+      "ppl": 5.396064877510071,
+      "ppl_each": [
+        9.361895561218262,
+        3.215477466583252,
+        3.6515865325927734,
+        5.355299949645996
+      ],
+      "kl": 3.583695312651495e-06,
+      "kl_each": [
+        6.992922862991691e-07,
+        3.958528395742178e-06,
+        6.093265255913138e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-292 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 100,
+      "weight": 0.453125,
+      "ppl": 5.3959099650383,
+      "ppl_each": [
+        9.359686851501465,
+        3.2174463272094727,
+        3.652585744857788,
+        5.353920936584473
+      ],
+      "kl": 9.675592688533168e-07,
+      "kl_each": [
+        2.90267780655995e-06,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-293 (L39)",
+      "layer": 39,
+      "j": 2285,
+      "k": 11582,
+      "weight": 0.1328125,
+      "ppl": 5.395183682441711,
+      "ppl_each": [
+        9.358996391296387,
+        3.2142553329467773,
+        3.6514477729797363,
+        5.356035232543945
+      ],
+      "kl": 4.122945635269086e-06,
+      "kl_each": [
+        4.465051461011171e-06,
+        1.1851370800286531e-06,
+        6.718648364767432e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-294 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 345,
+      "weight": -0.10791015625,
+      "ppl": 5.396595895290375,
+      "ppl_each": [
+        9.361322402954102,
+        3.2179696559906006,
+        3.6523289680480957,
+        5.354762554168701
+      ],
+      "kl": 3.011457048766412e-06,
+      "kl_each": [
+        -1.6788362700026482e-07,
+        4.455989710550057e-08,
+        9.157694876194e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-295 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 13810,
+      "weight": -0.1533203125,
+      "ppl": 5.395060658454895,
+      "ppl_each": [
+        9.354994773864746,
+        3.2170040607452393,
+        3.6532976627349854,
+        5.354946136474609
+      ],
+      "kl": 7.984250676903079e-07,
+      "kl_each": [
+        1.0907197065535001e-06,
+        -3.694191264003166e-08,
+        1.341497409157455e-06
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-296 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 7042,
+      "weight": -0.05517578125,
+      "ppl": 5.396024286746979,
+      "ppl_each": [
+        9.358941078186035,
+        3.2172157764434814,
+        3.652838706970215,
+        5.355101585388184
+      ],
+      "kl": 1.1144084055558778e-07,
+      "kl_each": [
+        0.0,
+        1.9969365894212388e-07,
+        1.3462886272463948e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-297 (L39)",
+      "layer": 39,
+      "j": 3823,
+      "k": 4323,
+      "weight": -0.1162109375,
+      "ppl": 5.397059202194214,
+      "ppl_each": [
+        9.361943244934082,
+        3.2177743911743164,
+        3.6534218788146973,
+        5.35509729385376
+      ],
+      "kl": 2.21435281370456e-07,
+      "kl_each": [
+        -1.6788362700026482e-07,
+        6.241061782930046e-07,
+        2.0808329281862825e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-298 (L39)",
+      "layer": 39,
+      "j": 4612,
+      "k": 2331,
+      "weight": 0.0301513671875,
+      "ppl": 5.395841717720032,
+      "ppl_each": [
+        9.359135627746582,
+        3.217381715774536,
+        3.6520302295684814,
+        5.354819297790527
+      ],
+      "kl": 7.129715321833412e-08,
+      "kl_each": [
+        1.1701795088470135e-10,
+        -3.294657346941676e-08,
+        2.467210151735344e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-299 (L39)",
+      "layer": 39,
+      "j": 4612,
+      "k": 345,
+      "weight": 0.08056640625,
+      "ppl": 5.395879507064819,
+      "ppl_each": [
+        9.35894775390625,
+        3.217679738998413,
+        3.6520283222198486,
+        5.354862213134766
+      ],
+      "kl": 3.295663918064425e-07,
+      "kl_each": [
+        -5.7828466459852734e-09,
+        9.622951324672613e-09,
+        9.848590707406402e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-300 (L39)",
+      "layer": 39,
+      "j": 4612,
+      "k": 9625,
+      "weight": 0.10693359375,
+      "ppl": 5.395981431007385,
+      "ppl_each": [
+        9.358963966369629,
+        3.2186124324798584,
+        3.6513516902923584,
+        5.354997634887695
+      ],
+      "kl": 9.187598000911142e-08,
+      "kl_each": [
+        2.2179665393196046e-07,
+        1.1324402748869034e-07,
+        -5.941274139331654e-08
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-301 (L39)",
+      "layer": 39,
+      "j": 4612,
+      "k": 7011,
+      "weight": -0.0712890625,
+      "ppl": 5.396080195903778,
+      "ppl_each": [
+        9.359322547912598,
+        3.218107223510742,
+        3.653017282485962,
+        5.3538737297058105
+      ],
+      "kl": 2.2770071457974458e-07,
+      "kl_each": [
+        -7.225776244013105e-08,
+        4.18487616116181e-07,
+        3.3687229006318375e-07
+      ],
+      "continuation": "a city of contrasts. It is a city of history, culture,",
+      "verdict": "no effect"
+    }
+  ]
+}

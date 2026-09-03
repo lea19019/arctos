@@ -6,6 +6,7 @@ requires-python = ">=3.11"
 # Tier A scratch deps (Yu et al. replication). Phase 0 additions still go
 # through /new-experiment first.
 dependencies = [
+    "datasets>=3.0",
     "matplotlib>=3.11.1",
     "torch>=2.4",
     "transformers>=5.15.1",

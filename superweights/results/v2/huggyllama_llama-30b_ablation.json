@@ -1,0 +1,4854 @@
+{
+  "model": "huggyllama/llama-30b",
+  "revision_requested": null,
+  "revision_resolved": "2b1edcdb3c7ced7bce6c1aa75c94545777c3118b",
+  "date": "2026-09-02T19:48:57",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "git_sha": "354ba2234dcf0e5f6ce2efc4e430f19a9198923b-dirty",
+  "device": "cuda",
+  "dtype_requested": "auto",
+  "dtype": "torch.float16",
+  "eval_texts": [
+    "The quick brown fox jumps over the lazy dog. Language models predict the next token given the tokens that came before. The city of Paris is the capital of France, and water boils at one hundred degrees Celsius at sea level.",
+    "In 1969, astronauts landed on the Moon for the first time. The mission was called Apollo 11, and millions of people watched it on television. Neil Armstrong was the first human to step onto the lunar surface.",
+    "To bake bread you need flour, water, yeast, and salt. Mix the ingredients, knead the dough, let it rise for an hour, and bake it in a hot oven until the crust turns golden brown.",
+    "The stock market fell sharply on Tuesday as investors reacted to news of rising interest rates. Analysts said the decline reflected broader concerns about inflation and slowing economic growth."
+  ],
+  "prompts": [
+    "The capital of France is",
+    "Summer is hot. Winter is",
+    "Two plus two equals"
+  ],
+  "candidates_file": "results/huggyllama_llama-30b_found.json",
+  "baseline": {
+    "ppl": 5.014287531375885,
+    "ppl_each": [
+      7.996926307678223,
+      2.9628937244415283,
+      3.3344945907592773,
+      5.762835502624512
+    ],
+    "continuation": "a city of great beauty and charm, with a rich history and a v"
+  },
+  "results": [
+    {
+      "name": "found-1 (L3)",
+      "layer": 3,
+      "j": 5633,
+      "k": 12817,
+      "weight": -2.029296875,
+      "ppl": 12.197542667388916,
+      "ppl_each": [
+        28.549333572387695,
+        5.564844608306885,
+        5.392018795013428,
+        9.283973693847656
+      ],
+      "kl": 0.7500537832578024,
+      "kl_each": [
+        0.6006150841712952,
+        0.7326271533966064,
+        0.9169191122055054
+      ],
+      "continuation": "Paris.\nThe capital of France is Paris, and you have to be",
+      "verdict": "damaged"
+    },
+    {
+      "name": "found-2 (L3)",
+      "layer": 3,
+      "j": 2229,
+      "k": 12817,
+      "weight": -0.1617431640625,
+      "ppl": 5.947107315063477,
+      "ppl_each": [
+        9.6067476272583,
+        3.3858540058135986,
+        3.693751573562622,
+        7.102076053619385
+      ],
+      "kl": 0.0026027505130817494,
+      "kl_each": [
+        0.0026745786890387535,
+        0.0008750248234719038,
+        0.0042586480267345905
+      ],
+      "continuation": "a city of art, fashion, and food. It is also a city",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-3 (L3)",
+      "layer": 3,
+      "j": 1848,
+      "k": 12817,
+      "weight": 0.099365234375,
+      "ppl": 5.062048614025116,
+      "ppl_each": [
+        8.207989692687988,
+        2.9807393550872803,
+        3.384239673614502,
+        5.675225734710693
+      ],
+      "kl": 0.005180941118548314,
+      "kl_each": [
+        0.002262816298753023,
+        0.004154619760811329,
+        0.00912538729608059
+      ],
+      "continuation": "a city of great beauty and charm. It is also a city of great",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-4 (L3)",
+      "layer": 3,
+      "j": 375,
+      "k": 12817,
+      "weight": -0.11572265625,
+      "ppl": 6.172586619853973,
+      "ppl_each": [
+        9.85389518737793,
+        3.496619939804077,
+        3.7960619926452637,
+        7.543769359588623
+      ],
+      "kl": 0.007083663639302055,
+      "kl_each": [
+        0.003658990142866969,
+        0.008319621905684471,
+        0.009272378869354725
+      ],
+      "continuation": "a city of art, fashion, and food. It is also a city",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-5 (L56)",
+      "layer": 56,
+      "j": 5633,
+      "k": 14874,
+      "weight": -1.7685546875,
+      "ppl": 5.010546922683716,
+      "ppl_each": [
+        7.9932475090026855,
+        2.95890474319458,
+        3.3327693939208984,
+        5.757266044616699
+      ],
+      "kl": 5.2295634911085166e-05,
+      "kl_each": [
+        1.8609483959153295e-05,
+        5.1135895773768425e-05,
+        8.714152500033379e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-6 (L56)",
+      "layer": 56,
+      "j": 5633,
+      "k": 14991,
+      "weight": -1.7080078125,
+      "ppl": 5.011557221412659,
+      "ppl_each": [
+        7.994518280029297,
+        2.960770845413208,
+        3.333056688308716,
+        5.757883071899414
+      ],
+      "kl": 3.058631167126199e-05,
+      "kl_each": [
+        1.2194330338388681e-05,
+        3.858841955661774e-05,
+        4.097618511877954e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-7 (L56)",
+      "layer": 56,
+      "j": 5633,
+      "k": 1333,
+      "weight": -1.6083984375,
+      "ppl": 5.011898636817932,
+      "ppl_each": [
+        7.996432304382324,
+        2.961745023727417,
+        3.332045316696167,
+        5.75737190246582
+      ],
+      "kl": 2.3964870100220043e-05,
+      "kl_each": [
+        1.1081399861723185e-05,
+        3.701169043779373e-05,
+        2.3801520001143217e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-8 (L56)",
+      "layer": 56,
+      "j": 5633,
+      "k": 12391,
+      "weight": 2.03125,
+      "ppl": 5.011930465698242,
+      "ppl_each": [
+        7.994316577911377,
+        2.9641592502593994,
+        3.333458662033081,
+        5.755787372589111
+      ],
+      "kl": 1.3254214233408371e-05,
+      "kl_each": [
+        1.0372663382440805e-05,
+        3.925495548173785e-06,
+        2.5464483769610524e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-9 (L56)",
+      "layer": 56,
+      "j": 94,
+      "k": 14874,
+      "weight": -0.059356689453125,
+      "ppl": 5.013477206230164,
+      "ppl_each": [
+        7.9936323165893555,
+        2.962660551071167,
+        3.3350794315338135,
+        5.762536525726318
+      ],
+      "kl": 3.39726178329632e-06,
+      "kl_each": [
+        6.974267307668924e-06,
+        2.1439564079628326e-07,
+        3.0031224014237523e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-10 (L56)",
+      "layer": 56,
+      "j": 94,
+      "k": 14991,
+      "weight": -0.06719970703125,
+      "ppl": 5.013938307762146,
+      "ppl_each": [
+        7.994177341461182,
+        2.9622812271118164,
+        3.335240364074707,
+        5.764054298400879
+      ],
+      "kl": 3.6783919010000923e-06,
+      "kl_each": [
+        7.203780114650726e-06,
+        5.82273059990257e-07,
+        3.249122528359294e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-11 (L56)",
+      "layer": 56,
+      "j": 94,
+      "k": 1333,
+      "weight": -0.0706787109375,
+      "ppl": 5.01374626159668,
+      "ppl_each": [
+        7.9945454597473145,
+        2.962629795074463,
+        3.3346452713012695,
+        5.763164520263672
+      ],
+      "kl": 3.369750629644841e-06,
+      "kl_each": [
+        7.246038876473904e-06,
+        6.791451596654952e-07,
+        2.184067852795124e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-12 (L56)",
+      "layer": 56,
+      "j": 94,
+      "k": 12391,
+      "weight": 0.093994140625,
+      "ppl": 5.013670265674591,
+      "ppl_each": [
+        7.993603229522705,
+        2.962455987930298,
+        3.3352394104003906,
+        5.763382434844971
+      ],
+      "kl": 3.439944218068073e-06,
+      "kl_each": [
+        6.938586011528969e-06,
+        6.305272108875215e-07,
+        2.7507194317877293e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-13 (L56)",
+      "layer": 56,
+      "j": 2229,
+      "k": 5122,
+      "weight": -0.0897216796875,
+      "ppl": 5.01416152715683,
+      "ppl_each": [
+        7.99545431137085,
+        2.9633054733276367,
+        3.335444211959839,
+        5.762442111968994
+      ],
+      "kl": 3.436827682889998e-06,
+      "kl_each": [
+        6.938702426850796e-06,
+        2.120243152603507e-06,
+        1.251537469215691e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-14 (L56)",
+      "layer": 56,
+      "j": 2229,
+      "k": 8538,
+      "weight": -0.08770751953125,
+      "ppl": 5.012934923171997,
+      "ppl_each": [
+        7.993678092956543,
+        2.9631617069244385,
+        3.334792375564575,
+        5.760107517242432
+      ],
+      "kl": 3.8055477489251643e-06,
+      "kl_each": [
+        7.255410309880972e-06,
+        1.23149948194623e-06,
+        2.929733454948291e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-15 (L56)",
+      "layer": 56,
+      "j": 2229,
+      "k": 14991,
+      "weight": -0.053436279296875,
+      "ppl": 5.013819515705109,
+      "ppl_each": [
+        7.99498176574707,
+        2.9628286361694336,
+        3.3349382877349854,
+        5.762529373168945
+      ],
+      "kl": 3.7977248818303147e-06,
+      "kl_each": [
+        7.139809895306826e-06,
+        1.7799902707338333e-06,
+        2.4733744794502854e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-16 (L56)",
+      "layer": 56,
+      "j": 2229,
+      "k": 7843,
+      "weight": 0.091064453125,
+      "ppl": 5.014461994171143,
+      "ppl_each": [
+        7.997547626495361,
+        2.9635798931121826,
+        3.3345911502838135,
+        5.762129306793213
+      ],
+      "kl": 4.1260621704471605e-06,
+      "kl_each": [
+        7.141381502151489e-06,
+        1.8481514416635036e-06,
+        3.3886535675264895e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-17 (L56)",
+      "layer": 56,
+      "j": 4663,
+      "k": 1333,
+      "weight": 0.047698974609375,
+      "ppl": 5.014594614505768,
+      "ppl_each": [
+        7.997013568878174,
+        2.9638168811798096,
+        3.3347668647766113,
+        5.762781143188477
+      ],
+      "kl": 2.059610172485312e-06,
+      "kl_each": [
+        2.5382032617926598e-06,
+        1.4932302292436361e-06,
+        2.1473970264196396e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-18 (L56)",
+      "layer": 56,
+      "j": 4663,
+      "k": 14874,
+      "weight": 0.027496337890625,
+      "ppl": 5.014402270317078,
+      "ppl_each": [
+        7.994314670562744,
+        2.9640491008758545,
+        3.3346917629241943,
+        5.764553546905518
+      ],
+      "kl": 2.663936660004159e-06,
+      "kl_each": [
+        7.478374755010009e-07,
+        1.5656405594199896e-06,
+        5.678331945091486e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-19 (L56)",
+      "layer": 56,
+      "j": 4663,
+      "k": 12391,
+      "weight": -0.050628662109375,
+      "ppl": 5.014652490615845,
+      "ppl_each": [
+        7.997269153594971,
+        2.9630320072174072,
+        3.335238218307495,
+        5.763070583343506
+      ],
+      "kl": 1.294460313753613e-06,
+      "kl_each": [
+        3.64524112228537e-07,
+        1.542532118037343e-06,
+        1.976324710994959e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-20 (L56)",
+      "layer": 56,
+      "j": 4663,
+      "k": 7843,
+      "weight": -0.0545654296875,
+      "ppl": 5.014097034931183,
+      "ppl_each": [
+        7.9939866065979,
+        2.9632062911987305,
+        3.3348548412323,
+        5.764340400695801
+      ],
+      "kl": 1.166158957251658e-06,
+      "kl_each": [
+        4.50934749096632e-07,
+        1.5111872926354408e-06,
+        1.5363548300229013e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-21 (L57)",
+      "layer": 57,
+      "j": 5633,
+      "k": 2365,
+      "weight": 1.806640625,
+      "ppl": 5.010926306247711,
+      "ppl_each": [
+        7.99274206161499,
+        2.963627338409424,
+        3.332427740097046,
+        5.754908084869385
+      ],
+      "kl": 3.422950855262267e-05,
+      "kl_each": [
+        1.3411710824584588e-05,
+        3.6845915019512177e-05,
+        5.243089981377125e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-22 (L57)",
+      "layer": 57,
+      "j": 5633,
+      "k": 9053,
+      "weight": -1.576171875,
+      "ppl": 5.012991666793823,
+      "ppl_each": [
+        7.996390342712402,
+        2.965178966522217,
+        3.3341217041015625,
+        5.756275653839111
+      ],
+      "kl": 2.0721752662211657e-05,
+      "kl_each": [
+        8.741160854697227e-06,
+        3.437441773712635e-05,
+        1.9049679394811392e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-23 (L57)",
+      "layer": 57,
+      "j": 5633,
+      "k": 14512,
+      "weight": -1.4228515625,
+      "ppl": 5.012641131877899,
+      "ppl_each": [
+        7.994192600250244,
+        2.9638774394989014,
+        3.333759307861328,
+        5.758735179901123
+      ],
+      "kl": 1.384686523427566e-05,
+      "kl_each": [
+        7.1927206590771675e-06,
+        2.821674570441246e-05,
+        6.131129339337349e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-24 (L57)",
+      "layer": 57,
+      "j": 5633,
+      "k": 7797,
+      "weight": 1.5107421875,
+      "ppl": 5.0120291113853455,
+      "ppl_each": [
+        7.992225646972656,
+        2.962785482406616,
+        3.3334274291992188,
+        5.759677886962891
+      ],
+      "kl": 1.4185556210577488e-05,
+      "kl_each": [
+        7.532245945185423e-06,
+        2.9066577553749084e-05,
+        5.9578451327979565e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-25 (L57)",
+      "layer": 57,
+      "j": 2229,
+      "k": 2365,
+      "weight": 0.276123046875,
+      "ppl": 5.0122151374816895,
+      "ppl_each": [
+        7.9911322593688965,
+        2.961965560913086,
+        3.3339123725891113,
+        5.761850357055664
+      ],
+      "kl": 6.479104437554876e-06,
+      "kl_each": [
+        7.801339961588383e-06,
+        2.584507456049323e-06,
+        9.051465895026922e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-26 (L57)",
+      "layer": 57,
+      "j": 2229,
+      "k": 9053,
+      "weight": -0.197998046875,
+      "ppl": 5.013621091842651,
+      "ppl_each": [
+        7.995580673217773,
+        2.9624955654144287,
+        3.3346340656280518,
+        5.761774063110352
+      ],
+      "kl": 3.668576634178559e-06,
+      "kl_each": [
+        7.048074621707201e-06,
+        1.6048143152147532e-06,
+        2.352840965613723e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-27 (L57)",
+      "layer": 57,
+      "j": 2229,
+      "k": 7797,
+      "weight": 0.185791015625,
+      "ppl": 5.013577699661255,
+      "ppl_each": [
+        7.994525909423828,
+        2.963257074356079,
+        3.3348615169525146,
+        5.761666297912598
+      ],
+      "kl": 3.5630534209000566e-06,
+      "kl_each": [
+        7.0892274379730225e-06,
+        9.597206371836364e-07,
+        2.6402121875435114e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-28 (L57)",
+      "layer": 57,
+      "j": 2229,
+      "k": 14512,
+      "weight": -0.154541015625,
+      "ppl": 5.0130814909935,
+      "ppl_each": [
+        7.994713306427002,
+        2.962334632873535,
+        3.334768533706665,
+        5.760509490966797
+      ],
+      "kl": 3.5177557341133556e-06,
+      "kl_each": [
+        6.955873686820269e-06,
+        6.270274752750993e-07,
+        2.9703660402446985e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-29 (L57)",
+      "layer": 57,
+      "j": 4663,
+      "k": 14201,
+      "weight": 0.0965576171875,
+      "ppl": 5.0136407017707825,
+      "ppl_each": [
+        7.994144916534424,
+        2.9631834030151367,
+        3.3350865840911865,
+        5.762147903442383
+      ],
+      "kl": 1.1855433209954451e-06,
+      "kl_each": [
+        6.302616384346038e-07,
+        8.108690963126719e-07,
+        2.1154992282390594e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-30 (L57)",
+      "layer": 57,
+      "j": 4663,
+      "k": 5321,
+      "weight": 0.1490478515625,
+      "ppl": 5.014619469642639,
+      "ppl_each": [
+        7.997157096862793,
+        2.963712215423584,
+        3.3351492881774902,
+        5.7624592781066895
+      ],
+      "kl": 1.4020239783955428e-06,
+      "kl_each": [
+        4.099720172234811e-07,
+        1.477717887610197e-06,
+        2.31838203035295e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-31 (L57)",
+      "layer": 57,
+      "j": 4663,
+      "k": 4666,
+      "weight": -0.09619140625,
+      "ppl": 5.013827741146088,
+      "ppl_each": [
+        7.995217800140381,
+        2.9633519649505615,
+        3.3348050117492676,
+        5.761936187744141
+      ],
+      "kl": 1.7978818505071104e-06,
+      "kl_each": [
+        2.453802153468132e-06,
+        7.568378350697458e-07,
+        2.1830055629834533e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-32 (L57)",
+      "layer": 57,
+      "j": 4663,
+      "k": 14725,
+      "weight": 0.11163330078125,
+      "ppl": 5.013853490352631,
+      "ppl_each": [
+        7.995812892913818,
+        2.9635353088378906,
+        3.334636926651001,
+        5.7614288330078125
+      ],
+      "kl": 1.254729795618914e-06,
+      "kl_each": [
+        1.3769931683782488e-07,
+        8.275455911643803e-07,
+        2.798944478854537e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-33 (L57)",
+      "layer": 57,
+      "j": 6254,
+      "k": 3794,
+      "weight": 0.74072265625,
+      "ppl": 5.013806998729706,
+      "ppl_each": [
+        7.994663715362549,
+        2.9645042419433594,
+        3.3338229656219482,
+        5.762237071990967
+      ],
+      "kl": 5.613886363183458e-06,
+      "kl_each": [
+        7.4908602982759476e-06,
+        1.1152296792715788e-06,
+        8.23556911200285e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-34 (L57)",
+      "layer": 57,
+      "j": 6254,
+      "k": 2365,
+      "weight": 0.1385498046875,
+      "ppl": 5.013136804103851,
+      "ppl_each": [
+        7.993165493011475,
+        2.9639432430267334,
+        3.3348846435546875,
+        5.76055383682251
+      ],
+      "kl": 3.853691547798614e-06,
+      "kl_each": [
+        6.902031600475311e-06,
+        1.9246217561885715e-06,
+        2.7344212867319584e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-35 (L57)",
+      "layer": 57,
+      "j": 6254,
+      "k": 14201,
+      "weight": -0.1993408203125,
+      "ppl": 5.0140146017074585,
+      "ppl_each": [
+        7.995721340179443,
+        2.9629735946655273,
+        3.3353171348571777,
+        5.7620463371276855
+      ],
+      "kl": 2.977889380417764e-06,
+      "kl_each": [
+        4.849222023040056e-06,
+        1.4723336789757013e-06,
+        2.612112439237535e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-36 (L57)",
+      "layer": 57,
+      "j": 6254,
+      "k": 10309,
+      "weight": -0.198974609375,
+      "ppl": 5.0139142870903015,
+      "ppl_each": [
+        7.9956159591674805,
+        2.9626951217651367,
+        3.334587335586548,
+        5.762758731842041
+      ],
+      "kl": 1.1446397062779094e-06,
+      "kl_each": [
+        5.224446795182303e-07,
+        9.472569217905402e-07,
+        1.9642175175249577e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-37 (L10)",
+      "layer": 10,
+      "j": 5633,
+      "k": 16040,
+      "weight": -1.2734375,
+      "ppl": 5.057783305644989,
+      "ppl_each": [
+        8.123988151550293,
+        2.9753198623657227,
+        3.3572356700897217,
+        5.774589538574219
+      ],
+      "kl": 0.00033016770612448454,
+      "kl_each": [
+        0.00019763398449867964,
+        0.00038711633533239365,
+        0.00040575279854238033
+      ],
+      "continuation": "a city of art, fashion, and food. It is also a city",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-38 (L10)",
+      "layer": 10,
+      "j": 5633,
+      "k": 14386,
+      "weight": -1.2470703125,
+      "ppl": 5.045542001724243,
+      "ppl_each": [
+        8.097667694091797,
+        2.9660356044769287,
+        3.3430917263031006,
+        5.7753729820251465
+      ],
+      "kl": 0.00011876958888024092,
+      "kl_each": [
+        8.4108323790133e-05,
+        9.474996477365494e-05,
+        0.00017745047807693481
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-39 (L10)",
+      "layer": 10,
+      "j": 5633,
+      "k": 1652,
+      "weight": -1.1328125,
+      "ppl": 5.015064358711243,
+      "ppl_each": [
+        7.9913434982299805,
+        2.961059331893921,
+        3.3380792140960693,
+        5.769775390625
+      ],
+      "kl": 2.7961689435566466e-05,
+      "kl_each": [
+        2.4881213903427124e-05,
+        1.1880823876708746e-05,
+        4.7123030526563525e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-40 (L10)",
+      "layer": 10,
+      "j": 5633,
+      "k": 5295,
+      "weight": -1.1796875,
+      "ppl": 5.011727511882782,
+      "ppl_each": [
+        7.9892578125,
+        2.958066463470459,
+        3.334888219833374,
+        5.764697551727295
+      ],
+      "kl": 2.2206615540198982e-05,
+      "kl_each": [
+        1.7806130927056074e-05,
+        1.1325988452881575e-05,
+        3.7487727240659297e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-41 (L10)",
+      "layer": 10,
+      "j": 375,
+      "k": 16040,
+      "weight": 0.369140625,
+      "ppl": 5.688161551952362,
+      "ppl_each": [
+        9.106310844421387,
+        3.312206268310547,
+        3.6331279277801514,
+        6.701001167297363
+      ],
+      "kl": 0.0010388388958138723,
+      "kl_each": [
+        0.000697963172569871,
+        0.0003710045129992068,
+        0.0020475490018725395
+      ],
+      "continuation": "a city of art, fashion, and culture. It is also a city",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-42 (L10)",
+      "layer": 10,
+      "j": 375,
+      "k": 14386,
+      "weight": 0.57373046875,
+      "ppl": 5.667973458766937,
+      "ppl_each": [
+        9.11050033569336,
+        3.304165840148926,
+        3.6303060054779053,
+        6.626921653747559
+      ],
+      "kl": 0.0010304194292984903,
+      "kl_each": [
+        0.0006986700464040041,
+        0.00036196649307385087,
+        0.002030621748417616
+      ],
+      "continuation": "a city of art, fashion, and culture. It is also a city",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-43 (L10)",
+      "layer": 10,
+      "j": 375,
+      "k": 1652,
+      "weight": 0.3037109375,
+      "ppl": 5.012517929077148,
+      "ppl_each": [
+        7.98064661026001,
+        2.9685184955596924,
+        3.347007989883423,
+        5.753898620605469
+      ],
+      "kl": 0.00019874564653340107,
+      "kl_each": [
+        0.00012969691306352615,
+        4.953388270223513e-05,
+        0.0004170061438344419
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-44 (L10)",
+      "layer": 10,
+      "j": 375,
+      "k": 5295,
+      "weight": 0.332763671875,
+      "ppl": 5.014673411846161,
+      "ppl_each": [
+        7.987181663513184,
+        2.9704949855804443,
+        3.3454203605651855,
+        5.75559663772583
+      ],
+      "kl": 0.00019388999498914927,
+      "kl_each": [
+        0.00011413649190217257,
+        4.852308484259993e-05,
+        0.0004190104082226753
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-45 (L10)",
+      "layer": 10,
+      "j": 94,
+      "k": 16040,
+      "weight": -0.417724609375,
+      "ppl": 4.995481073856354,
+      "ppl_each": [
+        7.971846103668213,
+        2.9533653259277344,
+        3.3264358043670654,
+        5.730277061462402
+      ],
+      "kl": 0.0004748084271947543,
+      "kl_each": [
+        0.0002459282986819744,
+        0.00031781429424881935,
+        0.0008606826886534691
+      ],
+      "continuation": "a city of great beauty and charm. It is also a city of great",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-46 (L10)",
+      "layer": 10,
+      "j": 94,
+      "k": 14386,
+      "weight": -0.289306640625,
+      "ppl": 5.007736265659332,
+      "ppl_each": [
+        7.990139961242676,
+        2.960397720336914,
+        3.331195592880249,
+        5.74921178817749
+      ],
+      "kl": 8.200586307793856e-05,
+      "kl_each": [
+        4.348397487774491e-05,
+        8.068629540503025e-05,
+        0.0001218473189510405
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-47 (L10)",
+      "layer": 10,
+      "j": 94,
+      "k": 1652,
+      "weight": -0.37890625,
+      "ppl": 5.009807884693146,
+      "ppl_each": [
+        7.995296478271484,
+        2.959703207015991,
+        3.332015037536621,
+        5.752216815948486
+      ],
+      "kl": 3.8507452700287104e-05,
+      "kl_each": [
+        2.3146567400544882e-05,
+        2.8050970286130905e-05,
+        6.432482041418552e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-48 (L10)",
+      "layer": 10,
+      "j": 94,
+      "k": 2912,
+      "weight": -0.31201171875,
+      "ppl": 5.008827388286591,
+      "ppl_each": [
+        7.99035120010376,
+        2.959573984146118,
+        3.3346080780029297,
+        5.750776290893555
+      ],
+      "kl": 2.3096470007052023e-05,
+      "kl_each": [
+        1.0668591130524874e-05,
+        2.476584631949663e-05,
+        3.385497257113457e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-49 (L10)",
+      "layer": 10,
+      "j": 4663,
+      "k": 16040,
+      "weight": 0.264404296875,
+      "ppl": 5.006600916385651,
+      "ppl_each": [
+        7.97042989730835,
+        2.962158679962158,
+        3.3354971408843994,
+        5.758317947387695
+      ],
+      "kl": 0.00010349496733397245,
+      "kl_each": [
+        6.434298120439053e-05,
+        3.560876939445734e-05,
+        0.0002105331514030695
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-50 (L10)",
+      "layer": 10,
+      "j": 4663,
+      "k": 14386,
+      "weight": 0.40283203125,
+      "ppl": 5.007167041301727,
+      "ppl_each": [
+        7.972193717956543,
+        2.965674638748169,
+        3.334427833557129,
+        5.756371974945068
+      ],
+      "kl": 0.00010702332171301047,
+      "kl_each": [
+        6.25781249254942e-05,
+        3.377767279744148e-05,
+        0.00022471416741609573
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-51 (L10)",
+      "layer": 10,
+      "j": 4663,
+      "k": 1652,
+      "weight": 0.19140625,
+      "ppl": 5.011367440223694,
+      "ppl_each": [
+        7.991480827331543,
+        2.9610354900360107,
+        3.3323447704315186,
+        5.760608673095703
+      ],
+      "kl": 1.1324023944325745e-05,
+      "kl_each": [
+        1.138634979724884e-05,
+        3.7810386857017875e-06,
+        1.8804683350026608e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-52 (L10)",
+      "layer": 10,
+      "j": 4663,
+      "k": 5295,
+      "weight": 0.2159423828125,
+      "ppl": 5.012036323547363,
+      "ppl_each": [
+        7.99173641204834,
+        2.9637813568115234,
+        3.3337602615356445,
+        5.758867263793945
+      ],
+      "kl": 9.29162615648238e-06,
+      "kl_each": [
+        9.568175300955772e-06,
+        3.0744567993679084e-06,
+        1.5232246369123459e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-53 (L59)",
+      "layer": 59,
+      "j": 6254,
+      "k": 5143,
+      "weight": -0.517578125,
+      "ppl": 5.007694184780121,
+      "ppl_each": [
+        7.9817657470703125,
+        2.961033821105957,
+        3.3349740505218506,
+        5.753003120422363
+      ],
+      "kl": 2.727232640609145e-06,
+      "kl_each": [
+        3.934663254767656e-06,
+        5.732435965910554e-07,
+        3.6737910704687238e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-54 (L59)",
+      "layer": 59,
+      "j": 6254,
+      "k": 16117,
+      "weight": -0.8818359375,
+      "ppl": 5.009074687957764,
+      "ppl_each": [
+        7.986160755157471,
+        2.9625914096832275,
+        3.335411787033081,
+        5.752134799957275
+      ],
+      "kl": 2.7837377274408937e-06,
+      "kl_each": [
+        6.3113984651863575e-06,
+        0.0,
+        2.0398147171363235e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-55 (L59)",
+      "layer": 59,
+      "j": 6254,
+      "k": 389,
+      "weight": -0.7158203125,
+      "ppl": 5.0120550990104675,
+      "ppl_each": [
+        7.991374492645264,
+        2.962620735168457,
+        3.335327386856079,
+        5.75889778137207
+      ],
+      "kl": 2.9487819119822234e-07,
+      "kl_each": [
+        3.0185947252903134e-07,
+        5.827751010656357e-07,
+        0.0
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-56 (L59)",
+      "layer": 59,
+      "j": 6254,
+      "k": 6341,
+      "weight": -0.9326171875,
+      "ppl": 5.013017475605011,
+      "ppl_each": [
+        7.985616683959961,
+        2.9653048515319824,
+        3.331632375717163,
+        5.7695159912109375
+      ],
+      "kl": 0.00010333070531487465,
+      "kl_each": [
+        6.218254566192627e-05,
+        0.00017972243949770927,
+        6.80871307849884e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-57 (L59)",
+      "layer": 59,
+      "j": 6495,
+      "k": 5143,
+      "weight": -0.2154541015625,
+      "ppl": 5.017805755138397,
+      "ppl_each": [
+        8.00070571899414,
+        2.966012716293335,
+        3.335843086242676,
+        5.7686614990234375
+      ],
+      "kl": 8.008034152832503e-07,
+      "kl_each": [
+        2.697033778531477e-07,
+        4.2544706957414746e-07,
+        1.7072597984224558e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-58 (L59)",
+      "layer": 59,
+      "j": 6495,
+      "k": 16117,
+      "weight": -0.1510009765625,
+      "ppl": 5.015828371047974,
+      "ppl_each": [
+        7.999441623687744,
+        2.9641904830932617,
+        3.3350634574890137,
+        5.764617919921875
+      ],
+      "kl": 1.8910116826494534e-06,
+      "kl_each": [
+        5.6730350479483604e-06,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-59 (L59)",
+      "layer": 59,
+      "j": 6495,
+      "k": 10960,
+      "weight": 0.197509765625,
+      "ppl": 5.015433430671692,
+      "ppl_each": [
+        7.999475955963135,
+        2.9628214836120605,
+        3.334998607635498,
+        5.764437675476074
+      ],
+      "kl": 1.8910116826494534e-06,
+      "kl_each": [
+        5.6730350479483604e-06,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-60 (L59)",
+      "layer": 59,
+      "j": 6495,
+      "k": 16301,
+      "weight": 0.244873046875,
+      "ppl": 5.014394819736481,
+      "ppl_each": [
+        7.996432304382324,
+        2.9625492095947266,
+        3.3342602252960205,
+        5.764337539672852
+      ],
+      "kl": 1.171897849872039e-06,
+      "kl_each": [
+        2.4558352151871077e-07,
+        7.765484042465687e-07,
+        2.4935616238508373e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-61 (L59)",
+      "layer": 59,
+      "j": 133,
+      "k": 5143,
+      "weight": 0.1131591796875,
+      "ppl": 5.015464544296265,
+      "ppl_each": [
+        7.998499393463135,
+        2.963763475418091,
+        3.335279703140259,
+        5.764315605163574
+      ],
+      "kl": 3.491572897473816e-08,
+      "kl_each": [
+        -1.153023276856402e-08,
+        0.0,
+        1.162774196927785e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-62 (L59)",
+      "layer": 59,
+      "j": 133,
+      "k": 16301,
+      "weight": -0.297607421875,
+      "ppl": 5.014518320560455,
+      "ppl_each": [
+        7.996079921722412,
+        2.962695360183716,
+        3.335092067718506,
+        5.7642059326171875
+      ],
+      "kl": 2.3536358639830723e-06,
+      "kl_each": [
+        5.7808938436210155e-06,
+        9.11510142032057e-07,
+        3.685036062961444e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-63 (L59)",
+      "layer": 59,
+      "j": 133,
+      "k": 10960,
+      "weight": -0.19775390625,
+      "ppl": 5.014735639095306,
+      "ppl_each": [
+        7.997607231140137,
+        2.963160991668701,
+        3.3348214626312256,
+        5.763352870941162
+      ],
+      "kl": 1.9111515333255133e-06,
+      "kl_each": [
+        5.73345459997654e-06,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-64 (L59)",
+      "layer": 59,
+      "j": 133,
+      "k": 4873,
+      "weight": 0.1937255859375,
+      "ppl": 5.014408707618713,
+      "ppl_each": [
+        7.998232364654541,
+        2.962259292602539,
+        3.334536075592041,
+        5.762607097625732
+      ],
+      "kl": 1.0555546244480259e-07,
+      "kl_each": [
+        5.6592398323118687e-08,
+        1.437965693185106e-07,
+        1.162774196927785e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-65 (L59)",
+      "layer": 59,
+      "j": 4065,
+      "k": 5143,
+      "weight": -0.082763671875,
+      "ppl": 5.012193322181702,
+      "ppl_each": [
+        7.993570804595947,
+        2.9613394737243652,
+        3.3342628479003906,
+        5.7596001625061035
+      ],
+      "kl": 2.6355410227552056e-06,
+      "kl_each": [
+        5.8480072766542435e-06,
+        0.0,
+        2.0586157916113734e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-66 (L59)",
+      "layer": 59,
+      "j": 4065,
+      "k": 7354,
+      "weight": 0.15869140625,
+      "ppl": 5.007408916950226,
+      "ppl_each": [
+        7.997591972351074,
+        2.967435121536255,
+        3.322864532470703,
+        5.741744041442871
+      ],
+      "kl": 3.230911291514834e-05,
+      "kl_each": [
+        5.681836046278477e-05,
+        3.608193947002292e-05,
+        4.027038812637329e-06
+      ],
+      "continuation": "a city of great beauty and charm. It is also a city of great",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-67 (L59)",
+      "layer": 59,
+      "j": 4065,
+      "k": 16301,
+      "weight": 0.2208251953125,
+      "ppl": 5.013814806938171,
+      "ppl_each": [
+        7.997364521026611,
+        2.9616997241973877,
+        3.3345863819122314,
+        5.761608600616455
+      ],
+      "kl": 2.541658280582245e-06,
+      "kl_each": [
+        2.3716802388662472e-07,
+        3.3607680052227806e-06,
+        4.027038812637329e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-68 (L59)",
+      "layer": 59,
+      "j": 4065,
+      "k": 4263,
+      "weight": 0.19970703125,
+      "ppl": 5.013276815414429,
+      "ppl_each": [
+        7.994972229003906,
+        2.9622802734375,
+        3.3344926834106445,
+        5.761362075805664
+      ],
+      "kl": 1.667185642872937e-07,
+      "kl_each": [
+        4.1265047912020236e-07,
+        8.750521374167874e-08,
+        0.0
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-69 (L55)",
+      "layer": 55,
+      "j": 5633,
+      "k": 9270,
+      "weight": 1.3271484375,
+      "ppl": 5.01301646232605,
+      "ppl_each": [
+        7.994823455810547,
+        2.9642527103424072,
+        3.3339321613311768,
+        5.759057521820068
+      ],
+      "kl": 4.470335018898671e-06,
+      "kl_each": [
+        6.110174581408501e-06,
+        1.0835246939677745e-06,
+        6.2173057813197374e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-70 (L55)",
+      "layer": 55,
+      "j": 5633,
+      "k": 16365,
+      "weight": -0.9990234375,
+      "ppl": 5.01420134305954,
+      "ppl_each": [
+        7.995092391967773,
+        2.963629722595215,
+        3.3350446224212646,
+        5.763038635253906
+      ],
+      "kl": 3.460387233644724e-06,
+      "kl_each": [
+        7.007620297372341e-06,
+        1.7796701285988092e-06,
+        1.5938712749630213e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-71 (L55)",
+      "layer": 55,
+      "j": 5633,
+      "k": 10409,
+      "weight": -0.97998046875,
+      "ppl": 5.014553725719452,
+      "ppl_each": [
+        7.9966936111450195,
+        2.9632608890533447,
+        3.334819793701172,
+        5.7634406089782715
+      ],
+      "kl": 3.557695890776813e-06,
+      "kl_each": [
+        7.042195647954941e-06,
+        7.597700459882617e-07,
+        2.8711219783872366e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-72 (L55)",
+      "layer": 55,
+      "j": 5633,
+      "k": 2167,
+      "weight": -0.93505859375,
+      "ppl": 5.013615071773529,
+      "ppl_each": [
+        7.994215488433838,
+        2.9631168842315674,
+        3.3354601860046387,
+        5.761667728424072
+      ],
+      "kl": 4.332260383913915e-06,
+      "kl_each": [
+        7.0860551204532385e-06,
+        2.1058949641883373e-06,
+        3.8048310671001673e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-73 (L55)",
+      "layer": 55,
+      "j": 2229,
+      "k": 3544,
+      "weight": 0.26025390625,
+      "ppl": 5.011399567127228,
+      "ppl_each": [
+        7.993587017059326,
+        2.9610984325408936,
+        3.330716609954834,
+        5.760196208953857
+      ],
+      "kl": 4.65351816577216e-06,
+      "kl_each": [
+        7.455470040440559e-06,
+        2.50648008659482e-06,
+        3.9986043702811e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-74 (L55)",
+      "layer": 55,
+      "j": 2229,
+      "k": 9270,
+      "weight": 0.134765625,
+      "ppl": 5.01328980922699,
+      "ppl_each": [
+        7.994329929351807,
+        2.963012933731079,
+        3.335003137588501,
+        5.760813236236572
+      ],
+      "kl": 3.3243450161535293e-06,
+      "kl_each": [
+        6.764719728380442e-06,
+        2.515553205739707e-07,
+        2.9567599995061755e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-75 (L55)",
+      "layer": 55,
+      "j": 2229,
+      "k": 10409,
+      "weight": -0.0782470703125,
+      "ppl": 5.013909935951233,
+      "ppl_each": [
+        7.9943623542785645,
+        2.9636311531066895,
+        3.334399700164795,
+        5.763246536254883
+      ],
+      "kl": 1.3848693924956024e-06,
+      "kl_each": [
+        4.594185156747699e-07,
+        7.535782060585916e-07,
+        2.9416114557534456e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-76 (L55)",
+      "layer": 55,
+      "j": 2229,
+      "k": 2167,
+      "weight": -0.0728759765625,
+      "ppl": 5.012853920459747,
+      "ppl_each": [
+        7.992464065551758,
+        2.962542772293091,
+        3.3344945907592773,
+        5.761914253234863
+      ],
+      "kl": 3.03236690039436e-06,
+      "kl_each": [
+        6.9033121690154076e-06,
+        6.607151590287685e-07,
+        1.5330733731389046e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-77 (L55)",
+      "layer": 55,
+      "j": 94,
+      "k": 9270,
+      "weight": 0.10601806640625,
+      "ppl": 5.014170348644257,
+      "ppl_each": [
+        7.996863842010498,
+        2.9623847007751465,
+        3.33473801612854,
+        5.762694835662842
+      ],
+      "kl": 3.3631513360887766e-06,
+      "kl_each": [
+        7.110065780580044e-06,
+        5.626061465591192e-07,
+        2.4167820811271667e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-78 (L55)",
+      "layer": 55,
+      "j": 94,
+      "k": 3544,
+      "weight": 0.1058349609375,
+      "ppl": 5.01202929019928,
+      "ppl_each": [
+        7.9941086769104,
+        2.95939040184021,
+        3.3321521282196045,
+        5.762465953826904
+      ],
+      "kl": 4.076985836339493e-06,
+      "kl_each": [
+        6.989837856963277e-06,
+        1.2841628631576896e-06,
+        3.956956788897514e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-79 (L55)",
+      "layer": 55,
+      "j": 94,
+      "k": 16365,
+      "weight": -0.06640625,
+      "ppl": 5.014252543449402,
+      "ppl_each": [
+        7.995632171630859,
+        2.963026285171509,
+        3.3351552486419678,
+        5.7631964683532715
+      ],
+      "kl": 3.5853930360948047e-06,
+      "kl_each": [
+        6.801157724112272e-06,
+        6.634072633460164e-07,
+        3.291614120826125e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-80 (L55)",
+      "layer": 55,
+      "j": 94,
+      "k": 16252,
+      "weight": -0.0704345703125,
+      "ppl": 5.0137699246406555,
+      "ppl_each": [
+        7.9946160316467285,
+        2.963240623474121,
+        3.3346474170684814,
+        5.762575626373291
+      ],
+      "kl": 3.4397089621052146e-06,
+      "kl_each": [
+        6.921472959220409e-06,
+        9.129653335548937e-07,
+        2.4846885935403407e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-81 (L55)",
+      "layer": 55,
+      "j": 6254,
+      "k": 3544,
+      "weight": -0.07073974609375,
+      "ppl": 5.012930810451508,
+      "ppl_each": [
+        7.992345809936523,
+        2.9634485244750977,
+        3.334104299545288,
+        5.761824607849121
+      ],
+      "kl": 5.828369467053562e-07,
+      "kl_each": [
+        6.954669515835121e-07,
+        6.978880264796317e-07,
+        3.5515586205292493e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-82 (L55)",
+      "layer": 55,
+      "j": 6254,
+      "k": 1971,
+      "weight": 0.1351318359375,
+      "ppl": 5.01327919960022,
+      "ppl_each": [
+        7.993774890899658,
+        2.962841749191284,
+        3.3340189456939697,
+        5.762481212615967
+      ],
+      "kl": 2.6820756223363182e-06,
+      "kl_each": [
+        5.983863957226276e-06,
+        4.2870669858530164e-07,
+        1.6336562111973763e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-83 (L55)",
+      "layer": 55,
+      "j": 6254,
+      "k": 16365,
+      "weight": -0.0718994140625,
+      "ppl": 5.013501048088074,
+      "ppl_each": [
+        7.993152141571045,
+        2.962883710861206,
+        3.3346316814422607,
+        5.763336658477783
+      ],
+      "kl": 3.3954944835083247e-06,
+      "kl_each": [
+        5.983863957226276e-06,
+        4.328003342379816e-07,
+        3.7698191590607166e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-84 (L55)",
+      "layer": 55,
+      "j": 6254,
+      "k": 15742,
+      "weight": 0.331298828125,
+      "ppl": 5.013935804367065,
+      "ppl_each": [
+        7.996453285217285,
+        2.9630978107452393,
+        3.3347065448760986,
+        5.761485576629639
+      ],
+      "kl": 3.568541918260356e-06,
+      "kl_each": [
+        7.105059921741486e-06,
+        8.496790542267263e-07,
+        2.7508867788128555e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-85 (L58)",
+      "layer": 58,
+      "j": 6254,
+      "k": 15823,
+      "weight": -0.19287109375,
+      "ppl": 5.014340937137604,
+      "ppl_each": [
+        7.995292663574219,
+        2.9641647338867188,
+        3.334195852279663,
+        5.7637104988098145
+      ],
+      "kl": 5.930863456645359e-06,
+      "kl_each": [
+        9.53255221247673e-06,
+        1.540982339065522e-06,
+        6.7190558183938265e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-86 (L58)",
+      "layer": 58,
+      "j": 6254,
+      "k": 14071,
+      "weight": -0.280517578125,
+      "ppl": 5.014150679111481,
+      "ppl_each": [
+        7.997405052185059,
+        2.962745428085327,
+        3.334254264831543,
+        5.762197971343994
+      ],
+      "kl": 5.600707178624968e-06,
+      "kl_each": [
+        1.0628602467477322e-05,
+        9.067152859643102e-07,
+        5.266803782433271e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-87 (L58)",
+      "layer": 58,
+      "j": 6254,
+      "k": 2506,
+      "weight": 0.39990234375,
+      "ppl": 5.0149030685424805,
+      "ppl_each": [
+        7.998613357543945,
+        2.963613748550415,
+        3.3354179859161377,
+        5.761967182159424
+      ],
+      "kl": 2.4160472094081342e-06,
+      "kl_each": [
+        2.885542926378548e-06,
+        1.018248440232128e-06,
+        3.3443502616137266e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-88 (L58)",
+      "layer": 58,
+      "j": 6254,
+      "k": 2011,
+      "weight": -0.33251953125,
+      "ppl": 5.014001846313477,
+      "ppl_each": [
+        7.996815204620361,
+        2.9635376930236816,
+        3.334256172180176,
+        5.7613983154296875
+      ],
+      "kl": 3.207482222933322e-06,
+      "kl_each": [
+        6.963440682739019e-06,
+        7.295675459317863e-07,
+        1.929438440129161e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-89 (L58)",
+      "layer": 58,
+      "j": 6495,
+      "k": 2011,
+      "weight": -0.318603515625,
+      "ppl": 5.014232158660889,
+      "ppl_each": [
+        7.996909141540527,
+        2.962116003036499,
+        3.3352444171905518,
+        5.762659072875977
+      ],
+      "kl": 4.315535382678111e-06,
+      "kl_each": [
+        6.895919796079397e-06,
+        8.298666216433048e-07,
+        5.220819730311632e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-90 (L58)",
+      "layer": 58,
+      "j": 6495,
+      "k": 5236,
+      "weight": -0.160888671875,
+      "ppl": 5.013905704021454,
+      "ppl_each": [
+        7.99531888961792,
+        2.9630205631256104,
+        3.3355050086975098,
+        5.761778354644775
+      ],
+      "kl": 4.572023954096949e-06,
+      "kl_each": [
+        6.741378456354141e-06,
+        4.1000430428539403e-07,
+        6.564689101651311e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-91 (L58)",
+      "layer": 58,
+      "j": 6495,
+      "k": 8811,
+      "weight": 0.2342529296875,
+      "ppl": 5.013817131519318,
+      "ppl_each": [
+        7.99579381942749,
+        2.9634461402893066,
+        3.3345324993133545,
+        5.761496067047119
+      ],
+      "kl": 4.332934319487928e-06,
+      "kl_each": [
+        6.764777936041355e-06,
+        3.3735614124452695e-07,
+        5.896668881177902e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-92 (L58)",
+      "layer": 58,
+      "j": 6495,
+      "k": 2506,
+      "weight": 0.1353759765625,
+      "ppl": 5.0133625864982605,
+      "ppl_each": [
+        7.993872165679932,
+        2.9626591205596924,
+        3.334855556488037,
+        5.762063503265381
+      ],
+      "kl": 4.4174618475760026e-06,
+      "kl_each": [
+        2.4866603780537844e-06,
+        8.083152351900935e-07,
+        9.957409929484129e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-93 (L58)",
+      "layer": 58,
+      "j": 54,
+      "k": 15823,
+      "weight": -0.122802734375,
+      "ppl": 5.012129426002502,
+      "ppl_each": [
+        7.992500305175781,
+        2.962280511856079,
+        3.3331830501556396,
+        5.76055383682251
+      ],
+      "kl": 3.8364184244225425e-06,
+      "kl_each": [
+        6.895745173096657e-06,
+        1.5191981219686568e-06,
+        3.094311978202313e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-94 (L58)",
+      "layer": 58,
+      "j": 54,
+      "k": 14071,
+      "weight": -0.200927734375,
+      "ppl": 5.012024104595184,
+      "ppl_each": [
+        7.990766525268555,
+        2.962174415588379,
+        3.3337390422821045,
+        5.761416435241699
+      ],
+      "kl": 4.12851416816314e-06,
+      "kl_each": [
+        7.261056452989578e-06,
+        9.827635949477553e-07,
+        4.141722456552088e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-95 (L58)",
+      "layer": 58,
+      "j": 54,
+      "k": 12887,
+      "weight": 0.2200927734375,
+      "ppl": 5.012764513492584,
+      "ppl_each": [
+        7.993456840515137,
+        2.963043689727783,
+        3.334200143814087,
+        5.76035737991333
+      ],
+      "kl": 4.871879355050623e-06,
+      "kl_each": [
+        7.079681381583214e-06,
+        1.9115686882287264e-06,
+        5.62438799533993e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-96 (L58)",
+      "layer": 58,
+      "j": 54,
+      "k": 10325,
+      "weight": -0.470703125,
+      "ppl": 5.014668822288513,
+      "ppl_each": [
+        8.000541687011719,
+        2.961681365966797,
+        3.3348827362060547,
+        5.761569499969482
+      ],
+      "kl": 4.5284493050227565e-06,
+      "kl_each": [
+        6.7695509642362595e-06,
+        1.1242373147979379e-06,
+        5.6915596360340714e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-97 (L58)",
+      "layer": 58,
+      "j": 133,
+      "k": 12887,
+      "weight": -0.1778564453125,
+      "ppl": 5.013132274150848,
+      "ppl_each": [
+        7.994143009185791,
+        2.962724447250366,
+        3.3352346420288086,
+        5.760426998138428
+      ],
+      "kl": 4.5161092809091015e-06,
+      "kl_each": [
+        6.542948540300131e-06,
+        8.557399269193411e-07,
+        6.1496393755078316e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-98 (L58)",
+      "layer": 58,
+      "j": 133,
+      "k": 5236,
+      "weight": 0.14453125,
+      "ppl": 5.013816952705383,
+      "ppl_each": [
+        7.995038986206055,
+        2.963160514831543,
+        3.3347249031066895,
+        5.762343406677246
+      ],
+      "kl": 3.7437663801635304e-06,
+      "kl_each": [
+        6.352958735078573e-06,
+        1.1888478184118867e-06,
+        3.6894925870001316e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-99 (L58)",
+      "layer": 58,
+      "j": 133,
+      "k": 2506,
+      "weight": -0.123046875,
+      "ppl": 5.013604819774628,
+      "ppl_each": [
+        7.995370388031006,
+        2.962573289871216,
+        3.3352913856506348,
+        5.761184215545654
+      ],
+      "kl": 3.705036457783232e-06,
+      "kl_each": [
+        6.557791493833065e-06,
+        1.017418981064111e-06,
+        3.5398988984525204e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-100 (L58)",
+      "layer": 58,
+      "j": 133,
+      "k": 8811,
+      "weight": -0.154541015625,
+      "ppl": 5.0142598152160645,
+      "ppl_each": [
+        7.995061874389648,
+        2.9632768630981445,
+        3.335186004638672,
+        5.763514518737793
+      ],
+      "kl": 3.5411988695462546e-06,
+      "kl_each": [
+        6.6006905399262905e-06,
+        1.0321091394871473e-06,
+        2.9907969292253256e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-101 (L55)",
+      "layer": 55,
+      "j": 5633,
+      "k": 1971,
+      "weight": 0.73779296875,
+      "ppl": 5.014293015003204,
+      "ppl_each": [
+        7.996830463409424,
+        2.9626998901367188,
+        3.3352081775665283,
+        5.7624335289001465
+      ],
+      "kl": 1.15043682550701e-06,
+      "kl_each": [
+        3.0107548809610307e-07,
+        5.027031875215471e-07,
+        2.64753180090338e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-102 (L55)",
+      "layer": 55,
+      "j": 5633,
+      "k": 814,
+      "weight": -0.486083984375,
+      "ppl": 5.014520347118378,
+      "ppl_each": [
+        7.998264789581299,
+        2.962305784225464,
+        3.3349061012268066,
+        5.762604713439941
+      ],
+      "kl": 3.812174933652083e-06,
+      "kl_each": [
+        6.806862074881792e-06,
+        1.4601682778447866e-06,
+        3.1694944482296705e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-103 (L55)",
+      "layer": 55,
+      "j": 5633,
+      "k": 10857,
+      "weight": -0.95263671875,
+      "ppl": 5.014204800128937,
+      "ppl_each": [
+        7.996780872344971,
+        2.964545726776123,
+        3.334486722946167,
+        5.761005878448486
+      ],
+      "kl": 2.987915650010109e-06,
+      "kl_each": [
+        6.350805051624775e-06,
+        7.480848580598831e-07,
+        1.8648570403456688e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-104 (L55)",
+      "layer": 55,
+      "j": 5633,
+      "k": 9236,
+      "weight": -0.95654296875,
+      "ppl": 5.013456106185913,
+      "ppl_each": [
+        7.995419979095459,
+        2.9642107486724854,
+        3.33398699760437,
+        5.760206699371338
+      ],
+      "kl": 3.2275274861603975e-06,
+      "kl_each": [
+        6.927177309989929e-06,
+        1.2462842278182507e-06,
+        1.5091209206730127e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-105 (L55)",
+      "layer": 55,
+      "j": 2229,
+      "k": 5998,
+      "weight": -0.0775146484375,
+      "ppl": 5.014271914958954,
+      "ppl_each": [
+        7.996338844299316,
+        2.9624149799346924,
+        3.335029125213623,
+        5.763304710388184
+      ],
+      "kl": 1.6134569402008008e-06,
+      "kl_each": [
+        5.418223736342043e-07,
+        8.701317710801959e-07,
+        3.428416675888002e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-106 (L55)",
+      "layer": 55,
+      "j": 2229,
+      "k": 814,
+      "weight": 0.06060791015625,
+      "ppl": 5.013541400432587,
+      "ppl_each": [
+        7.994242191314697,
+        2.963294506072998,
+        3.3349955081939697,
+        5.761633396148682
+      ],
+      "kl": 3.836282606547077e-06,
+      "kl_each": [
+        6.615184247493744e-06,
+        1.5352270565927029e-06,
+        3.3584365155547857e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-107 (L55)",
+      "layer": 55,
+      "j": 2229,
+      "k": 1971,
+      "weight": -0.01139068603515625,
+      "ppl": 5.014253318309784,
+      "ppl_each": [
+        7.996476650238037,
+        2.9634366035461426,
+        3.33465313911438,
+        5.762446880340576
+      ],
+      "kl": 1.0046254222591717e-06,
+      "kl_each": [
+        0.0,
+        1.4931138139218092e-06,
+        1.5207624528557062e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-108 (L55)",
+      "layer": 55,
+      "j": 2229,
+      "k": 9236,
+      "weight": -0.07843017578125,
+      "ppl": 5.013314723968506,
+      "ppl_each": [
+        7.992435455322266,
+        2.9632344245910645,
+        3.335052490234375,
+        5.762536525726318
+      ],
+      "kl": 2.8979225135117304e-06,
+      "kl_each": [
+        6.108020897954702e-06,
+        5.848642103956081e-08,
+        2.527260221540928e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-109 (L55)",
+      "layer": 55,
+      "j": 94,
+      "k": 5998,
+      "weight": 0.08538818359375,
+      "ppl": 5.014038801193237,
+      "ppl_each": [
+        7.9945068359375,
+        2.962723970413208,
+        3.334641695022583,
+        5.764282703399658
+      ],
+      "kl": 3.140114131383598e-06,
+      "kl_each": [
+        6.721820682287216e-06,
+        7.618800736963749e-07,
+        1.9366416381672025e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-110 (L55)",
+      "layer": 55,
+      "j": 94,
+      "k": 1971,
+      "weight": 0.05517578125,
+      "ppl": 5.013928055763245,
+      "ppl_each": [
+        7.9948577880859375,
+        2.963517665863037,
+        3.334750175476074,
+        5.76258659362793
+      ],
+      "kl": 3.6865797786352537e-06,
+      "kl_each": [
+        7.014721632003784e-06,
+        1.6009144019335508e-06,
+        2.4441033019684255e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-111 (L55)",
+      "layer": 55,
+      "j": 94,
+      "k": 10857,
+      "weight": -0.057647705078125,
+      "ppl": 5.014511287212372,
+      "ppl_each": [
+        7.997405052185059,
+        2.962609052658081,
+        3.3351097106933594,
+        5.762921333312988
+      ],
+      "kl": 3.6237421833599606e-06,
+      "kl_each": [
+        6.959307938814163e-06,
+        1.8830469343811274e-06,
+        2.0288716768845916e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-112 (L55)",
+      "layer": 55,
+      "j": 94,
+      "k": 5197,
+      "weight": 0.062408447265625,
+      "ppl": 5.014207065105438,
+      "ppl_each": [
+        7.996184349060059,
+        2.9627835750579834,
+        3.3350014686584473,
+        5.762858867645264
+      ],
+      "kl": 2.6668482557094344e-06,
+      "kl_each": [
+        6.912800017744303e-06,
+        9.405121090821922e-07,
+        1.4723264030180871e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-113 (L55)",
+      "layer": 55,
+      "j": 4663,
+      "k": 1971,
+      "weight": -0.111572265625,
+      "ppl": 5.0141220688819885,
+      "ppl_each": [
+        7.99531888961792,
+        2.9633615016937256,
+        3.334718704223633,
+        5.763089179992676
+      ],
+      "kl": 1.52469389528657e-06,
+      "kl_each": [
+        6.410045898519456e-07,
+        1.3361568562686443e-06,
+        2.59692023973912e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-114 (L55)",
+      "layer": 55,
+      "j": 4663,
+      "k": 814,
+      "weight": 0.14453125,
+      "ppl": 5.013562023639679,
+      "ppl_each": [
+        7.993704319000244,
+        2.9636082649230957,
+        3.3349878787994385,
+        5.7619476318359375
+      ],
+      "kl": 2.4405405080566802e-06,
+      "kl_each": [
+        2.6872585294768214e-06,
+        6.701884558424354e-07,
+        3.964174538850784e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-115 (L55)",
+      "layer": 55,
+      "j": 4663,
+      "k": 5998,
+      "weight": -0.0853271484375,
+      "ppl": 5.014042615890503,
+      "ppl_each": [
+        7.994190692901611,
+        2.962813138961792,
+        3.3352105617523193,
+        5.763956069946289
+      ],
+      "kl": 1.7941662614854674e-06,
+      "kl_each": [
+        2.757966285571456e-06,
+        2.139204298146069e-07,
+        2.410612069070339e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-116 (L55)",
+      "layer": 55,
+      "j": 4663,
+      "k": 9270,
+      "weight": -0.056549072265625,
+      "ppl": 5.013826072216034,
+      "ppl_each": [
+        7.995469570159912,
+        2.9628632068634033,
+        3.334743022918701,
+        5.762228488922119
+      ],
+      "kl": 1.124830911673295e-06,
+      "kl_each": [
+        3.1028866942506284e-07,
+        6.990812835283577e-07,
+        2.3651227820664644e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-117 (L57)",
+      "layer": 57,
+      "j": 5633,
+      "k": 5321,
+      "weight": -1.1826171875,
+      "ppl": 5.013744354248047,
+      "ppl_each": [
+        7.996192455291748,
+        2.963129758834839,
+        3.334192991256714,
+        5.761462211608887
+      ],
+      "kl": 5.918069897840421e-06,
+      "kl_each": [
+        6.099289748817682e-06,
+        1.848558895289898e-06,
+        9.806361049413681e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-118 (L57)",
+      "layer": 57,
+      "j": 5633,
+      "k": 13746,
+      "weight": -1.0849609375,
+      "ppl": 5.0132686495780945,
+      "ppl_each": [
+        7.994935512542725,
+        2.9635181427001953,
+        3.334104299545288,
+        5.76051664352417
+      ],
+      "kl": 4.670039440194766e-06,
+      "kl_each": [
+        6.021757144480944e-06,
+        1.8530117813497782e-06,
+        6.135349394753575e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-119 (L57)",
+      "layer": 57,
+      "j": 5633,
+      "k": 4797,
+      "weight": 0.96484375,
+      "ppl": 5.014382898807526,
+      "ppl_each": [
+        7.995826244354248,
+        2.96329665184021,
+        3.3345046043395996,
+        5.763904094696045
+      ],
+      "kl": 4.836144701888164e-06,
+      "kl_each": [
+        7.21256947144866e-06,
+        1.3714598026126623e-06,
+        5.9244048316031694e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-120 (L57)",
+      "layer": 57,
+      "j": 5633,
+      "k": 3638,
+      "weight": 0.98828125,
+      "ppl": 5.013729155063629,
+      "ppl_each": [
+        7.996502876281738,
+        2.962770938873291,
+        3.334158182144165,
+        5.761484622955322
+      ],
+      "kl": 3.248060238547623e-06,
+      "kl_each": [
+        7.115304470062256e-06,
+        7.972994353622198e-07,
+        1.8315768102183938e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-121 (L57)",
+      "layer": 57,
+      "j": 4663,
+      "k": 13746,
+      "weight": 0.1658935546875,
+      "ppl": 5.014016687870026,
+      "ppl_each": [
+        7.996242046356201,
+        2.9636659622192383,
+        3.33478045463562,
+        5.761378288269043
+      ],
+      "kl": 9.429938169584299e-07,
+      "kl_each": [
+        4.4797343434765935e-07,
+        1.465614332119003e-07,
+        2.23444658331573e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-122 (L57)",
+      "layer": 57,
+      "j": 4663,
+      "k": 6396,
+      "weight": -0.140380859375,
+      "ppl": 5.014169335365295,
+      "ppl_each": [
+        7.996994972229004,
+        2.963021755218506,
+        3.33455753326416,
+        5.762103080749512
+      ],
+      "kl": 3.6673081922344863e-06,
+      "kl_each": [
+        7.122405804693699e-06,
+        6.567934178747237e-07,
+        3.2227253541350365e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-123 (L57)",
+      "layer": 57,
+      "j": 4663,
+      "k": 4797,
+      "weight": -0.1220703125,
+      "ppl": 5.01360410451889,
+      "ppl_each": [
+        7.995079040527344,
+        2.9630844593048096,
+        3.3349246978759766,
+        5.761328220367432
+      ],
+      "kl": 1.9953804439865053e-06,
+      "kl_each": [
+        2.327258698642254e-06,
+        9.245050023309886e-07,
+        2.7343776309862733e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-124 (L57)",
+      "layer": 57,
+      "j": 4663,
+      "k": 3638,
+      "weight": -0.1124267578125,
+      "ppl": 5.0139119029045105,
+      "ppl_each": [
+        7.996438026428223,
+        2.9630589485168457,
+        3.334872007369995,
+        5.7612786293029785
+      ],
+      "kl": 3.60169360646978e-06,
+      "kl_each": [
+        6.990740075707436e-06,
+        6.485133781097829e-07,
+        3.165827365592122e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-125 (L57)",
+      "layer": 57,
+      "j": 375,
+      "k": 5321,
+      "weight": 0.1717529296875,
+      "ppl": 5.01402884721756,
+      "ppl_each": [
+        7.994998931884766,
+        2.963460922241211,
+        3.3349087238311768,
+        5.762746810913086
+      ],
+      "kl": 3.382243448868394e-06,
+      "kl_each": [
+        5.696143489331007e-06,
+        1.7430575098842382e-06,
+        2.7075293473899364e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-126 (L57)",
+      "layer": 57,
+      "j": 375,
+      "k": 13746,
+      "weight": 0.1754150390625,
+      "ppl": 5.013445258140564,
+      "ppl_each": [
+        7.9940361976623535,
+        2.9634923934936523,
+        3.3346986770629883,
+        5.761553764343262
+      ],
+      "kl": 4.935422718214492e-06,
+      "kl_each": [
+        7.19795934855938e-06,
+        9.619834600016475e-07,
+        6.646325346082449e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-127 (L57)",
+      "layer": 57,
+      "j": 375,
+      "k": 4797,
+      "weight": -0.1685791015625,
+      "ppl": 5.013755559921265,
+      "ppl_each": [
+        7.9958696365356445,
+        2.9632697105407715,
+        3.334883689880371,
+        5.7609992027282715
+      ],
+      "kl": 3.2991471622760096e-06,
+      "kl_each": [
+        6.226939149200916e-06,
+        9.98537871055305e-07,
+        2.671964466571808e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-128 (L57)",
+      "layer": 57,
+      "j": 375,
+      "k": 3188,
+      "weight": 0.13720703125,
+      "ppl": 5.014135420322418,
+      "ppl_each": [
+        7.997422218322754,
+        2.9630126953125,
+        3.334735155105591,
+        5.761371612548828
+      ],
+      "kl": 1.954930970290055e-06,
+      "kl_each": [
+        2.4205364752560854e-06,
+        9.126015356741846e-07,
+        2.5316548999398947e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-129 (L57)",
+      "layer": 57,
+      "j": 6254,
+      "k": 10539,
+      "weight": -0.18798828125,
+      "ppl": 5.014361023902893,
+      "ppl_each": [
+        7.9973835945129395,
+        2.963578224182129,
+        3.3349485397338867,
+        5.761533737182617
+      ],
+      "kl": 2.7583297802872644e-06,
+      "kl_each": [
+        5.964888259768486e-06,
+        3.351733539602719e-07,
+        1.9749277271330357e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-130 (L57)",
+      "layer": 57,
+      "j": 6254,
+      "k": 14725,
+      "weight": -0.1683349609375,
+      "ppl": 5.014101326465607,
+      "ppl_each": [
+        7.995100021362305,
+        2.9624295234680176,
+        3.3345415592193604,
+        5.764334201812744
+      ],
+      "kl": 2.8012788485890874e-06,
+      "kl_each": [
+        6.787944585084915e-06,
+        3.9915539673529565e-07,
+        1.2167365639470518e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-131 (L57)",
+      "layer": 57,
+      "j": 6254,
+      "k": 5321,
+      "weight": -0.039886474609375,
+      "ppl": 5.014307379722595,
+      "ppl_each": [
+        7.9967827796936035,
+        2.9632673263549805,
+        3.334534168243408,
+        5.762645244598389
+      ],
+      "kl": 1.5439989814088524e-06,
+      "kl_each": [
+        4.047851689392701e-07,
+        1.9970730136265047e-07,
+        4.027504473924637e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-132 (L57)",
+      "layer": 57,
+      "j": 6254,
+      "k": 4797,
+      "weight": 0.1080322265625,
+      "ppl": 5.014204382896423,
+      "ppl_each": [
+        7.9955878257751465,
+        2.963444471359253,
+        3.334254503250122,
+        5.763530731201172
+      ],
+      "kl": 5.018529388204722e-06,
+      "kl_each": [
+        7.027934771031141e-06,
+        1.1176075531693641e-07,
+        7.915892638266087e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-133 (L3)",
+      "layer": 3,
+      "j": 5633,
+      "k": 12426,
+      "weight": 1.9833984375,
+      "ppl": 5.013137996196747,
+      "ppl_each": [
+        7.935198783874512,
+        2.973172664642334,
+        3.3687856197357178,
+        5.775394916534424
+      ],
+      "kl": 0.0005277565990885099,
+      "kl_each": [
+        0.0002617333084344864,
+        0.0008344501256942749,
+        0.00048708636313676834
+      ],
+      "continuation": "a city of art, fashion, and food. It is also a city",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-134 (L3)",
+      "layer": 3,
+      "j": 5633,
+      "k": 17439,
+      "weight": -2.025390625,
+      "ppl": 5.0097121596336365,
+      "ppl_each": [
+        7.9363508224487305,
+        2.9697420597076416,
+        3.363438129425049,
+        5.769317626953125
+      ],
+      "kl": 0.0005109524548364183,
+      "kl_each": [
+        0.00023136695381253958,
+        0.0008214376866817474,
+        0.0004800527240149677
+      ],
+      "continuation": "a city of art, fashion, and food. It is also a city",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-135 (L3)",
+      "layer": 3,
+      "j": 5633,
+      "k": 1824,
+      "weight": 0.88427734375,
+      "ppl": 5.012808859348297,
+      "ppl_each": [
+        7.984350204467773,
+        2.9645910263061523,
+        3.3358871936798096,
+        5.766407012939453
+      ],
+      "kl": 4.023748139540354e-05,
+      "kl_each": [
+        2.687610685825348e-05,
+        5.312962457537651e-05,
+        4.070671275258064e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-136 (L3)",
+      "layer": 3,
+      "j": 5633,
+      "k": 8148,
+      "weight": -1.40234375,
+      "ppl": 5.012869656085968,
+      "ppl_each": [
+        7.989103317260742,
+        2.9654409885406494,
+        3.3339290618896484,
+        5.763005256652832
+      ],
+      "kl": 9.271442346895734e-06,
+      "kl_each": [
+        8.387141861021519e-06,
+        4.586850991472602e-06,
+        1.4840334188193083e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-137 (L3)",
+      "layer": 3,
+      "j": 1140,
+      "k": 12817,
+      "weight": -0.0450439453125,
+      "ppl": 5.266713559627533,
+      "ppl_each": [
+        8.491717338562012,
+        3.029980182647705,
+        3.407484769821167,
+        6.137671947479248
+      ],
+      "kl": 0.0030341966388126216,
+      "kl_each": [
+        0.002194636967033148,
+        0.0011172080412507057,
+        0.005790744908154011
+      ],
+      "continuation": "a city of great beauty and culture. It is also a city of great",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-138 (L3)",
+      "layer": 3,
+      "j": 1140,
+      "k": 12426,
+      "weight": 0.06500244140625,
+      "ppl": 5.014587759971619,
+      "ppl_each": [
+        8.00361156463623,
+        2.963785171508789,
+        3.334465503692627,
+        5.756488800048828
+      ],
+      "kl": 0.00010299440085267027,
+      "kl_each": [
+        7.247301982715726e-05,
+        3.218784695491195e-05,
+        0.0002043223357759416
+      ],
+      "continuation": "a city of great beauty and charm. It is also a city of great",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-139 (L3)",
+      "layer": 3,
+      "j": 4901,
+      "k": 12817,
+      "weight": 0.045166015625,
+      "ppl": 5.017453193664551,
+      "ppl_each": [
+        7.97081995010376,
+        2.943972110748291,
+        3.3599467277526855,
+        5.795073986053467
+      ],
+      "kl": 0.001975721369187037,
+      "kl_each": [
+        0.002091498114168644,
+        0.000987880863249302,
+        0.0028477851301431656
+      ],
+      "continuation": "a city of art, fashion, and food. It is also a city",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-140 (L3)",
+      "layer": 3,
+      "j": 2440,
+      "k": 12817,
+      "weight": -0.0323486328125,
+      "ppl": 5.66451770067215,
+      "ppl_each": [
+        9.09041690826416,
+        3.2463247776031494,
+        3.5979151725769043,
+        6.723413944244385
+      ],
+      "kl": 0.0012957269791513681,
+      "kl_each": [
+        0.0008531589992344379,
+        0.0005624976474791765,
+        0.00247152429074049
+      ],
+      "continuation": "a city of art, fashion, and food. It is also a city",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-141 (L3)",
+      "layer": 3,
+      "j": 2440,
+      "k": 12426,
+      "weight": 0.048431396484375,
+      "ppl": 5.0130584836006165,
+      "ppl_each": [
+        7.994394779205322,
+        2.961352586746216,
+        3.335063934326172,
+        5.761422634124756
+      ],
+      "kl": 3.2885203836485744e-05,
+      "kl_each": [
+        1.4747929526492953e-05,
+        4.572514444589615e-05,
+        3.818253753706813e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-142 (L3)",
+      "layer": 3,
+      "j": 2440,
+      "k": 1824,
+      "weight": 0.0498046875,
+      "ppl": 5.012182772159576,
+      "ppl_each": [
+        7.995492458343506,
+        2.9618494510650635,
+        3.3339595794677734,
+        5.757429599761963
+      ],
+      "kl": 1.7676997231319547e-05,
+      "kl_each": [
+        6.825459422543645e-06,
+        3.284844569861889e-05,
+        1.3357086572796106e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-143 (L3)",
+      "layer": 3,
+      "j": 2440,
+      "k": 6186,
+      "weight": -0.1463623046875,
+      "ppl": 5.012791991233826,
+      "ppl_each": [
+        7.995336055755615,
+        2.962144613265991,
+        3.3344857692718506,
+        5.759201526641846
+      ],
+      "kl": 1.796961441868916e-05,
+      "kl_each": [
+        5.491594492923468e-06,
+        3.611319698393345e-05,
+        1.2304051779210567e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-144 (L59)",
+      "layer": 59,
+      "j": 6254,
+      "k": 2255,
+      "weight": -0.499755859375,
+      "ppl": 5.012786567211151,
+      "ppl_each": [
+        7.993208885192871,
+        2.962447166442871,
+        3.3343961238861084,
+        5.761094093322754
+      ],
+      "kl": 1.3036615200689994e-06,
+      "kl_each": [
+        2.3719348973827437e-07,
+        0.0,
+        3.6737910704687238e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-145 (L59)",
+      "layer": 59,
+      "j": 6254,
+      "k": 10370,
+      "weight": 0.740234375,
+      "ppl": 5.015140414237976,
+      "ppl_each": [
+        7.9966816902160645,
+        2.964468240737915,
+        3.33467173576355,
+        5.764739990234375
+      ],
+      "kl": 2.908139625408997e-07,
+      "kl_each": [
+        6.836453394498676e-07,
+        1.8879654817283154e-07,
+        0.0
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-146 (L59)",
+      "layer": 59,
+      "j": 6254,
+      "k": 13234,
+      "weight": -0.6982421875,
+      "ppl": 5.014020681381226,
+      "ppl_each": [
+        7.994838714599609,
+        2.96379017829895,
+        3.33461594581604,
+        5.762837886810303
+      ],
+      "kl": 2.727232640609145e-06,
+      "kl_each": [
+        3.934663254767656e-06,
+        5.732435965910554e-07,
+        3.6737910704687238e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-147 (L59)",
+      "layer": 59,
+      "j": 6254,
+      "k": 16779,
+      "weight": -0.6708984375,
+      "ppl": 5.015069246292114,
+      "ppl_each": [
+        7.9986748695373535,
+        2.964232921600342,
+        3.3349270820617676,
+        5.762442111968994
+      ],
+      "kl": 2.182573856165012e-06,
+      "kl_each": [
+        3.934663254767656e-06,
+        5.732435965910554e-07,
+        2.0398147171363235e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-148 (L59)",
+      "layer": 59,
+      "j": 6495,
+      "k": 2255,
+      "weight": -0.13916015625,
+      "ppl": 5.01478636264801,
+      "ppl_each": [
+        7.997517108917236,
+        2.962855815887451,
+        3.3347363471984863,
+        5.764036178588867
+      ],
+      "kl": 5.69086599474152e-07,
+      "kl_each": [
+        0.0,
+        0.0,
+        1.7072597984224558e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-149 (L59)",
+      "layer": 59,
+      "j": 6495,
+      "k": 16779,
+      "weight": -0.407958984375,
+      "ppl": 5.014895677566528,
+      "ppl_each": [
+        7.996298789978027,
+        2.963712215423584,
+        3.334914207458496,
+        5.764657497406006
+      ],
+      "kl": 1.8075964665816477e-07,
+      "kl_each": [
+        1.1683187040034682e-07,
+        4.2544706957414746e-07,
+        0.0
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-150 (L59)",
+      "layer": 59,
+      "j": 6495,
+      "k": 17727,
+      "weight": 0.370361328125,
+      "ppl": 5.01293671131134,
+      "ppl_each": [
+        7.995512008666992,
+        2.9621176719665527,
+        3.334167957305908,
+        5.759949207305908
+      ],
+      "kl": 7.250957423821092e-06,
+      "kl_each": [
+        9.942566975951195e-06,
+        5.812617018818855e-07,
+        1.1229043593630195e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-151 (L59)",
+      "layer": 59,
+      "j": 6495,
+      "k": 4545,
+      "weight": 0.41455078125,
+      "ppl": 5.008180558681488,
+      "ppl_each": [
+        7.988105297088623,
+        2.963160991668701,
+        3.3315269947052,
+        5.749928951263428
+      ],
+      "kl": 6.577365760070582e-05,
+      "kl_each": [
+        9.337440133094788e-06,
+        5.345005774870515e-06,
+        0.00018263852689415216
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-152 (L59)",
+      "layer": 59,
+      "j": 5633,
+      "k": 10370,
+      "weight": -1.2060546875,
+      "ppl": 5.01847106218338,
+      "ppl_each": [
+        8.004185676574707,
+        2.968899965286255,
+        3.3341574668884277,
+        5.766641139984131
+      ],
+      "kl": 1.2002129399964663e-06,
+      "kl_each": [
+        2.9059156076982617e-06,
+        7.024354999884963e-07,
+        -7.712287697358988e-09
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-153 (L59)",
+      "layer": 59,
+      "j": 5633,
+      "k": 2255,
+      "weight": 0.11083984375,
+      "ppl": 5.014457702636719,
+      "ppl_each": [
+        7.997139930725098,
+        2.962956190109253,
+        3.33471941947937,
+        5.763015270233154
+      ],
+      "kl": 6.082421914281137e-08,
+      "kl_each": [
+        3.281999383375478e-08,
+        -3.021028760485933e-09,
+        1.5267369235516526e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-154 (L59)",
+      "layer": 59,
+      "j": 5633,
+      "k": 3054,
+      "weight": 0.701171875,
+      "ppl": 5.015194237232208,
+      "ppl_each": [
+        7.996863842010498,
+        2.9666218757629395,
+        3.335362195968628,
+        5.761929035186768
+      ],
+      "kl": 6.958980520721525e-07,
+      "kl_each": [
+        2.2093081497587264e-07,
+        0.0,
+        1.8667633412405849e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-155 (L59)",
+      "layer": 59,
+      "j": 5633,
+      "k": 6686,
+      "weight": -0.86279296875,
+      "ppl": 5.0154869556427,
+      "ppl_each": [
+        7.996306419372559,
+        2.9687695503234863,
+        3.3352723121643066,
+        5.761599540710449
+      ],
+      "kl": 1.9842424687036933e-06,
+      "kl_each": [
+        5.667621735483408e-06,
+        -1.7115780792664737e-08,
+        3.0222145142033696e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-156 (L59)",
+      "layer": 59,
+      "j": 133,
+      "k": 16779,
+      "weight": 0.2125244140625,
+      "ppl": 5.015580236911774,
+      "ppl_each": [
+        7.999269962310791,
+        2.9638562202453613,
+        3.3348209857940674,
+        5.764373779296875
+      ],
+      "kl": 1.0496069080545567e-07,
+      "kl_each": [
+        1.396201696479693e-07,
+        1.5407749742735177e-08,
+        1.5985415302566253e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-157 (L59)",
+      "layer": 59,
+      "j": 133,
+      "k": 2255,
+      "weight": 0.03399658203125,
+      "ppl": 5.014524459838867,
+      "ppl_each": [
+        7.997448444366455,
+        2.963000774383545,
+        3.334606170654297,
+        5.763042449951172
+      ],
+      "kl": 5.3744628303320496e-08,
+      "kl_each": [
+        1.612338849099615e-07,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-158 (L59)",
+      "layer": 59,
+      "j": 133,
+      "k": 17727,
+      "weight": -0.1400146484375,
+      "ppl": 5.013787388801575,
+      "ppl_each": [
+        7.995694637298584,
+        2.962451934814453,
+        3.3337759971618652,
+        5.7632269859313965
+      ],
+      "kl": 9.835827465091522e-07,
+      "kl_each": [
+        1.7047132132574916e-06,
+        2.6071029424201697e-07,
+        9.85324732027948e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-159 (L59)",
+      "layer": 59,
+      "j": 133,
+      "k": 12997,
+      "weight": 0.2161865234375,
+      "ppl": 5.014272391796112,
+      "ppl_each": [
+        7.996950626373291,
+        2.9619932174682617,
+        3.3351528644561768,
+        5.762992858886719
+      ],
+      "kl": 1.3169953187267916e-07,
+      "kl_each": [
+        9.144787327386439e-08,
+        1.437965693185106e-07,
+        1.5985415302566253e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-160 (L56)",
+      "layer": 56,
+      "j": 5633,
+      "k": 17612,
+      "weight": 0.427001953125,
+      "ppl": 5.014147102832794,
+      "ppl_each": [
+        7.994718551635742,
+        2.963008403778076,
+        3.335428476333618,
+        5.76343297958374
+      ],
+      "kl": 2.953842795250239e-06,
+      "kl_each": [
+        6.8479566834867e-06,
+        1.966486706805881e-07,
+        1.8169230315834284e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-161 (L56)",
+      "layer": 56,
+      "j": 5633,
+      "k": 14050,
+      "weight": 0.587890625,
+      "ppl": 5.012982368469238,
+      "ppl_each": [
+        7.993870258331299,
+        2.962678909301758,
+        3.3347573280334473,
+        5.760622978210449
+      ],
+      "kl": 5.308795759143929e-06,
+      "kl_each": [
+        5.7645083870738745e-06,
+        1.0331714292988181e-06,
+        9.128707461059093e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-162 (L56)",
+      "layer": 56,
+      "j": 5633,
+      "k": 8538,
+      "weight": -1.654296875,
+      "ppl": 5.011856913566589,
+      "ppl_each": [
+        7.994623184204102,
+        2.9626896381378174,
+        3.331733465194702,
+        5.758381366729736
+      ],
+      "kl": 2.2598745999857783e-05,
+      "kl_each": [
+        1.028235419653356e-05,
+        3.612996079027653e-05,
+        2.1383923012763262e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-163 (L56)",
+      "layer": 56,
+      "j": 5633,
+      "k": 5122,
+      "weight": -1.6650390625,
+      "ppl": 5.011659920215607,
+      "ppl_each": [
+        7.992425918579102,
+        2.9626049995422363,
+        3.3330986499786377,
+        5.758510112762451
+      ],
+      "kl": 2.3054832126945257e-05,
+      "kl_each": [
+        1.004213117994368e-05,
+        3.6979326978325844e-05,
+        2.2143038222566247e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-164 (L56)",
+      "layer": 56,
+      "j": 6254,
+      "k": 14050,
+      "weight": 0.1822509765625,
+      "ppl": 5.0137845277786255,
+      "ppl_each": [
+        7.995361328125,
+        2.9630908966064453,
+        3.3352718353271484,
+        5.761414051055908
+      ],
+      "kl": 1.5410446394525934e-06,
+      "kl_each": [
+        4.58104295830708e-07,
+        2.5527924663037993e-07,
+        3.909750375896692e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-165 (L56)",
+      "layer": 56,
+      "j": 6254,
+      "k": 6450,
+      "weight": -0.5302734375,
+      "ppl": 5.012712299823761,
+      "ppl_each": [
+        7.990943431854248,
+        2.9629011154174805,
+        3.3338420391082764,
+        5.763162612915039
+      ],
+      "kl": 3.477425101057937e-06,
+      "kl_each": [
+        4.254397936165333e-06,
+        7.98892870079726e-07,
+        5.3789844969287515e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-166 (L56)",
+      "layer": 56,
+      "j": 6254,
+      "k": 17612,
+      "weight": -0.08001708984375,
+      "ppl": 5.014441549777985,
+      "ppl_each": [
+        7.996098518371582,
+        2.9623281955718994,
+        3.3346610069274902,
+        5.764678478240967
+      ],
+      "kl": 0.0,
+      "kl_each": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-167 (L56)",
+      "layer": 56,
+      "j": 375,
+      "k": 14050,
+      "weight": -0.0694580078125,
+      "ppl": 5.013581991195679,
+      "ppl_each": [
+        7.993796348571777,
+        2.963608741760254,
+        3.3346214294433594,
+        5.762301445007324
+      ],
+      "kl": 3.3504717672864595e-06,
+      "kl_each": [
+        6.760645192116499e-06,
+        7.526250556111336e-07,
+        2.5381450541317463e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-168 (L56)",
+      "layer": 56,
+      "j": 375,
+      "k": 5791,
+      "weight": 0.1138916015625,
+      "ppl": 5.013003766536713,
+      "ppl_each": [
+        7.994202613830566,
+        2.962798833847046,
+        3.334043025970459,
+        5.760970592498779
+      ],
+      "kl": 9.107249449395264e-07,
+      "kl_each": [
+        5.242709448793903e-07,
+        7.1162503445521e-07,
+        1.496278855483979e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-169 (L56)",
+      "layer": 56,
+      "j": 375,
+      "k": 17612,
+      "weight": -0.0247650146484375,
+      "ppl": 5.013706922531128,
+      "ppl_each": [
+        7.993462562561035,
+        2.963758945465088,
+        3.334460735321045,
+        5.763145446777344
+      ],
+      "kl": 2.797874913085252e-06,
+      "kl_each": [
+        6.725313141942024e-06,
+        7.267371984198689e-07,
+        9.41574398893863e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-170 (L56)",
+      "layer": 56,
+      "j": 375,
+      "k": 4848,
+      "weight": -0.34375,
+      "ppl": 5.017154276371002,
+      "ppl_each": [
+        7.992673397064209,
+        2.9623031616210938,
+        3.337165594100952,
+        5.776474952697754
+      ],
+      "kl": 3.570055317444106e-06,
+      "kl_each": [
+        7.061869837343693e-06,
+        1.9597355276346207e-06,
+        1.6885605873540044e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-171 (L56)",
+      "layer": 56,
+      "j": 1865,
+      "k": 14050,
+      "weight": -0.036895751953125,
+      "ppl": 5.0138243436813354,
+      "ppl_each": [
+        7.994707107543945,
+        2.962700843811035,
+        3.335324287414551,
+        5.7625651359558105
+      ],
+      "kl": 7.299107285992553e-07,
+      "kl_each": [
+        3.052809915971011e-07,
+        6.665868568234146e-07,
+        1.2178643373772502e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-172 (L56)",
+      "layer": 56,
+      "j": 1865,
+      "k": 5791,
+      "weight": 0.06744384765625,
+      "ppl": 5.012469530105591,
+      "ppl_each": [
+        7.991229057312012,
+        2.9630239009857178,
+        3.334552526473999,
+        5.761072635650635
+      ],
+      "kl": 5.186091584619135e-06,
+      "kl_each": [
+        6.2400358729064465e-06,
+        6.437840056605637e-07,
+        8.674454875290394e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-173 (L56)",
+      "layer": 56,
+      "j": 1865,
+      "k": 3965,
+      "weight": -0.14697265625,
+      "ppl": 5.0144089460372925,
+      "ppl_each": [
+        7.9976396560668945,
+        2.963723659515381,
+        3.3339433670043945,
+        5.7623291015625
+      ],
+      "kl": 4.468199525338908e-06,
+      "kl_each": [
+        6.077869329601526e-06,
+        3.1167000997811556e-06,
+        4.210029146634042e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-174 (L56)",
+      "layer": 56,
+      "j": 1865,
+      "k": 17612,
+      "weight": 0.01432037353515625,
+      "ppl": 5.014420747756958,
+      "ppl_each": [
+        7.9959235191345215,
+        2.9635276794433594,
+        3.3345775604248047,
+        5.7636542320251465
+      ],
+      "kl": 1.934812947486838e-06,
+      "kl_each": [
+        2.9252259992063046e-06,
+        1.3095559552311897e-06,
+        1.5696568880230188e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-175 (L10)",
+      "layer": 10,
+      "j": 5633,
+      "k": 2912,
+      "weight": -0.94091796875,
+      "ppl": 5.011810660362244,
+      "ppl_each": [
+        7.988792896270752,
+        2.9611849784851074,
+        3.3330349922180176,
+        5.764229774475098
+      ],
+      "kl": 1.690234300137187e-05,
+      "kl_each": [
+        1.5241210348904133e-05,
+        7.078117050696164e-06,
+        2.8387701604515314e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-176 (L10)",
+      "layer": 10,
+      "j": 5633,
+      "k": 17821,
+      "weight": -1.1728515625,
+      "ppl": 5.0126535296440125,
+      "ppl_each": [
+        7.987397193908691,
+        2.960529088973999,
+        3.3370728492736816,
+        5.765614986419678
+      ],
+      "kl": 1.5076647590224942e-05,
+      "kl_each": [
+        1.8006074242293835e-05,
+        5.107431206852198e-06,
+        2.2116437321528792e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-177 (L10)",
+      "layer": 10,
+      "j": 5633,
+      "k": 3549,
+      "weight": -1.076171875,
+      "ppl": 5.011431038379669,
+      "ppl_each": [
+        7.988101005554199,
+        2.9593684673309326,
+        3.335020065307617,
+        5.763234615325928
+      ],
+      "kl": 1.1917902156710625e-05,
+      "kl_each": [
+        9.51375113800168e-06,
+        4.619767423719168e-06,
+        2.1620187908411026e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-178 (L10)",
+      "layer": 10,
+      "j": 5633,
+      "k": 905,
+      "weight": -1.0283203125,
+      "ppl": 5.012209892272949,
+      "ppl_each": [
+        7.993866920471191,
+        2.961357355117798,
+        3.333869218826294,
+        5.759746074676514
+      ],
+      "kl": 5.300510868740578e-06,
+      "kl_each": [
+        3.885157639160752e-06,
+        3.141103661619127e-06,
+        8.875271305441856e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-179 (L10)",
+      "layer": 10,
+      "j": 6254,
+      "k": 14386,
+      "weight": -0.149169921875,
+      "ppl": 5.01246577501297,
+      "ppl_each": [
+        7.993249416351318,
+        2.962002754211426,
+        3.3365237712860107,
+        5.758087158203125
+      ],
+      "kl": 2.3206856591665808e-05,
+      "kl_each": [
+        1.4616118278354406e-05,
+        3.3378182706655934e-06,
+        5.166663322597742e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-180 (L10)",
+      "layer": 10,
+      "j": 6254,
+      "k": 16040,
+      "weight": -0.1591796875,
+      "ppl": 5.010469496250153,
+      "ppl_each": [
+        7.984266757965088,
+        2.961934804916382,
+        3.3369369506835938,
+        5.758739471435547
+      ],
+      "kl": 4.2064920611058675e-05,
+      "kl_each": [
+        3.3264688681811094e-05,
+        8.39238055050373e-06,
+        8.453769260086119e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-181 (L10)",
+      "layer": 10,
+      "j": 6254,
+      "k": 1652,
+      "weight": -0.10601806640625,
+      "ppl": 5.012692809104919,
+      "ppl_each": [
+        7.991852283477783,
+        2.9621357917785645,
+        3.3339662551879883,
+        5.762816905975342
+      ],
+      "kl": 9.516807040199637e-06,
+      "kl_each": [
+        1.1577911209315062e-05,
+        1.919717760756612e-06,
+        1.5052792150527239e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-182 (L10)",
+      "layer": 10,
+      "j": 1848,
+      "k": 16040,
+      "weight": -0.1295166015625,
+      "ppl": 5.0196592807769775,
+      "ppl_each": [
+        7.983025550842285,
+        2.972630500793457,
+        3.3420891761779785,
+        5.7808918952941895
+      ],
+      "kl": 0.0001803637521031002,
+      "kl_each": [
+        0.00010755419498309493,
+        6.488838698714972e-05,
+        0.000368648674339056
+      ],
+      "continuation": "a city of great beauty and charm. It is also a city of great",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-183 (L10)",
+      "layer": 10,
+      "j": 1848,
+      "k": 14386,
+      "weight": -0.06854248046875,
+      "ppl": 5.013727962970734,
+      "ppl_each": [
+        7.986037731170654,
+        2.968064308166504,
+        3.337211847305298,
+        5.7635979652404785
+      ],
+      "kl": 2.7524734226365883e-05,
+      "kl_each": [
+        1.815438736230135e-05,
+        1.872936263680458e-05,
+        4.569045267999172e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-184 (L10)",
+      "layer": 10,
+      "j": 1848,
+      "k": 1652,
+      "weight": -0.192626953125,
+      "ppl": 5.015568673610687,
+      "ppl_each": [
+        7.989282131195068,
+        2.96785569190979,
+        3.336928367614746,
+        5.7682085037231445
+      ],
+      "kl": 5.5545514139036335e-05,
+      "kl_each": [
+        3.142794594168663e-05,
+        3.076822031289339e-05,
+        0.00010444037616252899
+      ],
+      "continuation": "a city of great beauty and charm. It is also a city of great",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-185 (L10)",
+      "layer": 10,
+      "j": 1848,
+      "k": 2912,
+      "weight": -0.10430908203125,
+      "ppl": 5.015304625034332,
+      "ppl_each": [
+        7.992704391479492,
+        2.9647881984710693,
+        3.3357691764831543,
+        5.767956733703613
+      ],
+      "kl": 2.0472488055626552e-05,
+      "kl_each": [
+        1.0793446563184261e-05,
+        2.422160468995571e-05,
+        2.640241291373968e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-186 (L10)",
+      "layer": 10,
+      "j": 375,
+      "k": 2912,
+      "weight": 0.288330078125,
+      "ppl": 5.01275908946991,
+      "ppl_each": [
+        7.988074779510498,
+        2.9677696228027344,
+        3.342731475830078,
+        5.752460479736328
+      ],
+      "kl": 0.00013464112513853857,
+      "kl_each": [
+        7.58349196985364e-05,
+        3.057204594369978e-05,
+        0.00029751640977337956
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-187 (L10)",
+      "layer": 10,
+      "j": 375,
+      "k": 17821,
+      "weight": 0.26025390625,
+      "ppl": 5.012572884559631,
+      "ppl_each": [
+        7.992443084716797,
+        2.9658379554748535,
+        3.3353099822998047,
+        5.75670051574707
+      ],
+      "kl": 5.401729140430689e-05,
+      "kl_each": [
+        3.4525059163570404e-05,
+        1.2806092854589224e-05,
+        0.00011472072219476104
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-188 (L10)",
+      "layer": 10,
+      "j": 375,
+      "k": 3549,
+      "weight": 0.2130126953125,
+      "ppl": 5.013125360012054,
+      "ppl_each": [
+        7.994152069091797,
+        2.965035915374756,
+        3.332476854324341,
+        5.760836601257324
+      ],
+      "kl": 3.357934959543248e-05,
+      "kl_each": [
+        2.0393752492964268e-05,
+        1.4343357179313898e-05,
+        6.600093911401927e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-189 (L10)",
+      "layer": 10,
+      "j": 375,
+      "k": 6155,
+      "weight": 0.287109375,
+      "ppl": 5.012874245643616,
+      "ppl_each": [
+        7.991192817687988,
+        2.9663567543029785,
+        3.3336424827575684,
+        5.760304927825928
+      ],
+      "kl": 2.8143462259322405e-05,
+      "kl_each": [
+        1.805834472179413e-05,
+        9.834999218583107e-06,
+        5.653704283758998e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-190 (L58)",
+      "layer": 58,
+      "j": 4065,
+      "k": 10850,
+      "weight": 0.09405517578125,
+      "ppl": 5.0135340094566345,
+      "ppl_each": [
+        7.9946465492248535,
+        2.962773561477661,
+        3.3347344398498535,
+        5.76198148727417
+      ],
+      "kl": 2.6672284244947755e-06,
+      "kl_each": [
+        5.926995072513819e-06,
+        1.4136639947537333e-07,
+        1.933323801495135e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-191 (L58)",
+      "layer": 58,
+      "j": 4065,
+      "k": 9747,
+      "weight": 0.06756591796875,
+      "ppl": 5.013952612876892,
+      "ppl_each": [
+        7.995521068572998,
+        2.962982416152954,
+        3.334552526473999,
+        5.762754440307617
+      ],
+      "kl": 6.102979265657874e-07,
+      "kl_each": [
+        4.899084160570055e-08,
+        3.717195795616135e-08,
+        1.7447309801355004e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-192 (L58)",
+      "layer": 58,
+      "j": 4065,
+      "k": 2641,
+      "weight": -0.32177734375,
+      "ppl": 5.013440012931824,
+      "ppl_each": [
+        8.00001335144043,
+        2.9620625972747803,
+        3.3306028842926025,
+        5.761081218719482
+      ],
+      "kl": 2.5481766594263416e-05,
+      "kl_each": [
+        6.4875202951952815e-06,
+        2.8225767891854048e-06,
+        6.713520269840956e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-193 (L58)",
+      "layer": 58,
+      "j": 4065,
+      "k": 6516,
+      "weight": 0.1455078125,
+      "ppl": 5.01417863368988,
+      "ppl_each": [
+        7.996722221374512,
+        2.962801218032837,
+        3.335308790206909,
+        5.761882305145264
+      ],
+      "kl": 5.524265967930357e-06,
+      "kl_each": [
+        6.758549716323614e-06,
+        1.8056889530271292e-06,
+        8.008559234440327e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-194 (L58)",
+      "layer": 58,
+      "j": 94,
+      "k": 10850,
+      "weight": -0.1309814453125,
+      "ppl": 5.013752818107605,
+      "ppl_each": [
+        7.995351314544678,
+        2.962822914123535,
+        3.334397792816162,
+        5.762439250946045
+      ],
+      "kl": 3.8099175678022825e-06,
+      "kl_each": [
+        5.835143383592367e-06,
+        3.902041498804465e-07,
+        5.204405169934034e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-195 (L58)",
+      "layer": 58,
+      "j": 94,
+      "k": 9747,
+      "weight": -0.115966796875,
+      "ppl": 5.014455020427704,
+      "ppl_each": [
+        7.996991157531738,
+        2.9631125926971436,
+        3.3348846435546875,
+        5.762831687927246
+      ],
+      "kl": 3.447798007982783e-06,
+      "kl_each": [
+        4.2383617255836725e-06,
+        2.853139449143782e-07,
+        5.819718353450298e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-196 (L58)",
+      "layer": 58,
+      "j": 2440,
+      "k": 10850,
+      "weight": -0.12139892578125,
+      "ppl": 5.013887524604797,
+      "ppl_each": [
+        7.994852066040039,
+        2.9627232551574707,
+        3.334728717803955,
+        5.763246059417725
+      ],
+      "kl": 4.766848481570681e-06,
+      "kl_each": [
+        5.952664650976658e-06,
+        8.560891728848219e-07,
+        7.491791620850563e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-197 (L58)",
+      "layer": 58,
+      "j": 2440,
+      "k": 9747,
+      "weight": -0.09814453125,
+      "ppl": 5.013864815235138,
+      "ppl_each": [
+        7.995563507080078,
+        2.9627480506896973,
+        3.334906816482544,
+        5.762240886688232
+      ],
+      "kl": 3.0454519522512178e-06,
+      "kl_each": [
+        5.900859832763672e-06,
+        2.496758497727569e-07,
+        2.985820174217224e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-198 (L58)",
+      "layer": 58,
+      "j": 2439,
+      "k": 10850,
+      "weight": 0.08721923828125,
+      "ppl": 5.014085412025452,
+      "ppl_each": [
+        7.995330810546875,
+        2.9631786346435547,
+        3.3351988792419434,
+        5.762633323669434
+      ],
+      "kl": 1.0400241687117766e-06,
+      "kl_each": [
+        8.567621989641339e-07,
+        5.443653208203614e-07,
+        1.7189449863508344e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-199 (L58)",
+      "layer": 58,
+      "j": 2439,
+      "k": 9747,
+      "weight": 0.107666015625,
+      "ppl": 5.014202952384949,
+      "ppl_each": [
+        7.9967474937438965,
+        2.9630589485168457,
+        3.3346996307373047,
+        5.762305736541748
+      ],
+      "kl": 4.722420878048676e-07,
+      "kl_each": [
+        7.376565918093547e-07,
+        1.8521768652135506e-07,
+        4.938519850838929e-07
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-200 (L54)",
+      "layer": 54,
+      "j": 375,
+      "k": 8421,
+      "weight": -0.74658203125,
+      "ppl": 5.011528313159943,
+      "ppl_each": [
+        7.99118185043335,
+        2.9612691402435303,
+        3.3334922790527344,
+        5.760169982910156
+      ],
+      "kl": 5.587178748100996e-06,
+      "kl_each": [
+        7.437891326844692e-06,
+        2.4627952370792627e-06,
+        6.860849680379033e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-201 (L54)",
+      "layer": 54,
+      "j": 2440,
+      "k": 8421,
+      "weight": -0.337158203125,
+      "ppl": 5.014427602291107,
+      "ppl_each": [
+        7.99743127822876,
+        2.9630818367004395,
+        3.3343021869659424,
+        5.762895107269287
+      ],
+      "kl": 4.1015058134992915e-06,
+      "kl_each": [
+        4.504690878093243e-06,
+        1.4097022358328104e-06,
+        6.390124326571822e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-202 (L54)",
+      "layer": 54,
+      "j": 5633,
+      "k": 8421,
+      "weight": 0.306640625,
+      "ppl": 5.014123558998108,
+      "ppl_each": [
+        7.99810266494751,
+        2.9641692638397217,
+        3.332594633102417,
+        5.761627674102783
+      ],
+      "kl": 3.416188216457764e-06,
+      "kl_each": [
+        6.37455377727747e-06,
+        1.7521379049867392e-06,
+        2.121872967109084e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-203 (L54)",
+      "layer": 54,
+      "j": 4663,
+      "k": 8421,
+      "weight": -0.284423828125,
+      "ppl": 5.014506101608276,
+      "ppl_each": [
+        7.9962477684021,
+        2.9629628658294678,
+        3.3352553844451904,
+        5.763558387756348
+      ],
+      "kl": 1.1959042846380423e-06,
+      "kl_each": [
+        4.414214345160872e-07,
+        8.044808055274189e-07,
+        2.3418106138706207e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-204 (L9)",
+      "layer": 9,
+      "j": 5633,
+      "k": 12992,
+      "weight": 0.9267578125,
+      "ppl": 5.016569077968597,
+      "ppl_each": [
+        7.993903160095215,
+        2.976693630218506,
+        3.3377597332000732,
+        5.757919788360596
+      ],
+      "kl": 1.1500150624973079e-05,
+      "kl_each": [
+        1.3612559996545315e-05,
+        4.885790986008942e-06,
+        1.600210089236498e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-205 (L9)",
+      "layer": 9,
+      "j": 5633,
+      "k": 155,
+      "weight": 0.8662109375,
+      "ppl": 5.0199583768844604,
+      "ppl_each": [
+        8.007305145263672,
+        2.9778640270233154,
+        3.333894968032837,
+        5.760769367218018
+      ],
+      "kl": 5.581801209094313e-06,
+      "kl_each": [
+        6.325135473161936e-06,
+        2.7489350031828508e-06,
+        7.671333150938153e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-206 (L9)",
+      "layer": 9,
+      "j": 5633,
+      "k": 1840,
+      "weight": 0.9150390625,
+      "ppl": 5.012605667114258,
+      "ppl_each": [
+        7.992944240570068,
+        2.9672117233276367,
+        3.3319144248962402,
+        5.758352279663086
+      ],
+      "kl": 4.353610468873133e-06,
+      "kl_each": [
+        7.1714166551828384e-06,
+        1.631706254556775e-06,
+        4.257708496879786e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-207 (L9)",
+      "layer": 9,
+      "j": 5633,
+      "k": 9341,
+      "weight": -0.85986328125,
+      "ppl": 5.012299358844757,
+      "ppl_each": [
+        7.991405010223389,
+        2.9647912979125977,
+        3.334332227706909,
+        5.758668899536133
+      ],
+      "kl": 3.855713051355754e-06,
+      "kl_each": [
+        4.374160198494792e-06,
+        2.34317485592328e-06,
+        4.849804099649191e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-208 (L9)",
+      "layer": 9,
+      "j": 375,
+      "k": 12992,
+      "weight": -0.375244140625,
+      "ppl": 5.015753507614136,
+      "ppl_each": [
+        7.9931745529174805,
+        2.9657764434814453,
+        3.3393092155456543,
+        5.764753818511963
+      ],
+      "kl": 6.074776562551657e-05,
+      "kl_each": [
+        5.417212378233671e-05,
+        1.3785203918814659e-05,
+        0.00011428596917539835
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-209 (L9)",
+      "layer": 9,
+      "j": 375,
+      "k": 155,
+      "weight": -0.2144775390625,
+      "ppl": 5.013909935951233,
+      "ppl_each": [
+        7.996050834655762,
+        2.9638915061950684,
+        3.335251808166504,
+        5.760445594787598
+      ],
+      "kl": 6.4906077265429e-06,
+      "kl_each": [
+        7.016409654170275e-06,
+        3.8058205973356962e-06,
+        8.649592928122729e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-210 (L9)",
+      "layer": 9,
+      "j": 375,
+      "k": 1840,
+      "weight": -0.35205078125,
+      "ppl": 5.01302045583725,
+      "ppl_each": [
+        7.994019508361816,
+        2.9617576599121094,
+        3.3343136310577393,
+        5.761991024017334
+      ],
+      "kl": 6.752918125130236e-06,
+      "kl_each": [
+        1.0191812179982662e-05,
+        3.428227500990033e-06,
+        6.638714694418013e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-211 (L9)",
+      "layer": 9,
+      "j": 375,
+      "k": 15665,
+      "weight": 0.2271728515625,
+      "ppl": 5.013189673423767,
+      "ppl_each": [
+        7.995393753051758,
+        2.962658166885376,
+        3.3342549800872803,
+        5.760451793670654
+      ],
+      "kl": 2.7500015373031297e-06,
+      "kl_each": [
+        1.024760422296822e-06,
+        2.3892789613455534e-06,
+        4.835965228267014e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-212 (L9)",
+      "layer": 9,
+      "j": 94,
+      "k": 12992,
+      "weight": 0.33349609375,
+      "ppl": 5.0109477043151855,
+      "ppl_each": [
+        7.993258476257324,
+        2.9599831104278564,
+        3.335059881210327,
+        5.755489349365234
+      ],
+      "kl": 9.302806574851274e-06,
+      "kl_each": [
+        8.889823220670223e-06,
+        4.161294782534242e-06,
+        1.4857301721349359e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-213 (L9)",
+      "layer": 9,
+      "j": 94,
+      "k": 155,
+      "weight": 0.27294921875,
+      "ppl": 5.010345041751862,
+      "ppl_each": [
+        7.988684177398682,
+        2.9621503353118896,
+        3.331244945526123,
+        5.759300708770752
+      ],
+      "kl": 3.875261124145861e-06,
+      "kl_each": [
+        6.4016785472631454e-06,
+        2.3481079551856965e-06,
+        2.8759968699887395e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-214 (L9)",
+      "layer": 9,
+      "j": 94,
+      "k": 9341,
+      "weight": -0.1673583984375,
+      "ppl": 5.011353015899658,
+      "ppl_each": [
+        7.9941864013671875,
+        2.960170269012451,
+        3.3336753845214844,
+        5.75738000869751
+      ],
+      "kl": 6.156124679061274e-06,
+      "kl_each": [
+        6.91611785441637e-06,
+        2.3156608222052455e-06,
+        9.236595360562205e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-215 (L9)",
+      "layer": 9,
+      "j": 94,
+      "k": 5287,
+      "weight": -0.1815185546875,
+      "ppl": 5.012542963027954,
+      "ppl_each": [
+        7.992827892303467,
+        2.962838888168335,
+        3.334383726119995,
+        5.7601213455200195
+      ],
+      "kl": 5.683655520745863e-06,
+      "kl_each": [
+        1.0809395462274551e-05,
+        2.4155015125870705e-06,
+        3.826069587375969e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-216 (L9)",
+      "layer": 9,
+      "j": 6254,
+      "k": 12992,
+      "weight": 0.248291015625,
+      "ppl": 5.010476469993591,
+      "ppl_each": [
+        7.99494743347168,
+        2.9581429958343506,
+        3.333801031112671,
+        5.755014419555664
+      ],
+      "kl": 9.661113532880941e-06,
+      "kl_each": [
+        1.3799290172755718e-05,
+        2.886139554902911e-06,
+        1.2297910870984197e-05
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-217 (L9)",
+      "layer": 9,
+      "j": 6254,
+      "k": 155,
+      "weight": 0.296630859375,
+      "ppl": 5.010925710201263,
+      "ppl_each": [
+        7.993314266204834,
+        2.958029270172119,
+        3.3333160877227783,
+        5.759043216705322
+      ],
+      "kl": 5.692580695419262e-06,
+      "kl_each": [
+        8.121016435325146e-06,
+        1.9990766304545105e-06,
+        6.957649020478129e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-218 (L9)",
+      "layer": 9,
+      "j": 6254,
+      "k": 1840,
+      "weight": 0.270263671875,
+      "ppl": 5.012172341346741,
+      "ppl_each": [
+        7.988691806793213,
+        2.9625978469848633,
+        3.3354601860046387,
+        5.761939525604248
+      ],
+      "kl": 3.821813152171671e-06,
+      "kl_each": [
+        5.430891178548336e-06,
+        1.3490935089066625e-06,
+        4.685454769060016e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    },
+    {
+      "name": "found-219 (L9)",
+      "layer": 9,
+      "j": 6254,
+      "k": 15665,
+      "weight": -0.26171875,
+      "ppl": 5.012144207954407,
+      "ppl_each": [
+        7.990627765655518,
+        2.961982011795044,
+        3.335529088973999,
+        5.760437965393066
+      ],
+      "kl": 4.409501949946086e-06,
+      "kl_each": [
+        7.129099685698748e-06,
+        1.9854342099279165e-06,
+        4.113971954211593e-06
+      ],
+      "continuation": "a city of great beauty and charm, with a rich history and a v",
+      "verdict": "no effect"
+    }
+  ]
+}
