@@ -1,0 +1,9 @@
+# The lesion-arm anchor model, healthy: base rate for the same prompts used in configs/lesion.
+model: allenai/OLMo-1B-0724-hf
+languages: [eng_Latn, spa_Latn, fra_Latn, deu_Latn]
+n_prompts: 200
+prefix_tokens: 50
+max_new_tokens: 256
+batch_size: 16
+seed: 0
+out_dir: results/loops_pilot

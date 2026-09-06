@@ -1,0 +1,12 @@
+# Mistral-7B L1[2070,7310], established x1430 on wikitext-2 (notes.md).
+model: mistralai/Mistral-7B-v0.1
+coordinate: {layer: 1, j: 2070, k: 7310}
+doses: [1.0, 0.75, 0.5, 0.25, 0.0]
+contribution_mean: true
+matched_random_draws: 50
+matched_random_pool: 100
+eval: {segments: 32, seq_len: 2048}
+calibration: {split: validation, segments: 8, seq_len: 2048}
+generation: {language: eng_Latn, split: devtest, n_prompts: 50, prefix_tokens: 50, max_new_tokens: 128}
+seed: 0
+out_dir: results/lesion

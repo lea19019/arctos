@@ -1,0 +1,9 @@
+# Aya-Expanse-8B used as a plain LM: no chat template, raw continuation (recorded in provenance).
+model: CohereForAI/aya-expanse-8b
+languages: [eng_Latn, spa_Latn, fra_Latn, por_Latn, deu_Latn, cmn_Hans, rus_Cyrl, kor_Hang, arz_Arab]
+n_prompts: 200
+prefix_tokens: 50
+max_new_tokens: 256
+batch_size: 16
+seed: 0
+out_dir: results/loops_pilot

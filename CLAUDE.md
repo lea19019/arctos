@@ -1,5 +1,8 @@
 # Arctos — working rules
 
+**On the BYU ORC cluster, `BYU_ORC_AGENTS.md` (top level, copy of
+`/apps/instructions_for_ai_agents/BYU_ORC_AGENTS.md`) takes precedence over this file.**
+
 Three research tracks, each self-contained with its own `pyproject.toml` and
 `.venv`. Nothing runs at the top level.
 

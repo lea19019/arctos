@@ -1,0 +1,9 @@
+# Natural-repetition pilot, Arm N1 (docs/repetition_experiment_design.md §2).
+model: Unbabel/TowerBase-7B-v0.1
+languages: [eng_Latn, spa_Latn, fra_Latn, por_Latn, deu_Latn, cmn_Hans, rus_Cyrl, kor_Hang]
+n_prompts: 200
+prefix_tokens: 50
+max_new_tokens: 256
+batch_size: 16
+seed: 0
+out_dir: results/loops_pilot

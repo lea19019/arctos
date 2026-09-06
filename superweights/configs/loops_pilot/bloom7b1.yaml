@@ -1,0 +1,9 @@
+# BLOOM-7B1: ALiBi, no BOS prepended by the tokenizer; African languages are in its training mix.
+model: bigscience/bloom-7b1
+languages: [eng_Latn, spa_Latn, fra_Latn, por_Latn, cmn_Hans, arz_Arab, swh_Latn, yor_Latn, ibo_Latn, xho_Latn]
+n_prompts: 200
+prefix_tokens: 50
+max_new_tokens: 256
+batch_size: 16
+seed: 0
+out_dir: results/loops_pilot

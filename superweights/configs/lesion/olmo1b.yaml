@@ -1,0 +1,12 @@
+# Smoke test with a known answer: OLMo-1B L1[1764,1710], established x3667 on wikitext-2 (notes.md).
+model: allenai/OLMo-1B-0724-hf
+coordinate: {layer: 1, j: 1764, k: 1710}
+doses: [1.0, 0.75, 0.5, 0.25, 0.0]
+contribution_mean: true
+matched_random_draws: 50
+matched_random_pool: 100
+eval: {segments: 32, seq_len: 2048}
+calibration: {split: validation, segments: 8, seq_len: 2048}
+generation: {language: eng_Latn, split: devtest, n_prompts: 50, prefix_tokens: 50, max_new_tokens: 128}
+seed: 0
+out_dir: results/lesion
