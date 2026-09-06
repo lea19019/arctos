@@ -54,8 +54,12 @@ def lesion_table(root):
             x = r["contribution_mean"]
             line(x, x["ppl_ratio"], x["ppl_ratio_ci95"])
             cal = x["calibration"]
-            print(f"   calibration: mean contribution pos0 {cal['mean_contrib_pos0']:+.3f} (n={cal['n_pos0']}), "
-                  f"rest {cal['mean_contrib_rest']:+.5f} (n={cal['n_rest']})")
+            if "mean_contrib_sink" in cal:
+                print(f"   calibration: sink positions (|x_k| >= {cal['threshold_abs_x']:.1f}, n={cal['n_sink']}) get "
+                      f"{cal['mean_contrib_sink']:+.3f}; other positions (n={cal['n_rest']}) get {cal['mean_contrib_rest']:+.5f}")
+            else:
+                print(f"   calibration (old pos0 bucketing): pos0 {cal['mean_contrib_pos0']:+.3f} (n={cal['n_pos0']}), "
+                      f"rest {cal['mean_contrib_rest']:+.5f} (n={cal['n_rest']})")
         if "matched_random" in r:
             mr = r["matched_random"]
             print(f"{'matched-random null':<22} {'':>10} max x{mr['max_ratio']:.3f}  p95 x{mr['p95_ratio']:.3f}  "
