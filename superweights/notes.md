@@ -532,3 +532,13 @@ NLLB prediction files in `grp_mtlab` hold one sentence each, so no repetition ca
 off them; the ToAll incident doc reports 13.9% of Efik segments with ≥3× repeated tokens
 from the lab's fine-tuned NLLB-600M in production — a natural-repetition observation in a
 healthy translation model, decoding settings unknown.
+
+**Added later the same evening — third experiment.** `src/constant_by_language.py` +
+`configs/const_lang/*.yaml` + `slurm/const_lang.sh` (array 13593778, 7 models): per language,
+20 FLORES+ sentences → where the massive activation appears (onset layer, channel, token
+position), its magnitude with a bootstrap CI, and the v5-traced coordinate; plus a
+cross-language agreement summary. CPU smoke on OLMo-1B with 2 sentences each of English and
+Swahili: same channel 1764, same onset layer 1, same token position 0, same coordinate
+L1[1764,1710], peaks 423 vs 418 — two sentences, a plumbing check only. First array
+submission (13593777) was cancelled: it went out before a JSON-serialisation bug found by the
+smoke test was fixed; nothing ran.
