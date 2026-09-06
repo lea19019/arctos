@@ -115,18 +115,20 @@ def main():
                 t, j, L, pk = max(sas, key=lambda s: s[3])
                 X, Y = store[L]
                 W = out_proj(layers[L]).weight.float().cpu()
-                contrib = [(k, w, share, ok) for k, w, share, ok in contributors(X[t], Y[t], W, j)]
+                contrib = [(int(k), float(w), float(share), bool(ok))
+                           for k, w, share, ok in contributors(X[t], Y[t], W, j)]
                 # magnitude on the plateau: median |h| over layers after onset (excl. last)
                 plateau = H[L + 1:-1, t, j].abs()
-                top = {"token": t, "token_str": tokenizer.decode(enc["input_ids"][0, t:t + 1]),
-                       "channel": j, "onset_layer": L, "peak": pk,
+                top = {"token": int(t), "token_str": tokenizer.decode(enc["input_ids"][0, t:t + 1]),
+                       "channel": int(j), "onset_layer": int(L), "peak": float(pk),
                        "plateau_median": plateau.median().item() if plateau.numel() else None,
                        "last_layer_abs": H[-2, t, j].abs().item(),
                        "final_abs": H[-1, t, j].abs().item(),
                        "contributors": [{"k": k, "w": w, "share": share, "ok": ok} for k, w, share, ok in contrib]}
             recs.append({"doc_ids": d["ids"][:1], "n_tokens": int(enc["input_ids"].shape[1]),
                          "n_super_activations": len(sas),
-                         "all": [{"token": t, "channel": j, "onset_layer": L, "peak": pk} for t, j, L, pk in sas],
+                         "all": [{"token": int(t), "channel": int(j), "onset_layer": int(L), "peak": float(pk)}
+                                 for t, j, L, pk in sas],
                          "top": top})
         tops = [r["top"] for r in recs if r["top"]]
         chan = Counter(t["channel"] for t in tops)

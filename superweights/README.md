@@ -1,7 +1,9 @@
 # superweights — formation and behavior of super weights
 
-**Status: docs only, no code.** Drafted 2026-08-06. Not yet a committed direction —
-the next step is a `/new-experiment` spec for Phase 0 (see the program doc).
+**Status (2026-09-05):** Tier A replication done (`notes.md`); a 2026-09-02 joint-ablation
+session is parked *unverified* in `parked_claude_2026-09-02/`; direction being re-scoped
+around the collapse mechanism — see `docs/problem_search_2026_09.md` and
+`docs/proposal_draft_v4.md`.
 
 A super weight is a single scalar weight whose ablation is catastrophic for an LLM
 (Yu et al., arXiv:2411.07191). This track asks **when they form during training,
@@ -11,10 +13,15 @@ interests, cross-lingual structure (`interlingua/`) and compression (`compressio
 
 | Doc | What it is |
 |---|---|
-| [`docs/three_axis_program.md`](docs/three_axis_program.md) | The program: Phase 0 (re-verify q6 with a calibrated detector) → three axes, with gating logic and floor deliverables |
+| [`docs/problem_search_2026_09.md`](docs/problem_search_2026_09.md) | **Read first.** 2026-09-05 literature sweep (≈130 new papers) synthesised against the project's results: nine footing-changing facts, ranked candidate problems, and a recommended re-scope |
+| [`docs/proposal_draft.md`](docs/proposal_draft.md) | MS project proposal, v1 (Adrian, 2026-08): "Super Weights: Formation and Cross-Lingual Behavior" |
+| [`docs/proposal_draft_v4.md`](docs/proposal_draft_v4.md) | **Current proposal (v4, 2026-09-05):** built-in-constant framing; RQ1 uniform table on multilingual/translation models (mandatory), RQ2 mechanism, RQ3 language dependence, RQ4 gated quantization arm in the lab's CT2 int8 regime |
+| `docs/proposal_draft_v2.md`, `docs/proposal_draft_v3.md` | Superseded drafts (mechanism-first; problem-first) kept for the record |
+| [`docs/reviews_2026_09_05/`](docs/reviews_2026_09_05/) | Six adversarial reviews (three of v2, three of v3) that produced v4 |
+| [`docs/three_axis_program.md`](docs/three_axis_program.md) | The original 2026-08 program: Phase 0 → three axes. Partly superseded by the problem search |
 | [`docs/reading_list.md`](docs/reading_list.md) | Background reading, tiered, with verification status per paper |
 | [`docs/prior_experiments_and_ideas.md`](docs/prior_experiments_and_ideas.md) | Where the earlier q6 super-weight work lives (code, results, defects), which program claims rest on it, and tiered ideas for the fresh start |
-| [`papers/README.md`](papers/README.md) | Index of local PDFs (PDFs themselves are gitignored, same policy as `interlingua/papers/`) |
+| [`papers/README.md`](papers/README.md) | Index of ~200 local PDFs in one flat folder, organised by topic; five `papers/notes_<topic>.md` reading notes (PDFs gitignored, same policy as `interlingua/papers/`) |
 
 Grounding: `docs/registry.md` (q6 super-weight section + ruled-out list),
 `interlingua/docs/method_landscape.md` §5, `interlingua/docs/prior_work_map.md` §8.
