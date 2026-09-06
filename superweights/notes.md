@@ -470,3 +470,65 @@ eight below 0.25 — this repo's data said the same thing a year ago.
 
 The blocker is not evidence, it is calibration: **Phase 0 converts "we found
 nothing" into "there is nothing", and nothing else does.**
+
+---
+
+## 2026-09-05 — Repetition pilot + lesion control triple: set up and submitted (Claude, autonomous; Adrian away)
+
+**Context.** The project is being re-scoped around a question that does not depend on the
+"super weight" term: the constant that a few early-layer `down_proj` weights write into the
+residual stream (peer-reviewed as massive activations / attention sinks), what it does, and
+whether the loops a lesion produces ("We. We. We.") are the same failure as the loops a
+*healthy* model falls into on its own. Design and pre-registered definitions:
+`docs/repetition_experiment_design.md`; literature: `papers/notes_repetition_sink_link.md`,
+`papers/notes_multilingual_repetition.md`.
+
+**Verified, zero compute — Yona et al. 2025's "sink neurons" are Yu et al.'s super-weight
+columns.** Read side by side from the two PDFs (`papers/phenomenon/Interpreting-2025-Repeated-
+Token-Phenomenon.pdf` Table 1; `Yu-2024-The-Super-Weight-in-LLMs.pdf` Table 2):
+
+| model | Yona: sink layer / neuron ids | Yu Table 2 (or our v5 detection) |
+|---|---|---|
+| LLaMa-1-7B | 2 / **7003** | L2[3968, **7003**] |
+| LLaMa-2-7B | 1 / **7890**, 10411 | L1[2533, **7890**] |
+| Mistral-7B(-Instruct) | 1 / **7310**, 8572 | L1[2070, **7310**] (base) |
+| Llama-3-8B-Instruct | 1 / 198, **2427** | our v5: three rows on column **2427** (Llama-3.1-8B) |
+
+Yona's index is the MLP intermediate neuron; Yu's `k` is the `down_proj` input column, i.e.
+the same neuron. Four independent four-digit matches with the layer agreeing each time. So the
+"super weight" is one scalar of the fan-out of the neuron that builds the sink, which is also
+why our 16 individually-inert Table 2 coordinates share one input column per model. Caveats:
+Yona's checkpoints are the Instruct variants for Mistral and Llama-3; Yona's second neuron per
+model (10411, 8572, 198) has no counterpart in Yu's table; Yona's K in TopK is not stated.
+
+**Code (branch `loops-pilot`, commit ed3056c).** `src/rep_metrics.py` (L-onset rule g=4, k=3,
+W=100, t_min=32; seq-rep-4; rep-r; TNG; six unit tests pass), `src/gen_loops.py` (greedy,
+no repetition penalty, FLORES+ documents → 50-token prompts, 256 new tokens, batched with
+left padding + a batch-invariance check, provenance in every JSON, bulky records to
+gitignored `.records.jsonl`), `src/lesion_controls.py` (dose sweep α∈{1,.75,.5,.25,0} on a
+known coordinate; **contribution-mean control** = zero the weight and add its calibration-mean
+contribution back on the output channel, bucketed first-token vs rest, via a forward hook with
+KV cache off; **magnitude-matched random null** = 50 single-weight zeroings from the top-100
+|W| of the same matrix, max-statistic; paired-bootstrap CIs over 32×2048 wikitext-2 windows;
+massive-activation |h₀[j]| after layer L as the dose check; 50 FLORES-eng continuations scored
+with the repetition metrics). Configs: `configs/loops_pilot/*.yaml` (TowerBase-7B, EuroLLM-9B-
+Instruct, Aya-Expanse-8B, BLOOM-7B1, OLMo-1B, Mistral-7B; 4–10 languages each, 200 prompts),
+`configs/lesion/{olmo1b,mistral7b}.yaml`. SLURM: `slurm/loops_pilot.sh`, `slurm/lesion.sh`
+(`--qos=cs --gpus=1`, no partition, per `BYU_ORC_AGENTS.md`, now copied to the repo top level).
+
+**Smoke test (CPU, login node, OLMo-1B, 2 windows × 256 tokens, 2 prompts × 10 tokens):**
+baseline ppl 12.86, |h₀[1764]| 267.7; dose 0 → ppl 20,086, |h₀| 5.3, loops from the first
+tokens (`"\n mar,\n\n\n\n"`); **contribution-mean → ppl 12.87, |h₀| 239.6, no loops.** Two windows
+is not a result, but it says the control does what Sun/Owen's set-to-mean did for activations:
+the *presence* of the constant is what matters, not the weight. Matched-random ×1.000 (2 draws).
+
+**Submitted:** lesion array 13593588 (OLMo-1B, Mistral-7B), loops array 13593589 (6 models).
+Both pending at 21:21 on resources (cs nodes partly in maintenance). Results go to
+`results/lesion/` and `results/loops_pilot/`; `src/loops_summary.py` prints the tables.
+
+**Also learned today, not results:** FLORES+ devtest has 281 documents (URLs) per language,
+median 4 sentences each, so 200 fifty-token prompts per language are available; the lab's
+NLLB prediction files in `grp_mtlab` hold one sentence each, so no repetition can be read
+off them; the ToAll incident doc reports 13.9% of Efik segments with ≥3× repeated tokens
+from the lab's fine-tuned NLLB-600M in production — a natural-repetition observation in a
+healthy translation model, decoding settings unknown.
