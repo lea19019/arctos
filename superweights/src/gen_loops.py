@@ -48,7 +48,7 @@ DEFAULTS = {
     "batch_size": 16,
     "batch_invariance_n": 16,
     "seed": 0,
-    "add_special_tokens": True,  # tokenizer default BOS handling; recorded
+    "add_bos": "default",        # "default" = whatever tokenizer(text) does; or true/false
     "out_dir": "results/loops_pilot",
 }
 
@@ -101,10 +101,23 @@ def build_prompts(tokenizer, lang, cfg):
 
 
 # ---------------------------------------------------------------- generation
+def tokenizer_prepends_bos(tokenizer):
+    """transformers>=5 reports add_bos_token=False even when the default call
+    prepends BOS, so ask the tokenizer directly."""
+    ids = tokenizer("x").input_ids
+    return bool(ids) and tokenizer.bos_token_id is not None and ids[0] == tokenizer.bos_token_id
+
+
+def resolve_add_bos(tokenizer, cfg):
+    v = cfg.get("add_bos", "default")
+    if v == "default":
+        return tokenizer_prepends_bos(tokenizer)
+    return bool(v) and tokenizer.bos_token_id is not None
+
+
 @torch.no_grad()
 def generate_batch(model, tokenizer, prompt_ids_list, cfg, device):
-    bos = [tokenizer.bos_token_id] if (cfg["add_special_tokens"] and tokenizer.bos_token_id is not None
-                                       and getattr(tokenizer, "add_bos_token", True)) else []
+    bos = [tokenizer.bos_token_id] if cfg["_add_bos"] else []
     seqs = [bos + p for p in prompt_ids_list]
     maxlen = max(len(s) for s in seqs)
     pad = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else tokenizer.eos_token_id
@@ -183,6 +196,7 @@ def main():
         dtype = torch.float32
     tokenizer = AutoTokenizer.from_pretrained(cfg["model"], revision=cfg["revision"])
     tokenizer.padding_side = "left"
+    cfg["_add_bos"] = resolve_add_bos(tokenizer, cfg)
     model = AutoModelForCausalLM.from_pretrained(
         cfg["model"], revision=cfg["revision"], dtype=dtype).to(device).eval()
 
@@ -200,7 +214,9 @@ def main():
         "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
         "tokenizer": {"bos_token": tokenizer.bos_token, "bos_token_id": tokenizer.bos_token_id,
                       "eos_token_id": tokenizer.eos_token_id,
-                      "add_bos_token": getattr(tokenizer, "add_bos_token", None),
+                      "add_bos_token_attr": getattr(tokenizer, "add_bos_token", None),
+                      "tokenizer_default_prepends_bos": tokenizer_prepends_bos(tokenizer),
+                      "bos_prepended_in_this_run": cfg["_add_bos"],
                       "pad_token_id": tokenizer.pad_token_id,
                       "chat_template_applied": False},
         "decoding": {"do_sample": False, "num_beams": 1, "repetition_penalty": 1.0,
@@ -228,9 +244,11 @@ def main():
 
         # batch-invariance check: regenerate the first n at batch size 1
         n_bi = min(cfg["batch_invariance_n"], len(records))
-        exact, first_div = 0, []
+        exact, first_div, bs1_loops, batched_loops = 0, [], 0, 0
         for r in records[:n_bi]:
-            g1, _ = generate_batch(model, tokenizer, [r["prompt_ids"]], cfg, device)[0]
+            g1, e1 = generate_batch(model, tokenizer, [r["prompt_ids"]], cfg, device)[0]
+            bs1_loops += int(rm.summarize(g1, ended_with_eos=e1)["loop"])
+            batched_loops += int(r["loop"])
             if g1 == r["gen_ids"]:
                 exact += 1
             else:
@@ -255,7 +273,8 @@ def main():
                 lambda xs: sum(xs) / len(xs) if xs else None)(
                 [r["expected_script_share"] for r in records if r["expected_script_share"] is not None]),
             "batch_invariance": {"n_checked": n_bi, "exact_match": exact,
-                                 "first_divergence_positions": first_div},
+                                 "first_divergence_positions": first_div,
+                                 "loops_bs1": bs1_loops, "loops_batched_same_prompts": batched_loops},
         }
         print(json.dumps(summary, indent=1), flush=True)
         # summary (small, committed) and per-generation records (large, gitignored)

@@ -542,3 +542,44 @@ Swahili: same channel 1764, same onset layer 1, same token position 0, same coor
 L1[1764,1710], peaks 423 vs 418 — two sentences, a plumbing check only. First array
 submission (13593777) was cancelled: it went out before a JSON-serialisation bug found by the
 smoke test was fixed; nothing ran.
+
+## 2026-09-06 — First results came back; one confound found before writing them up
+
+All 15 array tasks completed (lesion 13593588, loops 13593589, const-lang 13593778; 3–40 min
+each). **Before the numbers: a BOS confound.** In transformers 5.15 the tokenizer attribute
+`add_bos_token` is `False` for Mistral, TowerBase, EuroLLM and Aya even though their default
+call `tokenizer(text)` *does* prepend BOS. My runners keyed on the attribute, so those four
+models ran **without BOS** in all three experiments (OLMo, BLOOM, Qwen3 are unaffected: their
+default is no BOS). Without BOS the constant lands on the first delimiter token instead of
+position 0 (visible in the per-language table: Mistral's sink on a comma at positions 3–21,
+Aya's on ' ', ',', ' de'), and my contribution-mean control — which added the mean back at
+position 0 — put the constant in the wrong place for Mistral: ×1196 [563, 2166], loops, while
+for OLMo (sink genuinely at position 0) it was harmless, ×1.30 [1.00, 2.18], |h₀| 249 vs 268.
+So the Mistral control result is an artefact of my bucketing, not a finding. Fixes (commit
+below): BOS policy = the tokenizer's real default (`tokenizer("x").input_ids[0] == bos_id`),
+recorded per run; contribution-mean bucketed by *sink positions detected from |x_k|* inside
+the hook (per token, KV-cache safe) instead of by position 0; batch-invariance check now also
+compares loop *rates* at bs=1 vs batched. The no-BOS results are kept as
+`results/*_nobos/` and all three arrays are re-run with the default BOS policy.
+
+**What the no-BOS run still established (unchanged by BOS for these models):**
+- OLMo-1B dose sweep, 32×2048 wikitext-2 windows: α=0.75 ×1.03 [1.03,1.04]; 0.5 ×8.3 [7.7,9.0];
+  0.25 ×279 [256,305]; 0 ×3667 [3425,3920] (replicates the established ×3667); |h₀[1764]| falls
+  linearly with α (268→202→137→71→5). Matched-random null over 50 draws from the top-100 |W|:
+  max ×1.000. Mistral-7B: 0.75 ×1.03; 0.5 ×1.39 [1.11,2.15]; 0.25 ×83 [68,110]; 0 ×1425
+  [1229,1647] (replicates ×1430); null max ×1.001.
+- **Same channel, same onset layer, same traced coordinate for every input language, in all 7
+  models** (20 FLORES+ sentences per language, 6–11 languages each): OLMo-1B L1 ch1764
+  [1764,1710]; Mistral L1 ch2070 [2070,7310]; TowerBase L1 ch2533 [2533,7890]; EuroLLM-9B L9
+  ch1448 [1448,3575]; Aya-8B L2 ch2619 [2619,1079]; Qwen3-8B-Base L6 ch2276 [2276,5723];
+  BLOOM-7b1 L7 ch1947 with no single weight passing the v5 share rule in any language. Per-
+  language magnitudes have overlapping CIs within a model (e.g. EuroLLM 7026–7782 across 11
+  languages; OLMo 407–423 across 6). Channel identity does not depend on BOS; the *position*
+  does, so this table is re-run rather than cited.
+- Greedy loop rates in healthy models are high everywhere (English, 200 prompts, 256 tokens):
+  OLMo-1B 0.84, Mistral 0.83, BLOOM 0.90, TowerBase 0.79, EuroLLM 0.72, Aya 0.49 — so the
+  natural-repetition arm is well powered, and the base rate is a model property before it is
+  a language property. Rates vary within a model by language (Aya: zh/ko ≈0.75 vs es 0.40;
+  BLOOM: zh 0.94 vs xho 0.36), but EOS rates vary too (OLMo emits EOS early in fr/de) and the
+  batched-vs-bs1 exact-match rate for bf16 7–9B models is only 4–9/16, so per-language claims
+  wait for the BOS-correct re-run and the rate-level invariance check.

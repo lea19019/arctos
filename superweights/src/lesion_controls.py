@@ -35,7 +35,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rep_metrics as rm  # noqa: E402
-from gen_loops import build_prompts, wilson  # noqa: E402
+from gen_loops import build_prompts, resolve_add_bos, tokenizer_prepends_bos, wilson  # noqa: E402
 from provenance import git_sha  # noqa: E402
 
 DEFAULTS = {
@@ -109,9 +109,8 @@ def massive_activation(model, tokenizer, prompt, L, j, device):
 
 
 @torch.no_grad()
-def generate_one(model, tokenizer, prompt_ids, max_new, device, use_cache=True):
-    bos = ([tokenizer.bos_token_id] if tokenizer.bos_token_id is not None
-           and getattr(tokenizer, "add_bos_token", True) else [])
+def generate_one(model, tokenizer, prompt_ids, max_new, device, use_cache=True, add_bos=False):
+    bos = [tokenizer.bos_token_id] if add_bos else []
     ids = torch.tensor([bos + prompt_ids], device=device)
     out = model.generate(input_ids=ids, attention_mask=torch.ones_like(ids),
                          max_new_tokens=max_new, do_sample=False, num_beams=1,
@@ -125,10 +124,10 @@ def generate_one(model, tokenizer, prompt_ids, max_new, device, use_cache=True):
     return g, ended
 
 
-def gen_summary(model, tokenizer, prompts, max_new, device, use_cache=True):
+def gen_summary(model, tokenizer, prompts, max_new, device, use_cache=True, add_bos=False):
     recs = []
     for p in prompts:
-        g, ended = generate_one(model, tokenizer, p["prompt_ids"], max_new, device, use_cache)
+        g, ended = generate_one(model, tokenizer, p["prompt_ids"], max_new, device, use_cache, add_bos)
         recs.append({**rm.summarize(g, ended_with_eos=ended),
                      "gen_text": tokenizer.decode(g, skip_special_tokens=True)})
     n = len(recs)
@@ -143,42 +142,48 @@ def gen_summary(model, tokenizer, prompts, max_new, device, use_cache=True):
 
 # ---------------------------------------------------------------- contribution-mean hook
 class ContributionMean:
-    """Zero W[j,k] and add the calibration-mean contribution to output channel j,
-    bucketed: position 0 gets mean_pos0, positions >= 1 get mean_rest.
-    Requires full-sequence forwards (no KV cache) so positions are known."""
+    """Zero W[j,k] and add the calibration-mean contribution back on output
+    channel j, bucketed by whether the position is a SINK position: a token
+    where |x_k| (the intermediate neuron's activation) exceeds `frac` of the
+    calibration maximum. The decision is per token from the hook's own input,
+    so it works with the KV cache and does not assume the sink is position 0
+    (without BOS the sink lands on the first delimiter; Sun et al. 2024)."""
 
-    def __init__(self, model, L, j, k):
+    def __init__(self, model, L, j, k, frac=0.5):
         self.mod = down_proj(model, L)
-        self.j, self.k = j, k
+        self.j, self.k, self.frac = j, k, frac
         self.w = self.mod.weight[j, k].item()
-        self.mean_pos0 = self.mean_rest = None
+        self.thresh = self.mean_sink = self.mean_rest = None
         self.handle = None
 
     def calibrate(self, model, windows):
-        xs0, xsr = [], []
+        xs = []
 
         def cap(module, inp, out):
-            x = inp[0][0, :, self.k].float()
-            xs0.append(x[0].item())
-            xsr.extend(x[1:].tolist())
+            xs.append(inp[0][0, :, self.k].float().cpu())
         h = self.mod.register_forward_hook(cap)
         with torch.no_grad():
             for w in windows:
                 model(input_ids=w)
         h.remove()
-        self.mean_pos0 = self.w * sum(xs0) / len(xs0)
-        self.mean_rest = self.w * sum(xsr) / len(xsr)
-        return {"mean_contrib_pos0": self.mean_pos0, "mean_contrib_rest": self.mean_rest,
-                "n_pos0": len(xs0), "n_rest": len(xsr)}
+        x = torch.cat(xs)
+        self.thresh = self.frac * x.abs().max().item()
+        sink = x.abs() >= self.thresh
+        self.mean_sink = self.w * x[sink].mean().item() if sink.any() else 0.0
+        self.mean_rest = self.w * x[~sink].mean().item()
+        return {"threshold_abs_x": self.thresh, "mean_contrib_sink": self.mean_sink,
+                "mean_contrib_rest": self.mean_rest, "n_sink": int(sink.sum()),
+                "n_rest": int((~sink).sum()), "sink_frac_of_max": self.frac}
 
     def __enter__(self):
         with torch.no_grad():
             self.mod.weight[self.j, self.k] = 0.0
 
         def add(module, inp, out):
-            out[:, 0, self.j] += self.mean_pos0
-            if out.shape[1] > 1:
-                out[:, 1:, self.j] += self.mean_rest
+            x = inp[0][..., self.k]
+            sink = (x.abs() >= self.thresh)
+            out[..., self.j] += torch.where(sink, torch.tensor(self.mean_sink, dtype=out.dtype, device=out.device),
+                                            torch.tensor(self.mean_rest, dtype=out.dtype, device=out.device))
             return out
         self.handle = self.mod.register_forward_hook(add)
         return self
@@ -210,6 +215,7 @@ def main():
     if device == "cpu":
         dtype = torch.float32
     tokenizer = AutoTokenizer.from_pretrained(cfg["model"], revision=cfg["revision"])
+    add_bos = resolve_add_bos(tokenizer, cfg)
     model = AutoModelForCausalLM.from_pretrained(
         cfg["model"], revision=cfg["revision"], dtype=dtype).to(device).eval()
     W = down_proj(model, L).weight
@@ -229,7 +235,7 @@ def main():
     def measure(name, use_cache=True):
         losses = window_losses(model, eval_w)
         ma = massive_activation(model, tokenizer, cfg["probe_prompt"], L, j, device)
-        gsum, recs = gen_summary(model, tokenizer, prompts, g["max_new_tokens"], device, use_cache)
+        gsum, recs = gen_summary(model, tokenizer, prompts, g["max_new_tokens"], device, use_cache, add_bos)
         print(f"  {name:<22} ppl {ppl(losses):10.2f}   |h0[{j}]| {abs(ma['h0_j']):9.1f}   "
               f"loop {gsum['loop_rate']:.2f}  seq-rep-4 {gsum['seq_rep_4_mean']:.3f}   "
               f"e.g. {gsum['examples'][0][:60]!r}", flush=True)
@@ -264,7 +270,7 @@ def main():
         cm = ContributionMean(model, L, j, k)
         calib = cm.calibrate(model, calib_w)
         with cm:
-            r = attach_ratio(measure("contribution-mean", use_cache=False))
+            r = attach_ratio(measure("contribution-mean"))
         r["calibration"] = calib
         results["contribution_mean"] = r
         assert W[j, k].item() == w0
@@ -310,6 +316,8 @@ def main():
             "gpu": torch.cuda.get_device_name(0) if device == "cuda" else None,
             "dtype": str(model.dtype), "revision_resolved": getattr(model.config, "_commit_hash", None),
             "slurm_job_id": os.environ.get("SLURM_JOB_ID"), "seq_len": seq_len,
+            "bos_prepended_in_generation": add_bos,
+            "tokenizer_default_prepends_bos": tokenizer_prepends_bos(tokenizer),
             "eval_windows": len(eval_w), "calibration_windows": len(calib_w),
             "coordinate": {"layer": L, "j": j, "k": k, "weight": w0}},
         "results": results}, ensure_ascii=False, indent=1))

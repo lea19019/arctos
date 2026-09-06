@@ -1,0 +1,100 @@
+{
+ "provenance": {
+  "date": "2026-09-06T01:25:34",
+  "git_sha": "4ff6215f381c04c1a3c8d15874ad766b0cd40284-dirty",
+  "config_file": "configs/loops_pilot/mistral7b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_special_tokens": true,
+   "out_dir": "results/loops_pilot",
+   "model": "mistralai/Mistral-7B-v0.1",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "deu_Latn"
+   ]
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.bfloat16",
+  "revision_resolved": "27d67f1b5f57dc0953326b2601d68371d40ea8da",
+  "slurm_job_id": "13594126",
+  "tokenizer": {
+   "bos_token": "<s>",
+   "bos_token_id": 1,
+   "eos_token_id": 2,
+   "add_bos_token": false,
+   "pad_token_id": null,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "deu_Latn",
+  "n": 200,
+  "loop_rate": 0.77,
+  "loop_rate_ci95": [
+   0.7069157192180299,
+   0.8229074375860769
+  ],
+  "loop_with_window_rate": 0.685,
+  "loop_with_window_ci95": [
+   0.617649158589664,
+   0.7453778192205573
+  ],
+  "eos_rate": 0.09,
+  "eos_rate_ci95": [
+   0.05768697871453362,
+   0.13776674613848952
+  ],
+  "onset_quantiles": {
+   "0.1": 25,
+   "0.25": 46,
+   "0.5": 77,
+   "0.75": 113,
+   "0.9": 146
+  },
+  "seq_rep_4_mean": 0.4018302009461422,
+  "rep_r_mean": 0.7331941641998222,
+  "mean_gen_tokens": 247.945,
+  "expected_script_share_mean": 0.9999692780337942,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 4,
+   "first_divergence_positions": [
+    109,
+    28,
+    36,
+    51,
+    99,
+    52,
+    92,
+    17,
+    13,
+    57,
+    61,
+    118
+   ]
+  }
+ },
+ "records_file": "deu_Latn.records.jsonl"
+}

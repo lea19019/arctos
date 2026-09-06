@@ -1,0 +1,109 @@
+{
+ "provenance": {
+  "date": "2026-09-06T01:17:46",
+  "git_sha": "4ff6215f381c04c1a3c8d15874ad766b0cd40284-dirty",
+  "config_file": "configs/loops_pilot/eurollm9b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_special_tokens": true,
+   "out_dir": "results/loops_pilot",
+   "model": "utter-project/EuroLLM-9B-Instruct",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "ces_Latn",
+    "ita_Latn",
+    "nld_Latn"
+   ]
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.bfloat16",
+  "revision_resolved": "f7ae2bc3bcbb538c0b93fa6cfbf388d9898b1ace",
+  "slurm_job_id": "13594118",
+  "tokenizer": {
+   "bos_token": "<s>",
+   "bos_token_id": 1,
+   "eos_token_id": 4,
+   "add_bos_token": false,
+   "pad_token_id": 2,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "nld_Latn",
+  "n": 200,
+  "loop_rate": 0.755,
+  "loop_rate_ci95": [
+   0.6909563161285153,
+   0.809432220853141
+  ],
+  "loop_with_window_rate": 0.64,
+  "loop_with_window_ci95": [
+   0.5714139956562682,
+   0.7033091226866021
+  ],
+  "eos_rate": 0.0,
+  "eos_rate_ci95": [
+   0.0,
+   0.018846005918320894
+  ],
+  "onset_quantiles": {
+   "0.1": 28,
+   "0.25": 37,
+   "0.5": 52,
+   "0.75": 82,
+   "0.9": 122
+  },
+  "seq_rep_4_mean": 0.45942687747035593,
+  "rep_r_mean": 0.7828515625,
+  "mean_gen_tokens": 256.0,
+  "expected_script_share_mean": 0.9996953125,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 1,
+   "first_divergence_positions": [
+    4,
+    26,
+    8,
+    4,
+    56,
+    8,
+    27,
+    65,
+    2,
+    114,
+    2,
+    13,
+    170,
+    33,
+    11
+   ]
+  }
+ },
+ "records_file": "nld_Latn.records.jsonl"
+}

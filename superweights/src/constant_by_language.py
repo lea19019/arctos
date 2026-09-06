@@ -29,11 +29,11 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from detectors.v5 import MASSIVE_FRAC, contributors, super_activations  # noqa: E402
-from gen_loops import documents  # noqa: E402
+from gen_loops import documents, resolve_add_bos, tokenizer_prepends_bos  # noqa: E402
 from provenance import git_sha  # noqa: E402
 
 DEFAULTS = {"revision": None, "dtype": "auto", "seed": 0, "split": "devtest",
-            "n_sentences": 20, "add_bos": None, "out_dir": "results/const_lang"}
+            "n_sentences": 20, "add_bos": "default", "out_dir": "results/const_lang"}
 
 
 # ---------------------------------------------------------------- architecture
@@ -87,9 +87,7 @@ def main():
     model = AutoModelForCausalLM.from_pretrained(
         cfg["model"], revision=cfg["revision"], dtype=dtype).to(device).eval()
     layers, out_proj = ffn_layers(model)
-    add_bos = cfg["add_bos"]
-    if add_bos is None:   # tokenizer default
-        add_bos = bool(tokenizer.bos_token_id is not None and getattr(tokenizer, "add_bos_token", True))
+    add_bos = resolve_add_bos(tokenizer, cfg)
 
     # a fixed bar for "massive": v5 uses 10% of the largest residual peak seen;
     # we set it once on the English reference sentence so all languages share it
@@ -175,7 +173,8 @@ def main():
                        "device": device, "gpu": torch.cuda.get_device_name(0) if device == "cuda" else None,
                        "dtype": str(model.dtype), "revision_resolved": getattr(model.config, "_commit_hash", None),
                        "slurm_job_id": os.environ.get("SLURM_JOB_ID"), "model_type": model.config.model_type,
-                       "n_layers": n_layers, "add_bos": add_bos, "massive_bar": bar,
+                       "n_layers": n_layers, "add_bos": add_bos,
+                       "tokenizer_default_prepends_bos": tokenizer_prepends_bos(tokenizer), "massive_bar": bar,
                        "bos_token": tokenizer.bos_token},
         "agreement": agreement, "per_language": per_lang}, ensure_ascii=False, indent=1))
     print("written", out, flush=True)

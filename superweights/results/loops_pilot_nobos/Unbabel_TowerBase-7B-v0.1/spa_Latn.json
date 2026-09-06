@@ -1,0 +1,102 @@
+{
+ "provenance": {
+  "date": "2026-09-06T01:29:07",
+  "git_sha": "4ff6215f381c04c1a3c8d15874ad766b0cd40284-dirty",
+  "config_file": "configs/loops_pilot/towerbase7b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_special_tokens": true,
+   "out_dir": "results/loops_pilot",
+   "model": "Unbabel/TowerBase-7B-v0.1",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "kor_Hang"
+   ]
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.bfloat16",
+  "revision_resolved": "bd59c10d76007e960368acfc15bebc201c112b1b",
+  "slurm_job_id": "13593589",
+  "tokenizer": {
+   "bos_token": "<s>",
+   "bos_token_id": 1,
+   "eos_token_id": 2,
+   "add_bos_token": false,
+   "pad_token_id": null,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "spa_Latn",
+  "n": 200,
+  "loop_rate": 0.755,
+  "loop_rate_ci95": [
+   0.6909563161285153,
+   0.809432220853141
+  ],
+  "loop_with_window_rate": 0.625,
+  "loop_with_window_ci95": [
+   0.5561417515728713,
+   0.6891467469475485
+  ],
+  "eos_rate": 0.07,
+  "eos_rate_ci95": [
+   0.04215178292291873,
+   0.11405578216683726
+  ],
+  "onset_quantiles": {
+   "0.1": 28,
+   "0.25": 35,
+   "0.5": 54,
+   "0.75": 76,
+   "0.9": 105
+  },
+  "seq_rep_4_mean": 0.581925709849534,
+  "rep_r_mean": 0.8415551466371093,
+  "mean_gen_tokens": 243.62,
+  "expected_script_share_mean": 0.9999672667757774,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 6,
+   "first_divergence_positions": [
+    44,
+    31,
+    125,
+    0,
+    40,
+    68,
+    13,
+    16,
+    35,
+    9
+   ]
+  }
+ },
+ "records_file": "spa_Latn.records.jsonl"
+}

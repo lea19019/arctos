@@ -1,0 +1,98 @@
+{
+ "provenance": {
+  "date": "2026-09-06T00:55:26",
+  "git_sha": "4ff6215f381c04c1a3c8d15874ad766b0cd40284",
+  "config_file": "configs/loops_pilot/aya8b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_special_tokens": true,
+   "out_dir": "results/loops_pilot",
+   "model": "CohereForAI/aya-expanse-8b",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "kor_Hang",
+    "arz_Arab"
+   ]
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.float16",
+  "revision_resolved": "5062468bf9bc0c6035fd64e06274333ec127d980",
+  "slurm_job_id": "13594052",
+  "tokenizer": {
+   "bos_token": "<BOS_TOKEN>",
+   "bos_token_id": 5,
+   "eos_token_id": 255001,
+   "add_bos_token": false,
+   "pad_token_id": 0,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "por_Latn",
+  "n": 200,
+  "loop_rate": 0.48,
+  "loop_rate_ci95": [
+   0.4117904407948983,
+   0.5489633994418346
+  ],
+  "loop_with_window_rate": 0.45,
+  "loop_with_window_ci95": [
+   0.38263948633754313,
+   0.519245114254289
+  ],
+  "eos_rate": 0.0,
+  "eos_rate_ci95": [
+   0.0,
+   0.018846005918320894
+  ],
+  "onset_quantiles": {
+   "0.1": 37,
+   "0.25": 60,
+   "0.5": 90,
+   "0.75": 131,
+   "0.9": 168
+  },
+  "seq_rep_4_mean": 0.19096837944664036,
+  "rep_r_mean": 0.57603515625,
+  "mean_gen_tokens": 256.0,
+  "expected_script_share_mean": 0.9998158334425818,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 11,
+   "first_divergence_positions": [
+    92,
+    0,
+    38,
+    158,
+    15
+   ]
+  }
+ },
+ "records_file": "por_Latn.records.jsonl"
+}

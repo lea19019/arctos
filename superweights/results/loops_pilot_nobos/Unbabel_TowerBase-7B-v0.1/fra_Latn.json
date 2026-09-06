@@ -1,0 +1,100 @@
+{
+ "provenance": {
+  "date": "2026-09-06T01:29:07",
+  "git_sha": "4ff6215f381c04c1a3c8d15874ad766b0cd40284-dirty",
+  "config_file": "configs/loops_pilot/towerbase7b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_special_tokens": true,
+   "out_dir": "results/loops_pilot",
+   "model": "Unbabel/TowerBase-7B-v0.1",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "kor_Hang"
+   ]
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.bfloat16",
+  "revision_resolved": "bd59c10d76007e960368acfc15bebc201c112b1b",
+  "slurm_job_id": "13593589",
+  "tokenizer": {
+   "bos_token": "<s>",
+   "bos_token_id": 1,
+   "eos_token_id": 2,
+   "add_bos_token": false,
+   "pad_token_id": null,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "fra_Latn",
+  "n": 200,
+  "loop_rate": 0.43,
+  "loop_rate_ci95": [
+   0.36334204488394795,
+   0.49929639594461706
+  ],
+  "loop_with_window_rate": 0.335,
+  "loop_with_window_ci95": [
+   0.2732398096874265,
+   0.4029793722656195
+  ],
+  "eos_rate": 0.52,
+  "eos_rate_ci95": [
+   0.4510366005581654,
+   0.5882095592051018
+  ],
+  "onset_quantiles": {
+   "0.1": 24,
+   "0.25": 33,
+   "0.5": 51,
+   "0.75": 76,
+   "0.9": 105
+  },
+  "seq_rep_4_mean": 0.31719346382953195,
+  "rep_r_mean": 0.5122066488496698,
+  "mean_gen_tokens": 157.05,
+  "expected_script_share_mean": 1.0,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 8,
+   "first_divergence_positions": [
+    37,
+    11,
+    18,
+    14,
+    63,
+    212,
+    51,
+    38
+   ]
+  }
+ },
+ "records_file": "fra_Latn.records.jsonl"
+}

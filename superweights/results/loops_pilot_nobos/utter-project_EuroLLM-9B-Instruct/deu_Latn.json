@@ -1,0 +1,105 @@
+{
+ "provenance": {
+  "date": "2026-09-06T01:17:46",
+  "git_sha": "4ff6215f381c04c1a3c8d15874ad766b0cd40284-dirty",
+  "config_file": "configs/loops_pilot/eurollm9b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_special_tokens": true,
+   "out_dir": "results/loops_pilot",
+   "model": "utter-project/EuroLLM-9B-Instruct",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "ces_Latn",
+    "ita_Latn",
+    "nld_Latn"
+   ]
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.bfloat16",
+  "revision_resolved": "f7ae2bc3bcbb538c0b93fa6cfbf388d9898b1ace",
+  "slurm_job_id": "13594118",
+  "tokenizer": {
+   "bos_token": "<s>",
+   "bos_token_id": 1,
+   "eos_token_id": 4,
+   "add_bos_token": false,
+   "pad_token_id": 2,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "deu_Latn",
+  "n": 200,
+  "loop_rate": 0.615,
+  "loop_rate_ci95": [
+   0.5459973878179245,
+   0.6796680308208618
+  ],
+  "loop_with_window_rate": 0.53,
+  "loop_with_window_ci95": [
+   0.46091557335361155,
+   0.5979536662912893
+  ],
+  "eos_rate": 0.005,
+  "eos_rate_ci95": [
+   0.0008831459893662054,
+   0.02777439986977148
+  ],
+  "onset_quantiles": {
+   "0.1": 27,
+   "0.25": 41,
+   "0.5": 58,
+   "0.75": 91,
+   "0.9": 119
+  },
+  "seq_rep_4_mean": 0.4125265238194299,
+  "rep_r_mean": 0.7311733490566038,
+  "mean_gen_tokens": 255.78,
+  "expected_script_share_mean": 1.0,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 5,
+   "first_divergence_positions": [
+    12,
+    17,
+    175,
+    19,
+    255,
+    15,
+    71,
+    36,
+    31,
+    73,
+    25
+   ]
+  }
+ },
+ "records_file": "deu_Latn.records.jsonl"
+}

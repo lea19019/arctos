@@ -1,0 +1,99 @@
+{
+ "provenance": {
+  "date": "2026-09-06T01:29:07",
+  "git_sha": "4ff6215f381c04c1a3c8d15874ad766b0cd40284-dirty",
+  "config_file": "configs/loops_pilot/towerbase7b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_special_tokens": true,
+   "out_dir": "results/loops_pilot",
+   "model": "Unbabel/TowerBase-7B-v0.1",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "kor_Hang"
+   ]
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.bfloat16",
+  "revision_resolved": "bd59c10d76007e960368acfc15bebc201c112b1b",
+  "slurm_job_id": "13593589",
+  "tokenizer": {
+   "bos_token": "<s>",
+   "bos_token_id": 1,
+   "eos_token_id": 2,
+   "add_bos_token": false,
+   "pad_token_id": null,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "rus_Cyrl",
+  "n": 200,
+  "loop_rate": 0.505,
+  "loop_rate_ci95": [
+   0.4362687594824017,
+   0.5735427804584151
+  ],
+  "loop_with_window_rate": 0.455,
+  "loop_with_window_ci95": [
+   0.38748099090226035,
+   0.5242151496303886
+  ],
+  "eos_rate": 0.4,
+  "eos_rate_ci95": [
+   0.3346046396837895,
+   0.46916456149987484
+  ],
+  "onset_quantiles": {
+   "0.1": 33,
+   "0.25": 44,
+   "0.5": 58,
+   "0.75": 76,
+   "0.9": 118
+  },
+  "seq_rep_4_mean": 0.3485878836451065,
+  "rep_r_mean": 0.5344239715233953,
+  "mean_gen_tokens": 170.975,
+  "expected_script_share_mean": 0.699300550336973,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 9,
+   "first_divergence_positions": [
+    16,
+    36,
+    35,
+    62,
+    37,
+    3,
+    35
+   ]
+  }
+ },
+ "records_file": "rus_Cyrl.records.jsonl"
+}
