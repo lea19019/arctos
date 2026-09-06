@@ -1,0 +1,92 @@
+{
+ "provenance": {
+  "date": "2026-09-06T08:34:20",
+  "git_sha": "a1e2b82cdade9590e8159873429a525cf070db2b-dirty",
+  "config_file": "configs/loops_pilot/olmo1b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_bos": "default",
+   "out_dir": "results/loops_pilot",
+   "model": "allenai/OLMo-1B-0724-hf",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "deu_Latn"
+   ],
+   "_add_bos": false
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.float32",
+  "revision_resolved": "d7cbab742d80589e714b1a2d7f838dcd21cbe143",
+  "slurm_job_id": "13594684",
+  "tokenizer": {
+   "bos_token": null,
+   "bos_token_id": null,
+   "eos_token_id": 50279,
+   "add_bos_token_attr": false,
+   "tokenizer_default_prepends_bos": false,
+   "bos_prepended_in_this_run": false,
+   "pad_token_id": 1,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "spa_Latn",
+  "n": 200,
+  "loop_rate": 0.375,
+  "loop_rate_ci95": [
+   0.3108532530524515,
+   0.44385824842712884
+  ],
+  "loop_with_window_rate": 0.25,
+  "loop_with_window_ci95": [
+   0.19508076816296532,
+   0.3143422347961952
+  ],
+  "eos_rate": 0.63,
+  "eos_rate_ci95": [
+   0.5612250134987606,
+   0.6938750249624759
+  ],
+  "onset_quantiles": {
+   "0.1": 16,
+   "0.25": 26,
+   "0.5": 40,
+   "0.75": 60,
+   "0.9": 78
+  },
+  "seq_rep_4_mean": 0.31613396878575223,
+  "rep_r_mean": 0.4877945823511527,
+  "mean_gen_tokens": 134.7,
+  "expected_script_share_mean": 0.9923789639147074,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 16,
+   "first_divergence_positions": [],
+   "loops_bs1": 3,
+   "loops_batched_same_prompts": 3
+  }
+ },
+ "records_file": "spa_Latn.records.jsonl"
+}

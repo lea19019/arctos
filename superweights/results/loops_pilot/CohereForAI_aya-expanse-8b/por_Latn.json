@@ -1,0 +1,101 @@
+{
+ "provenance": {
+  "date": "2026-09-06T08:17:50",
+  "git_sha": "a1e2b82cdade9590e8159873429a525cf070db2b-dirty",
+  "config_file": "configs/loops_pilot/aya8b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_bos": "default",
+   "out_dir": "results/loops_pilot",
+   "model": "CohereForAI/aya-expanse-8b",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "kor_Hang",
+    "arz_Arab"
+   ],
+   "_add_bos": true
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.float16",
+  "revision_resolved": "5062468bf9bc0c6035fd64e06274333ec127d980",
+  "slurm_job_id": "13594663",
+  "tokenizer": {
+   "bos_token": "<BOS_TOKEN>",
+   "bos_token_id": 5,
+   "eos_token_id": 255001,
+   "add_bos_token_attr": false,
+   "tokenizer_default_prepends_bos": true,
+   "bos_prepended_in_this_run": true,
+   "pad_token_id": 0,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "por_Latn",
+  "n": 200,
+  "loop_rate": 0.555,
+  "loop_rate_ci95": [
+   0.4857317563236392,
+   0.6221951830253456
+  ],
+  "loop_with_window_rate": 0.53,
+  "loop_with_window_ci95": [
+   0.46091557335361155,
+   0.5979536662912893
+  ],
+  "eos_rate": 0.0,
+  "eos_rate_ci95": [
+   0.0,
+   0.018846005918320894
+  ],
+  "onset_quantiles": {
+   "0.1": 42,
+   "0.25": 63,
+   "0.5": 113,
+   "0.75": 164,
+   "0.9": 204
+  },
+  "seq_rep_4_mean": 0.20533596837944668,
+  "rep_r_mean": 0.57455078125,
+  "mean_gen_tokens": 256.0,
+  "expected_script_share_mean": 0.9997790489563475,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 13,
+   "first_divergence_positions": [
+    179,
+    83,
+    115
+   ],
+   "loops_bs1": 9,
+   "loops_batched_same_prompts": 8
+  }
+ },
+ "records_file": "por_Latn.records.jsonl"
+}

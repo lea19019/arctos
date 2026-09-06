@@ -1,0 +1,100 @@
+{
+ "provenance": {
+  "date": "2026-09-06T08:17:50",
+  "git_sha": "a1e2b82cdade9590e8159873429a525cf070db2b-dirty",
+  "config_file": "configs/loops_pilot/aya8b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_bos": "default",
+   "out_dir": "results/loops_pilot",
+   "model": "CohereForAI/aya-expanse-8b",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "kor_Hang",
+    "arz_Arab"
+   ],
+   "_add_bos": true
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.float16",
+  "revision_resolved": "5062468bf9bc0c6035fd64e06274333ec127d980",
+  "slurm_job_id": "13594663",
+  "tokenizer": {
+   "bos_token": "<BOS_TOKEN>",
+   "bos_token_id": 5,
+   "eos_token_id": 255001,
+   "add_bos_token_attr": false,
+   "tokenizer_default_prepends_bos": true,
+   "bos_prepended_in_this_run": true,
+   "pad_token_id": 0,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "kor_Hang",
+  "n": 200,
+  "loop_rate": 0.77,
+  "loop_rate_ci95": [
+   0.7069157192180299,
+   0.8229074375860769
+  ],
+  "loop_with_window_rate": 0.63,
+  "loop_with_window_ci95": [
+   0.5612250134987606,
+   0.6938750249624759
+  ],
+  "eos_rate": 0.0,
+  "eos_rate_ci95": [
+   0.0,
+   0.018846005918320894
+  ],
+  "onset_quantiles": {
+   "0.1": 26,
+   "0.25": 36,
+   "0.5": 68,
+   "0.75": 106,
+   "0.9": 145
+  },
+  "seq_rep_4_mean": 0.3567588932806324,
+  "rep_r_mean": 0.736328125,
+  "mean_gen_tokens": 256.0,
+  "expected_script_share_mean": 0.9618029077247112,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 14,
+   "first_divergence_positions": [
+    250,
+    95
+   ],
+   "loops_bs1": 14,
+   "loops_batched_same_prompts": 14
+  }
+ },
+ "records_file": "kor_Hang.records.jsonl"
+}

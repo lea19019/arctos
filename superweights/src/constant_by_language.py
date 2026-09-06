@@ -103,7 +103,8 @@ def main():
         docs = documents(lang, cfg["split"])[:cfg["n_sentences"]]
         recs = []
         for d in docs:
-            text = d["text"].split(". ")[0][:400]      # first sentence-ish
+            import re
+            text = re.split(r"(?<=[.。!?！？])\s*", d["text"], maxsplit=1)[0][:400]  # first sentence, CJK-aware
             enc = tokenizer(text, return_tensors="pt", return_token_type_ids=False,
                             add_special_tokens=add_bos).to(device)
             H, store = forward_pass(model, layers, out_proj, enc)

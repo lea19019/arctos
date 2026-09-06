@@ -1,0 +1,112 @@
+{
+ "provenance": {
+  "date": "2026-09-06T08:27:17",
+  "git_sha": "a1e2b82cdade9590e8159873429a525cf070db2b-dirty",
+  "config_file": "configs/loops_pilot/eurollm9b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_bos": "default",
+   "out_dir": "results/loops_pilot",
+   "model": "utter-project/EuroLLM-9B-Instruct",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "ces_Latn",
+    "ita_Latn",
+    "nld_Latn"
+   ],
+   "_add_bos": true
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.bfloat16",
+  "revision_resolved": "f7ae2bc3bcbb538c0b93fa6cfbf388d9898b1ace",
+  "slurm_job_id": "13594682",
+  "tokenizer": {
+   "bos_token": "<s>",
+   "bos_token_id": 1,
+   "eos_token_id": 4,
+   "add_bos_token_attr": false,
+   "tokenizer_default_prepends_bos": true,
+   "bos_prepended_in_this_run": true,
+   "pad_token_id": 2,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "rus_Cyrl",
+  "n": 200,
+  "loop_rate": 0.49,
+  "loop_rate_ci95": [
+   0.4215615528275274,
+   0.5588153672908391
+  ],
+  "loop_with_window_rate": 0.425,
+  "loop_with_window_ci95": [
+   0.35853495209243025,
+   0.4942919487953179
+  ],
+  "eos_rate": 0.0,
+  "eos_rate_ci95": [
+   0.0,
+   0.018846005918320894
+  ],
+  "onset_quantiles": {
+   "0.1": 28,
+   "0.25": 44,
+   "0.5": 68,
+   "0.75": 100,
+   "0.9": 130
+  },
+  "seq_rep_4_mean": 0.33320158102766806,
+  "rep_r_mean": 0.67478515625,
+  "mean_gen_tokens": 256.0,
+  "expected_script_share_mean": 0.9844747872292259,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 3,
+   "first_divergence_positions": [
+    15,
+    5,
+    54,
+    53,
+    15,
+    79,
+    22,
+    76,
+    7,
+    13,
+    44,
+    13,
+    107
+   ],
+   "loops_bs1": 9,
+   "loops_batched_same_prompts": 8
+  }
+ },
+ "records_file": "rus_Cyrl.records.jsonl"
+}

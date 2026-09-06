@@ -583,3 +583,91 @@ compares loop *rates* at bs=1 vs batched. The no-BOS results are kept as
   BLOOM: zh 0.94 vs xho 0.36), but EOS rates vary too (OLMo emits EOS early in fr/de) and the
   batched-vs-bs1 exact-match rate for bf16 7–9B models is only 4–9/16, so per-language claims
   wait for the BOS-correct re-run and the rate-level invariance check.
+
+## 2026-09-06 — BOS-corrected results (arrays 13594648 / 13594649 / 13594650, commit a1e2b82)
+
+All 15 tasks completed. Provenance in every JSON (git sha, resolved config, versions, model
+revision, dtype, SLURM job id, whether BOS was prepended). Coverage is stated per claim.
+
+### 1. The lesion measures the constant's *presence*, not the weight's value (2 models)
+
+Wikitext-2 test, 32×2048-token windows, paired bootstrap 95% CI; 50 FLORES-eng prompts,
+greedy, 128 new tokens, no repetition penalty; matched-random null = 50 single weights from
+the top-100 |W| of the same matrix, max-statistic.
+
+| model | zero | contribution-mean (sink-bucketed) | random null max | |h₀| baseline → mean-ctrl |
+|---|---|---|---|---|
+| OLMo-1B L1[1764,1710] | ×3667 [3425, 3920] | **×1.00 [1.00, 1.00]** | ×1.000 | 268 → 249 |
+| Mistral-7B L1[2070,7310] | ×1425 [1229, 1647] | **×1.52 [1.27, 1.86]** | ×1.001 | 264 → 312 |
+
+Loop rate under the mean control equals baseline (OLMo 0.66 vs 0.62; Mistral 0.50 vs 0.54).
+This is Sun et al. 2024 Table 3 / Owen et al. 2025 Table 1 (set-to-mean harmless, set-to-zero
+catastrophic) reproduced at the **weight** level, which no published ablation has done: what
+the model needs is the constant the neuron writes at the sink position, and a fixed value
+serves. n = 2 models, 1 revision each; the earlier no-BOS Mistral control (×1196) was my
+bucketing error, not a finding (previous entry).
+
+**Dose sweep.** OLMo: α=0.75 ×1.03; 0.5 ×8.3; 0.25 ×279; 0 ×3667, |h₀| linear in α. Mistral:
+0.75 ×1.03; **0.5 ×1.39 [1.11, 2.15] with loop rate 1.00 and seq-rep-4 0.99** ("bekan bekan
+bekan…"); 0.25 ×83; 0 ×1425. So in Mistral generation collapses at a dose where perplexity
+barely moves — perplexity is the wrong readout for this failure, as the design memo warned
+(Jin 2025's looping generation at perplexity 2.99).
+
+### 2. One constant per model, identical across input languages (7 models, 6–11 languages, 20 FLORES+ sentences each)
+
+| model | onset L / channel / traced weight | languages | position | peak range across languages |
+|---|---|---|---|---|
+| OLMo-1B (no BOS) | 1 / 1764 / [1764,1710] | 6 | first token | 407–423 |
+| Mistral-7B (BOS) | 1 / 2070 / [2070,7310] | 7 | `<s>` | 266.0–266.2 |
+| TowerBase-7B (BOS) | 1 / 2533 / [2533,7890] | 10 | `<s>` (zh: '。' at pos 89) | 1101–1233 (zh 2423) |
+| EuroLLM-9B-Instruct (BOS) | 9 / 1448 / [1448,3575] | 11 | `<s>` | 6858–6955 |
+| Aya-Expanse-8B (BOS) | 2 / 2619 / [2619,1079] | 10 | `<BOS_TOKEN>` | 771.0–771.4 |
+| Qwen3-8B-Base (no BOS) | 6 / 2276 / [2276,5723] | 9 | first token | 7418–10269 |
+| BLOOM-7B1 (no BOS) | 7 / 1947 / no single weight passes the share rule | 10 | first token | 3513–3833 |
+
+Same channel, same onset layer, and (BLOOM excepted) the same traced coordinate in 100% of
+sentences in every language, for every model. Two honest qualifications. (a) With a BOS token,
+position 0 attends only to itself, so h₀ is a fixed function of the BOS embedding and its
+cross-language identity is guaranteed by causal masking — the value is literally the same
+number (Mistral 266.0 in all seven languages). The informative cases are the no-BOS models,
+where the constant lands on whatever the first token is (a quote mark, '他', 'U') and the
+channel, layer and weight are still identical with magnitudes within ~5% (OLMo) to ~30% (Qwen);
+and the no-BOS first run of the BOS models (`results/const_lang_nobos/`), where the constant
+lands on the first delimiter (Mistral: ',' at positions 3–21) and the channel/weight are again
+identical. (b) The Chinese exception in Tower is a text artefact: my sentence split on ". "
+does not split Chinese, so the input was a whole paragraph and the largest activation was on
+a mid-sequence '。' at 2423, more than twice the BOS constant — Sun et al.'s delimiter case,
+worth a proper follow-up rather than a footnote. Fix the split before re-using this script.
+
+Reading: the model builds one constant, from one neuron, through one weight (or, in BLOOM,
+a distributed fan-out), and it is the same object for Swahili, Yoruba, Xhosa, Igbo, Arabic,
+Chinese and English input. It is not a language-specific piece of machinery; whether the
+*rest* of the sink circuit (which heads dump attention there, for which inputs) is
+language-dependent is the open question this does not answer.
+
+### 3. Healthy models loop constantly under greedy decoding (6 models × 4–10 languages, 200 prompts, 256 tokens, no penalty)
+
+Loop rate (pre-registered L-onset rule), 95% Wilson CI, English: TowerBase 0.86 [0.81,0.90],
+Mistral 0.84 [0.78,0.88], OLMo-1B 0.84 [0.78,0.88], BLOOM 0.90 [0.85,0.93], EuroLLM 0.63
+[0.56,0.69], Aya 0.60 [0.53,0.67]. Full table: `src/loops_summary.py results/loops_pilot`.
+Rate-level batch invariance holds (loops at bs=1 vs batched on the same 16 prompts agree within
+one) even though exact token match is poor for bf16 7–9B models (2–8/16), so rates are usable
+and per-sequence comparisons are not. Within-model language differences exist and are mostly
+confounded: OLMo emits EOS early in French/German (EOS 0.82/0.63), which caps its loop rate
+there at 0.07/0.11; BLOOM loops *earliest* in Igbo, Xhosa, Yoruba and Swahili (median onset
+9–27 tokens vs 36–47 in English/Spanish), which leaves almost no pre-onset window for the
+signature analysis (loop-with-window 0.02–0.23). Aya (zh/ko 0.68–0.77 vs es 0.48) and Tower
+(en 0.86 vs fr 0.68) show real spread with CIs that separate, but with n=1 model per
+architecture and greedy-only decoding this is a base-rate table, not a claim about languages.
+The natural-repetition arm is well powered everywhere except BLOOM-in-African-languages, where
+the loops start too early to window.
+
+### What this changes
+
+- The "super weight" is one scalar of the fan-out of the neuron that builds the sink, and its
+  criticality is the constant's presence (§1) — consistent with the Yona = Yu index match.
+- The constant is shared across languages in every model examined (§2); the interlingua
+  question about this object has a first answer, with the BOS caveat stated.
+- Repetition is abundant in healthy models under greedy decoding (§3) and appears in the lesion
+  before perplexity moves (§1), so the pre-onset signature comparison is runnable; the next
+  experiment is the position-split ablation and the pre-onset sink statistics, not more base rates.

@@ -1,0 +1,111 @@
+{
+ "provenance": {
+  "date": "2026-09-06T08:27:17",
+  "git_sha": "a1e2b82cdade9590e8159873429a525cf070db2b-dirty",
+  "config_file": "configs/loops_pilot/eurollm9b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_bos": "default",
+   "out_dir": "results/loops_pilot",
+   "model": "utter-project/EuroLLM-9B-Instruct",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "ces_Latn",
+    "ita_Latn",
+    "nld_Latn"
+   ],
+   "_add_bos": true
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.bfloat16",
+  "revision_resolved": "f7ae2bc3bcbb538c0b93fa6cfbf388d9898b1ace",
+  "slurm_job_id": "13594682",
+  "tokenizer": {
+   "bos_token": "<s>",
+   "bos_token_id": 1,
+   "eos_token_id": 4,
+   "add_bos_token_attr": false,
+   "tokenizer_default_prepends_bos": true,
+   "bos_prepended_in_this_run": true,
+   "pad_token_id": 2,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "fra_Latn",
+  "n": 200,
+  "loop_rate": 0.525,
+  "loop_rate_ci95": [
+   0.45597270710507,
+   0.5930849925990139
+  ],
+  "loop_with_window_rate": 0.455,
+  "loop_with_window_ci95": [
+   0.38748099090226035,
+   0.5242151496303886
+  ],
+  "eos_rate": 0.0,
+  "eos_rate_ci95": [
+   0.0,
+   0.018846005918320894
+  ],
+  "onset_quantiles": {
+   "0.1": 29,
+   "0.25": 41,
+   "0.5": 60,
+   "0.75": 98,
+   "0.9": 141
+  },
+  "seq_rep_4_mean": 0.3382411067193676,
+  "rep_r_mean": 0.71154296875,
+  "mean_gen_tokens": 256.0,
+  "expected_script_share_mean": 1.0,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 4,
+   "first_divergence_positions": [
+    4,
+    152,
+    6,
+    13,
+    13,
+    144,
+    94,
+    74,
+    37,
+    4,
+    3,
+    6
+   ],
+   "loops_bs1": 8,
+   "loops_batched_same_prompts": 6
+  }
+ },
+ "records_file": "fra_Latn.records.jsonl"
+}

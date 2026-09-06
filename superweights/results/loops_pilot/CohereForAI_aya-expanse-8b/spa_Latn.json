@@ -1,0 +1,99 @@
+{
+ "provenance": {
+  "date": "2026-09-06T08:17:50",
+  "git_sha": "a1e2b82cdade9590e8159873429a525cf070db2b-dirty",
+  "config_file": "configs/loops_pilot/aya8b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_bos": "default",
+   "out_dir": "results/loops_pilot",
+   "model": "CohereForAI/aya-expanse-8b",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "kor_Hang",
+    "arz_Arab"
+   ],
+   "_add_bos": true
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.float16",
+  "revision_resolved": "5062468bf9bc0c6035fd64e06274333ec127d980",
+  "slurm_job_id": "13594663",
+  "tokenizer": {
+   "bos_token": "<BOS_TOKEN>",
+   "bos_token_id": 5,
+   "eos_token_id": 255001,
+   "add_bos_token_attr": false,
+   "tokenizer_default_prepends_bos": true,
+   "bos_prepended_in_this_run": true,
+   "pad_token_id": 0,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "spa_Latn",
+  "n": 200,
+  "loop_rate": 0.475,
+  "loop_rate_ci95": [
+   0.4069150074009861,
+   0.54402729289493
+  ],
+  "loop_with_window_rate": 0.45,
+  "loop_with_window_ci95": [
+   0.38263948633754313,
+   0.519245114254289
+  ],
+  "eos_rate": 0.01,
+  "eos_rate_ci95": [
+   0.0027466006037749346,
+   0.03572248519617954
+  ],
+  "onset_quantiles": {
+   "0.1": 44,
+   "0.25": 54,
+   "0.5": 100,
+   "0.75": 143,
+   "0.9": 195
+  },
+  "seq_rep_4_mean": 0.21636990079512633,
+  "rep_r_mean": 0.6050251116071429,
+  "mean_gen_tokens": 255.81,
+  "expected_script_share_mean": 0.9521434798186742,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 15,
+   "first_divergence_positions": [
+    186
+   ],
+   "loops_bs1": 5,
+   "loops_batched_same_prompts": 5
+  }
+ },
+ "records_file": "spa_Latn.records.jsonl"
+}

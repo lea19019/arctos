@@ -1,0 +1,98 @@
+{
+ "provenance": {
+  "date": "2026-09-06T08:27:33",
+  "git_sha": "a1e2b82cdade9590e8159873429a525cf070db2b-dirty",
+  "config_file": "configs/loops_pilot/bloom7b1.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_bos": "default",
+   "out_dir": "results/loops_pilot",
+   "model": "bigscience/bloom-7b1",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "cmn_Hans",
+    "arz_Arab",
+    "swh_Latn",
+    "yor_Latn",
+    "ibo_Latn",
+    "xho_Latn"
+   ],
+   "_add_bos": false
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.float16",
+  "revision_resolved": "6232703e399354503377bf59dfbb8397fd569e4a",
+  "slurm_job_id": "13594681",
+  "tokenizer": {
+   "bos_token": "<s>",
+   "bos_token_id": 1,
+   "eos_token_id": 2,
+   "add_bos_token_attr": false,
+   "tokenizer_default_prepends_bos": false,
+   "bos_prepended_in_this_run": false,
+   "pad_token_id": 3,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "xho_Latn",
+  "n": 200,
+  "loop_rate": 0.355,
+  "loop_rate_ci95": [
+   0.29198518653239286,
+   0.4234801551839203
+  ],
+  "loop_with_window_rate": 0.015,
+  "loop_with_window_ci95": [
+   0.005114145184492387,
+   0.043166480556278884
+  ],
+  "eos_rate": 0.64,
+  "eos_rate_ci95": [
+   0.5714139956562682,
+   0.7033091226866021
+  ],
+  "onset_quantiles": {
+   "0.1": 5,
+   "0.25": 6,
+   "0.5": 9,
+   "0.75": 13,
+   "0.9": 19
+  },
+  "seq_rep_4_mean": 0.33765104460756634,
+  "rep_r_mean": 0.3691489121725195,
+  "mean_gen_tokens": 97.06,
+  "expected_script_share_mean": 1.0,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 16,
+   "first_divergence_positions": [],
+   "loops_bs1": 5,
+   "loops_batched_same_prompts": 5
+  }
+ },
+ "records_file": "xho_Latn.records.jsonl"
+}

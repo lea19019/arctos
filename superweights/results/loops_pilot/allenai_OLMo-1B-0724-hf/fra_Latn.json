@@ -1,0 +1,92 @@
+{
+ "provenance": {
+  "date": "2026-09-06T08:34:20",
+  "git_sha": "a1e2b82cdade9590e8159873429a525cf070db2b-dirty",
+  "config_file": "configs/loops_pilot/olmo1b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "split": "devtest",
+   "prefix_tokens": 50,
+   "max_new_tokens": 256,
+   "n_prompts": 200,
+   "batch_size": 16,
+   "batch_invariance_n": 16,
+   "seed": 0,
+   "add_bos": "default",
+   "out_dir": "results/loops_pilot",
+   "model": "allenai/OLMo-1B-0724-hf",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "deu_Latn"
+   ],
+   "_add_bos": false
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "python": "3.11.11",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.float32",
+  "revision_resolved": "d7cbab742d80589e714b1a2d7f838dcd21cbe143",
+  "slurm_job_id": "13594684",
+  "tokenizer": {
+   "bos_token": null,
+   "bos_token_id": null,
+   "eos_token_id": 50279,
+   "add_bos_token_attr": false,
+   "tokenizer_default_prepends_bos": false,
+   "bos_prepended_in_this_run": false,
+   "pad_token_id": 1,
+   "chat_template_applied": false
+  },
+  "decoding": {
+   "do_sample": false,
+   "num_beams": 1,
+   "repetition_penalty": 1.0,
+   "no_repeat_ngram_size": 0,
+   "max_new_tokens": 256,
+   "batched_left_padding": true
+  }
+ },
+ "summary": {
+  "language": "fra_Latn",
+  "n": 200,
+  "loop_rate": 0.07,
+  "loop_rate_ci95": [
+   0.04215178292291873,
+   0.11405578216683726
+  ],
+  "loop_with_window_rate": 0.045,
+  "loop_with_window_ci95": [
+   0.023852271724704166,
+   0.08329759366096785
+  ],
+  "eos_rate": 0.825,
+  "eos_rate_ci95": [
+   0.7663545078991807,
+   0.8713955882539106
+  ],
+  "onset_quantiles": {
+   "0.1": 17,
+   "0.25": 26,
+   "0.5": 51,
+   "0.75": 59,
+   "0.9": 122
+  },
+  "seq_rep_4_mean": 0.08809118076219827,
+  "rep_r_mean": 0.2852710898447476,
+  "mean_gen_tokens": 113.76,
+  "expected_script_share_mean": 1.0,
+  "batch_invariance": {
+   "n_checked": 16,
+   "exact_match": 16,
+   "first_divergence_positions": [],
+   "loops_bs1": 0,
+   "loops_batched_same_prompts": 0
+  }
+ },
+ "records_file": "fra_Latn.records.jsonl"
+}
