@@ -1,0 +1,6 @@
+model: bigscience/bloom-7b1
+languages: [eng_Latn,spa_Latn,fra_Latn,por_Latn,cmn_Hans,arz_Arab,swh_Latn,yor_Latn,ibo_Latn,xho_Latn]
+n_sentences: 20
+split: devtest
+seed: 0
+out_dir: results/const_lang

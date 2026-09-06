@@ -1,0 +1,6 @@
+model: Unbabel/TowerBase-7B-v0.1
+languages: [eng_Latn,spa_Latn,fra_Latn,por_Latn,deu_Latn,cmn_Hans,rus_Cyrl,kor_Hang,swh_Latn,yor_Latn]
+n_sentences: 20
+split: devtest
+seed: 0
+out_dir: results/const_lang
