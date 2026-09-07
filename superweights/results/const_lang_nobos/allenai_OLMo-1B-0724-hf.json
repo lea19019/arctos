@@ -1,0 +1,4271 @@
+{
+ "provenance": {
+  "date": "2026-09-06T01:31:43",
+  "git_sha": "4ff6215f381c04c1a3c8d15874ad766b0cd40284-dirty",
+  "config_file": "configs/const_lang/olmo1b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "seed": 0,
+   "split": "devtest",
+   "n_sentences": 20,
+   "add_bos": null,
+   "out_dir": "results/const_lang",
+   "model": "allenai/OLMo-1B-0724-hf",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "swh_Latn"
+   ]
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.float32",
+  "revision_resolved": "d7cbab742d80589e714b1a2d7f838dcd21cbe143",
+  "slurm_job_id": "13594135",
+  "model_type": "olmo",
+  "n_layers": 16,
+  "add_bos": false,
+  "massive_bar": 42.16008605957032,
+  "bos_token": null
+ },
+ "agreement": {
+  "channel_same_for_all": true,
+  "onset_same_for_all": true,
+  "coordinate_same_for_all": true,
+  "languages_with_massive": [
+   "eng_Latn",
+   "spa_Latn",
+   "fra_Latn",
+   "deu_Latn",
+   "cmn_Hans",
+   "swh_Latn"
+  ],
+  "languages_without": []
+ },
+ "per_language": {
+  "eng_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    1764,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    20
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     1764,
+     1710
+    ],
+    20
+   ],
+   "peak_mean": 422.8911666870117,
+   "peak_ci95": [
+    418.8581604003906,
+    426.3999053955078
+   ],
+   "plateau_median_mean": 416.3175842285156,
+   "channels": {
+    "1764": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 20
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 24,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 421.6007080078125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 421.6007080078125,
+      "plateau_median": 414.74920654296875,
+      "last_layer_abs": 413.7662048339844,
+      "final_abs": 14.2090482711792,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9757855878179268,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 59,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 424.9930114746094
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "On",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 424.9930114746094,
+      "plateau_median": 418.4751892089844,
+      "last_layer_abs": 417.4844055175781,
+      "final_abs": 0.9536004662513733,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9753554457485566,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 28,
+     "n_super_activations": 3,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 407.9447937011719
+      },
+      {
+       "token": 19,
+       "channel": 1110,
+       "onset_layer": 4,
+       "peak": 63.18657684326172
+      },
+      {
+       "token": 19,
+       "channel": 1764,
+       "onset_layer": 4,
+       "peak": 136.19583129882812
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Previously",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 407.9447937011719,
+      "plateau_median": 401.9412536621094,
+      "last_layer_abs": 400.9580078125,
+      "final_abs": 17.531291961669922,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9761636741769867,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 26,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 427.15765380859375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "While",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 427.15765380859375,
+      "plateau_median": 420.4541015625,
+      "last_layer_abs": 419.4703369140625,
+      "final_abs": 1.198502540588379,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9782008234226155,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 31,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 420.8193359375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "USA",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 420.8193359375,
+      "plateau_median": 414.20611572265625,
+      "last_layer_abs": 413.22021484375,
+      "final_abs": 8.37248706817627,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9780933127401119,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 11,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 437.0293273925781
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Throughout",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 437.0293273925781,
+      "plateau_median": 430.251708984375,
+      "last_layer_abs": 429.25885009765625,
+      "final_abs": 15.044805526733398,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9814868637440834,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 17,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 429.1481018066406
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "The",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 429.1481018066406,
+      "plateau_median": 422.3287048339844,
+      "last_layer_abs": 421.34735107421875,
+      "final_abs": 7.435797214508057,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9652809098104493,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 27,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 426.78204345703125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Late",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 426.78204345703125,
+      "plateau_median": 420.2734069824219,
+      "last_layer_abs": 419.2797546386719,
+      "final_abs": 4.968972206115723,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9817379331943838,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 34,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 424.4980163574219
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "This",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 424.4980163574219,
+      "plateau_median": 417.7778015136719,
+      "last_layer_abs": 416.7962646484375,
+      "final_abs": 5.126873016357422,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9744798173282161,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 27,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 414.2718200683594
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "A",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 414.2718200683594,
+      "plateau_median": 407.6993408203125,
+      "last_layer_abs": 406.7165832519531,
+      "final_abs": 16.1358585357666,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9801233980352528,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 37,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 424.5914001464844
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "They",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 424.5914001464844,
+      "plateau_median": 417.9807434082031,
+      "last_layer_abs": 416.9949951171875,
+      "final_abs": 3.156799793243408,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.973182534228435,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 13,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 433.98394775390625
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "During",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 433.98394775390625,
+      "plateau_median": 427.2228088378906,
+      "last_layer_abs": 426.23138427734375,
+      "final_abs": 13.521617889404297,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9772162059035993,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 22,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 429.1481018066406
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "The",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 429.1481018066406,
+      "plateau_median": 422.3287048339844,
+      "last_layer_abs": 421.34735107421875,
+      "final_abs": 7.435797214508057,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9652809098104493,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 27,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 420.79095458984375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 420.79095458984375,
+      "plateau_median": 414.0982360839844,
+      "last_layer_abs": 413.11212158203125,
+      "final_abs": 9.293679237365723,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9824502249713805,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 27,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 421.6007080078125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 421.6007080078125,
+      "plateau_median": 414.74920654296875,
+      "last_layer_abs": 413.7662048339844,
+      "final_abs": 14.2090482711792,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9757855878179268,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 13,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 429.14794921875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "The",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 429.14794921875,
+      "plateau_median": 422.32855224609375,
+      "last_layer_abs": 421.3471984863281,
+      "final_abs": 7.435996055603027,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9652810079352292,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 38,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 426.7025146484375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Current",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 426.7025146484375,
+      "plateau_median": 420.05999755859375,
+      "last_layer_abs": 419.0708923339844,
+      "final_abs": 1.901686429977417,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9770446854337165,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 55,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 429.14794921875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "The",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 429.14794921875,
+      "plateau_median": 422.32855224609375,
+      "last_layer_abs": 421.3471984863281,
+      "final_abs": 7.435615062713623,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9652805481801604,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 11,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 408.98834228515625
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Over",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 408.98834228515625,
+      "plateau_median": 403.0865173339844,
+      "last_layer_abs": 402.0927429199219,
+      "final_abs": 11.891716957092285,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9734760673285556,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 33,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 399.4766540527344
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Histor",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 399.4766540527344,
+      "plateau_median": 394.01153564453125,
+      "last_layer_abs": 393.0201416015625,
+      "final_abs": 20.472375869750977,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9844600244198247,
+        "ok": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "spa_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    1764,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    20
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     1764,
+     1710
+    ],
+    20
+   ],
+   "peak_mean": 407.0252685546875,
+   "peak_ci95": [
+    402.3793014526367,
+    411.57012634277345
+   ],
+   "plateau_median_mean": 401.0805206298828,
+   "channels": {
+    "1764": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 20
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 35,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 390.5351257324219
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "«",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 390.5351257324219,
+      "plateau_median": 385.4126281738281,
+      "last_layer_abs": 384.4263916015625,
+      "final_abs": 17.65345001220703,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9705709326182091,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 91,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 407.6159362792969
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "El",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 407.6159362792969,
+      "plateau_median": 401.6170959472656,
+      "last_layer_abs": 400.6274108886719,
+      "final_abs": 18.21991729736328,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9734128371350983,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 63,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 408.3031921386719
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Con",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 408.3031921386719,
+      "plateau_median": 402.53521728515625,
+      "last_layer_abs": 401.53533935546875,
+      "final_abs": 8.07835865020752,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9757351267156783,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 76,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 396.3421325683594
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Al",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 396.3421325683594,
+      "plateau_median": 390.7518310546875,
+      "last_layer_abs": 389.76165771484375,
+      "final_abs": 21.348730087280273,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9738163766356823,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 54,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 420.8192138671875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "USA",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 420.8192138671875,
+      "plateau_median": 414.20599365234375,
+      "last_layer_abs": 413.2200927734375,
+      "final_abs": 8.37399673461914,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9780932435116596,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 15,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 405.43743896484375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Dur",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 405.43743896484375,
+      "plateau_median": 399.541015625,
+      "last_layer_abs": 398.5465393066406,
+      "final_abs": 20.808395385742188,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9771496722633352,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 27,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 407.6159973144531
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "El",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 407.6159973144531,
+      "plateau_median": 401.6171569824219,
+      "last_layer_abs": 400.6274719238281,
+      "final_abs": 18.21803092956543,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9734128354854084,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 60,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 407.61602783203125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "El",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 407.61602783203125,
+      "plateau_median": 401.6171875,
+      "last_layer_abs": 400.62750244140625,
+      "final_abs": 18.21585464477539,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9734133889716959,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 63,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 401.3966369628906
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Ad",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 401.3966369628906,
+      "plateau_median": 395.869873046875,
+      "last_layer_abs": 394.87646484375,
+      "final_abs": 18.984756469726562,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9779744717076357,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 45,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 400.04229736328125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "En",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 400.04229736328125,
+      "plateau_median": 394.50030517578125,
+      "last_layer_abs": 393.5054626464844,
+      "final_abs": 16.036535263061523,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9696238840553242,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 53,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 402.4825134277344
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Se",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 402.4825134277344,
+      "plateau_median": 396.7895812988281,
+      "last_layer_abs": 395.7948303222656,
+      "final_abs": 19.434751510620117,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9757013472053295,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 19,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 432.3004150390625
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "I",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 432.3004150390625,
+      "plateau_median": 425.3266296386719,
+      "last_layer_abs": 424.33758544921875,
+      "final_abs": 2.3319544792175293,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9683420791124556,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 29,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 407.6159973144531
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "El",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 407.6159973144531,
+      "plateau_median": 401.6171569824219,
+      "last_layer_abs": 400.6274719238281,
+      "final_abs": 18.21803092956543,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9734128354854084,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 38,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 420.79095458984375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 420.79095458984375,
+      "plateau_median": 414.0982360839844,
+      "last_layer_abs": 413.11212158203125,
+      "final_abs": 9.29366397857666,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9824502840112388,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 56,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 390.5350341796875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "«",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 390.5350341796875,
+      "plateau_median": 385.41253662109375,
+      "last_layer_abs": 384.4263000488281,
+      "final_abs": 17.654701232910156,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.970570930667245,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 23,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 407.6159973144531
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "El",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 407.6159973144531,
+      "plateau_median": 401.6171569824219,
+      "last_layer_abs": 400.6274719238281,
+      "final_abs": 18.218717575073242,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9734125955404863,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 78,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 418.3398132324219
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "C",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 418.3398132324219,
+      "plateau_median": 411.64764404296875,
+      "last_layer_abs": 410.6582336425781,
+      "final_abs": 13.059366226196289,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9809374636757741,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 76,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 410.5362854003906
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "La",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 410.5362854003906,
+      "plateau_median": 404.54595947265625,
+      "last_layer_abs": 403.55523681640625,
+      "final_abs": 10.593912124633789,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9735229915367773,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 22,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 414.6017761230469
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "M",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 414.6017761230469,
+      "plateau_median": 408.0747985839844,
+      "last_layer_abs": 407.0871887207031,
+      "final_abs": 13.099227905273438,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9800388034542977,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 55,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 389.96258544921875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Los",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 389.96258544921875,
+      "plateau_median": 384.8124084472656,
+      "last_layer_abs": 383.824951171875,
+      "final_abs": 23.978282928466797,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.972597317463193,
+        "ok": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "fra_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    1764,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    20
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     1764,
+     1710
+    ],
+    20
+   ],
+   "peak_mean": 410.2512832641602,
+   "peak_ci95": [
+    403.0918670654297,
+    416.1702514648438
+   ],
+   "plateau_median_mean": 404.10522308349607,
+   "channels": {
+    "1764": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 20
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 46,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 390.5351257324219
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "«",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 390.5351257324219,
+      "plateau_median": 385.4126281738281,
+      "last_layer_abs": 384.4263916015625,
+      "final_abs": 17.6534423828125,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9705709326182091,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 97,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 415.6526794433594
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "L",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 415.6526794433594,
+      "plateau_median": 409.130615234375,
+      "last_layer_abs": 408.144287109375,
+      "final_abs": 13.08786678314209,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9801533567852846,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 60,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 414.27178955078125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "A",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 414.27178955078125,
+      "plateau_median": 407.6993103027344,
+      "last_layer_abs": 406.716552734375,
+      "final_abs": 16.134706497192383,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9801231505532226,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 57,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 414.6019287109375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "M",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 414.6019287109375,
+      "plateau_median": 408.074951171875,
+      "last_layer_abs": 407.08734130859375,
+      "final_abs": 13.100651741027832,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9800388167621065,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 64,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 410.5362854003906
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "La",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 410.5362854003906,
+      "plateau_median": 404.5459289550781,
+      "last_layer_abs": 403.5552062988281,
+      "final_abs": 10.594534873962402,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9735226954092426,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 20,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 409.1951599121094
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "T",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 409.1951599121094,
+      "plateau_median": 402.85223388671875,
+      "last_layer_abs": 401.8668212890625,
+      "final_abs": 14.6290283203125,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9769527015387561,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 24,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 419.9474792480469
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Le",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 419.9474792480469,
+      "plateau_median": 413.7019958496094,
+      "last_layer_abs": 412.70831298828125,
+      "final_abs": 0.0029664444737136364,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9746663469332326,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 61,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 409.19500732421875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "T",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 409.19500732421875,
+      "plateau_median": 402.85211181640625,
+      "last_layer_abs": 401.86669921875,
+      "final_abs": 14.63003158569336,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9769528198423479,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 66,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 418.3398132324219
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "C",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 418.3398132324219,
+      "plateau_median": 411.64764404296875,
+      "last_layer_abs": 410.6582336425781,
+      "final_abs": 13.059150695800781,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9809375829549153,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 49,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 410.7496337890625
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "U",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 410.7496337890625,
+      "plateau_median": 404.2502136230469,
+      "last_layer_abs": 403.26611328125,
+      "final_abs": 15.962026596069336,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.979021136440785,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 30,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 432.300537109375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "I",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 432.300537109375,
+      "plateau_median": 425.3267517089844,
+      "last_layer_abs": 424.33770751953125,
+      "final_abs": 2.3319549560546875,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9683422060902784,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 21,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 367.2919616699219
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Au",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 367.2919616699219,
+      "plateau_median": 362.7757263183594,
+      "last_layer_abs": 361.79388427734375,
+      "final_abs": 19.469985961914062,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9691342325571827,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 26,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 410.53631591796875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "La",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 410.53631591796875,
+      "plateau_median": 404.5459899902344,
+      "last_layer_abs": 403.5552673339844,
+      "final_abs": 10.594515800476074,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9735235371993015,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 39,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 420.79095458984375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 420.79095458984375,
+      "plateau_median": 414.0982360839844,
+      "last_layer_abs": 413.11212158203125,
+      "final_abs": 9.29366397857666,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9824502840112388,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 50,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 390.5351257324219
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "«",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 390.5351257324219,
+      "plateau_median": 385.4126281738281,
+      "last_layer_abs": 384.4263916015625,
+      "final_abs": 17.6534423828125,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9705709326182091,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 28,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 419.9474792480469
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Le",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 419.9474792480469,
+      "plateau_median": 413.7019958496094,
+      "last_layer_abs": 412.70831298828125,
+      "final_abs": 0.0029664444737136364,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9746663469332326,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 66,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 415.6526794433594
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "L",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 415.6526794433594,
+      "plateau_median": 409.130615234375,
+      "last_layer_abs": 408.144287109375,
+      "final_abs": 13.088747024536133,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9801536566064123,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 75,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 419.9472961425781
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Le",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 419.9472961425781,
+      "plateau_median": 413.7018127441406,
+      "last_layer_abs": 412.7081298828125,
+      "final_abs": 0.0036184019409120083,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9746665027167746,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 21,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 421.5292663574219
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Plus",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 421.5292663574219,
+      "plateau_median": 415.04876708984375,
+      "last_layer_abs": 414.0617980957031,
+      "final_abs": 4.312196731567383,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9798618518102916,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 66,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 393.4691467285156
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Les",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 393.4691467285156,
+      "plateau_median": 388.1943054199219,
+      "last_layer_abs": 387.2056579589844,
+      "final_abs": 18.474960327148438,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9668702337742205,
+        "ok": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "deu_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    1764,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    20
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     1764,
+     1710
+    ],
+    20
+   ],
+   "peak_mean": 412.6566864013672,
+   "peak_ci95": [
+    409.654035949707,
+    415.8256637573242
+   ],
+   "plateau_median_mean": 406.4104721069336,
+   "channels": {
+    "1764": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 20
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 37,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 409.2137451171875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "�",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 409.2137451171875,
+      "plateau_median": 403.3418273925781,
+      "last_layer_abs": 402.35772705078125,
+      "final_abs": 18.809404373168945,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9734964293305609,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 114,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 407.3031005859375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Am",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 407.3031005859375,
+      "plateau_median": 401.378662109375,
+      "last_layer_abs": 400.38665771484375,
+      "final_abs": 14.546308517456055,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.978179744763363,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 50,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 415.5155029296875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "R",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 415.5155029296875,
+      "plateau_median": 408.9361877441406,
+      "last_layer_abs": 407.9490661621094,
+      "final_abs": 12.475186347961426,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.979535935329633,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 67,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 419.1047668457031
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "W",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 419.1047668457031,
+      "plateau_median": 412.5433349609375,
+      "last_layer_abs": 411.5528259277344,
+      "final_abs": 9.687986373901367,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9783352861469602,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 62,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 420.81915283203125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "USA",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 420.81915283203125,
+      "plateau_median": 414.2059326171875,
+      "last_layer_abs": 413.22003173828125,
+      "final_abs": 8.373632431030273,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9780937044295024,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 22,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 419.1047058105469
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "W",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 419.1047058105469,
+      "plateau_median": 412.54327392578125,
+      "last_layer_abs": 411.5527648925781,
+      "final_abs": 9.687742233276367,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9783353480874045,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 26,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 415.65374755859375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Der",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 415.65374755859375,
+      "plateau_median": 409.4290466308594,
+      "last_layer_abs": 408.4347839355469,
+      "final_abs": 11.234129905700684,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.96976715613453,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 59,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 407.302978515625
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Am",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 407.302978515625,
+      "plateau_median": 401.3785400390625,
+      "last_layer_abs": 400.38653564453125,
+      "final_abs": 14.549245834350586,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.978180598350219,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 75,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 420.7908630371094
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 420.7908630371094,
+      "plateau_median": 414.09814453125,
+      "last_layer_abs": 413.1120300292969,
+      "final_abs": 9.294337272644043,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9824505118817181,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 55,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 410.27001953125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "E",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 410.27001953125,
+      "plateau_median": 403.8424377441406,
+      "last_layer_abs": 402.8561096191406,
+      "final_abs": 17.484724044799805,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9800742833312591,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 78,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 413.5775146484375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "S",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 413.5775146484375,
+      "plateau_median": 407.05426025390625,
+      "last_layer_abs": 406.06634521484375,
+      "final_abs": 18.083251953125,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.982064810083461,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 25,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 419.1046142578125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "W",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 419.1046142578125,
+      "plateau_median": 412.5431823730469,
+      "last_layer_abs": 411.55267333984375,
+      "final_abs": 9.688453674316406,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9783351622660275,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 28,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 415.65374755859375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Der",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 415.65374755859375,
+      "plateau_median": 409.4290466308594,
+      "last_layer_abs": 408.4347839355469,
+      "final_abs": 11.234129905700684,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.96976715613453,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 42,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 420.79095458984375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 420.79095458984375,
+      "plateau_median": 414.0982360839844,
+      "last_layer_abs": 413.11212158203125,
+      "final_abs": 9.29366397857666,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9824502840112388,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 45,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 409.2137451171875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "�",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 409.2137451171875,
+      "plateau_median": 403.3418273925781,
+      "last_layer_abs": 402.35772705078125,
+      "final_abs": 18.809404373168945,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9734964293305609,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 26,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 401.06878662109375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Die",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 401.06878662109375,
+      "plateau_median": 395.3937072753906,
+      "last_layer_abs": 394.40447998046875,
+      "final_abs": 15.357452392578125,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9728746715722562,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 57,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 401.06866455078125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Die",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 401.06866455078125,
+      "plateau_median": 395.3935852050781,
+      "last_layer_abs": 394.40435791015625,
+      "final_abs": 15.357976913452148,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9728747299976964,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 73,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 421.6008605957031
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 421.6008605957031,
+      "plateau_median": 414.7493591308594,
+      "last_layer_abs": 413.766357421875,
+      "final_abs": 14.208267211914062,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9757853110014604,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 25,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 406.4993896484375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Es",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 406.4993896484375,
+      "plateau_median": 400.4971008300781,
+      "last_layer_abs": 399.50799560546875,
+      "final_abs": 16.76409912109375,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9774916139818696,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 77,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 399.47686767578125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Histor",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 399.47686767578125,
+      "plateau_median": 394.0117492675781,
+      "last_layer_abs": 393.0203552246094,
+      "final_abs": 20.472375869750977,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9844597807890542,
+        "ok": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "cmn_Hans": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    1764,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    20
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     1764,
+     1710
+    ],
+    20
+   ],
+   "peak_mean": 409.1448776245117,
+   "peak_ci95": [
+    401.39735412597656,
+    417.0839080810547
+   ],
+   "plateau_median_mean": 403.2139373779297,
+   "channels": {
+    "1764": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 20
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 214,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 419.4037780761719
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "他",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 419.4037780761719,
+      "plateau_median": 413.02642822265625,
+      "last_layer_abs": 412.0447998046875,
+      "final_abs": 14.274896621704102,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9746401184782703,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 228,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 410.4296875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "�",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 410.4296875,
+      "plateau_median": 404.5859680175781,
+      "last_layer_abs": 403.6019287109375,
+      "final_abs": 16.414409637451172,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9766107673870621,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 251,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 422.39398193359375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "此",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 422.39398193359375,
+      "plateau_median": 416.1576232910156,
+      "last_layer_abs": 415.1700134277344,
+      "final_abs": 3.086948871612549,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9714495075782819,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 216,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 382.7887878417969
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "�",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 382.7887878417969,
+      "plateau_median": 377.7989807128906,
+      "last_layer_abs": 376.8191833496094,
+      "final_abs": 25.915985107421875,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9747823409532311,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 369,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 391.3741149902344
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "�",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 391.3741149902344,
+      "plateau_median": 386.0404357910156,
+      "last_layer_abs": 385.0632019042969,
+      "final_abs": 28.001571655273438,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9744643150458966,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 283,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 429.2398986816406
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "20",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 429.2398986816406,
+      "plateau_median": 422.3994140625,
+      "last_layer_abs": 421.4112243652344,
+      "final_abs": 0.6966907382011414,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9820583924472478,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 296,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 415.70501708984375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "这",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 415.70501708984375,
+      "plateau_median": 409.572021484375,
+      "last_layer_abs": 408.5884094238281,
+      "final_abs": 8.702333450317383,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9710480717222629,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 188,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 410.42950439453125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "�",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 410.42950439453125,
+      "plateau_median": 404.5858154296875,
+      "last_layer_abs": 403.6017761230469,
+      "final_abs": 16.41793441772461,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9766110063132729,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 405,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 415.70458984375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "这",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 415.70458984375,
+      "plateau_median": 409.5716247558594,
+      "last_layer_abs": 408.5880126953125,
+      "final_abs": 8.700712203979492,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.971048259084216,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 159,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 374.0078125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "�",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 374.0078125,
+      "plateau_median": 369.4272155761719,
+      "last_layer_abs": 368.4515075683594,
+      "final_abs": 24.280797958374023,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9658821952870268,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 138,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 419.4039611816406
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "他",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 419.4039611816406,
+      "plateau_median": 413.026611328125,
+      "last_layer_abs": 412.04498291015625,
+      "final_abs": 14.272860527038574,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9746399684146386,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 87,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 432.5687255859375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "在",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 432.5687255859375,
+      "plateau_median": 425.8338623046875,
+      "last_layer_abs": 424.84832763671875,
+      "final_abs": 5.223577976226807,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9733401762809633,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 113,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 408.0222473144531
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "802",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 408.0222473144531,
+      "plateau_median": 401.916748046875,
+      "last_layer_abs": 400.9341735839844,
+      "final_abs": 13.234010696411133,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9813834845856677,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 115,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 403.9997253417969
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "�",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 403.9997253417969,
+      "plateau_median": 398.1983642578125,
+      "last_layer_abs": 397.21728515625,
+      "final_abs": 20.385120391845703,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9720124958341226,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 188,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 444.5489501953125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "“",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 444.5489501953125,
+      "plateau_median": 437.322021484375,
+      "last_layer_abs": 436.331787109375,
+      "final_abs": 4.922848224639893,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9765188850553939,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 305,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 384.0045471191406
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "�",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 384.0045471191406,
+      "plateau_median": 378.978271484375,
+      "last_layer_abs": 378.0000305175781,
+      "final_abs": 28.082483291625977,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9743863255704269,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 210,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 411.04046630859375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "现",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 411.04046630859375,
+      "plateau_median": 405.0526428222656,
+      "last_layer_abs": 404.06988525390625,
+      "final_abs": 17.055673599243164,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9711237564664232,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 137,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 415.70526123046875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "这",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 415.70526123046875,
+      "plateau_median": 409.572265625,
+      "last_layer_abs": 408.5886535644531,
+      "final_abs": 8.702885627746582,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9710482754708893,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 159,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 382.1998291015625
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "有",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 382.1998291015625,
+      "plateau_median": 377.08428955078125,
+      "last_layer_abs": 376.10931396484375,
+      "final_abs": 26.613821029663086,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9753010396243955,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 165,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 409.9266662597656
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "�",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 409.9266662597656,
+      "plateau_median": 404.1281433105469,
+      "last_layer_abs": 403.1398010253906,
+      "final_abs": 14.024215698242188,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.975173406058509,
+        "ok": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "swh_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    1764,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    20
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     1764,
+     1710
+    ],
+    20
+   ],
+   "peak_mean": 411.7253692626953,
+   "peak_ci95": [
+    405.5440475463867,
+    417.2895309448242
+   ],
+   "plateau_median_mean": 405.4221252441406,
+   "channels": {
+    "1764": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 20
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 45,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 421.60089111328125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 421.60089111328125,
+      "plateau_median": 414.7493896484375,
+      "last_layer_abs": 413.7663879394531,
+      "final_abs": 14.208266258239746,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9757853754739515,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 130,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 414.6017150878906
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "M",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 414.6017150878906,
+      "plateau_median": 408.0747375488281,
+      "last_layer_abs": 407.0871276855469,
+      "final_abs": 13.09987735748291,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9800389792283514,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 64,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 426.0546875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "H",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 426.0546875,
+      "plateau_median": 419.150390625,
+      "last_layer_abs": 418.16143798828125,
+      "final_abs": 7.791654586791992,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9799228110287025,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 67,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 426.05487060546875
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "H",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 426.05487060546875,
+      "plateau_median": 419.15057373046875,
+      "last_layer_abs": 418.16162109375,
+      "final_abs": 7.792751789093018,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.979922593466144,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 59,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 420.81915283203125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "USA",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 420.81915283203125,
+      "plateau_median": 414.2059326171875,
+      "last_layer_abs": 413.22003173828125,
+      "final_abs": 8.373632431030273,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9780937044295024,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 21,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 395.25714111328125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Kat",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 395.25714111328125,
+      "plateau_median": 389.68194580078125,
+      "last_layer_abs": 388.6937255859375,
+      "final_abs": 21.580007553100586,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9753712208258704,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 31,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 405.8193664550781
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Sin",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 405.8193664550781,
+      "plateau_median": 399.88385009765625,
+      "last_layer_abs": 398.8908386230469,
+      "final_abs": 18.164669036865234,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9770727479544727,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 67,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 414.6020202636719
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "M",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 414.6020202636719,
+      "plateau_median": 408.0750427246094,
+      "last_layer_abs": 407.0874328613281,
+      "final_abs": 13.099843978881836,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9800386991762697,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 80,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 426.0547180175781
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "H",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 426.0547180175781,
+      "plateau_median": 419.1504211425781,
+      "last_layer_abs": 418.1614685058594,
+      "final_abs": 7.7938666343688965,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9799231606127473,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 66,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 415.8194580078125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "B",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 415.8194580078125,
+      "plateau_median": 409.1811828613281,
+      "last_layer_abs": 408.19610595703125,
+      "final_abs": 16.523439407348633,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9786951267314756,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 77,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 390.13848876953125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Wal",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 390.13848876953125,
+      "plateau_median": 385.0452575683594,
+      "last_layer_abs": 384.0508117675781,
+      "final_abs": 15.764963150024414,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9700265639524507,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 24,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 419.1046142578125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "W",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 419.1046142578125,
+      "plateau_median": 412.5431823730469,
+      "last_layer_abs": 411.55267333984375,
+      "final_abs": 9.688453674316406,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9783351622660275,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 33,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 406.7904968261719
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "K",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 406.7904968261719,
+      "plateau_median": 400.509521484375,
+      "last_layer_abs": 399.521484375,
+      "final_abs": 14.906428337097168,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9757256824073024,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 41,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 420.79095458984375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 420.79095458984375,
+      "plateau_median": 414.0982360839844,
+      "last_layer_abs": 413.11212158203125,
+      "final_abs": 9.29366397857666,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9824502840112388,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 59,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 421.6007080078125
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 421.6007080078125,
+      "plateau_median": 414.74920654296875,
+      "last_layer_abs": 413.7662048339844,
+      "final_abs": 14.209439277648926,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9757858788676761,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 25,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 406.7904052734375
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "K",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 406.7904052734375,
+      "plateau_median": 400.5094299316406,
+      "last_layer_abs": 399.5213928222656,
+      "final_abs": 14.907222747802734,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9757257312637287,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 63,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 386.4966735839844
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Sen",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 386.4966735839844,
+      "plateau_median": 381.4565734863281,
+      "last_layer_abs": 380.4645080566406,
+      "final_abs": 25.933643341064453,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9808081037851668,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 120,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 414.6018371582031
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "M",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 414.6018371582031,
+      "plateau_median": 408.0748596191406,
+      "last_layer_abs": 407.0872497558594,
+      "final_abs": 13.100257873535156,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9800389282990188,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 21,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 382.404541015625
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Wat",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 382.404541015625,
+      "plateau_median": 377.60955810546875,
+      "last_layer_abs": 376.6148376464844,
+      "final_abs": 16.52437400817871,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.967135202535554,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 78,
+     "n_super_activations": 1,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1764,
+       "onset_layer": 1,
+       "peak": 419.1046447753906
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "W",
+      "channel": 1764,
+      "onset_layer": 1,
+      "peak": 419.1046447753906,
+      "plateau_median": 412.543212890625,
+      "last_layer_abs": 411.5527038574219,
+      "final_abs": 9.687734603881836,
+      "contributors": [
+       {
+        "k": 1710,
+        "w": 0.6322910189628601,
+        "share": 0.9783354565340696,
+        "ok": true
+       }
+      ]
+     }
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,9698 @@
+{
+ "provenance": {
+  "date": "2026-09-06T01:34:53",
+  "git_sha": "4ff6215f381c04c1a3c8d15874ad766b0cd40284-dirty",
+  "config_file": "configs/const_lang/towerbase7b.yaml",
+  "config": {
+   "revision": null,
+   "dtype": "auto",
+   "seed": 0,
+   "split": "devtest",
+   "n_sentences": 20,
+   "add_bos": null,
+   "out_dir": "results/const_lang",
+   "model": "Unbabel/TowerBase-7B-v0.1",
+   "languages": [
+    "eng_Latn",
+    "spa_Latn",
+    "fra_Latn",
+    "por_Latn",
+    "deu_Latn",
+    "cmn_Hans",
+    "rus_Cyrl",
+    "kor_Hang",
+    "swh_Latn",
+    "yor_Latn"
+   ]
+  },
+  "torch": "2.11.0+cu128",
+  "transformers": "5.15.1",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "dtype": "torch.bfloat16",
+  "revision_resolved": "bd59c10d76007e960368acfc15bebc201c112b1b",
+  "slurm_job_id": "13593778",
+  "model_type": "llama",
+  "n_layers": 32,
+  "add_bos": false,
+  "massive_bar": 273.6,
+  "bos_token": "<s>"
+ },
+ "agreement": {
+  "channel_same_for_all": true,
+  "onset_same_for_all": true,
+  "coordinate_same_for_all": true,
+  "languages_with_massive": [
+   "eng_Latn",
+   "spa_Latn",
+   "fra_Latn",
+   "por_Latn",
+   "deu_Latn",
+   "cmn_Hans",
+   "rus_Cyrl",
+   "kor_Hang",
+   "swh_Latn",
+   "yor_Latn"
+  ],
+  "languages_without": []
+ },
+ "per_language": {
+  "eng_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    2533,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    17
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     2533,
+     7890
+    ],
+    20
+   ],
+   "peak_mean": 1120.4,
+   "peak_ci95": [
+    850.4,
+    1418.6
+   ],
+   "plateau_median_mean": 1117.0,
+   "channels": {
+    "2533": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 17,
+    "5": 1,
+    "12": 1,
+    "72": 1
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 29,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.74609375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.76223711492891,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 67,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 494.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "On",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 3.015625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7581588669950738,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2006378925492611,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 35,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 528.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 880.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Pre",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 880.0,
+      "plateau_median": 876.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 4.25,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7517180266203703,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.21041304976851852,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 34,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 532.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 888.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "While",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 888.0,
+      "plateau_median": 884.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 0.8203125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.758941370412844,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19966223480504589,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 34,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 528.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 880.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "USA",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 880.0,
+      "plateau_median": 876.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 3.296875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7588433159722222,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20312952112268517,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 17,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Through",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 3.8125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7585900473933649,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20214380924170616,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 19,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 490.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "The",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 824.0,
+      "plateau_median": 820.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 0.96484375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.758102568069307,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19816967048267325,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 28,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 476.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 796.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Late",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 796.0,
+      "plateau_median": 792.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 0.83203125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7537459935897436,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20886919070512822,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 40,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 490.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "This",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 824.0,
+      "plateau_median": 820.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 6.59375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7542930074257426,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2007657797029703,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 28,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 848.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "A",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 848.0,
+      "plateau_median": 844.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 3.90625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7547325721153846,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20001690204326922,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 39,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "They",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 2.171875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7585900473933649,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19800151806872038,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 13,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 490.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "During",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 824.0,
+      "plateau_median": 820.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 7.90625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.758102568069307,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2007657797029703,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 31,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 490.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      },
+      {
+       "token": 5,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1480.0
+      },
+      {
+       "token": 5,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2496.0
+      }
+     ],
+     "top": {
+      "token": 5,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2496.0,
+      "plateau_median": 2496.0,
+      "last_layer_abs": 160.0,
+      "final_abs": 4.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9631552419354839,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 27,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 478.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 800.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 800.0,
+      "plateau_median": 796.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 5.59375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7577527104591837,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2024523676658163,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 39,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.74609375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.76223711492891,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 18,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 490.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      },
+      {
+       "token": 12,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1552.0
+      },
+      {
+       "token": 12,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2624.0
+      }
+     ],
+     "top": {
+      "token": 12,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2624.0,
+      "plateau_median": 2624.0,
+      "last_layer_abs": 176.0,
+      "final_abs": 0.205078125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9630943251533742,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 45,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 524.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 876.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Current",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 876.0,
+      "plateau_median": 872.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 1.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7623728197674419,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20082212936046512,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 73,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 492.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      },
+      {
+       "token": 72,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1704.0
+      },
+      {
+       "token": 72,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2864.0
+      }
+     ],
+     "top": {
+      "token": 72,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2864.0,
+      "plateau_median": 2864.0,
+      "last_layer_abs": 80.0,
+      "final_abs": 4.09375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9640756671348315,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 12,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 528.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 884.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Over",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 884.0,
+      "plateau_median": 880.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 1.3046875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7588925691244239,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2013878888248848,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 40,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 496.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 832.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Histor",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 832.0,
+      "plateau_median": 828.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.0,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7506701899509803,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20908011642156862,
+        "ok": false
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "spa_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    2533,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    19
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     2533,
+     7890
+    ],
+    20
+   ],
+   "peak_mean": 919.4,
+   "peak_ci95": [
+    829.4,
+    1087.2
+   ],
+   "plateau_median_mean": 915.6,
+   "channels": {
+    "2533": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 19,
+    "5": 1
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 33,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 492.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "«",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 4.28125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7657404556650246,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.1920268241995074,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 94,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 852.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "El",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 852.0,
+      "plateau_median": 848.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 2.078125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7548033791866029,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20826013008373206,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 58,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 494.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Con",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.6953125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7505772783251231,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.21011006773399016,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 74,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 496.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 836.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Al",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 836.0,
+      "plateau_median": 832.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 17.625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7507621951219512,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20550209603658537,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 48,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 528.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 880.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "USA",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 880.0,
+      "plateau_median": 876.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 3.34375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7588433159722222,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20312952112268517,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 16,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 480.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 804.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Durante",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 804.0,
+      "plateau_median": 800.0,
+      "last_layer_abs": 232.0,
+      "final_abs": 28.25,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7578125,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20231202411167512,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 25,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "El",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.015625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7512090773809523,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20810081845238096,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 52,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "El",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 5.3125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7512090773809523,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20810081845238096,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 57,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 490.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Además",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 824.0,
+      "plateau_median": 820.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 6.96875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.758102568069307,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20249651918316833,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 42,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 498.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 832.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "En",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 832.0,
+      "plateau_median": 828.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.1640625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7582146139705882,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20479568780637256,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 51,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 496.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 832.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Se",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 832.0,
+      "plateau_median": 828.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 1.59375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7544424019607843,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20650945925245098,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 16,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 480.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 804.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "I",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 804.0,
+      "plateau_median": 800.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.15625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7578125,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20053735723350255,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 36,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 5,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1472.0
+      },
+      {
+       "token": 5,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2480.0
+      }
+     ],
+     "top": {
+      "token": 5,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2480.0,
+      "plateau_median": 2480.0,
+      "last_layer_abs": 128.0,
+      "final_abs": 2.921875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9644125405844156,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 37,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 8.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7540632851758794,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2011571529522613,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 64,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 492.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "«",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 4.28125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7657404556650246,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.1920268241995074,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 26,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "El",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.015625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7512090773809523,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20810081845238096,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 68,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 536.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 892.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Crist",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 892.0,
+      "plateau_median": 888.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 3.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7554758847031964,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20593428938356165,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 71,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 494.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "La",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 2.328125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7543680726600985,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20494342672413793,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 21,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 848.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "M",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 848.0,
+      "plateau_median": 844.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 5.78125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7547325721153846,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20001690204326922,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 52,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Los",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 15.625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7501962939698492,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20818447707286433,
+        "ok": false
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "fra_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    2533,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    19
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     2533,
+     7890
+    ],
+    20
+   ],
+   "peak_mean": 911.6,
+   "peak_ci95": [
+    817.0,
+    1089.0
+   ],
+   "plateau_median_mean": 907.8,
+   "channels": {
+    "2533": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 19,
+    "7": 1
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 47,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 494.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "«",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.1015625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7657404556650246,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19288793103448276,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 92,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 478.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 796.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Lund",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 796.0,
+      "plateau_median": 792.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 1.96875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7537459935897436,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.209765625,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 61,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "A",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.6640625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7583786231884058,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2009831672705314,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 57,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "M",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 13.3125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7583786231884058,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2009831672705314,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 52,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 490.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "La",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 824.0,
+      "plateau_median": 820.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 4.6875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7542930074257426,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20509262840346534,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 21,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 520.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 868.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Tout",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 868.0,
+      "plateau_median": 864.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 4.125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7623056044600939,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2002457453051643,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 25,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 808.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Le",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 808.0,
+      "plateau_median": 804.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 3.4375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7539851641414141,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20393880208333334,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 56,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 488.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 816.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "T",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 816.0,
+      "plateau_median": 812.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 5.625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.754140625,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.204521484375,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 60,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "C",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 6.75,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7548735119047619,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20144159226190475,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 44,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 494.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 832.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Une",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 832.0,
+      "plateau_median": 828.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 10.8125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7506701899509803,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20650945925245098,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 28,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 480.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 804.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Ils",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 804.0,
+      "plateau_median": 800.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 2.421875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.75390625,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.204974024428934,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 18,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 460.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 772.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Au",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 772.0,
+      "plateau_median": 768.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 14.625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7532448743386243,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2062510333994709,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 34,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 490.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      },
+      {
+       "token": 7,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1512.0
+      },
+      {
+       "token": 7,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2544.0
+      }
+     ],
+     "top": {
+      "token": 7,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2544.0,
+      "plateau_median": 2544.0,
+      "last_layer_abs": 112.0,
+      "final_abs": 3.421875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9643492879746836,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 36,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 8.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7540632851758794,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2011571529522613,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 57,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 492.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "«",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 4.28125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7657404556650246,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.1920268241995074,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 27,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 808.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Le",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 808.0,
+      "plateau_median": 804.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 3.4375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7539851641414141,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20393880208333334,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 63,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 506.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 848.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "L",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 848.0,
+      "plateau_median": 844.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 15.25,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7547325721153846,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2058997521033654,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 76,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 480.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 808.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Le",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 808.0,
+      "plateau_median": 804.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 2.984375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7539851641414141,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2021730981691919,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 26,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 524.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 880.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Plus",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 880.0,
+      "plateau_median": 876.0,
+      "last_layer_abs": 256.0,
+      "final_abs": 10.125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7517180266203703,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20555736400462962,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 66,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Les",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 5.75,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7540632851758794,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20291398398241206,
+        "ok": false
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "por_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    2533,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    19
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     2533,
+     7890
+    ],
+    20
+   ],
+   "peak_mean": 907.2,
+   "peak_ci95": [
+    812.0,
+    1083.2
+   ],
+   "plateau_median_mean": 903.4,
+   "channels": {
+    "2533": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 19,
+    "8": 1
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 34,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.6328125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.76223711492891,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 104,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 468.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 784.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Na",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 784.0,
+      "plateau_median": 780.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 2.109375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7534993489583334,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20575968424479166,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 44,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 456.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 764.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "An",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 764.0,
+      "plateau_median": 760.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 7.96875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7530706885026738,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2028482202540107,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 52,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Emb",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 5.75,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7472259963768116,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.21280570652173914,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 59,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "A",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.6640625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7583786231884058,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2009831672705314,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 18,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 500.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 836.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "At",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 836.0,
+      "plateau_median": 832.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 2.921875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.754516006097561,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20720750762195123,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 25,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 808.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "O",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 808.0,
+      "plateau_median": 804.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.314453125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7539851641414141,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20305595012626262,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 49,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 480.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 804.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "No",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 804.0,
+      "plateau_median": 800.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 15.25,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.75390625,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20586135786802032,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 65,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 516.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 868.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Is",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 868.0,
+      "plateau_median": 864.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 0.7890625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7550799589201878,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20434914172535212,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 48,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 466.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 784.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Na",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 784.0,
+      "plateau_median": 780.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 8.6875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7534993489583334,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20575968424479166,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 55,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "E",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.8359375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7583786231884058,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19929423309178743,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 19,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 480.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 808.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Durante",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 808.0,
+      "plateau_median": 804.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 2.796875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7539851641414141,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20129024621212122,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 35,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 808.0
+      },
+      {
+       "token": 8,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1512.0
+      },
+      {
+       "token": 8,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2544.0
+      }
+     ],
+     "top": {
+      "token": 8,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2544.0,
+      "plateau_median": 2544.0,
+      "last_layer_abs": 160.0,
+      "final_abs": 3.28125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9643492879746836,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 35,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 8.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7540632851758794,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2011571529522613,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 57,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.6328125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.76223711492891,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 30,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 808.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "O",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 808.0,
+      "plateau_median": 804.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.314453125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7539851641414141,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20305595012626262,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 58,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "A",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.6640625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7583786231884058,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2009831672705314,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 57,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 808.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "O",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 808.0,
+      "plateau_median": 804.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.283203125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7539851641414141,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20305595012626262,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 21,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 470.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 788.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Mais",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 788.0,
+      "plateau_median": 784.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 5.1875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7535824158031088,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2065050194300518,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 55,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 496.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 832.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Histor",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 832.0,
+      "plateau_median": 828.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 2.9375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7506701899509803,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20908011642156862,
+        "ok": false
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "deu_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    2533,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    19
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     2533,
+     7890
+    ],
+    20
+   ],
+   "peak_mean": 921.0,
+   "peak_ci95": [
+    828.4,
+    1089.6
+   ],
+   "plateau_median_mean": 917.2,
+   "channels": {
+    "2533": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 19,
+    "5": 1
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 34,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 516.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 864.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "„",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 864.0,
+      "plateau_median": 860.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 2.125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7659013856132075,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19459389740566038,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 99,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 474.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 800.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Am",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 800.0,
+      "plateau_median": 796.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 23.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7459741709183674,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20869539221938777,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 40,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 864.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "R",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 864.0,
+      "plateau_median": 860.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 4.40625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7586416568396226,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20119030070754718,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 59,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 524.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 880.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Während",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 880.0,
+      "plateau_median": 876.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 1.0625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7588433159722222,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2015109592013889,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 54,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 528.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 880.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "USA",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 880.0,
+      "plateau_median": 876.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 3.296875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7588433159722222,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20312952112268517,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 23,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 524.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 876.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Während",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 876.0,
+      "plateau_median": 872.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.8046875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7623728197674419,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20244821947674418,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 22,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 532.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 884.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Der",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 884.0,
+      "plateau_median": 880.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 7.125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7588925691244239,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20299899193548387,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 49,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 478.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 800.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Am",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 800.0,
+      "plateau_median": 796.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 14.875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7499003507653061,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20869539221938777,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 64,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 484.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Dies",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 11.125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7540632851758794,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20554923052763818,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 51,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 468.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 784.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Eine",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 784.0,
+      "plateau_median": 780.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.99609375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7534993489583334,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20758056640625,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 65,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 478.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 804.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Sie",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 804.0,
+      "plateau_median": 800.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 7.34375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.75390625,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.204974024428934,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 19,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 524.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 876.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Während",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 876.0,
+      "plateau_median": 872.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.8046875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7623728197674419,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20244821947674418,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 33,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 536.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 896.0
+      },
+      {
+       "token": 5,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1472.0
+      },
+      {
+       "token": 5,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2464.0
+      }
+     ],
+     "top": {
+      "token": 5,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2464.0,
+      "plateau_median": 2464.0,
+      "last_layer_abs": 112.0,
+      "final_abs": 6.40625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9656862745098039,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 35,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 8.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7540632851758794,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2011571529522613,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 50,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 864.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "„",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 864.0,
+      "plateau_median": 860.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 0.46484375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7659013856132075,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19459389740566038,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 24,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 496.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 832.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Die",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 832.0,
+      "plateau_median": 828.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 1.234375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7544424019607843,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20393880208333334,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 49,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 496.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 832.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Die",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 832.0,
+      "plateau_median": 828.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 1.234375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7544424019607843,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20393880208333334,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 61,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.6328125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.76223711492891,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 20,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 480.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 804.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Es",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 804.0,
+      "plateau_median": 800.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 6.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.74609375,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.21384735881979697,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 65,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 492.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Histor",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 13.0,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7467864839901478,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.21011006773399016,
+        "ok": false
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "cmn_Hans": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    2533,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    88,
+    2
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     2533,
+     7890
+    ],
+    20
+   ],
+   "peak_mean": 2745.6,
+   "peak_ci95": [
+    2702.4,
+    2779.2
+   ],
+   "plateau_median_mean": 2745.6,
+   "channels": {
+    "2533": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "56": 1,
+    "141": 1,
+    "76": 1,
+    "94": 1,
+    "80": 1,
+    "88": 2,
+    "59": 1,
+    "66": 1,
+    "85": 1,
+    "100": 2,
+    "58": 1,
+    "28": 1,
+    "4": 1,
+    "55": 1,
+    "73": 1,
+    "36": 1,
+    "127": 1,
+    "26": 1
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 233,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 56,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1632.0
+      },
+      {
+       "token": 56,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2752.0
+      }
+     ],
+     "top": {
+      "token": 56,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2752.0,
+      "plateau_median": 2752.0,
+      "last_layer_abs": 144.0,
+      "final_abs": 3.484375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9585389254385965,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 223,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 141,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1680.0
+      },
+      {
+       "token": 141,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2832.0
+      }
+     ],
+     "top": {
+      "token": 141,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2832.0,
+      "plateau_median": 2832.0,
+      "last_layer_abs": 176.0,
+      "final_abs": 6.65625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9531693892045454,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 255,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 76,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1640.0
+      },
+      {
+       "token": 76,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2768.0
+      }
+     ],
+     "top": {
+      "token": 76,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2768.0,
+      "plateau_median": 2768.0,
+      "last_layer_abs": 160.0,
+      "final_abs": 4.65625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9574400436046512,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 239,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 94,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1656.0
+      },
+      {
+       "token": 94,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2784.0
+      }
+     ],
+     "top": {
+      "token": 94,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2784.0,
+      "plateau_median": 2784.0,
+      "last_layer_abs": 96.0,
+      "final_abs": 8.5,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9563538656069365,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 397,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 80,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1656.0
+      },
+      {
+       "token": 80,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2784.0
+      }
+     ],
+     "top": {
+      "token": 80,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2784.0,
+      "plateau_median": 2784.0,
+      "last_layer_abs": 192.0,
+      "final_abs": 6.65625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9563538656069365,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 334,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 88,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1664.0
+      },
+      {
+       "token": 88,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2800.0
+      }
+     ],
+     "top": {
+      "token": 88,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2800.0,
+      "plateau_median": 2800.0,
+      "last_layer_abs": 176.0,
+      "final_abs": 1.53125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9597027658045977,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 281,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 59,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1632.0
+      },
+      {
+       "token": 59,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2752.0
+      }
+     ],
+     "top": {
+      "token": 59,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2752.0,
+      "plateau_median": 2752.0,
+      "last_layer_abs": 112.0,
+      "final_abs": 5.625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9585389254385965,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 191,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 66,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1640.0
+      },
+      {
+       "token": 66,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2768.0
+      }
+     ],
+     "top": {
+      "token": 66,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2768.0,
+      "plateau_median": 2768.0,
+      "last_layer_abs": 192.0,
+      "final_abs": 2.625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9574400436046512,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 442,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 85,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1656.0
+      },
+      {
+       "token": 85,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2784.0
+      }
+     ],
+     "top": {
+      "token": 85,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2784.0,
+      "plateau_median": 2784.0,
+      "last_layer_abs": 160.0,
+      "final_abs": 1.7578125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9563538656069365,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 179,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 100,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1680.0
+      },
+      {
+       "token": 100,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2832.0
+      }
+     ],
+     "top": {
+      "token": 100,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2832.0,
+      "plateau_median": 2832.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 16.75,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9531693892045454,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 139,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      },
+      {
+       "token": 58,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1608.0
+      },
+      {
+       "token": 58,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2720.0
+      }
+     ],
+     "top": {
+      "token": 58,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2720.0,
+      "plateau_median": 2720.0,
+      "last_layer_abs": 160.0,
+      "final_abs": 3.1875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9562222633136095,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 90,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      },
+      {
+       "token": 28,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1576.0
+      },
+      {
+       "token": 28,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2656.0
+      }
+     ],
+     "top": {
+      "token": 28,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2656.0,
+      "plateau_median": 2656.0,
+      "last_layer_abs": 128.0,
+      "final_abs": 3.046875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.960748106060606,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 142,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      },
+      {
+       "token": 4,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1440.0
+      },
+      {
+       "token": 4,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2432.0
+      }
+     ],
+     "top": {
+      "token": 4,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2432.0,
+      "plateau_median": 2432.0,
+      "last_layer_abs": 112.0,
+      "final_abs": 3.8125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9631881208609272,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 126,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 55,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1640.0
+      },
+      {
+       "token": 55,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2768.0
+      }
+     ],
+     "top": {
+      "token": 55,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2768.0,
+      "plateau_median": 2768.0,
+      "last_layer_abs": 192.0,
+      "final_abs": 8.3125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9574400436046512,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 218,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 492.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      },
+      {
+       "token": 73,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1640.0
+      },
+      {
+       "token": 73,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2768.0
+      }
+     ],
+     "top": {
+      "token": 73,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2768.0,
+      "plateau_median": 2768.0,
+      "last_layer_abs": 192.0,
+      "final_abs": 5.03125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9574400436046512,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 321,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 36,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1592.0
+      },
+      {
+       "token": 36,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2688.0
+      }
+     ],
+     "top": {
+      "token": 36,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2688.0,
+      "plateau_median": 2688.0,
+      "last_layer_abs": 192.0,
+      "final_abs": 1.953125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9584580838323353,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 213,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 127,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1648.0
+      },
+      {
+       "token": 127,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2768.0
+      }
+     ],
+     "top": {
+      "token": 127,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2768.0,
+      "plateau_median": 2768.0,
+      "last_layer_abs": 32.0,
+      "final_abs": 7.8125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9574400436046512,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 147,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      },
+      {
+       "token": 88,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1648.0
+      },
+      {
+       "token": 88,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2784.0
+      }
+     ],
+     "top": {
+      "token": 88,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2784.0,
+      "plateau_median": 2784.0,
+      "last_layer_abs": 112.0,
+      "final_abs": 6.03125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9563538656069365,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 175,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 26,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1568.0
+      },
+      {
+       "token": 26,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2640.0
+      }
+     ],
+     "top": {
+      "token": 26,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2640.0,
+      "plateau_median": 2640.0,
+      "last_layer_abs": 128.0,
+      "final_abs": 4.59375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9619140625,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 176,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      },
+      {
+       "token": 100,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1680.0
+      },
+      {
+       "token": 100,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2832.0
+      }
+     ],
+     "top": {
+      "token": 100,
+      "token_str": "。",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2832.0,
+      "plateau_median": 2832.0,
+      "last_layer_abs": 208.0,
+      "final_abs": 9.3125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9531693892045454,
+        "ok": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "rus_Cyrl": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    2533,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    19
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     2533,
+     7890
+    ],
+    20
+   ],
+   "peak_mean": 919.0,
+   "peak_ci95": [
+    821.6,
+    1088.8
+   ],
+   "plateau_median_mean": 915.2,
+   "channels": {
+    "2533": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 19,
+    "8": 1
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 33,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.6328125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.76223711492891,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 124,
+     "n_super_activations": 3,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 506.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 852.0
+      },
+      {
+       "token": 1,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 374.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "В",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 852.0,
+      "plateau_median": 848.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 2.484375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7548033791866029,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20240542763157895,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 51,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 864.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Р",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 864.0,
+      "plateau_median": 860.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 3.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7586416568396226,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20201485112028303,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 70,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 440.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 740.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Н",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 740.0,
+      "plateau_median": 736.0,
+      "last_layer_abs": 242.0,
+      "final_abs": 2.21875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.75677658839779,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20377784012430938,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 53,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 532.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 888.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Федера",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 888.0,
+      "plateau_median": 884.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 7.03125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7554114105504587,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20527522935779816,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 9,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 506.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 848.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "В",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 848.0,
+      "plateau_median": 844.0,
+      "last_layer_abs": 232.0,
+      "final_abs": 20.5,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7584322415865384,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20337853064903846,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 33,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Это",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 8.125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7585900473933649,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19965843453791468,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 43,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "По",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 4.84375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7548735119047619,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20477120535714285,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 82,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 508.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 848.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Это",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 848.0,
+      "plateau_median": 844.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 3.296875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7621319110576923,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20001690204326922,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 59,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 506.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 848.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "В",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 848.0,
+      "plateau_median": 844.0,
+      "last_layer_abs": 232.0,
+      "final_abs": 26.625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7584322415865384,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20337853064903846,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 65,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 848.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "О",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 848.0,
+      "plateau_median": 844.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 21.5,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7547325721153846,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20337853064903846,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 23,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 482.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "И",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 13.75,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7540632851758794,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20291398398241206,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 35,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 520.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 868.0
+      },
+      {
+       "token": 8,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1472.0
+      },
+      {
+       "token": 8,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2480.0
+      }
+     ],
+     "top": {
+      "token": 8,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2480.0,
+      "plateau_median": 2480.0,
+      "last_layer_abs": 96.0,
+      "final_abs": 0.208984375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9644125405844156,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 45,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Д",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 13.3125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7546610809178744,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20351656853864733,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 66,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 516.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 864.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 864.0,
+      "plateau_median": 860.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.2578125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622715212264151,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.1962429982311321,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 29,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 496.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 832.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Се",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 832.0,
+      "plateau_median": 828.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 11.8125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7544424019607843,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2073663449754902,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 87,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 442.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 740.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Н",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 740.0,
+      "plateau_median": 736.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 4.0,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.75677658839779,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20377784012430938,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 71,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 540.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 904.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "При",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 904.0,
+      "plateau_median": 900.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 2.109375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.762598536036036,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19842694256756757,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 23,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 474.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 792.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Бо",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 792.0,
+      "plateau_median": 788.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 16.75,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7496979703608248,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20994583601804123,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 76,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 476.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 800.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Исто",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 800.0,
+      "plateau_median": 796.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 8.3125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7499003507653061,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.21047911352040816,
+        "ok": false
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "kor_Hang": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    2533,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    19
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     2533,
+     7890
+    ],
+    20
+   ],
+   "peak_mean": 933.4,
+   "peak_ci95": [
+    852.4,
+    1092.4
+   ],
+   "plateau_median_mean": 929.6,
+   "channels": {
+    "2533": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 19,
+    "4": 1
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 176,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 3.15625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.76223711492891,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 227,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 4.4375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 103,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 2.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 142,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 4.21875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7620961654589372,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.1976052989130435,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 128,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 2.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 87,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 4.8125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7585900473933649,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 65,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 2.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 103,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 2.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 174,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 4.4375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 111,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 2.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 72,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 2.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 46,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 6.78125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7585900473933649,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 52,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      },
+      {
+       "token": 4,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1440.0
+      },
+      {
+       "token": 4,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2432.0
+      }
+     ],
+     "top": {
+      "token": 4,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2432.0,
+      "plateau_median": 2432.0,
+      "last_layer_abs": 112.0,
+      "final_abs": 4.0,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9631881208609272,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 90,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 4.8125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7585900473933649,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 200,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 3.15625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.76223711492891,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 64,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 5.0625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7620961654589372,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.1967608318236715,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 164,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 4.4375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 131,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 4.21875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7620961654589372,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.1976052989130435,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 53,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 5.0625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7620961654589372,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.1967608318236715,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 116,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 2.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "swh_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    2533,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    18
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     2533,
+     7890
+    ],
+    20
+   ],
+   "peak_mean": 1031.4,
+   "peak_ci95": [
+    842.0,
+    1304.4
+   ],
+   "plateau_median_mean": 1027.8,
+   "channels": {
+    "2533": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 18,
+    "8": 1,
+    "124": 1
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 42,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 512.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 860.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 860.0,
+      "plateau_median": 856.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.74609375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.76223711492891,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19634460159952608,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 134,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "M",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.58203125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7583786231884058,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2009831672705314,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 68,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 484.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "H",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 5.5,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7540632851758794,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20467081501256282,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 71,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 490.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 820.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Hu",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 820.0,
+      "plateau_median": 816.0,
+      "last_layer_abs": 256.0,
+      "final_abs": 24.125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7503886815920398,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20611298973880596,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 58,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 528.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 880.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "USA",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 880.0,
+      "plateau_median": 876.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 3.296875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7588433159722222,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20312952112268517,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 27,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 500.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 836.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Kat",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 836.0,
+      "plateau_median": 832.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 13.0,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7582698170731708,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20294397865853658,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 33,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Sin",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 3.015625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7512090773809523,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.209765625,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 66,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "M",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.78125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7583786231884058,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2009831672705314,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 81,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 484.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 816.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "H",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 816.0,
+      "plateau_median": 812.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 8.0625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.75029296875,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2036474609375,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 68,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 488.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 820.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Bom",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 820.0,
+      "plateau_median": 816.0,
+      "last_layer_abs": 256.0,
+      "final_abs": 20.75,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7503886815920398,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20611298973880596,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 78,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Wal",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 0.5625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7548735119047619,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20393880208333334,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 24,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 532.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 892.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "W",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 892.0,
+      "plateau_median": 888.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 7.6875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7554758847031964,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.204337899543379,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 40,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 470.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 792.0
+      },
+      {
+       "token": 8,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1512.0
+      },
+      {
+       "token": 8,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2544.0
+      }
+     ],
+     "top": {
+      "token": 8,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2544.0,
+      "plateau_median": 2544.0,
+      "last_layer_abs": 192.0,
+      "final_abs": 3.8125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9643492879746836,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 44,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 478.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 800.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 800.0,
+      "plateau_median": 796.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 5.59375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7577527104591837,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2024523676658163,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 68,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 516.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 864.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "\"",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 864.0,
+      "plateau_median": 860.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.2578125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622715212264151,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.1962429982311321,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 29,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 470.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 792.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "K",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 792.0,
+      "plateau_median": 788.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 9.6875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7496979703608248,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20544056056701032,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 68,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Sen",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 256.0,
+      "final_abs": 26.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7435084541062802,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.21280570652173914,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 125,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      },
+      {
+       "token": 124,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1696.0
+      },
+      {
+       "token": 124,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2864.0
+      }
+     ],
+     "top": {
+      "token": 124,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2864.0,
+      "plateau_median": 2864.0,
+      "last_layer_abs": 80.0,
+      "final_abs": 7.8125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9597524578651685,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 21,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 532.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 892.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "W",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 892.0,
+      "plateau_median": 888.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 7.6875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7554758847031964,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.204337899543379,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 81,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 532.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 892.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "W",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 892.0,
+      "plateau_median": 888.0,
+      "last_layer_abs": 240.0,
+      "final_abs": 7.90625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7554758847031964,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.204337899543379,
+        "ok": false
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "yor_Latn": {
+   "n": 20,
+   "n_with_massive": 20,
+   "channel_mode": [
+    2533,
+    20
+   ],
+   "onset_mode": [
+    1,
+    20
+   ],
+   "token_pos_mode": [
+    0,
+    19
+   ],
+   "coordinate_mode": [
+    [
+     1,
+     2533,
+     7890
+    ],
+    20
+   ],
+   "peak_mean": 908.8,
+   "peak_ci95": [
+    814.2,
+    1080.6
+   ],
+   "plateau_median_mean": 905.0,
+   "channels": {
+    "2533": 20
+   },
+   "onsets": {
+    "1": 20
+   },
+   "token_positions": {
+    "0": 19,
+    "6": 1
+   },
+   "records": [
+    {
+     "doc_ids": [
+      0
+     ],
+     "n_tokens": 90,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 494.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "“",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 4.4375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7619496613300493,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19805457204433496,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      3
+     ],
+     "n_tokens": 163,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 492.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "N",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 824.0,
+      "plateau_median": 820.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.5625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.758102568069307,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2016311494430693,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      5
+     ],
+     "n_tokens": 109,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 484.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "T",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.51171875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7501962939698492,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20554923052763818,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      10
+     ],
+     "n_tokens": 98,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 494.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "N",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 824.0,
+      "plateau_median": 820.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.953125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.758102568069307,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2016311494430693,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      13
+     ],
+     "n_tokens": 149,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 502.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 4.21875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7620961654589372,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.1976052989130435,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      17
+     ],
+     "n_tokens": 46,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 472.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 792.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Ni",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 792.0,
+      "plateau_median": 788.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 5.9375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7496979703608248,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20814372583762886,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      20
+     ],
+     "n_tokens": 39,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 476.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 800.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "F",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 800.0,
+      "plateau_median": 796.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 4.6875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7499003507653061,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20334422831632654,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      24
+     ],
+     "n_tokens": 104,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 494.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 824.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "N",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 824.0,
+      "plateau_median": 820.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.953125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.758102568069307,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2016311494430693,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      27
+     ],
+     "n_tokens": 115,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 494.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 832.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "È",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 832.0,
+      "plateau_median": 828.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 9.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7506701899509803,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2073663449754902,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      33
+     ],
+     "n_tokens": 129,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "A",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 1.8828125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7583786231884058,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2009831672705314,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      36
+     ],
+     "n_tokens": 122,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 532.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 892.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "W",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 892.0,
+      "plateau_median": 888.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 2.109375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7554758847031964,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.20274150970319635,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      39
+     ],
+     "n_tokens": 46,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 492.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "N",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 252.0,
+      "final_abs": 13.125,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7543680726600985,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2006378925492611,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      41
+     ],
+     "n_tokens": 39,
+     "n_super_activations": 4,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      },
+      {
+       "token": 6,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 1480.0
+      },
+      {
+       "token": 6,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 2496.0
+      }
+     ],
+     "top": {
+      "token": 6,
+      "token_str": ".",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 2496.0,
+      "plateau_median": 2496.0,
+      "last_layer_abs": 176.0,
+      "final_abs": 3.046875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.9631552419354839,
+        "ok": true
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      44
+     ],
+     "n_tokens": 67,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 484.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 812.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "D",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 812.0,
+      "plateau_median": 808.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 14.625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7579302763819096,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2011571529522613,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      46
+     ],
+     "n_tokens": 90,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 494.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 828.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "“",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 828.0,
+      "plateau_median": 824.0,
+      "last_layer_abs": 248.0,
+      "final_abs": 4.4375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7619496613300493,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19805457204433496,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      50
+     ],
+     "n_tokens": 65,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 2.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      55
+     ],
+     "n_tokens": 70,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 504.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 844.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Sen",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 844.0,
+      "plateau_median": 840.0,
+      "last_layer_abs": 256.0,
+      "final_abs": 26.375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7435084541062802,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.21280570652173914,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      57
+     ],
+     "n_tokens": 99,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 510.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 856.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 856.0,
+      "plateau_median": 852.0,
+      "last_layer_abs": 236.0,
+      "final_abs": 2.46875,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7622023809523809,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.19727957589285713,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      59
+     ],
+     "n_tokens": 35,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 432.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 724.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "Ó",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 724.0,
+      "plateau_median": 720.0,
+      "last_layer_abs": 246.0,
+      "final_abs": 2.90625,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.7521407132768362,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2083829890536723,
+        "ok": false
+       }
+      ]
+     }
+    },
+    {
+     "doc_ids": [
+      63
+     ],
+     "n_tokens": 198,
+     "n_super_activations": 2,
+     "all": [
+      {
+       "token": 0,
+       "channel": 1415,
+       "onset_layer": 1,
+       "peak": 486.0
+      },
+      {
+       "token": 0,
+       "channel": 2533,
+       "onset_layer": 1,
+       "peak": 816.0
+      }
+     ],
+     "top": {
+      "token": 0,
+      "token_str": "À",
+      "channel": 2533,
+      "onset_layer": 1,
+      "peak": 816.0,
+      "plateau_median": 812.0,
+      "last_layer_abs": 244.0,
+      "final_abs": 0.7734375,
+      "contributors": [
+       {
+        "k": 7890,
+        "w": 1.5390625,
+        "share": 0.754140625,
+        "ok": true
+       },
+       {
+        "k": 10411,
+        "w": -1.3984375,
+        "share": 0.2053955078125,
+        "ok": false
+       }
+      ]
+     }
+    }
+   ]
+  }
+ }
+}

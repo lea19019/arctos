@@ -480,11 +480,11 @@ nothing" into "there is nothing", and nothing else does.**
 residual stream (peer-reviewed as massive activations / attention sinks), what it does, and
 whether the loops a lesion produces ("We. We. We.") are the same failure as the loops a
 *healthy* model falls into on its own. Design and pre-registered definitions:
-`docs/repetition_experiment_design.md`; literature: `papers/notes_repetition_sink_link.md`,
-`papers/notes_multilingual_repetition.md`.
+`docs/repetition_experiment_design.md`; literature: `docs/literature/notes_repetition_sink_link.md`,
+`docs/literature/notes_multilingual_repetition.md`.
 
 **Verified, zero compute — Yona et al. 2025's "sink neurons" are Yu et al.'s super-weight
-columns.** Read side by side from the two PDFs (`papers/phenomenon/Interpreting-2025-Repeated-
+columns.** Read side by side from the two PDFs (`papers/Interpreting-2025-Repeated-
 Token-Phenomenon.pdf` Table 1; `Yu-2024-The-Super-Weight-in-LLMs.pdf` Table 2):
 
 | model | Yona: sink layer / neuron ids | Yu Table 2 (or our v5 detection) |

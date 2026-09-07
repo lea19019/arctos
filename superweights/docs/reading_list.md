@@ -5,7 +5,7 @@ confirmed during the 2026-08 audits (`registry.md`, `method_landscape.md`,
 `prior_work_map.md`); **[agent-verified]** = confirmed by the 2026-08-06
 blind-spot agents (abstract/full-text fetched); **[preprint]** = unrefereed —
 under this repo's claim-hygiene rules it cannot carry a claim on its own.
-Local PDFs live in `../papers/` (gitignored; indexed in `../papers/README.md`).
+Local PDFs live in `../papers/` (gitignored; indexed in `literature/papers_index.md`).
 
 Read tiers in order; within a tier, order is priority.
 

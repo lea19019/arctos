@@ -21,7 +21,7 @@ interests, cross-lingual structure (`interlingua/`) and compression (`compressio
 | [`docs/three_axis_program.md`](docs/three_axis_program.md) | The original 2026-08 program: Phase 0 → three axes. Partly superseded by the problem search |
 | [`docs/reading_list.md`](docs/reading_list.md) | Background reading, tiered, with verification status per paper |
 | [`docs/prior_experiments_and_ideas.md`](docs/prior_experiments_and_ideas.md) | Where the earlier q6 super-weight work lives (code, results, defects), which program claims rest on it, and tiered ideas for the fresh start |
-| [`papers/README.md`](papers/README.md) | Index of ~200 local PDFs in one flat folder, organised by topic; five `papers/notes_<topic>.md` reading notes (PDFs gitignored, same policy as `interlingua/papers/`) |
+| [`docs/literature/papers_index.md`](docs/literature/papers_index.md) | Index of the 384 local PDFs in flat `papers/` (gitignored, same policy as `interlingua/papers/`), organised by topic; the twelve `docs/literature/notes_<topic>.md` reading notes and `docs/literature/phenomenon_crosswalk.md` sit beside it |
 
 Grounding: `docs/registry.md` (q6 super-weight section + ruled-out list),
 `interlingua/docs/method_landscape.md` §5, `interlingua/docs/prior_work_map.md` §8.
