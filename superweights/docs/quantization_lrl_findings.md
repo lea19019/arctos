@@ -393,8 +393,10 @@ The full survey with links is `literature/notes_lrl_quantization_why.md`; the PD
 
 ## 15. Bibliography
 
-Links point into `superweights/papers/`. Venues marked *preprint* have not been peer reviewed;
-the notes in `literature/notes_lrl_quantization_why.md` say which ones were read in full.
+Links point into `superweights/papers/`, where some files are named by title rather than author.
+The copies in `superweights/papers/quantization_lrl/` are all named author-first. Venues marked
+*preprint* have not been peer reviewed; the notes in `literature/notes_lrl_quantization_why.md`
+say which ones were read in full.
 
 - **Ahia 2021.** Ahia, O., Kreutzer, J., Hooker, S. *The Low-Resource Double Bind: An
   Empirical Study of Pruning for Low-Resource Machine Translation.* Findings of EMNLP 2021.
@@ -405,14 +407,14 @@ the notes in `literature/notes_lrl_quantization_why.md` say which ones were read
   [PDF](../papers/Ahia-2023-Do-All-Languages-Cost-The-Same-Tokenization.pdf)
 - **An 2025.** An, Y., et al. *Systematic Outliers in Large Language Models.* ICLR 2025.
   [PDF](../papers/An-2025-Systematic-Outliers-in-LLMs.pdf)
-- **Catalan-Tatjer 2026.** Catalan-Tatjer, et al. Training dynamics of post-training
-  quantization robustness along OLMo, SmolLM3 and Apertus trajectories. ICLR 2026.
+- **Catalan-Tatjer 2026.** Catalan-Tatjer, A., Ajroldi, N., Geiping, J. *Training Dynamics
+  Impact Post-Training Quantization Robustness.* ICLR 2026. arXiv:2510.06213.
   [PDF](../papers/TrainingDynamics-2025-PTQ-Robustness.pdf)
 - **Chang 2025.** Chang, T.-Y., Zhang, M., Thomason, J., Jia, R. *Why Do Some Inputs Break
   Low-Bit LLM Quantization?* EMNLP 2025.
   [PDF](../papers/Chang-2025-Why-Some-Inputs-Break-Low-Bit-Quantization.pdf)
-- **Chimoto 2026.** Chimoto, E., et al. Calibrating beyond English for quantized
-  multilingual LLMs. EACL 2026 (long papers).
+- **Chimoto 2026.** Chimoto, E. A., Elhoushi, M., Bassett, B. *Calibrating Beyond English:
+  Language Diversity for Better Quantized Multilingual LLMs.* EACL 2026 (long papers).
   [PDF](../papers/Chimoto-2026-Calibrating-Beyond-English-Quantized-Multilingual-LLM.pdf)
 - **Frantar 2023.** Frantar, E., Ashkboos, S., Hoefler, T., Alistarh, D. *GPTQ: Accurate
   Post-Training Quantization for Generative Pre-trained Transformers.* ICLR 2023.
@@ -430,15 +432,15 @@ the notes in `literature/notes_lrl_quantization_why.md` say which ones were read
 - **Lin 2024.** Lin, J., Tang, J., Tang, H., Yang, S., Chen, W.-M., Wang, W.-C., Xiao, G.,
   Dang, X., Gan, C., Han, S. *AWQ: Activation-aware Weight Quantization for LLM Compression
   and Acceleration.* MLSys 2024. [PDF](../papers/Lin-2023-AWQ.pdf)
-- **Lotfi 2026.** Lotfi, et al. Quantized reasoning models think longer; token-level KL is
-  largest where the full model's entropy is high. arXiv:2606.00206, *preprint*.
+- **Lotfi 2026.** Lotfi, S., Kirichenko, P., Li, S., Liu, Z. *Quantized Reasoning Models Think
+  They Need to Think Longer, but They Do Not.* arXiv:2606.00206, *preprint*.
   [PDF](../papers/Lotfi-2026-Quantized-Reasoning-Models-Think-Longer.pdf)
 - **Marchisio 2024.** Marchisio, K., Dash, S., Chen, H., Aumiller, D., Üstün, A., Hooker, S.,
   Ruder, S. *How Does Quantization Affect Multilingual LLMs?* Findings of EMNLP 2024,
   pp. 15928–15947. [PDF](../papers/Marchisio-2024-Quantization-Multilingual-LLMs.pdf)
-- **Marie & Fujita 2025.** Marie, B., Fujita, A. Uneven impact of post-training quantization
-  across 55 languages in multilingual MT with LLMs. arXiv:2508.20893, *preprint*.
-  [PDF](../papers/UnevenPTQ-2025-Multilingual-MT-Quantization.pdf)
+- **Marie & Fujita 2025.** Marie, B., Fujita, A. *The Uneven Impact of Post-Training
+  Quantization in Machine Translation.* arXiv:2508.20893, *preprint*.
+  [PDF](../papers/UnevenPTQ-2025-Multilingual-MT-Quantization.pdf) (file named by title)
 - **Martins 2025.** Martins, P. H., et al. *EuroLLM-9B: Technical Report.* *preprint*.
   [PDF](../papers/EuroLLM-2025-9B-Technical-Report.pdf). See also Martins 2024,
   [PDF](../papers/Martins-2024-EuroLLM-Multilingual-Europe.pdf).
@@ -469,8 +471,10 @@ the notes in `literature/notes_lrl_quantization_why.md` say which ones were read
 - **Tran 2022.** Tran, C., Fioretto, F., Kim, J.-E., Naidu, R. *Pruning Has a Disparate Impact
   on Model Accuracy.* NeurIPS 2022.
   [PDF](../papers/Tran-2022-Pruning-Disparate-Impact-Accuracy.pdf)
-- **Zhong 2025.** Zhong, et al. *Language Lives in Sparse Dimensions.* 2025.
-  [PDF](../papers/Language-Lives-in-Sparse-Dimensions-2025.pdf). Venue not checked.
+- **Zhong 2025.** Zhong, C., Cheng, F., Liu, Q., Murawaki, Y., Chu, C., Kurohashi, S.
+  *Language Lives in Sparse Dimensions: Toward Interpretable and Efficient Multilingual Control
+  for Large Language Models.* 2025, venue not checked.
+  [PDF](../papers/Language-Lives-in-Sparse-Dimensions-2025.pdf) (file named by title)
 - **Dumas 2025.** Dumas, C., Wendler, C., Veselovsky, V., Monea, G., West, R. *Separating
   Tongue from Thought: Activation Patching Reveals Language-Agnostic Concept Representations
   in Transformers.* ACL 2025 (long papers).
@@ -479,6 +483,5 @@ the notes in `literature/notes_lrl_quantization_why.md` say which ones were read
   Compressed Leaving a Small Set of Languages.* *preprint*.
   [PDF](../papers/Zhang-2024-Multilingual-Brain-Surgeon.pdf)
 
-Author lists and titles for Catalan-Tatjer 2026, Chimoto 2026, Lotfi 2026 and Marie & Fujita
-2025 are given from the survey notes rather than from the title pages. Check them against the
-PDF before citing in the report.
+Titles and authors for Catalan-Tatjer 2026, Chimoto 2026, Lotfi 2026, Marie & Fujita 2025 and
+Zhong 2025 were checked against the PDF title pages on 2026-09-08.
