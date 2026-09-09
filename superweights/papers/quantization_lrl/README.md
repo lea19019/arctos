@@ -57,3 +57,40 @@ CS 698R proposal. The findings they support are in
 - Zhong-2025-Language-Lives-in-Sparse-Dimensions.pdf, Dumas-2025-Separating-Tongue-From-Thought.pdf — the other two starting papers
 
 Not in the folder: the Llama 3 report (arXiv:2407.21783) and the WikiText paper (Merity 2017), both online.
+
+## Everything else the survey cites (added 2026-09-08)
+
+Every remaining PDF linked from `notes_lrl_quantization_why.md`, plus the repo's other
+multilingual-compression papers:
+
+- Diddee-2022-Too-Brittle-To-Touch-Quantization-Distillation-LowResource-MT.pdf — small Indic NMT; PTQ more stable than distillation
+- Hossain-2026-Quantization-Effects-Bangla-NLU.pdf — one language, GGUF vs GPTQ (preprint)
+- Ramesh-2023-Model-Compression-Fairness-Language-Models.pdf — compression and fairness
+- Goncalves-2023-Model-Compression-Social-Bias-LLMs.pdf — quantization as regulariser
+- Jaiswal-2024-Compressing-LLMs-Truth-Rarely-Pure-LLM-KICK.pdf — knowledge goes first under pruning
+- Jin-2024-Cost-Of-Down-Scaling-Fact-Recall-Deteriorates.pdf — fact recall is the fragile part
+- Wang-2026-Through-Compressed-Lens-Quantization-Factual-Recall.pdf — factual recall under quantization
+- Wu-2026-Asymmetric-Harms-LLM-Compression.pdf — head/middle/tail retention (preprint)
+- Liebenwein-2021-Lost-In-Pruning-Beyond-Test-Accuracy.pdf — robustness degrades before accuracy
+- Limisiewicz-2023-Tokenization-Impacts-Multilingual-LM-Vocabulary-Allocation.pdf — fertility is not the only tokenizer variable
+- Gumma-2023-Knowledge-Distillation-Compressing-Multilingual-NMT.pdf — distilling multilingual NMT
+- Koishekenov-2023-NLLB200-Language-Specific-Expert-Pruning.pdf — pruning NLLB experts per language
+- Hammerl-2023-Anisotropy-Outliers-Multilingual-LMs.pdf — outlier dimensions across languages
+- Aji-2020-Compressing-NMT-4-Bit-Precision.pdf, Prato-2020-Fully-Quantized-Transformer-MT.pdf — early NMT quantization
+
+## methods_and_outliers/ — quantization methods and the outlier literature
+
+Not about languages; useful for the methods section and for the parked massive-activation
+angle. SmoothQuant, Outlier Suppression+, Quantizable Transformers, PrefixQuant, DuQuant,
+SpinQuant, Task-Circuit Quantization, the two-failure-modes paper, Free Lunch, NVFP4 outlier
+dynamics, kurtosis, GLU activation spikes, frequency-driven outlier dimensions, outlier
+dimensions across checkpoints, T5 outliers, Mamba PTQ.
+
+## pruning/ — pruning papers
+
+SparseGPT, Wanda, lottery-ticket heads for NMT, Shortened LLaMA, Pruner-Zero, AlphaPruning,
+OWL, RIA, depth pruning, LaCo, FOCUS/RePAIR. Background for the long-tail line, which began
+with pruning.
+
+Left out on purpose: speech, audio and vision quantization papers (Whisper, EdgeASR, the ASR
+and vision-encoder PTQ papers), and the attention-sink papers.
